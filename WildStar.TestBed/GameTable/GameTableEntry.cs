@@ -78,6 +78,20 @@ namespace WildStar.TestBed.GameTable
                 Values.Add(value);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public void AddBool(bool data, int? index = null)
+        {
+            var value = new GameTableValue(DataType.Boolean);
+            value.SetValue(data);
+
+            if (index != null)
+                Values.Insert(index.Value, value);
+            else
+                Values.Add(value);
+        }
+
 
 
 
