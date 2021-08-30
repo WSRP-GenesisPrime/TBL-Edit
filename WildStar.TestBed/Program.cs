@@ -24,6 +24,10 @@ namespace WildStar.TestBed
             emotes.Load("../../../../Tbl/Emotes.tbl");
             nextEmoteID = GetMaxID(emotes.Entries) + 1;
 
+            housingPlugItem = new GameTable.GameTable();
+            housingPlugItem.Load("../../../../Tbl/HousingPlugItem.tbl");
+            nexthpi = GetMaxID(housingPlugItem.Entries) + 1;
+
             language = new TextTable.TextTable();
             language.Load("../../../../Tbl/en-US.bin");
 
@@ -90,6 +94,48 @@ namespace WildStar.TestBed
             AddLightDecor("Art\\Light\\N_LIT_Spot_Med.m3");*/ // Nothing
 
 
+            AddGenericDecor("Art\\FX\\Model\\AE\\Caster\\Lava_LinearEruption\\Lava_LinearEruption_OGE.m3");
+            AddGenericDecor("Art\\FX\\Model\\AE\\Caster\\Lava_LinearEruption\\Lava_LinearEruption_noDecal_OGE.m3");
+            AddGenericDecor("Art\\FX\\Model\\Impacts\\Lava_Splash\\Lava_Splash_OGE.m3");
+            AddGenericDecor("Art\\FX\\Model\\OT\\Lava_Spring\\Lava_SpringHeavy_10mR.m3");
+            AddGenericDecor("Art\\FX\\Model\\OT\\Lava_Spring\\Lava_SpringHeavy_5mR.m3");
+            AddGenericDecor("Art\\FX\\Model\\OT\\Lava_Spring\\Lava_SpringRing_NoGeo_10mR.m3");
+            AddGenericDecor("Art\\FX\\Model\\OT\\Lava_Spring\\Lava_SpringRing_NoGeo_15mR.m3");
+            AddGenericDecor("Art\\FX\\Model\\OT\\Lava_Spring\\Lava_Spring_10mR.m3");
+            AddGenericDecor("Art\\FX\\Model\\OT\\Lava_Spring\\Lava_Spring_3mR.m3");
+            AddGenericDecor("Art\\FX\\Model\\OT\\Lava_Spring\\Lava_Spring_5mR.m3");
+            AddGenericDecor("Art\\FX\\Model\\OT\\Lava_Spring\\Lava_Spring_5mR_AQU.m3");
+            AddGenericDecor("Art\\FX\\Model\\OT\\Lava_Spring\\Lava_Spring_5mR_GLD.m3");
+            AddGenericDecor("Art\\FX\\Model\\OT\\Lava_Spring\\Lava_Spring_5mR_GrndNormal_GLD.m3");
+            AddGenericDecor("Art\\FX\\Model\\OT\\Lava_Spring\\Lava_Spring_NoGeo_3mR.m3");
+            AddGenericDecor("Art\\FX\\Model\\OT\\Lava_Spring\\Lava_Spring_NoGeo_5mR.m3");
+            AddGenericDecor("Art\\FX\\Model\\OT\\Lava_Spring\\Lava_Spring_NoGeo_NoGrndConst_5mR.m3");
+            AddGenericDecor("Art\\FX\\Model\\OT\\Lava_Spring\\Lava_Spring_NoGrndConst_10mR.m3");
+            AddGenericDecor("Art\\FX\\Model\\OT\\Lava_Spring\\Lava_Spring_NoGrndConst_10mR_V2.m3");
+            AddGenericDecor("Art\\FX\\Model\\OT\\Lava_Wave\\Lava_Wave.m3");
+            AddGenericDecor("Art\\FX\\Model\\Particulates\\Water\\Water_Lava.m3");
+            AddGenericDecor("Art\\FX\\Model\\Props\\Lava_Eruption\\Lava_Eruption_2mR_4mH_OGE.m3");
+            AddGenericDecor("Art\\FX\\Model\\Props\\Lava_Eruption\\Lava_LinearEruption_2mR_4mH_NoDecal_OGE.m3");
+            AddGenericDecor("Art\\FX\\Model\\Props\\Lava_Eruption\\Lava_LinearEruption_2mR_4mH_OGE.m3");
+            AddGenericDecor("Art\\FX\\Model\\Props\\Lava_Geyser\\Lava_Geyser_OGE.m3");
+            AddGenericDecor("Art\\Light\\Anim\\LIT_Anim_Mask_Point_Med_LavaTube.m3");
+            AddGenericDecor("Art\\Light\\Mask_LIT_Point_Med_LavaTube.m3");
+            AddGenericDecor("Art\\Prop\\Dungeon\\Datascape\\LavaRock\\PRP_Datascape_LavaRock_000.m3");
+            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\PRP_RMT_Lavaka_Grill_000.m3");
+            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\PRP_RMT_Lavaka_IncineratorPit_000.m3");
+            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\PRP_RMT_Lavaka_Organ_000.m3");
+            AddGenericDecor("Art\\Prop\\Housing\\Islands\\PRP_SkymapIsland_Lava_Terrain_000.m3");
+            AddGenericDecor("Art\\Prop\\Natural\\Lava\\PRP_Lava_Waterfall_Skullcano_000.m3");
+            AddGenericDecor("Art\\Prop\\Natural\\Lava\\PRP_Lava_Waterfall_Skullcano_001.m3");
+            AddGenericDecor("Art\\Prop\\Natural\\Lava\\PRP_Lava_Waterfall_Skullcano_002.m3");
+            AddGenericDecor("Art\\Terrain\\_Skullcano\\Clutter\\Skullcano_Lava_Chunk_001.m3");
+            AddGenericDecor("Art\\Terrain\\_Skullcano\\Clutter\\Skullcano_Lava_Chunk_002.m3");
+            AddGenericDecor("Art\\Terrain\\_Skullcano\\Clutter\\Skullcano_Lava_Chunk_003.m3");
+            AddGenericDecor("Art\\Terrain\\_Skullcano\\Clutter\\Skullcano_Lava_Chunk_004.m3");
+            AddGenericDecor("Art\\Terrain\\_Skullcano\\Clutter\\Skullcano_Lava_Chunk_Tall_001.m3");
+
+
+
             AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\CoolShift_LUT.tex");
             AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\WarmShift_LUT.tex");
             AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus25_LUT.tex");
@@ -118,6 +164,15 @@ namespace WildStar.TestBed
                 }
             }
 
+            /*foreach(var entry in housingPlugItem.Entries)
+            {
+                uint id = (uint)entry.Values[0].Value;
+                if(id == 557)
+                {
+                    entry.Values[27].SetValue((uint) 0);
+                }
+            }*/
+
 
             hookAssets.Save("../../../../TblNew/HookAsset.tbl");
 
@@ -126,6 +181,8 @@ namespace WildStar.TestBed
             language.Save("../../../../TblNew/en-US.bin");
 
             colorShift.Save("../../../../TblNew/ColorShift.tbl");
+
+            housingPlugItem.Save("../../../../TblNew/HousingPlugItem.tbl");
 
             emotes.Save("../../../../TblNew/Emotes.tbl");
 
@@ -199,6 +256,9 @@ namespace WildStar.TestBed
         static GameTable.GameTable emotes;
         static uint nextEmoteID = 0;
 
+        static GameTable.GameTable housingPlugItem;
+        static uint nexthpi = 0;
+
         static TextTable.TextTable language;
 
         static uint AddHookAsset(string asset)
@@ -221,8 +281,13 @@ namespace WildStar.TestBed
 
         static uint AddLightDecor(string hookAsset)
         {
+            return AddGenericDecor(hookAsset, 13, true);
+        }
+
+        static uint AddGenericDecor(string hookAsset, uint category = 13, bool particleAlt = false)
+        {
             var entry = new GameTableEntry();
-            entry.AddInteger(13); // "light" category
+            entry.AddInteger(category); // "light" category
             entry.AddInteger(12); // hookassettypeid, 12 or 22 seem okay, 10 is not
             entry.AddInteger(language.AddEntry(hookAsset)); // localizedtextid, borrowed from Aurin Sconce
             entry.AddInteger(0); // flags, sconce has 0
@@ -234,7 +299,13 @@ namespace WildStar.TestBed
             entry.AddInteger(0); // interior buff spell4id
             entry.AddInteger(2); // housing decor limit category id, light
             entry.AddString(""); // alt preview asset
-            entry.AddString("Art\\FX\\Housing\\Decor_FXPlacer\\Decor_FXPlacer_000.m3"); // alt edit asset
+            if (particleAlt)
+            {
+                entry.AddString("Art\\FX\\Housing\\Decor_FXPlacer\\Decor_FXPlacer_000.m3"); // alt edit asset
+            } else
+            {
+                entry.AddString("");
+            }
             entry.AddSingle(0.1f); // min scale
             entry.AddSingle(10f); // max scale
 
