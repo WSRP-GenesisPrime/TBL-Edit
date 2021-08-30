@@ -193,6 +193,8 @@ namespace WildStar.TestBed.GameTable
             {
                 foreach (GameTableEntry entry in Entries)
                 {
+                    bool firstString = false;
+
                     long start = writer.BaseStream.Position;
                     foreach (GameTableValue value in entry.Values)
                     {
@@ -212,6 +214,11 @@ namespace WildStar.TestBed.GameTable
                                 break;
                             case DataType.String:
                             {
+                                if (!firstString)
+                                {
+                                    writer.Write(0);
+                                    firstString = true;
+                                }
                                 if (minimalStrings)
                                 {
                                     writer.Write((uint)stringTableOffset + (uint)stringTableStream.Position);
