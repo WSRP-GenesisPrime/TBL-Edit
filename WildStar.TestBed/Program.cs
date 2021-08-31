@@ -1,97 +1,95 @@
-﻿using System.Collections.Generic;
+﻿using NLog;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using WildStar.TestBed.GameTable;
 
 namespace WildStar.TestBed
 {
     class Program
     {
+        static Logger log = LogManager.GetCurrentClassLogger();
         static void Main(string[] args)
         {
 
-            hookAssets = new GameTable.GameTable();
-            hookAssets.Load("../../../../Tbl/HookAsset.tbl");
-            nextHookAsset = GetMaxID(hookAssets.Entries) + 1;
+            LoadTables();
 
-            decorInfo = new GameTable.GameTable();
-            decorInfo.Load("../../../../Tbl/HousingDecorInfo.tbl");
-            nextDecorID = GetMaxID(decorInfo.Entries) + 1;
+            AddLightDecor("Art\\Light\\LIT_Level_Up_Spotlight_000.m3", 3699); // Works!
+            AddLightDecor("Art\\Light\\LIT_Mask_Point_Med_AurinHanging.m3", 3700); // Works!
+            AddLightDecor("Art\\Light\\LIT_Mask_Spotlight_Gate_000.m3", 3701); // Works!
+            AddLightDecor("Art\\Light\\LIT_Point_Hard.m3", 3702); // Works!
+            AddLightDecor("Art\\Light\\LIT_Point_Hard_Bright.m3", 3703); // Works!
+            AddLightDecor("Art\\Light\\LIT_Point_Med.m3", 3704); // Works!
+            AddLightDecor("Art\\Light\\LIT_Point_Med_Bright.m3", 3705); // Works!
+            AddLightDecor("Art\\Light\\LIT_Point_Med_Bright_Amb.m3", 3706); // Works, super bright
+            AddLightDecor("Art\\Light\\LIT_Point_Soft.m3", 3707); // Works!
+            AddLightDecor("Art\\Light\\LIT_Point_Soft_Bright.m3", 3708); // Works!
+            AddLightDecor("Art\\Light\\LIT_Point_Soft_Overbright.m3", 3709); // Works, super bright
+            AddLightDecor("Art\\Light\\LIT_Point_Soft_Throb.m3", 3710); // Works, but not animated
+            AddLightDecor("Art\\Light\\LIT_Rec_Hard.m3", 3711); // rectangle spotlight
+            AddLightDecor("Art\\Light\\LIT_Rec_Med.m3", 3712); // rectangle spotlight
+            AddLightDecor("Art\\Light\\LIT_Rec_Soft.m3", 3713); // rectangle spotlight
 
-            colorShift = new GameTable.GameTable();
-            colorShift.Load("../../../../Tbl/ColorShift.tbl");
-            nextShiftID = GetMaxID(colorShift.Entries) + 1;
+            AddLightDecor("Art\\Light\\LIT_Spot_Diffused_Overbright.m3", 3714); // Works, super bright
+            AddLightDecor("Art\\Light\\LIT_Spot_Hard.m3", 3715); // Works!
+            AddLightDecor("Art\\Light\\LIT_Spot_Med.m3", 3716); // Works!
+            AddLightDecor("Art\\Light\\LIT_Spot_MedNarrow_Soft.m3", 3717); // short range
+            AddLightDecor("Art\\Light\\LIT_Spot_Narrow_Med.m3", 3718); // only starts after some distance
+            AddLightDecor("Art\\Light\\LIT_Spot_Narrow_Soft.m3", 3719); // same
+            AddLightDecor("Art\\Light\\LIT_Spot_Soft.m3", 3720); // Works!
+            AddLightDecor("Art\\Light\\LIT_Spot_Wide_Hard.m3", 3721); // 80 degree cone or so
+            AddLightDecor("Art\\Light\\LIT_Spot_Wide_Med.m3", 3722); // Works!
+            AddLightDecor("Art\\Light\\LIT_Spot_Wide_Soft.m3", 3723); // Works!
 
-            emotes = new GameTable.GameTable();
-            emotes.Load("../../../../Tbl/Emotes.tbl");
-            nextEmoteID = GetMaxID(emotes.Entries) + 1;
+            AddLightDecor("Art\\Light\\Mask_LIT_DIR_Crystline_001.m3", 3724); // Subtly textured directional light
+            AddLightDecor("Art\\Light\\Mask_LIT_DIR_SimpleNarrow_001.m3", 3725); // Narrow directional light
+            AddLightDecor("Art\\Light\\Mask_LIT_Point_Cubic_Fire_001.m3", 3726); // Cubic fire texture
+            AddLightDecor("Art\\Light\\Mask_LIT_Point_Med_Brazier.m3", 3727); // Works!
+            AddLightDecor("Art\\Light\\Mask_LIT_Point_Med_LavaTube.m3", 3728); // Soft cubic firey texture
+            AddLightDecor("Art\\Light\\Mask_LIT_Spot_Branches_001.m3", 3729); // Soft branch texture, directional
+            AddLightDecor("Art\\Light\\Mask_LIT_Spot_Chain.m3", 3730); // Chain texture, directional light
+            AddLightDecor("Art\\Light\\Mask_LIT_Spot_DappledLight_001.m3", 3731); // dappled light
+            AddLightDecor("Art\\Light\\Mask_LIT_Spot_DappledLight_001_Short.m3", 3732); // doesn't seem shorter in any way
+            AddLightDecor("Art\\Light\\Mask_LIT_Spot_DappledLight_002.m3", 3733); // dappled light, softer
+            AddLightDecor("Art\\Light\\Mask_LIT_Spot_DappledLight_002_Short.m3", 3734); // doesn't seem shorter in any way
+            AddLightDecor("Art\\Light\\Mask_LIT_Spot_Fire_001.m3", 3735); // Fire texture spotlight
+            AddLightDecor("Art\\Light\\Mask_LIT_Spot_Grate.m3", 3736); // Grate, directional
+            AddLightDecor("Art\\Light\\Mask_LIT_Spot_Grate_Large.m3", 3737); // Same
 
-            /*housingPlugItem = new GameTable.GameTable();
-            housingPlugItem.Load("../../../../Tbl/HousingPlugItem.tbl");
-            nexthpi = GetMaxID(housingPlugItem.Entries) + 1;*/
 
-            language = new TextTable.TextTable();
-            language.Load("../../../../Tbl/en-US.bin");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\CoolShift_LUT.tex");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\WarmShift_LUT.tex");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus25_LUT.tex");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus50_LUT.tex");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus75_LUT.tex");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus100_LUT.tex");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus125_LUT.tex");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus150_LUT.tex");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus25_LUT.tex");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus50_LUT.tex");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus75_LUT.tex");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus100_LUT.tex");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus125_LUT.tex");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus150_LUT.tex");
 
-            AddLightDecor("Art\\Light\\LIT_Level_Up_Spotlight_000.m3"); // Works!
-            AddLightDecor("Art\\Light\\LIT_Mask_Point_Med_AurinHanging.m3"); // Works!
-            AddLightDecor("Art\\Light\\LIT_Mask_Spotlight_Gate_000.m3"); // Works!
-            AddLightDecor("Art\\Light\\LIT_Point_Hard.m3"); // Works!
-            AddLightDecor("Art\\Light\\LIT_Point_Hard_Bright.m3"); // Works!
-            AddLightDecor("Art\\Light\\LIT_Point_Med.m3"); // Works!
-            AddLightDecor("Art\\Light\\LIT_Point_Med_Bright.m3"); // Works!
-            AddLightDecor("Art\\Light\\LIT_Point_Med_Bright_Amb.m3"); // Works, super bright
-            AddLightDecor("Art\\Light\\LIT_Point_Soft.m3"); // Works!
-            AddLightDecor("Art\\Light\\LIT_Point_Soft_Bright.m3"); // Works!
-            AddLightDecor("Art\\Light\\LIT_Point_Soft_Overbright.m3"); // Works, super bright
-            AddLightDecor("Art\\Light\\LIT_Point_Soft_Throb.m3"); // Works, but not animated
-            AddLightDecor("Art\\Light\\LIT_Rec_Hard.m3"); // rectangle spotlight
-            AddLightDecor("Art\\Light\\LIT_Rec_Med.m3"); // rectangle spotlight
-            AddLightDecor("Art\\Light\\LIT_Rec_Soft.m3"); // rectangle spotlight
-            // AddLightDecor("Art\\Light\\LIT_SphereTester_000.m3"); // actual sphere model
 
-            AddLightDecor("Art\\Light\\LIT_Spot_Diffused_Overbright.m3"); // Works, super bright
-            AddLightDecor("Art\\Light\\LIT_Spot_Hard.m3"); // Works!
-            AddLightDecor("Art\\Light\\LIT_Spot_Med.m3"); // Works!
-            AddLightDecor("Art\\Light\\LIT_Spot_MedNarrow_Soft.m3"); // short range
-            AddLightDecor("Art\\Light\\LIT_Spot_Narrow_Med.m3"); // only starts after some distance
-            AddLightDecor("Art\\Light\\LIT_Spot_Narrow_Soft.m3"); // same
-            AddLightDecor("Art\\Light\\LIT_Spot_Soft.m3"); // Works!
-            AddLightDecor("Art\\Light\\LIT_Spot_Wide_Hard.m3"); // 80 degree cone or so
-            AddLightDecor("Art\\Light\\LIT_Spot_Wide_Med.m3"); // Works!
-            AddLightDecor("Art\\Light\\LIT_Spot_Wide_Soft.m3"); // Works!
+            AddEmote(7834, "lounge1");
+            AddEmote(7835, "lounge2");
 
-            // AddLightDecor("Art\\Light\\ManScaleRef.m3"); // dummy human A-posing
-            // AddLightDecor("Art\\Light\\ManTester.m3"); // huge dummy
-            AddLightDecor("Art\\Light\\Mask_LIT_DIR_Crystline_001.m3"); // Subtly textured directional light
-            AddLightDecor("Art\\Light\\Mask_LIT_DIR_SimpleNarrow_001.m3"); // Narrow directional light
-            AddLightDecor("Art\\Light\\Mask_LIT_Point_Cubic_Fire_001.m3"); // Cubic fire texture
-            AddLightDecor("Art\\Light\\Mask_LIT_Point_Med_Brazier.m3"); // Works!
-            // AddLightDecor("Art\\Light\\Mask_LIT_Point_Med_Crystal.m3"); // Glitchy disco
-            AddLightDecor("Art\\Light\\Mask_LIT_Point_Med_LavaTube.m3"); // Soft cubic firey texture
-            // AddLightDecor("Art\\Light\\Mask_LIT_Point_Med_MetalCage.m3"); // Glitchy disco 2.0 purple boogaloo
-            AddLightDecor("Art\\Light\\Mask_LIT_Spot_Branches_001.m3"); // Soft branch texture, directional
-            AddLightDecor("Art\\Light\\Mask_LIT_Spot_Chain.m3"); // Chain texture, directional light
-            AddLightDecor("Art\\Light\\Mask_LIT_Spot_DappledLight_001.m3"); // dappled light
-            AddLightDecor("Art\\Light\\Mask_LIT_Spot_DappledLight_001_Short.m3"); // doesn't seem shorter in any way
-            AddLightDecor("Art\\Light\\Mask_LIT_Spot_DappledLight_002.m3"); // dappled light, softer
-            AddLightDecor("Art\\Light\\Mask_LIT_Spot_DappledLight_002_Short.m3"); // doesn't seem shorter in any way
-            AddLightDecor("Art\\Light\\Mask_LIT_Spot_Fire_001.m3"); // Fire texture spotlight
-            AddLightDecor("Art\\Light\\Mask_LIT_Spot_Grate.m3"); // Grate, directional
-            AddLightDecor("Art\\Light\\Mask_LIT_Spot_Grate_Large.m3"); // Same
-            /* AddLightDecor("Art\\Light\\Mask_LIT_IceShards_001.m3"); // Nothing
-            AddLightDecor("Art\\Light\\Mask_LIT_Imperium.m3");
-            AddLightDecor("Art\\Light\\Mask_LIT_Leaves.m3");
-            AddLightDecor("Art\\Light\\Mask_LIT_Leaves_001.m3");
-            AddLightDecor("Art\\Light\\Mask_LIT_Snowflake_001.m3");
-            AddLightDecor("Art\\Light\\Mask_LIT_Snowflake_002.m3");
-            AddLightDecor("Art\\Light\\Mask_LIT_Snowflake_003.m3");
-            AddLightDecor("Art\\Light\\MC08_LIT_Point_Med.m3");
-            AddLightDecor("Art\\Light\\N_LIT_Point_Hard.m3");
-            AddLightDecor("Art\\Light\\N_LIT_Point_Hard_Bright.m3");
-            AddLightDecor("Art\\Light\\N_LIT_Point_Med.m3");
-            AddLightDecor("Art\\Light\\N_LIT_Point_Med_Bright.m3");
-            AddLightDecor("Art\\Light\\N_LIT_Point_Soft.m3");
-            AddLightDecor("Art\\Light\\N_LIT_Point_Soft_Bright.m3");
-            AddLightDecor("Art\\Light\\N_LIT_Spot_Med.m3");*/ // Nothing
+            foreach (var entry in emotes.Entries)
+            {
+                uint id = (uint)entry.Values[0].Value;
+                if (id == 425)
+                {
+                    entry.Values[24].SetValue("lounge3");
+                    break;
+                }
+            }
+
+
+            SaveTables("../../../../TblNormal/");
+
+            // BETA YOLO MOOOODE
 
 
             AddGenericDecor("Art\\FX\\Model\\AE\\Caster\\Lava_LinearEruption\\Lava_LinearEruption_OGE.m3");
@@ -135,35 +133,6 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Terrain\\_Skullcano\\Clutter\\Skullcano_Lava_Chunk_Tall_001.m3");
 
 
-
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\CoolShift_LUT.tex");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\WarmShift_LUT.tex");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus25_LUT.tex");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus50_LUT.tex");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus75_LUT.tex");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus100_LUT.tex");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus125_LUT.tex");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus150_LUT.tex");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus25_LUT.tex");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus50_LUT.tex");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus75_LUT.tex");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus100_LUT.tex");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus125_LUT.tex");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus150_LUT.tex");
-
-            AddEmote(7834, "lounge1");
-            AddEmote(7835, "lounge2");
-
-            foreach(var entry in emotes.Entries)
-            {
-                uint id = (uint) entry.Values[0].Value;
-                if(id == 425)
-                {
-                    entry.Values[24].SetValue("lounge3");
-                    break;
-                }
-            }
-
             /*foreach(var entry in housingPlugItem.Entries)
             {
                 uint id = (uint)entry.Values[0].Value;
@@ -173,18 +142,8 @@ namespace WildStar.TestBed
                 }
             }*/
 
-
-            hookAssets.Save("../../../../TblNew/HookAsset.tbl");
-
-            decorInfo.Save("../../../../TblNew/HousingDecorInfo.tbl");
-
-            language.Save("../../../../TblNew/en-US.bin");
-
-            colorShift.Save("../../../../TblNew/ColorShift.tbl");
-
-            //housingPlugItem.Save("../../../../TblNew/HousingPlugItem.tbl");
-
-            emotes.Save("../../../../TblNew/Emotes.tbl");
+            SaveTables("../../../../TblBeta/");
+            CopyTables("../../../../TblBeta/", "../../../../TblServer/");
         }
 
         static GameTable.GameTable hookAssets;
@@ -204,6 +163,85 @@ namespace WildStar.TestBed
 
         static TextTable.TextTable language;
 
+        public static void LoadTables()
+        {
+            hookAssets = new GameTable.GameTable();
+            hookAssets.Load("../../../../Tbl/HookAsset.tbl");
+            nextHookAsset = GetMaxID(hookAssets.Entries) + 1;
+
+            decorInfo = new GameTable.GameTable();
+            decorInfo.Load("../../../../Tbl/HousingDecorInfo.tbl");
+            nextDecorID = GetMaxID(decorInfo.Entries) + 1;
+
+            colorShift = new GameTable.GameTable();
+            colorShift.Load("../../../../Tbl/ColorShift.tbl");
+            nextShiftID = GetMaxID(colorShift.Entries) + 1;
+
+            emotes = new GameTable.GameTable();
+            emotes.Load("../../../../Tbl/Emotes.tbl");
+            nextEmoteID = GetMaxID(emotes.Entries) + 1;
+
+            /*housingPlugItem = new GameTable.GameTable();
+            housingPlugItem.Load("../../../../Tbl/HousingPlugItem.tbl");
+            nexthpi = GetMaxID(housingPlugItem.Entries) + 1;*/
+
+            language = new TextTable.TextTable();
+            language.Load("../../../../Tbl/en-US.bin");
+        }
+
+        public static void SaveTables(string baseFolder)
+        {
+            Directory.CreateDirectory(baseFolder + "DB");
+
+            hookAssets.Save(baseFolder + "DB/HookAsset.tbl");
+
+            decorInfo.Save(baseFolder + "DB/HousingDecorInfo.tbl");
+
+            colorShift.Save(baseFolder + "DB/ColorShift.tbl");
+
+            emotes.Save(baseFolder + "DB/Emotes.tbl");
+
+            //housingPlugItem.Save(baseFolder + "DB/HousingPlugItem.tbl");
+
+            language.Save(baseFolder + "en-US.bin");
+        }
+
+        public static void CopyTables(string baseFolder, string destFolder)
+        {
+            Directory.CreateDirectory(destFolder);
+            List<string> names = new List<string>(Directory.GetFiles(baseFolder, "*.tbl", SearchOption.AllDirectories));
+            names.AddRange(Directory.GetFiles(baseFolder, "*.bin", SearchOption.AllDirectories));
+
+            foreach (var fileName in names)
+            {
+                string newPath = destFolder + Path.GetFileName(fileName);
+                if (File.Exists(newPath))
+                {
+                    File.Delete(newPath);
+                }
+                File.Copy(fileName, newPath);
+            }
+        }
+
+        static uint AddEntry(GameTable.GameTable table, GameTable.GameTableEntry entry, ref uint nextIDCounter, uint? id = null)
+        {
+            uint _id = nextIDCounter;
+            if(id != null)
+            {
+                _id = (uint) id;
+            }
+            if(_id >= nextIDCounter)
+            {
+                nextIDCounter = _id + 1;
+            }
+            if (table.HasEntry(_id))
+            {
+                throw new ArgumentException("Given ID already exists in table!");
+            }
+            table.AddEntry(entry, _id);
+            return _id;
+        }
+
         static uint AddHookAsset(string asset)
         {
             var entry = new GameTableEntry();
@@ -222,12 +260,12 @@ namespace WildStar.TestBed
             return nextHookAsset - 1;
         }
 
-        static uint AddLightDecor(string hookAsset)
+        static uint AddLightDecor(string hookAsset, uint? id = null)
         {
-            return AddGenericDecor(hookAsset, 13, true);
+            return AddGenericDecor(hookAsset, id, 13, true);
         }
 
-        static uint AddGenericDecor(string hookAsset, uint category = 13, bool particleAlt = false)
+        static uint AddGenericDecor(string hookAsset, uint? id = null, uint category = 13, bool particleAlt = false)
         {
             var entry = new GameTableEntry();
             entry.AddInteger(category); // "light" category
@@ -252,24 +290,22 @@ namespace WildStar.TestBed
             entry.AddSingle(0.1f); // min scale
             entry.AddSingle(10f); // max scale
 
-            decorInfo.AddEntry(entry, nextDecorID);
-            nextDecorID += 1;
-            return nextDecorID - 1;
+            uint _id = AddEntry(decorInfo, entry, ref nextDecorID, id);
+            log.Info($"Added decor {_id}: {hookAsset}");
+            return _id;
         }
 
-        static uint AddColorShift(string colorShiftAsset)
+        static uint AddColorShift(string colorShiftAsset, uint? id = null)
         {
             var entry = new GameTableEntry();
             entry.AddString(colorShiftAsset); // Asset path
             entry.AddInteger(language.AddEntry(colorShiftAsset)); // localizedtextid
             entry.AddString("BasicSprites:Grey"); // preview swatch icon
 
-            colorShift.AddEntry(entry, nextShiftID);
-            nextShiftID += 1;
-            return nextShiftID - 1;
+            return AddEntry(colorShift, entry, ref nextShiftID, id);
         }
 
-        static uint AddEmote(uint animationID, string command)
+        static uint AddEmote(uint animationID, string command, uint? id = null)
         {
             var entry = new GameTableEntry();
             entry.AddInteger(0); // localizedTextIdNoArgToAll
@@ -298,9 +334,7 @@ namespace WildStar.TestBed
             entry.AddString(command); // universalCommand00
             entry.AddString(""); // universalCommand01
 
-            emotes.AddEntry(entry, nextEmoteID);
-            nextEmoteID += 1;
-            return nextEmoteID - 1;
+            return AddEntry(emotes, entry, ref nextEmoteID, id);
         }
 
         static uint GetMaxID(List<GameTableEntry> list)
