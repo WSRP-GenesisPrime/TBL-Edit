@@ -24,9 +24,9 @@ namespace WildStar.TestBed
             emotes.Load("../../../../Tbl/Emotes.tbl");
             nextEmoteID = GetMaxID(emotes.Entries) + 1;
 
-            housingPlugItem = new GameTable.GameTable();
+            /*housingPlugItem = new GameTable.GameTable();
             housingPlugItem.Load("../../../../Tbl/HousingPlugItem.tbl");
-            nexthpi = GetMaxID(housingPlugItem.Entries) + 1;
+            nexthpi = GetMaxID(housingPlugItem.Entries) + 1;*/
 
             language = new TextTable.TextTable();
             language.Load("../../../../Tbl/en-US.bin");
@@ -182,66 +182,9 @@ namespace WildStar.TestBed
 
             colorShift.Save("../../../../TblNew/ColorShift.tbl");
 
-            housingPlugItem.Save("../../../../TblNew/HousingPlugItem.tbl");
+            //housingPlugItem.Save("../../../../TblNew/HousingPlugItem.tbl");
 
             emotes.Save("../../../../TblNew/Emotes.tbl");
-
-            /*var worldTable = new GameTable.GameTable();
-            worldTable.Load(@"D:\Program Files (x86)\NCSOFT\WildStar\Data\DB\World.tbl");
-
-            if (!worldTable.HasEntry(3538))
-            {
-                var world = new GameTableEntry();
-                world.AddString(@"Map\RawahoTestMap");
-                world.AddInteger(0); // flags
-                world.AddInteger(0); // type
-                world.AddString(@"UI\Screens\UI_CRB_WorldID22_LoadScreen.tex");
-                world.AddString(@"Art\Prop\Character_Creation\Loading\PRP_Loading_Olyssia_000.m3");
-                world.AddInteger(0);
-                world.AddInteger(0);
-                world.AddInteger(2048);
-                world.AddInteger(2048);
-                world.AddInteger(0);
-                world.AddInteger(0);
-                world.AddInteger(0);
-                world.AddInteger(0);
-                world.AddInteger(0);
-                world.AddInteger(0);
-                world.AddInteger(0);
-                world.AddInteger(0);
-                world.AddInteger(0);
-
-                worldTable.AddEntry(world, 3538);
-            }
-
-            worldTable.Save(@"D:\Program Files (x86)\NCSOFT\WildStar\Data\DB\World.tbl");
-
-            var textTable = new TextTable.TextTable();
-            //textTable.Load();
-
-            // custom localisation text
-            uint localizedTextIdName = textTable.AddEntry("$(self.name) the One and Only!");
-            uint localizedTextIdTitle = textTable.AddEntry("The One and Only!");
-
-            textTable.Save(@"C:\Program Files (x86)\NCSOFT\WildStar\Data\en-US.bin");
-
-            // ------------------------------------------------------
-
-            var titleTable = new GameTable.GameTable();
-            titleTable.Load(@"C:\Program Files (x86)\NCSOFT\WildStar\Data\DB\CharacterTitle.tbl");
-
-            // custom title
-            var title = new GameTableEntry();
-            title.AddInteger(4); // CharacterTitleCategoryId
-            title.AddInteger(localizedTextIdName); // LocalizedTextIdName
-            title.AddInteger(localizedTextIdTitle); // LocalizedTextIdTitle
-            title.AddInteger(0); // Spell4IdActivate
-            title.AddInteger(0); // LifeTimeSeconds
-            title.AddInteger(0); // PlayerTitleFlagsEnum
-            title.AddInteger(0); // ScheduleId
-            titleTable.AddEntry(title, 441);
-
-            titleTable.Save(@"C:\Program Files (x86)\NCSOFT\WildStar\Data\DB\CharacterTitle.tbl");*/
         }
 
         static GameTable.GameTable hookAssets;
@@ -256,8 +199,8 @@ namespace WildStar.TestBed
         static GameTable.GameTable emotes;
         static uint nextEmoteID = 0;
 
-        static GameTable.GameTable housingPlugItem;
-        static uint nexthpi = 0;
+        /*static GameTable.GameTable housingPlugItem;
+        static uint nexthpi = 0;*/
 
         static TextTable.TextTable language;
 
