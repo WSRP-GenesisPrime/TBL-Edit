@@ -14,37 +14,37 @@ namespace WildStar.TestBed
 
             LoadTables();
 
-            AddLightDecor("Art\\Light\\LIT_Level_Up_Spotlight_000.m3", 3699); // Works!
-            AddLightDecor("Art\\Light\\LIT_Mask_Point_Med_AurinHanging.m3", 3700); // Works!
-            AddLightDecor("Art\\Light\\LIT_Mask_Spotlight_Gate_000.m3", 3701); // Works!
-            AddLightDecor("Art\\Light\\LIT_Point_Hard.m3", 3702); // Works!
-            AddLightDecor("Art\\Light\\LIT_Point_Hard_Bright.m3", 3703); // Works!
-            AddLightDecor("Art\\Light\\LIT_Point_Med.m3", 3704); // Works!
-            AddLightDecor("Art\\Light\\LIT_Point_Med_Bright.m3", 3705); // Works!
-            AddLightDecor("Art\\Light\\LIT_Point_Med_Bright_Amb.m3", 3706); // Works, super bright
-            AddLightDecor("Art\\Light\\LIT_Point_Soft.m3", 3707); // Works!
-            AddLightDecor("Art\\Light\\LIT_Point_Soft_Bright.m3", 3708); // Works!
-            AddLightDecor("Art\\Light\\LIT_Point_Soft_Overbright.m3", 3709); // Works, super bright
-            AddLightDecor("Art\\Light\\LIT_Point_Soft_Throb.m3", 3710); // Works, but not animated
-            AddLightDecor("Art\\Light\\LIT_Rec_Hard.m3", 3711); // rectangle spotlight
-            AddLightDecor("Art\\Light\\LIT_Rec_Med.m3", 3712); // rectangle spotlight
-            AddLightDecor("Art\\Light\\LIT_Rec_Soft.m3", 3713); // rectangle spotlight
+            AddLightDecor("Art\\Light\\LIT_Level_Up_Spotlight_000.m3", 3699, "Spot Light (Level Up)");
+            AddLightDecor("Art\\Light\\LIT_Mask_Point_Med_AurinHanging.m3", 3700, "Mask Light (Point, Medium Aurin Hanging)");
+            AddLightDecor("Art\\Light\\LIT_Mask_Spotlight_Gate_000.m3", 3701, "Mask Light (Gate Spotlight)");
+            AddLightDecor("Art\\Light\\LIT_Point_Hard.m3", 3702, "Point Light (Hard)");
+            AddLightDecor("Art\\Light\\LIT_Point_Hard_Bright.m3", 3703, "Point Light (Hard, Bright)");
+            AddLightDecor("Art\\Light\\LIT_Point_Med.m3", 3704, "Point Light (Medium)");
+            AddLightDecor("Art\\Light\\LIT_Point_Med_Bright.m3", 3705, "Point Light (Medium, Bright)");
+            AddLightDecor("Art\\Light\\LIT_Point_Med_Bright_Amb.m3", 3706, "Point Light (Medium, Bright Ambient)");
+            AddLightDecor("Art\\Light\\LIT_Point_Soft.m3", 3707, "Point Light (Soft)");
+            AddLightDecor("Art\\Light\\LIT_Point_Soft_Bright.m3", 3708, "Point Light (Soft, Bright)");
+            AddLightDecor("Art\\Light\\LIT_Point_Soft_Overbright.m3", 3709, "Point Light (Soft, Overbright)");
+            AddLightDecor("Art\\Light\\LIT_Point_Soft_Throb.m3", 3710, "Point Light (Soft, Throb)");
+            AddLightDecor("Art\\Light\\LIT_Rec_Hard.m3", 3711, "Rectangle Light (Hard)");
+            AddLightDecor("Art\\Light\\LIT_Rec_Med.m3", 3712, "Rectangle Light (Medium)");
+            AddLightDecor("Art\\Light\\LIT_Rec_Soft.m3", 3713, "Rectangle Light (Soft)");
 
-            AddLightDecor("Art\\Light\\LIT_Spot_Diffused_Overbright.m3", 3714); // Works, super bright
-            AddLightDecor("Art\\Light\\LIT_Spot_Hard.m3", 3715); // Works!
-            AddLightDecor("Art\\Light\\LIT_Spot_Med.m3", 3716); // Works!
-            AddLightDecor("Art\\Light\\LIT_Spot_MedNarrow_Soft.m3", 3717); // short range
-            AddLightDecor("Art\\Light\\LIT_Spot_Narrow_Med.m3", 3718); // only starts after some distance
-            AddLightDecor("Art\\Light\\LIT_Spot_Narrow_Soft.m3", 3719); // same
-            AddLightDecor("Art\\Light\\LIT_Spot_Soft.m3", 3720); // Works!
-            AddLightDecor("Art\\Light\\LIT_Spot_Wide_Hard.m3", 3721); // 80 degree cone or so
-            AddLightDecor("Art\\Light\\LIT_Spot_Wide_Med.m3", 3722); // Works!
-            AddLightDecor("Art\\Light\\LIT_Spot_Wide_Soft.m3", 3723); // Works!
+            AddLightDecor("Art\\Light\\LIT_Spot_Diffused_Overbright.m3", 3714, "Spot Light (Diffused, Overbright)");
+            AddLightDecor("Art\\Light\\LIT_Spot_Hard.m3", 3715, "Spot Light (Hard)");
+            AddLightDecor("Art\\Light\\LIT_Spot_Med.m3", 3716, "Spot Light (Medium)");
+            AddLightDecor("Art\\Light\\LIT_Spot_MedNarrow_Soft.m3", 3717, "Spot Light (Medium, Narrow Soft)");
+            AddLightDecor("Art\\Light\\LIT_Spot_Narrow_Med.m3", 3718, "Spot Light (Medium, Narrow)"); // only starts after some distance
+            AddLightDecor("Art\\Light\\LIT_Spot_Narrow_Soft.m3", 3719, "Spot Light (Soft, Narrow)"); // same
+            AddLightDecor("Art\\Light\\LIT_Spot_Soft.m3", 3720, "Spot Light (Soft)");
+            AddLightDecor("Art\\Light\\LIT_Spot_Wide_Hard.m3", 3721, "Spot Light (Hard, Wide)");
+            AddLightDecor("Art\\Light\\LIT_Spot_Wide_Med.m3", 3722, "Spot Light (Medium, Wide)");
+            AddLightDecor("Art\\Light\\LIT_Spot_Wide_Soft.m3", 3723, "Spot Light (Soft, Wide)");
 
-            AddLightDecor("Art\\Light\\Mask_LIT_DIR_Crystline_001.m3", 3724); // Subtly textured directional light
-            AddLightDecor("Art\\Light\\Mask_LIT_DIR_SimpleNarrow_001.m3", 3725); // Narrow directional light
-            AddLightDecor("Art\\Light\\Mask_LIT_Point_Cubic_Fire_001.m3", 3726); // Cubic fire texture
-            AddLightDecor("Art\\Light\\Mask_LIT_Point_Med_Brazier.m3", 3727); // Works!
+            AddLightDecor("Art\\Light\\Mask_LIT_DIR_Crystline_001.m3", 3724, "Mask Light (Crystal)"); // Subtly textured directional light
+            AddLightDecor("Art\\Light\\Mask_LIT_DIR_SimpleNarrow_001.m3", 3725, "Mask Light (Simple, Narrow)"); // Narrow directional light
+            AddLightDecor("Art\\Light\\Mask_LIT_Point_Cubic_Fire_001.m3", 3726, "Mask Light (Point, Cubic Fire)"); // Cubic fire texture
+            AddLightDecor("Art\\Light\\Mask_LIT_Point_Med_Brazier.m3", 3727, "Mask Light (Point, Medium Brazier)");
             AddLightDecor("Art\\Light\\Mask_LIT_Point_Med_LavaTube.m3", 3728); // Soft cubic firey texture
             AddLightDecor("Art\\Light\\Mask_LIT_Spot_Branches_001.m3", 3729); // Soft branch texture, directional
             AddLightDecor("Art\\Light\\Mask_LIT_Spot_Chain.m3", 3730); // Chain texture, directional light
@@ -260,17 +260,24 @@ namespace WildStar.TestBed
             return nextHookAsset - 1;
         }
 
-        static uint AddLightDecor(string hookAsset, uint? id = null)
+        static uint AddLightDecor(string hookAsset, uint? id = null, string name = null)
         {
-            return AddGenericDecor(hookAsset, id, 13, true);
+            return AddGenericDecor(hookAsset, id, name, 13, true);
         }
 
-        static uint AddGenericDecor(string hookAsset, uint? id = null, uint category = 13, bool particleAlt = false)
+        static uint AddGenericDecor(string hookAsset, uint? id = null, string name = null, uint category = 13, bool particleAlt = false)
         {
             var entry = new GameTableEntry();
             entry.AddInteger(category); // "light" category
             entry.AddInteger(12); // hookassettypeid, 12 or 22 seem okay, 10 is not
-            entry.AddInteger(language.AddEntry(hookAsset)); // localizedtextid, borrowed from Aurin Sconce
+            if (name != null)
+            {
+                entry.AddInteger(language.AddEntry(name)); // localizedtextid
+            }
+            else
+            {
+                entry.AddInteger(language.AddEntry(hookAsset)); // localizedtextid
+            }
             entry.AddInteger(0); // flags, sconce has 0
             entry.AddInteger(AddHookAsset(hookAsset)); // hookassetid
             entry.AddInteger(5000); // cost
