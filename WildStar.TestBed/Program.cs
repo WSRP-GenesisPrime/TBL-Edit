@@ -14,6 +14,7 @@ namespace WildStar.TestBed
             LoadTables();
 
             AddDecorType(DecorCategory.Beta, "Beta", "INT - Beta");
+            AddDecorType(DecorCategory.Structures, "Structures", "INT - Structures");
 
             AddLightDecor("Art\\Light\\LIT_Level_Up_Spotlight_000.m3", 3699, "Spot Light (Level Up)");
             AddLightDecor("Art\\Light\\LIT_Mask_Point_Med_AurinHanging.m3", 3700, "Point Light (Aurin Hanging Light)");
@@ -94,6 +95,50 @@ namespace WildStar.TestBed
             betaMode = true;
 
 
+            AddGenericDecor("Art\\Prop\\Constructed\\Cable\\Generic\\Segmented\\PRP_Cable_Generic_Segmented_Short_002", null, "Hanging Cable (Long)", DecorCategory.Tools, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Cable\\Generic\\Segmented\\PRP_Cable_Generic_Segmented_Short_003", null, "Hanging Cable (Longer)", DecorCategory.Tools, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Cable\\Generic\\Segmented\\PRP_Cable_Generic_SegmentedLong_003", null, "Hanging Cable (Long, Drooping)", DecorCategory.Tools, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Cable\\Generic\\PRP_Cable_Generic_Box_000", null, "Cable Socket", DecorCategory.Tools, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Bottles\\SanctuaryCommon\\PRP_Bottle_SCBarBottle_007", null, "Phial (Medium)", DecorCategory.Cookware, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Bottles\\SanctuaryCommon\\PRP_Bottle_SCBarBottle_008", null, "Potion Bottle", DecorCategory.Cookware, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Bottles\\SanctuaryCommon\\PRP_Bottle_SCBarBottle_009", null, "Potion Bottle (Wide)", DecorCategory.Cookware, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Bottles\\Granok\\PRP_Bottle_Granok_Beer_000", null, "Beer Bottle (Granok)", DecorCategory.Cookware, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Bottles\\Granok\\PRP_Granok_BeerCan_Open_000", null, "Crushed Beer Can", DecorCategory.Cookware, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Bottles\\PRP_ProtostarBeerCan_001", null, "Beer Can (Protostar)", DecorCategory.Cookware, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Bottles\\PRP_ProtostarBeerCan_000", null, "Crushed Beer Can (Protostar)", DecorCategory.Cookware, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Debris\\PRP_Debris_SmugglerFighterCrashed_VAR_LeftEngine_000", null, "Ruined Fighter Wing", DecorCategory.Spaceship, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Debris\\Coralus\\PRP_Coralus_Ship_MetalPlate_000", null, "Metal Plate, Style 1", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Debris\\Coralus\\PRP_Coralus_Ship_MetalPlate_001", null, "Metal Plate, Style 2", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Debris\\Coralus\\PRP_Coralus_Ship_MetalPlate_002", null, "Metal Plate, Style 3", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Debris\\Falkrin\\PRP_Debris_FalkrinMetalPlate_000", null, "Metal Scrap", DecorCategory.Tools, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Building\\Granok\\PRP_Building_GranokTrailer_000", null, "Granok Trailer", DecorCategory.Structures, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Building\\Granok\\PRP_Building_GranokTrailer_001", null, "Granok Trailer (2)", DecorCategory.Structures, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Building\\SanctuaryCommon\\PRP_Building_SCShack_Brown_000", null, "Junk Shack (Tall)", DecorCategory.Structures, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Building\\SanctuaryCommon\\PRP_Building_SCShack_Brown_001", null, "Junk Shack (Short)", DecorCategory.Structures, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\BotParts\\PRP_BotParts_SaboteurbotArm_Rust_000", null, "Rusty Bot Arm", DecorCategory.Tools, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\BotParts\\PRP_BotParts_SaboteurbotBody_Rust_000", null, "Rusty Bot Torso", DecorCategory.Tools, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\BotParts\\PRP_BotParts_SaboteurbotHead_Rust_000", null, "Rusty Bot Head", DecorCategory.Tools, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\BotParts\\PRP_BotParts_SaboteurbotLeg_Rust_000", null, "Rusty Bot Leg", DecorCategory.Tools, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Refinery\\PRP_Pipes_Refinery_000", null, "Metal Pipe Tower", DecorCategory.Tools, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Refinery\\PRP_Pipes_Refinery_001", null, "Large Metal Tank", DecorCategory.Tools, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Refinery\\PRP_Pipes_Refinery_002", null, "Metal Scaffolding", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Refinery\\PRP_Pipes_Refinery_003", null, "Metal Scaffolding", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Chua\\PRP_Chua_Pipe_Cap_000", null, "Chua Pipe Cap", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Chua\\PRP_Chua_Pipes_000", null, "Chua Pipe", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Chua\\PRP_Chua_Pipes_001", null, "Chua Pipe (Long)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Chua\\PRP_Chua_Pipes_002", null, "Chua Pipe (Curved)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Chua\\PRP_Chua_Pipes_003", null, "Chua Pipe (Intersection)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Chua\\PRP_Chua_Pipes_004", null, "Chua Pipe (Long, Curved)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Chua\\PRP_Chua_Pipes_Stacker_000", null, "Chua Pipe Reinforcement", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_005", null, "Metal Pipe", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_006", null, "Reinforced Metal Pipe", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_009", null, "Metal Pipe (Curved)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_013", null, "Metal Pipe (Long)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_010", null, "Metal Support Beams", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_011", null, "Metal Support Beams", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_013", null, "Metal Rod", DecorCategory.Tools, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_014", null, "Faucet", DecorCategory.Tools, false); 
+            
             AddGenericDecor("Art\\FX\\Model\\AE\\Caster\\Lava_LinearEruption\\Lava_LinearEruption_OGE.m3");
             AddGenericDecor("Art\\FX\\Model\\AE\\Caster\\Lava_LinearEruption\\Lava_LinearEruption_noDecal_OGE.m3");
             AddGenericDecor("Art\\FX\\Model\\Impacts\\Lava_Splash\\Lava_Splash_OGE.m3");
@@ -292,6 +337,7 @@ namespace WildStar.TestBed
             Spaceship = 60,
             Hoverpark = 61,
             Beta = 66,
+            Structures = 67,
         };
 
         static uint AddHookAsset(string asset)
