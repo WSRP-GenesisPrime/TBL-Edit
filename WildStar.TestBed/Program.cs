@@ -1966,7 +1966,7 @@ namespace WildStar.TestBed
 
             customizationParameterMap.Save(baseFolder + "DB/CustomizationParameterMap.tbl");*/
 
-            //worldLayer.Save(baseFolder + "DB/WorldLayer.tbl");
+            worldLayer.Save(baseFolder + "DB/WorldLayer.tbl");
 
             //housingPlugItem.Save(baseFolder + "DB/HousingPlugItem.tbl");
 

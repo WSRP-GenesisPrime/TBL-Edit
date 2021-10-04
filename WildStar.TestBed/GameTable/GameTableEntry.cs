@@ -19,12 +19,19 @@ namespace WildStar.TestBed.GameTable
             Values.AddRange(values);
         }
 
-        public uint CalculateSize(bool minimal)
+        public uint CalculateSize()
         {
             uint size = 0u;
             foreach (GameTableValue value in Values)
             {
-                size += value.GetSize(minimal);
+                if (value.Type == DataType.String)
+                {
+                    if (size % 8 != 0)
+                    {
+                        size += 4;
+                    }
+                }
+                size += value.GetSize();
             }
 
             if (size % 8 != 0)

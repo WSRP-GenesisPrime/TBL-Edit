@@ -12,7 +12,7 @@ namespace WildStar.TestBed.GameTable
             Type = type;
         }
 
-        public uint GetSize(bool minimal)
+        public uint GetSize()
         {
             switch (Type)
             {
@@ -23,7 +23,7 @@ namespace WildStar.TestBed.GameTable
                 case DataType.Long:
                     return 8;
                 case DataType.String:
-                    return minimal ? 8u: 12u;
+                    return 8;
                 default:
                     return 0;
             }
