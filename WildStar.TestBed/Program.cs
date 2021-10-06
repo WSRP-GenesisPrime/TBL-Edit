@@ -9,7 +9,16 @@ namespace WildStar.TestBed
     class Program
     {
         static Logger log = LogManager.GetCurrentClassLogger();
+
+        static List<Table> tables = new List<Table>();
+
         static void Main(string[] args)
+        {
+            MakeArchive();
+            //TestArchiveWriting();
+        }
+
+        static void MakeArchive()
         {
             LoadTables();
 
@@ -20,20 +29,20 @@ namespace WildStar.TestBed
             AddDecorType(DecorCategory.LightSource, "Light Source", "INT - Light Source");
 
 
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\CoolShift_LUT.tex", null, "Cool-Shift");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\WarmShift_LUT.tex", null, "Warm-Shift");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus25_LUT.tex", null, "Hue-Shift, Minus 25 Degrees");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus50_LUT.tex", null, "Hue-Shift, Minus 50 Degrees");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus75_LUT.tex", null, "Hue-Shift, Minus 75 Degrees");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus100_LUT.tex", null, "Hue-Shift, Minus 100 Degrees");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus125_LUT.tex", null, "Hue-Shift, Minus 125 Degrees");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus150_LUT.tex", null, "Hue-Shift, Minus 150 Degrees");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus25_LUT.tex", null, "Hue-Shift, Plus 25 Degrees");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus50_LUT.tex", null, "Hue-Shift, Plus 50 Degrees");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus75_LUT.tex", null, "Hue-Shift, Plus 75 Degrees");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus100_LUT.tex", null, "Hue-Shift, Plus 100 Degrees");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus125_LUT.tex", null, "Hue-Shift, Plus 125 Degrees");
-            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus150_LUT.tex", null, "Hue-Shift, Plus 150 Degrees");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\CoolShift_LUT.tex", 18, "Cool-Shift");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\WarmShift_LUT.tex", 19, "Warm-Shift");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus25_LUT.tex", 20, "Hue-Shift, Minus 25 Degrees");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus50_LUT.tex", 21, "Hue-Shift, Minus 50 Degrees");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus75_LUT.tex", 22, "Hue-Shift, Minus 75 Degrees");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus100_LUT.tex", 23, "Hue-Shift, Minus 100 Degrees");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus125_LUT.tex", 24, "Hue-Shift, Minus 125 Degrees");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Minus150_LUT.tex", 25, "Hue-Shift, Minus 150 Degrees");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus25_LUT.tex", 26, "Hue-Shift, Plus 25 Degrees");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus50_LUT.tex", 27, "Hue-Shift, Plus 50 Degrees");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus75_LUT.tex", 28, "Hue-Shift, Plus 75 Degrees");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus100_LUT.tex", 29, "Hue-Shift, Plus 100 Degrees");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus125_LUT.tex", 30, "Hue-Shift, Plus 125 Degrees");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus150_LUT.tex", 31, "Hue-Shift, Plus 150 Degrees");
 
             Dictionary<uint, (String, String)> EmoteLibrary = new Dictionary<uint, (String, String)>()
             {
@@ -86,7 +95,7 @@ namespace WildStar.TestBed
                 { 101, ("wounded4", null) }
             };
 
-            foreach (var entry in emotes.Entries)
+            foreach (var entry in emotes.table.Entries)
             {
                 uint id = (uint)entry.Values[0].Value;
                 if (EmoteLibrary.TryGetValue(id, out var tuple))
@@ -96,10 +105,15 @@ namespace WildStar.TestBed
                 }
             }
 
-            foreach (var entry in wallpaperInfo.Entries)
+            foreach (var entry in wallpaperInfo.table.Entries)
             {
                 entry.Values[7].SetValue(0u);
                 entry.Values[8].SetValue(0u);
+            }
+
+            foreach (var table in tables)
+            {
+                table.beta = false;
             }
 
 
@@ -385,8 +399,8 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Constructed\\Holiday\\Winterfest\\Hoverboard\\PRP_Turbine_Customization_000.m3", 3978, "Hoverboard (Turbine, Flaired)", DecorCategory.Hoverpark, false, 2);
             AddGenericDecor("Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", 3979, "Emblem (Dominion)", DecorCategory.Accents, false, 2);
             AddGenericDecor("Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", 3980, "Emblem (Exile)", DecorCategory.Accents, false, 2);
-            AddGenericDecor("Art\\Prop\\Constructed\\MISC\\Decals\\PRP_Misc_Decals_Bullseye_000.m3", 3981, "Decal (Bullseye)", DecorCategory.Decals, true, 2);
-            AddGenericDecor("Art\\Prop\\Constructed\\MISC\\Decals\\PRP_Misc_Decals_Bullseye_001.m3", 3982, "Decal (Bullseye 2)", DecorCategory.Decals, true, 2);
+            AddGenericDecor("Art\\Prop\\Constructed\\MISC\\Decals\\PRP_Misc_Decals_Bullseye_000.m3", 3981, "Bullseye", DecorCategory.Decals, true, 2);
+            AddGenericDecor("Art\\Prop\\Constructed\\MISC\\Decals\\PRP_Misc_Decals_Bullseye_001.m3", 3982, "Bullseye (Charred)", DecorCategory.Decals, true, 2);
             AddGenericDecor("Art\\Prop\\Constructed\\MISC\\Decals\\PRP_Misc_Decals_DarkspurSkull_000.m3", 3983, "Decal (Darkspur)", DecorCategory.Decals, true, 2);
             AddGenericDecor("Art\\Prop\\Constructed\\MISC\\Decals\\PRP_Misc_Decals_NuclearSign_000.m3", 3984, "Decal (Nuclear)", DecorCategory.Decals, true, 2);
             AddGenericDecor("Art\\Prop\\Constructed\\MISC\\Drakken\\PRP_MISC_DrakkenBonedStorage_000.m3", 3985, "Ancestral Urn (Draken)", DecorCategory.Containers, false, 2);
@@ -500,7 +514,7 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Natural\\Bones\\AnimalBones\\PRP_Bones_RibsAnimalOld_Large_Tan_000.m3", 4094, "Giant Ribcage (Spiny)", DecorCategory.Accents, false, 2);
             AddGenericDecor("Art\\Prop\\Natural\\Bones\\AnimalBones\\PRP_Bones_RibsAnimalOld_Large_Tan_001.m3", 4095, "Giant Ribcage (Half)", DecorCategory.Accents, false, 2);
             AddGenericDecor("Art\\Prop\\Natural\\Bones\\AnimalBones\\PRP_Bones_RibsAnimalOld_Large_Tan_002.m3", 4096, "Giant Ribcage (Half, Collapsed)", DecorCategory.Accents, false, 2);
-            AddGenericDecor("Art\\Prop\\Natural\\Bones\\AnimalBones\\PRP_Bones_RibsAnimalOld_hide_Large_Tan_000.m3", 4097, "Giant Ribcage (Spiny, Fleshy)", DecorCategory.Accents, false, 2);
+            AddGenericDecor("Art\\Water\\Waterfall\\Water_Waterfall_RippleFX_000.m3", 4097, "Water Ripples", DecorCategory.ParticleEffects, true, 2);
             AddGenericDecor("Art\\Prop\\Natural\\Bones\\AnimalBones\\PRP_Bones_RibsEarthrender_Large_Tan_000.m3", 4098, "Giant Ribcage (Earth-Render)", DecorCategory.Accents, false, 2);
             AddGenericDecor("Art\\Prop\\Natural\\Bones\\AnimalBones\\PRP_Bones_RibwithMeat_Tan_000.m3", 4099, "Ribcage (Whole, Fleshy)", DecorCategory.Accents, false, 2);
             AddGenericDecor("Art\\Prop\\Natural\\Bones\\AnimalBones\\PRP_Bones_RibwithMeat_Tan_001.m3", 4100, "Ribcage (Half, Fleshy)", DecorCategory.Accents, false, 2);
@@ -583,7 +597,7 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Structure\\Model\\Building_Kits\\Osun\\Fort_Kit\\PRP_Osun_FortKit_Walkway_Support_C.m3", 4177, "Osun Anvil Sculpture", DecorCategory.Structures, false, 2);
             AddGenericDecor("Art\\Prop\\Natural\\Bones\\Elemental\\PRP_Bones_Elemental_000.m3", 4178, "Elemental Remnants", DecorCategory.Accents, false, 2);
             AddGenericDecor("Art\\Prop\\Constructed\\WeaponRack\\Drakken\\PRP_WeaponRack_Drakken_ShortAxe_000.m3", 4179, "Draken War Axe (Short)", DecorCategory.WeaponsArmor, false, 2);
-            AddGenericDecor("Art\\Prop\\Constructed\\WeaponRack\\Drakken\\PRP_WeaponRack_Drakken_ShortAxe_001.m3", 4180, "Draken War Axe (Long)", DecorCategory.WeaponsArmor, false, 2);
+            AddGenericDecor("Art\\Prop\\Constructed\\WeaponRack\\Drakken\\PRP_WeaponRack_Drakken_LongAxe_000.m3", 4180, "Draken War Axe (Long)", DecorCategory.WeaponsArmor, false, 2);
             AddGenericDecor("Art\\Prop\\Constructed\\WeaponRack\\Drakken\\PRP_WeaponRack_Drakken_Spear_000.m3", 4181, "Serrated Spear", DecorCategory.WeaponsArmor, false, 2);
             AddGenericDecor("Art\\Prop\\Constructed\\WeaponRack\\PRP_WeaponRack_ImperiumFreeStanding_Black_000.m3", 4182, "Dominion Weapon Rack", DecorCategory.WeaponsArmor, false, 2);
             AddGenericDecor("Art\\Prop\\Constructed\\Vending\\PRP_Vending_GranokBeer_000.m3", 4183, "Vending Machine (Granok Beer)", DecorCategory.Accents, false, 2);
@@ -886,147 +900,147 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\PRP_RMT_Engine_Piston_000.m3", 4480, "Engine Piston", DecorCategory.ToolsHardware, false, 3);
             AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\PRP_RMT_Furnace_000.m3", 4481, "Redmoon Furnace", DecorCategory.Structures, false, 3);
             AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\PRP_RMT_Grill_000.m3", 4482, "Redmoon Grill", DecorCategory.CookwareBarware, false, 3);
-            AddGenericDecor("Art\\Prop\\Natural\\Fog\\PRP_Fog_GroundCover_000.m3", 4483, "!NEW! Creeping Fog", DecorCategory.ParticleEffects, true, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Tree\\Large_umberla_Pine\\PRP_Tree_LargeUmberla_LargePine_001.m3", 4484, "!NEW! Umbrella Pine (Violet)", DecorCategory.Trees, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Tree\\Large_umberla_Pine\\PRP_Tree_LargeUmberla_MidPine_000.m3", 4485, "!NEW! Umbrella Pine (Lanky)", DecorCategory.Trees, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Tree\\TreeofLife\\LifeInfused\\PRP_Tree_SkinnyTall_Yellow_Deciduous_LifeInfused_000.m3", 4486, "!NEW! Life-Infused Tree", DecorCategory.Trees, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Tree\\TreeofLife\\LifeInfused\\PRP_Tree_SkinnyTall_Yellow_Deciduous_LifeInfused_001.m3", 4487, "!NEW! Life-Infused Tree (Bushy)", DecorCategory.Trees, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Tree\\TreeofLife\\LifeInfused\\PRP_Tree_SkinnyTall_Yellow_Deciduous_LifeInfused_002.m3", 4488, "!NEW! Life-Infused Tree (Pointy)", DecorCategory.Trees, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Tree\\Dead_RootyMangrove\\PRP_Tree_Dead_RootyMangrove_Brown_000.m3", 4489, "!NEW! Mangrove Tree (Yellow)", DecorCategory.Trees, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Large_000.m3", 4490, "!NEW! Green Swirly Rock (Flat)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Large_001.m3", 4491, "!NEW! Green Swirly Rock (Pointy)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Large_002.m3", 4492, "!NEW! Green Swirly Rock (Cross)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Large_003.m3", 4493, "!NEW! Green Swirly Rock (Teardrop)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Mid_000.m3", 4494, "!NEW! Green Swirly Rock (Egg-Shaped, Green)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Mid_001.m3", 4495, "!NEW! Green Swirly Rock (Curved)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Mid_002.m3", 4496, "!NEW! Green Swirly Rock (Concave)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Mid_003.m3", 4497, "!NEW! Green Swirly Rock (Smooth)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Small_000.m3", 4498, "!NEW! Green Swirly Rock (Uneven)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Small_001.m3", 4499, "!NEW! Green Swirly Rock (Double)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Small_002.m3", 4500, "!NEW! Green Swirly Rock", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Small_003.m3", 4501, "!NEW! Green Swirly Rock (Greener)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Primal\\PRP_Rock_Primal_EarthCrystal_000.m3", 4502, "!NEW! Primal Earth Crystal", DecorCategory.Accents, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_000.m3", 4503, "!NEW! Creepy Rock (Jagged, Vines)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_001.m3", 4504, "!NEW! Creepy Rock (Looming, Vines)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_002.m3", 4505, "!NEW! Creepy Rock (Balanced, Vines)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_003.m3", 4506, "!NEW! Creepy Rock (Claw-Shaped, Vines)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_004.m3", 4507, "!NEW! Creepy Rock (Pointy, Vines)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_Wire_000.m3", 4508, "!NEW! Creepy Rock (Jagged, Wires)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_Wire_001.m3", 4509, "!NEW! Creepy Rock (Looming, Wires)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_Wire_002.m3", 4510, "!NEW! Creepy Rock (Balanced, Wires)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_Wire_003.m3", 4511, "!NEW! Creepy Rock (Claw-Shaped, Wires)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_Wire_004.m3", 4512, "!NEW! Creepy Rock (Pointy, Wires)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Stonehenge_000.m3", 4513, "!NEW! Tall Rock (Style 1)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Stonehenge_001.m3", 4514, "!NEW! Tall Rock (Style 2)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Stonehenge_002.m3", 4515, "!NEW! Tall Rock (Style 3)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Stonehenge_003.m3", 4516, "!NEW! Tall Rock (Style 4)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Stonehenge_004.m3", 4517, "!NEW! Tall Rock (Style 5)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Whitevale_Crater\\PRP_Rock_Whitevale_Crater_000.m3", 4518, "!NEW! Floating Crater", DecorCategory.Special, false, 4);
-            AddGenericDecor("Art\\Water\\Waterfall\\Water_Waterfall_Turbulence_000.m3", 4519, "!NEW! Turbulence", DecorCategory.ParticleEffects, true, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Aurin\\PRP_Roof_Aurin_Medium_A.m3", 4520, "!NEW! Aurin Roof (Large, Purple)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Aurin\\PRP_Roof_Aurin_Medium_B.m3", 4521, "!NEW! Aurin Roof (Large, Blue)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Aurin\\PRP_Roof_Aurin_Medium_C.m3", 4522, "!NEW! Aurin Roof (Large, Magenta)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Aurin\\PRP_Roof_Aurin_Medium_D.m3", 4523, "!NEW! Aurin Roof (Large, Red)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Aurin\\PRP_Roof_Aurin_Small_A.m3", 4524, "!NEW! Aurin Roof (Small, Pink)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Aurin\\PRP_Roof_Aurin_Small_B.m3", 4525, "!NEW! Aurin Roof (Small, Blue)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Aurin\\PRP_Roof_Aurin_Small_C.m3", 4526, "!NEW! Aurin Roof (Small, Violet)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Cassian\\PRP_Roof_CassianMedium_A.m3", 4527, "!NEW! Cassian Roof (Large)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Cassian\\PRP_Roof_CassianMedium_B.m3", 4528, "!NEW! Cassian Roof (Large, Curvy)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Cassian\\PRP_Roof_CassianSmall_A.m3", 4529, "!NEW! Cassian Roof (Small)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Cassian\\PRP_Roof_CassianSmall_B.m3", 4530, "!NEW! Cassian Roof (Small, Shingled)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Chua\\PRP_Roof_ChuaMedium_A.m3", 4531, "!NEW! Chua Roof Cap (Large)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Chua\\PRP_Roof_ChuaMedium_B.m3", 4532, "!NEW! Chua Roof Cap (Large, Elaborate)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Chua\\PRP_Roof_ChuaMedium_C.m3", 4533, "!NEW! Chua Roof Cap (Large, Industrial)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Chua\\PRP_Roof_Chuasmall_A.m3", 4534, "!NEW! Chua Roof Cap (Small)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Chua\\PRP_Roof_Chuasmall_B.m3", 4535, "!NEW! Chua Roof Cap (Small, Smoking)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Chua\\PRP_Roof_Chuasmall_C.m3", 4536, "!NEW! Chua Roof Cap (Small, Industrial)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Draken\\PRP_Roof_Draken_Medium_A.m3", 4537, "!NEW! Draken Roof (Large)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Draken\\PRP_Roof_Draken_Medium_B.m3", 4538, "!NEW! Draken Roof (Large, Imposing)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Draken\\PRP_Roof_Draken_Small_A.m3", 4539, "!NEW! Draken Roof (Small)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Draken\\PRP_Roof_Draken_Small_B.m3", 4540, "!NEW! Draken Roof (Small, Imposing)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Exile\\PRP_Roof_ExileMedium_A.m3", 4541, "!NEW! Exile Roof (Large, Veranda)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Exile\\PRP_Roof_ExileMedium_B.m3", 4542, "!NEW! Exile Roof (Large)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Exile\\PRP_Roof_ExileSmall_A.m3", 4543, "!NEW! Exile Roof (Small, Rounded)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Exile\\PRP_Roof_ExileSmall_B.m3", 4544, "!NEW! Exile Roof (Small, ", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Generic\\PRP_Roof_Bird_A.m3", 4545, "!NEW! Bird House (Hoogle)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Generic\\PRP_Roof_Bird_B.m3", 4546, "!NEW! Bird House (Leafy)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Generic\\PRP_Roof_Bird_C.m3", 4547, "!NEW! Bird House (Bearded Hoogle)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Granok\\PRP_Roof_GranokMedium_A.m3", 4548, "!NEW! Granok Roof (Double, Pipes)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Granok\\PRP_Roof_GranokMedium_B.m3", 4549, "!NEW! Granok Roof (Double, Shingles)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Granok\\PRP_Roof_GranokSmall_A.m3", 4550, "!NEW! Granok Roof (Small, Boulder)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Granok\\PRP_Roof_GranokSmall_B.m3", 4551, "!NEW! Granok Roof (Small, Slanted)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Granok\\PRP_Roof_GranokSmall_C.m3", 4552, "!NEW! Granok Roof (Small, Shingled)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Osun\\PRP_Roof_Osun_A.m3", 4553, "!NEW! Osun Pinnacle (Statues)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Osun\\PRP_Roof_Osun_B.m3", 4554, "!NEW! Osun Pinnacle (Pointy)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Osun\\PRP_Roof_Osun_C.m3", 4555, "!NEW! Osun Pinnacle (Sword)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Aurin\\PRP_Entry_Aurin_A.m3", 4556, "!NEW! Wooden Ramp (Natural, Wide)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Aurin\\PRP_Entry_Aurin_B.m3", 4557, "!NEW! Aurin Stairs (Short)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Aurin\\PRP_Entry_Aurin_C.m3", 4558, "!NEW! Aurin Ramp", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Aurin\\PRP_Entry_Aurin_D.m3", 4559, "!NEW! Aurin Stairs (Short, Ornate)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Aurin\\PRP_Entry_Aurin_Medium_A.m3", 4560, "!NEW! Wooden Ramp (Natural, Long)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Aurin\\PRP_Entry_Aurin_Medium_B.m3", 4561, "!NEW! Aurin Stairs (Long)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Aurin\\PRP_Entry_Aurin_Medium_C.m3", 4562, "!NEW! Aurin Ramp (Wide)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Aurin\\PRP_Entry_Aurin_Medium_D.m3", 4563, "!NEW! Aurin Stairs (Long, Ornate)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Cassian\\PRP_Entry_CassianMedium_A.m3", 4564, "!NEW! Cassian Stone Stairs (Pointy)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Cassian\\PRP_Entry_CassianMedium_C.m3", 4565, "!NEW! Cassian Entry (Large, Gated)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Cassian\\PRP_Entry_CassianMedium_ClosedBack_B.m3", 4566, "!NEW! Cassian Entry (Large)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Cassian\\PRP_Entry_CassianSmall_A.m3", 4567, "!NEW! Cassian Stone Stairs (Round)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Cassian\\PRP_Entry_CassianSmall_C.m3", 4568, "!NEW! Cassian Entry (Small, Gated)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Cassian\\PRP_Entry_CassianSmall_ClosedBack_B.m3", 4569, "!NEW! Cassian Entry (Small)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Chua\\PRP_Entry_ChuaMedium_A.m3", 4570, "!NEW! Metal Stairs (Chua)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Chua\\PRP_Entry_ChuaMedium_B.m3", 4571, "!NEW! Metal Stairs (Chua, Tanks)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Chua\\PRP_Entry_ChuaMedium_C.m3", 4572, "!NEW! Metal Stairs (Chua, Industrial)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Draken\\PRP_Entry_Draken_Medium_A.m3", 4573, "!NEW! Draken Entry (Large)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Draken\\PRP_Entry_Draken_Medium_B.m3", 4574, "!NEW! Draken Entry (Large, Chains)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Draken\\PRP_Entry_Draken_Medium_C.m3", 4575, "!NEW! Draken Entry (Large, Mouth)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Draken\\PRP_Entry_Draken_Small_A.m3", 4576, "!NEW! Draken Entry (Small)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Draken\\PRP_Entry_Draken_Small_B.m3", 4577, "!NEW! Draken Entry (Small, Chains)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Draken\\PRP_Entry_Draken_Small_c.m3", 4578, "!NEW! Draken Entry (Small, Mouth)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Exile\\PRP_Entry_ExileSmall_A.m3", 4579, "!NEW! Exile Entry Stairs (Small, Simple)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Exile\\PRP_Entry_ExileSmall_B.m3", 4580, "!NEW! Exile Entry Stairs (Small, Sheltered)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Exile\\PRP_Entry_ExileSmall_C.m3", 4581, "!NEW! Exile Entry Stairs (Small, Wooden)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Exile\\PRP_Entry_Exile_A.m3", 4582, "!NEW! Exile Entry Stairs (Large, Pillars)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Exile\\PRP_Entry_Exile_B.m3", 4583, "!NEW! Exile Entry Stairs (Large, Simple)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Exile\\PRP_Entry_Exile_C.m3", 4584, "!NEW! Exile Entry Stairs (Large, Wooden)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Generic\\PRP_Entry_Bird_A.m3", 4585, "!NEW! Bird House Platform", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Generic\\PRP_Entry_Bird_B.m3", 4586, "!NEW! Bird House Platform (Fancy)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Generic\\PRP_Entry_Bird_C.m3", 4587, "!NEW! Bird House Platform (Gnarly)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Granok\\PRP_Entry_Granok_B_Clean.m3", 4588, "!NEW! Granok Entry (Large, Stone Awning)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Granok\\PRP_Entry_Granok_C_clean.m3", 4589, "!NEW! Granok Entry (Large, Round Stairs)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Space\\PRP_Entry_Space_Small_A.m3", 4590, "!NEW! Twisting Bridge", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Aurin\\PRP_Door_Aurin_A.m3", 4591, "!NEW! Aurin Door (Glowing)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Aurin\\PRP_Door_Aurin_C.m3", 4592, "!NEW! Aurin Door (Red)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Cassian\\PRP_Door_CassianMedium_A.m3", 4593, "!NEW! Cassian Door (Reinforced)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Cassian\\PRP_Door_CassianSmall_c.m3", 4594, "!NEW! Cassian Door (Luminai)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Chua\\PRP_Door_Chua_A.m3", 4595, "!NEW! Chua Door", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Chua\\PRP_Door_Chua_B.m3", 4596, "!NEW! Chua Door (Window)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Chua\\PRP_Door_Chua_C.m3", 4597, "!NEW! Chua Door (Spiral)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Draken\\PRP_Door_Draken_Medium_A.m3", 4598, "!NEW! Curtains (Draken)", DecorCategory.Accents, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Draken\\PRP_Door_Draken_Small_A.m3", 4599, "!NEW! Draken Door (Glowing)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Draken\\PRP_Door_Draken_Small_B.m3", 4600, "!NEW! Draken Door (Double)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Draken\\PRP_Door_Draken_Small_C.m3", 4601, "!NEW! Mouth Door", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Generic\\PRP_Door_Bird_A.m3", 4602, "!NEW! Bird House Door (Overgrown)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Generic\\PRP_Door_Bird_B.m3", 4603, "!NEW! Bird House Door (Wooden)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Generic\\PRP_Door_Bird_C.m3", 4604, "!NEW! Bird House Door (Stone)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Generic\\PRP_Door_BlackHole_A.m3", 4605, "!NEW! Black Hole", DecorCategory.Special, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Generic\\PRP_Door_Hatch_A.m3", 4606, "!NEW! Bunker Hatch", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Granok\\PRP_Door_Granok_A.m3", 4607, "!NEW! Granok Door", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Granok\\PRP_Door_Granok_B.m3", 4608, "!NEW! Granok Door (Round)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Osun\\PRP_Door_Osun_A.m3", 4609, "!NEW! Osun Door (Reinforced)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Osun\\PRP_Door_Osun_B.m3", 4610, "!NEW! Osun Door (Ornate)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Osun\\PRP_Door_Osun_C.m3", 4611, "!NEW! Osun Door (Face)", DecorCategory.BuildingBlocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\MoorRock\\PRP_Rock_MoorRock_005.m3", 4612, "!NEW! Rock Pillar (Tapered)", DecorCategory.Rocks, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RottersBelt\\PRP_Rock_RottersBeltCrystal_Green_000.m3", 4613, "!NEW! Crystal Formation (Green, Snowy)", DecorCategory.Accents, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RottersBelt\\PRP_Rock_RottersBeltCrystal_Green_001.m3", 4614, "!NEW! Crystal Formation (Green,Floating)", DecorCategory.Accents, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RottersBelt\\PRP_Rock_RottersBeltCrystal_Green_002.m3", 4615, "!NEW! Crystal Formation (Green)", DecorCategory.Accents, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RottersBelt\\PRP_Rock_RottersBeltCrystal_Green_003.m3", 4616, "!NEW! Crystal Chunk (Green)", DecorCategory.Accents, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RottersBelt\\PRP_Rock_RottersBeltCrystal_Green_004.m3", 4617, "!NEW! Floating Crystal Fragments", DecorCategory.Accents, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RottersBelt\\PRP_Rock_RottersBeltCrystal_Orange_002.m3", 4618, "!NEW! Crystal Cluster (Blue)", DecorCategory.Accents, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RottersBelt\\PRP_Rock_RottersBeltCrystal_Orange_003.m3", 4619, "!NEW! Crystal Chunk (Blue)", DecorCategory.Accents, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Crystals\\PRP_Crystals_RED_000.m3", 4620, "!NEW! Floating Crystals (Red)", DecorCategory.Accents, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Crystals\\PRP_crystal_001.m3", 4621, "!NEW! Blue Crystal (Blunt)", DecorCategory.Accents, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Crystals\\PRP_crystal_002.m3", 4622, "!NEW! Blue Crystal (Pointy)", DecorCategory.Accents, false, 4);
-            AddGenericDecor("Art\\Prop\\Natural\\Crystals\\PRP_crystal_RED_001.m3", 4623, "!NEW! Orange Crystal (Blunt)", DecorCategory.Accents, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Fog\\PRP_Fog_GroundCover_000.m3", 4483, "Creeping Fog", DecorCategory.ParticleEffects, true, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Tree\\Large_umberla_Pine\\PRP_Tree_LargeUmberla_LargePine_001.m3", 4484, "Umbrella Pine (Violet)", DecorCategory.Trees, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Tree\\Large_umberla_Pine\\PRP_Tree_LargeUmberla_MidPine_000.m3", 4485, "Umbrella Pine (Lanky)", DecorCategory.Trees, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Tree\\TreeofLife\\LifeInfused\\PRP_Tree_SkinnyTall_Yellow_Deciduous_LifeInfused_000.m3", 4486, "Life-Infused Tree", DecorCategory.Trees, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Tree\\TreeofLife\\LifeInfused\\PRP_Tree_SkinnyTall_Yellow_Deciduous_LifeInfused_001.m3", 4487, "Life-Infused Tree (Bushy)", DecorCategory.Trees, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Tree\\TreeofLife\\LifeInfused\\PRP_Tree_SkinnyTall_Yellow_Deciduous_LifeInfused_002.m3", 4488, "Life-Infused Tree (Pointy)", DecorCategory.Trees, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Tree\\Dead_RootyMangrove\\PRP_Tree_Dead_RootyMangrove_Brown_000.m3", 4489, "Mangrove Tree (Yellow)", DecorCategory.Trees, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Large_000.m3", 4490, "Green Swirly Rock (Flat)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Large_001.m3", 4491, "Green Swirly Rock (Pointy)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Large_002.m3", 4492, "Green Swirly Rock (Cross)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Large_003.m3", 4493, "Green Swirly Rock (Teardrop)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Mid_000.m3", 4494, "Green Swirly Rock (Egg-Shaped, Green)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Mid_001.m3", 4495, "Green Swirly Rock (Curved)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Mid_002.m3", 4496, "Green Swirly Rock (Concave)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Mid_003.m3", 4497, "Green Swirly Rock (Smooth)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Small_000.m3", 4498, "Green Swirly Rock (Uneven)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Small_001.m3", 4499, "Green Swirly Rock (Double)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Small_002.m3", 4500, "Green Swirly Rock", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RoundSwirlCracks\\PRP_Rock_SwirlCracks_Small_003.m3", 4501, "Green Swirly Rock (Greener)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Primal\\PRP_Rock_Primal_EarthCrystal_000.m3", 4502, "Primal Earth Crystal", DecorCategory.Accents, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_000.m3", 4503, "Creepy Rock (Jagged, Vines)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_001.m3", 4504, "Creepy Rock (Looming, Vines)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_002.m3", 4505, "Creepy Rock (Balanced, Vines)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_003.m3", 4506, "Creepy Rock (Claw-Shaped, Vines)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_004.m3", 4507, "Creepy Rock (Pointy, Vines)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_Wire_000.m3", 4508, "Creepy Rock (Jagged, Wires)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_Wire_001.m3", 4509, "Creepy Rock (Looming, Wires)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_Wire_002.m3", 4510, "Creepy Rock (Balanced, Wires)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_Wire_003.m3", 4511, "Creepy Rock (Claw-Shaped, Wires)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Creepy_Wire_004.m3", 4512, "Creepy Rock (Pointy, Wires)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Stonehenge_000.m3", 4513, "Tall Rock (Style 1)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Stonehenge_001.m3", 4514, "Tall Rock (Style 2)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Stonehenge_002.m3", 4515, "Tall Rock (Style 3)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Stonehenge_003.m3", 4516, "Tall Rock (Style 4)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Dreadmoor\\PRP_Rocks_Dreadmoor_Stonehenge_004.m3", 4517, "Tall Rock (Style 5)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Whitevale_Crater\\PRP_Rock_Whitevale_Crater_000.m3", 4518, "Floating Crater", DecorCategory.Special, false, 4);
+            AddGenericDecor("Art\\Water\\Waterfall\\Water_Waterfall_Turbulence_000.m3", 4519, "Turbulence", DecorCategory.ParticleEffects, true, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Aurin\\PRP_Roof_Aurin_Medium_A.m3", 4520, "Aurin Roof (Large, Purple)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Aurin\\PRP_Roof_Aurin_Medium_B.m3", 4521, "Aurin Roof (Large, Blue)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Aurin\\PRP_Roof_Aurin_Medium_C.m3", 4522, "Aurin Roof (Large, Magenta)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Aurin\\PRP_Roof_Aurin_Medium_D.m3", 4523, "Aurin Roof (Large, Red)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Aurin\\PRP_Roof_Aurin_Small_A.m3", 4524, "Aurin Roof (Small, Pink)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Aurin\\PRP_Roof_Aurin_Small_B.m3", 4525, "Aurin Roof (Small, Blue)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Aurin\\PRP_Roof_Aurin_Small_C.m3", 4526, "Aurin Roof (Small, Violet)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Cassian\\PRP_Roof_CassianMedium_A.m3", 4527, "Cassian Roof (Large)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Cassian\\PRP_Roof_CassianMedium_B.m3", 4528, "Cassian Roof (Large, Curvy)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Cassian\\PRP_Roof_CassianSmall_A.m3", 4529, "Cassian Roof (Small)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Cassian\\PRP_Roof_CassianSmall_B.m3", 4530, "Cassian Roof (Small, Shingled)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Chua\\PRP_Roof_ChuaMedium_A.m3", 4531, "Chua Roof Cap (Large)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Chua\\PRP_Roof_ChuaMedium_B.m3", 4532, "Chua Roof Cap (Large, Elaborate)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Chua\\PRP_Roof_ChuaMedium_C.m3", 4533, "Chua Roof Cap (Large, Industrial)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Chua\\PRP_Roof_Chuasmall_A.m3", 4534, "Chua Roof Cap (Small)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Chua\\PRP_Roof_Chuasmall_B.m3", 4535, "Chua Roof Cap (Small, Smoking)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Chua\\PRP_Roof_Chuasmall_C.m3", 4536, "Chua Roof Cap (Small, Industrial)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Draken\\PRP_Roof_Draken_Medium_A.m3", 4537, "Draken Roof (Large)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Draken\\PRP_Roof_Draken_Medium_B.m3", 4538, "Draken Roof (Large, Imposing)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Draken\\PRP_Roof_Draken_Small_A.m3", 4539, "Draken Roof (Small)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Draken\\PRP_Roof_Draken_Small_B.m3", 4540, "Draken Roof (Small, Imposing)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Exile\\PRP_Roof_ExileMedium_A.m3", 4541, "Exile Roof (Large, Veranda)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Exile\\PRP_Roof_ExileMedium_B.m3", 4542, "Exile Roof (Large)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Exile\\PRP_Roof_ExileSmall_A.m3", 4543, "Exile Roof (Small, Rounded)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Exile\\PRP_Roof_ExileSmall_B.m3", 4544, "Exile Roof (Small, ", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Generic\\PRP_Roof_Bird_A.m3", 4545, "Bird House (Hoogle)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Generic\\PRP_Roof_Bird_B.m3", 4546, "Bird House (Leafy)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Generic\\PRP_Roof_Bird_C.m3", 4547, "Bird House (Bearded Hoogle)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Granok\\PRP_Roof_GranokMedium_A.m3", 4548, "Granok Roof (Double, Pipes)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Granok\\PRP_Roof_GranokMedium_B.m3", 4549, "Granok Roof (Double, Shingles)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Granok\\PRP_Roof_GranokSmall_A.m3", 4550, "Granok Roof (Small, Boulder)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Granok\\PRP_Roof_GranokSmall_B.m3", 4551, "Granok Roof (Small, Slanted)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Granok\\PRP_Roof_GranokSmall_C.m3", 4552, "Granok Roof (Small, Shingled)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Osun\\PRP_Roof_Osun_A.m3", 4553, "Osun Pinnacle (Statues)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Osun\\PRP_Roof_Osun_B.m3", 4554, "Osun Pinnacle (Pointy)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Roof\\Osun\\PRP_Roof_Osun_C.m3", 4555, "Osun Pinnacle (Sword)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Aurin\\PRP_Entry_Aurin_A.m3", 4556, "Wooden Ramp (Natural, Wide)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Aurin\\PRP_Entry_Aurin_B.m3", 4557, "Aurin Stairs (Short)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Aurin\\PRP_Entry_Aurin_C.m3", 4558, "Aurin Ramp", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Aurin\\PRP_Entry_Aurin_D.m3", 4559, "Aurin Stairs (Short, Ornate)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Aurin\\PRP_Entry_Aurin_Medium_A.m3", 4560, "Wooden Ramp (Natural, Long)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Aurin\\PRP_Entry_Aurin_Medium_B.m3", 4561, "Aurin Stairs (Long)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Aurin\\PRP_Entry_Aurin_Medium_C.m3", 4562, "Aurin Ramp (Wide)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Aurin\\PRP_Entry_Aurin_Medium_D.m3", 4563, "Aurin Stairs (Long, Ornate)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Cassian\\PRP_Entry_CassianMedium_A.m3", 4564, "Cassian Stone Stairs (Pointy)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Cassian\\PRP_Entry_CassianMedium_C.m3", 4565, "Cassian Entry (Large, Gated)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Cassian\\PRP_Entry_CassianMedium_ClosedBack_B.m3", 4566, "Cassian Entry (Large)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Cassian\\PRP_Entry_CassianSmall_A.m3", 4567, "Cassian Stone Stairs (Round)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Cassian\\PRP_Entry_CassianSmall_C.m3", 4568, "Cassian Entry (Small, Gated)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Cassian\\PRP_Entry_CassianSmall_ClosedBack_B.m3", 4569, "Cassian Entry (Small)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Chua\\PRP_Entry_ChuaMedium_A.m3", 4570, "Metal Stairs (Chua)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Chua\\PRP_Entry_ChuaMedium_B.m3", 4571, "Metal Stairs (Chua, Tanks)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Chua\\PRP_Entry_ChuaMedium_C.m3", 4572, "Metal Stairs (Chua, Industrial)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Draken\\PRP_Entry_Draken_Medium_A.m3", 4573, "Draken Entry (Large)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Draken\\PRP_Entry_Draken_Medium_B.m3", 4574, "Draken Entry (Large, Chains)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Draken\\PRP_Entry_Draken_Medium_C.m3", 4575, "Draken Entry (Large, Mouth)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Draken\\PRP_Entry_Draken_Small_A.m3", 4576, "Draken Entry (Small)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Draken\\PRP_Entry_Draken_Small_B.m3", 4577, "Draken Entry (Small, Chains)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Draken\\PRP_Entry_Draken_Small_c.m3", 4578, "Draken Entry (Small, Mouth)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Exile\\PRP_Entry_ExileSmall_A.m3", 4579, "Exile Entry Stairs (Small, Simple)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Exile\\PRP_Entry_ExileSmall_B.m3", 4580, "Exile Entry Stairs (Small, Sheltered)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Exile\\PRP_Entry_ExileSmall_C.m3", 4581, "Exile Entry Stairs (Small, Wooden)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Exile\\PRP_Entry_Exile_A.m3", 4582, "Exile Entry Stairs (Large, Pillars)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Exile\\PRP_Entry_Exile_B.m3", 4583, "Exile Entry Stairs (Large, Simple)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Exile\\PRP_Entry_Exile_C.m3", 4584, "Exile Entry Stairs (Large, Wooden)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Generic\\PRP_Entry_Bird_A.m3", 4585, "Bird House Platform", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Generic\\PRP_Entry_Bird_B.m3", 4586, "Bird House Platform (Fancy)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Generic\\PRP_Entry_Bird_C.m3", 4587, "Bird House Platform (Gnarly)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Granok\\PRP_Entry_Granok_B_Clean.m3", 4588, "Granok Entry (Large, Stone Awning)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Granok\\PRP_Entry_Granok_C_clean.m3", 4589, "Granok Entry (Large, Round Stairs)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Space\\PRP_Entry_Space_Small_A.m3", 4590, "Twisting Bridge", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Aurin\\PRP_Door_Aurin_A.m3", 4591, "Aurin Door (Glowing)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Aurin\\PRP_Door_Aurin_C.m3", 4592, "Aurin Door (Red)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Cassian\\PRP_Door_CassianMedium_A.m3", 4593, "Cassian Door (Reinforced)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Cassian\\PRP_Door_CassianSmall_c.m3", 4594, "Cassian Door (Luminai)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Chua\\PRP_Door_Chua_A.m3", 4595, "Chua Door", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Chua\\PRP_Door_Chua_B.m3", 4596, "Chua Door (Window)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Chua\\PRP_Door_Chua_C.m3", 4597, "Chua Door (Spiral)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Draken\\PRP_Door_Draken_Medium_A.m3", 4598, "Curtains (Draken)", DecorCategory.Accents, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Draken\\PRP_Door_Draken_Small_A.m3", 4599, "Draken Door (Glowing)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Draken\\PRP_Door_Draken_Small_B.m3", 4600, "Draken Door (Double)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Draken\\PRP_Door_Draken_Small_C.m3", 4601, "Mouth Door", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Generic\\PRP_Door_Bird_A.m3", 4602, "Bird House Door (Overgrown)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Generic\\PRP_Door_Bird_B.m3", 4603, "Bird House Door (Wooden)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Generic\\PRP_Door_Bird_C.m3", 4604, "Bird House Door (Stone)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Generic\\PRP_Door_BlackHole_A.m3", 4605, "Black Hole", DecorCategory.Special, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Generic\\PRP_Door_Hatch_A.m3", 4606, "Bunker Hatch", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Granok\\PRP_Door_Granok_A.m3", 4607, "Granok Door", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Granok\\PRP_Door_Granok_B.m3", 4608, "Granok Door (Round)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Osun\\PRP_Door_Osun_A.m3", 4609, "Osun Door (Reinforced)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Osun\\PRP_Door_Osun_B.m3", 4610, "Osun Door (Ornate)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Housing\\Decor\\Door\\Osun\\PRP_Door_Osun_C.m3", 4611, "Osun Door (Face)", DecorCategory.BuildingBlocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\MoorRock\\PRP_Rock_MoorRock_005.m3", 4612, "Rock Pillar (Tapered)", DecorCategory.Rocks, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RottersBelt\\PRP_Rock_RottersBeltCrystal_Green_000.m3", 4613, "Crystal Formation (Green, Snowy)", DecorCategory.Accents, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RottersBelt\\PRP_Rock_RottersBeltCrystal_Green_001.m3", 4614, "Crystal Formation (Green,Floating)", DecorCategory.Accents, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RottersBelt\\PRP_Rock_RottersBeltCrystal_Green_002.m3", 4615, "Crystal Formation (Green)", DecorCategory.Accents, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RottersBelt\\PRP_Rock_RottersBeltCrystal_Green_003.m3", 4616, "Crystal Chunk (Green)", DecorCategory.Accents, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RottersBelt\\PRP_Rock_RottersBeltCrystal_Green_004.m3", 4617, "Floating Crystal Fragments", DecorCategory.Accents, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RottersBelt\\PRP_Rock_RottersBeltCrystal_Orange_002.m3", 4618, "Crystal Cluster (Blue)", DecorCategory.Accents, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\RottersBelt\\PRP_Rock_RottersBeltCrystal_Orange_003.m3", 4619, "Crystal Chunk (Blue)", DecorCategory.Accents, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Crystals\\PRP_Crystals_RED_000.m3", 4620, "Floating Crystals (Red)", DecorCategory.Accents, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Crystals\\PRP_crystal_001.m3", 4621, "Blue Crystal (Blunt)", DecorCategory.Accents, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Crystals\\PRP_crystal_002.m3", 4622, "Blue Crystal (Pointy)", DecorCategory.Accents, false, 4);
+            AddGenericDecor("Art\\Prop\\Natural\\Crystals\\PRP_crystal_RED_001.m3", 4623, "Orange Crystal (Blunt)", DecorCategory.Accents, false, 4);
             AddGenericDecor("Art\\Prop\\Natural\\Roots\\DeraduneCanopy\\PRP_Roots_DeraduneCanopy_Leaf_000.m3", 4624, "!NEW! Big Leaf", DecorCategory.Plants, false, 5);
             AddGenericDecor("Art\\Prop\\Natural\\Tree\\Dead_RootyMangrove\\PRP_Canopy_Dead_RootyMangrove_Brown_000.m3", 4625, "!NEW! Mangrove Canopy (Yellow)", DecorCategory.Trees, false, 5);
             AddGenericDecor("Art\\Prop\\Natural\\Tree\\Dead_RootyMangrove\\PRP_Tree_Dead_RootyMangroveFallen_Brown_001.m3", 4626, "!NEW! Mangrove Tree (Yellow, Fallen)", DecorCategory.Trees, false, 5);
@@ -1232,26 +1246,96 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Heated\\PRP_Heated_Pipes_004.m3", 4826, "!NEW! Lava Pipe (Long, Curved)", DecorCategory.BuildingBlocks, false, 5);
             AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Heated\\PRP_Heated_Piping_Big_000.m3", 4827, "!NEW! Lava-Extraction Platform", DecorCategory.BuildingBlocks, false, 5);
             AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Heated\\PRP_Heated_Piping_Small_001.m3", 4828, "!NEW! Lava Tank", DecorCategory.BuildingBlocks, false, 5);
-            AddGroundOption("The Floor Is Lava", 579, 580);
-            AddGroundOption("Volcanic", 580, 579);
-            AddGroundOption("Arcterra", 991, 1159);
-            AddGroundOption("Ice Rubble", 1158, 458);
-            AddGroundOption("Ice Drift", 1257, 1256);
-            AddGroundOption("Desolation", 24, 260);
-            AddGroundOption("Galeras Meadow", 757, 544);
-            AddGroundOption("Paved", 1079, 1079);
-            AddGroundOption("Runed Temple Floor", 249, 250);
-            AddGroundOption("Overgrown Pavement", 1079, 422);
-            AddGroundOption("Sleeping Volcano", 580, 422);
-            AddGroundOption("Hot and Cold", 1257, 579);
-            AddGroundOption("Crystal Field (Yellow in Grass)", 105, 893);
-            AddGroundOption("Crystal Field (Blue in Dirt)", 894, 464);
-            AddGroundOption("Halon Ring", 336, 1172);
-            AddGroundOption("Tech", 299, 484);
-            AddGroundOption("Eldan Hexagons", 608, 608);
-            AddGroundOption("Eldan Hexagons (Corrupted)", 921, 921);
-            AddGroundOption("Metal Hexagons", 953, 953);
-            AddGroundOption("Scorched Rock", 580, 1250);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\BoxyObsidianBlack\\PRP_Rock_BoxyObsidian_Black_002.m3", 4829, "!NEW! Obsidian Rock Column", DecorCategory.Rocks, false, 6);
+            AddGenericDecor("Art\\Water\\Waterfall\\Water_Waterfall_MistFX_000.m3", 4830, "!NEW! Mist Wall", DecorCategory.ParticleEffects, true, 6);
+            AddGenericDecor("Art\\Water\\Waterfall\\Water_Waterfall_MistFX_001.m3", 4831, "!NEW! Mist Wall (Dark)", DecorCategory.ParticleEffects, true, 6);
+            AddGenericDecor("Art\\Water\\Waterfall\\Water_Waterfall_RippleFX_000.m3", 4832, "!NEW! Water Ripples", DecorCategory.ParticleEffects, true, 6);
+            AddGenericDecor("Art\\Prop\\Natural\\Tree\\Elderoot\\PRP_Tree_Elderoot_Tentacles_000.m3", 4833, "!NEW! Wiggling Augmented Stump", DecorCategory.Trees, false, 6);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\PRP_Rock_Exanite_TreeofLifeGateDestroyed_000.m3", 4834, "!NEW! Overgrown Exanite Wall (Broken)", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\PRP_Rock_Exanite_TreeofLifeGate_000.m3", 4835, "!NEW! Overgrown Exanite Wall", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Natural\\Roots\\TreeofLife\\PRP_Tree_TreeofLife_Roots_000.m3", 4836, "!NEW! Liferoot (Curved)", DecorCategory.Trees, false, 6);
+            AddGenericDecor("Art\\Prop\\Natural\\Roots\\TreeofLife\\PRP_Tree_TreeofLife_Roots_001.m3", 4837, "!NEW! Liferoot (Split)", DecorCategory.Trees, false, 6);
+            AddGenericDecor("Art\\Prop\\Natural\\Roots\\TreeofLife\\PRP_Tree_TreeofLife_Roots_002.m3", 4838, "!NEW! Liferoot (Pointy)", DecorCategory.Trees, false, 6);
+            AddGenericDecor("Art\\Prop\\Natural\\Roots\\TreeofLife\\PRP_Tree_TreeofLife_Roots_003.m3", 4839, "!NEW! Liferoot (Forked)", DecorCategory.Trees, false, 6);
+            AddGenericDecor("Art\\Prop\\Natural\\Roots\\TreeofLife\\PRP_Tree_TreeofLife_Roots_004.m3", 4840, "!NEW! Liferoot (Gnarly)", DecorCategory.Trees, false, 6);
+            AddGenericDecor("Art\\Prop\\Natural\\Roots\\DeadBranchRoot\\PRP_Root_DreadmoorDeadBranch_GreenBrown_000.m3", 4841, "!NEW! Mossy Root Archway", DecorCategory.Trees, false, 6);
+            AddGenericDecor("Art\\Prop\\Natural\\Roots\\DeadBranchRoot\\PRP_Root_DreadmoorDeadBranch_GreenBrown_001.m3", 4842, "!NEW! Mossy Root Archway (Wide)", DecorCategory.Trees, false, 6);
+            AddGenericDecor("Art\\Prop\\Natural\\Roots\\DeadBranchRoot\\PRP_Root_DreadmoorDeadBranch_GreenBrown_002.m3", 4843, "!NEW! Mossy Root Archway (Overgrown)", DecorCategory.Trees, false, 6);
+            AddGenericDecor("Art\\Prop\\Natural\\Roots\\DeadBranchRoot\\PRP_Root_DreadmoorDeadBranch_GreenBrown_003.m3", 4844, "!NEW! Mossy Root", DecorCategory.Trees, false, 6);
+            AddGenericDecor("Art\\Prop\\Natural\\Roots\\DeadBranchRoot\\PRP_Root_DreadmoorDeadBranch_GreenBrown_004.m3", 4845, "!NEW! Mossy Root (Style 2)", DecorCategory.Trees, false, 6);
+            AddGenericDecor("Art\\Prop\\Natural\\Roots\\DeraduneCanopy\\PRP_Roots_DeraduneCanopy_BlueBall_001.m3", 4846, "!NEW! Blue Bulb Growth (Style 2)", DecorCategory.Plants, false, 6);
+            AddGenericDecor("Art\\Prop\\Natural\\Roots\\DeraduneCanopy\\PRP_Roots_DeraduneCanopy_BlueBall_002.m3", 4847, "!NEW! Blue Bulb Growth (Style 3)", DecorCategory.Plants, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Aurin\\PRP_Platforms_AurinShopTeleport_001.m3", 4848, "!NEW! Floating Aurin Platform (Stairs, Railing)", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Aurin\\PRP_Platforms_AurinShopTeleport_NoRail_000.m3", 4849, "!NEW! Floating Aurin Platform (Stairs)", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Aurin\\PRP_Platforms_AurinSmallFloating_000.m3", 4850, "!NEW! Floating Aurin Platform (Railing)", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Aurin\\PRP_Platforms_AurinSmallFloating_NoRail_000.m3", 4851, "!NEW! Floating Aurin Platform", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Chua\\PRP_Platfrom_LandingPad_Chua_001.m3", 4852, "!NEW! Landing Pad (Chua)", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Drakken\\PRP_Platform_Drakken_CircularPlatform_000.m3", 4853, "!NEW! Draken Platform", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\PRP_Platform_CryoChamberRevivalPlatform_000.m3", 4854, "!NEW! Cryochamber Platform", DecorCategory.ToolsHardware, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\PRP_Platform_Stormtalon_PellPlatformLargeBackingOnly_000.m3", 4855, "!NEW! Pell Machine", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\PRP_Platform_Stormtalon_PellPlatformLargeBaseOnly_000.m3", 4856, "!NEW! Pell Platform", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\PRP_Platform_Stormtalon_PellPlatformLarge_000.m3", 4857, "!NEW! Pell PlatForm (Large)", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Protostar\\PRP_ProtostarElevatorBase_000.m3", 4858, "!NEW! Protostar Elevator Base", DecorCategory.ToolsHardware, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Protostar\\PRP_ProtostarElevator_000.m3", 4859, "!NEW! Protostar Elevator Platform", DecorCategory.ToolsHardware, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Lantern\\Marauder\\PRP_RMC_Lantern_Fancy_001.m3", 4860, "!NEW! Hanging Lamp (Fancy, Short)", DecorCategory.Lighting, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Holiday\\PartyGraw\\TotemBar\\PRP_PartyGraw_TotemBar_000.m3", 4861, "!NEW! Tiki Bar", DecorCategory.CookwareBarware, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_2Pillers_000.m3", 4862, "!NEW! Draken Twin Pillars", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_4way_000.m3", 4863, "!NEW! Draken Walkway Junction", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Curved_000.m3", 4864, "!NEW! Draken Walkway (Curved)", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_GroundStairs_000.m3", 4865, "!NEW! Draken Stairs (Imposing)", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Piller_000.m3", 4866, "!NEW! Draken Column", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Small_000.m3", 4867, "!NEW! Draken Walkway (Short)", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Stairs_000.m3", 4868, "!NEW! Draken Stairs (Long)", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Stairs_Small_000.m3", 4869, "!NEW! Draken Stairs (Short)", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Strait_000.m3", 4870, "!NEW! Draken Walkway (Long)", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Strait_001.m3", 4871, "!NEW! Draken Walkway", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Strait_002.m3", 4872, "!NEW! Draken Walkway (Reinforced)", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Strait_003.m3", 4873, "!NEW! Draken Walkway (Sheltered)", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_SideWalk_SanctuaryCommonStraight_Brown_001.m3", 4874, "!NEW! Wooden Pallet", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Sign\\Imperium\\PRP_Sign_ImperiumPropaganda_000.m3", 4875, "!NEW! Dominion Propaganda Screen", DecorCategory.Accents, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderArrows_000.m3", 4876, "!NEW! Guide Arrow (Triple)", DecorCategory.Accents, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderArrows_001.m3", 4877, "!NEW! Guide Arrow (Double)", DecorCategory.Accents, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderArrows_002.m3", 4878, "!NEW! Guide Arrow", DecorCategory.Accents, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderArrows_003.m3", 4879, "!NEW! Guide Arrow (Triple, Grey)", DecorCategory.Accents, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Sign\\Mine\\PRP_Sign_Mine_Entrance_Metal_001.m3", 4880, "!NEW! Sign (Mine, Metal)", DecorCategory.Accents, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Ikthian\\PRP_Ikthian_Pipes_000.m3", 4881, "!NEW! Ikthian Pipe", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Ikthian\\PRP_Ikthian_Pipes_001.m3", 4882, "!NEW! Ikthian Pipe (Long)", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Ikthian\\PRP_Ikthian_Pipes_002.m3", 4883, "!NEW! Ikthian Pipe (Curved)", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Ikthian\\PRP_Ikthian_Pipes_003.m3", 4884, "!NEW! Ikthian Pipe (Intersection)", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Ikthian\\PRP_Ikthian_Pipes_004.m3", 4885, "!NEW! Ikthian Pipe (Long, Curved))", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Ikthian\\PRP_Ikthian_Pipes_Stacker_000.m3", 4886, "!NEW! Ikthian Pipe Stacker", DecorCategory.BuildingBlocks, false, 6);
+            AddGenericDecor("Art\\FX\\Model\\AE\\Ice_Ground\\Ice_Ground_Decal.m3", 4887, "!NEW! Ice Patch", DecorCategory.Decals, true, 6);
+            AddGenericDecor("Art\\FX\\Model\\OT\\Buff\\Decal\\Decal_Elements\\Decal_Elements_5m_AQU.m3", 4888, "!NEW! Holographic Circle", DecorCategory.Decals, true, 6);
+            AddGenericDecor("Art\\FX\\Model\\OT\\Esper\\Graveyard\\Graveyard_SmokeyDecal_01_BLU.m3", 4889, "!NEW! Shadowy Smoke", DecorCategory.Decals, true, 6);
+            AddGenericDecor("Art\\FX\\Model\\OT\\Garr\\Vomit\\Garr_VomitDecal_90d_10mR_GRN_9.m3", 4890, "!NEW! Vomit Spray", DecorCategory.Decals, true, 6);
+            AddGenericDecor("Art\\Prop\\Constructed\\Lootpile\\PRP_Decal_LootPile_Generic_Gold_000.m3", 4891, "!NEW! Treasure Pile", DecorCategory.Decals, true, 6);
+            AddGroundOption("The Floor Is Lava", 579, 580, 286);
+            AddGroundOption("Volcanic", 580, 579, 287);
+            AddGroundOption("Arcterra", 991, 1159, 288);
+            AddGroundOption("Ice Rubble", 1158, 458, 289);
+            AddGroundOption("Ice Drift", 1257, 1256, 290);
+            AddGroundOption("Desolation", 24, 260, 291);
+            AddGroundOption("Galeras Meadow", 757, 544, 292);
+            AddGroundOption("Paved", 1079, 1079, 293);
+            AddGroundOption("Runed Temple Floor", 249, 250, 294);
+            AddGroundOption("Overgrown Pavement", 1079, 422, 295);
+            AddGroundOption("Sleeping Volcano", 580, 422, 296);
+            AddGroundOption("Hot and Cold", 1257, 579, 297);
+            AddGroundOption("Crystal Field (Yellow in Grass)", 105, 893, 298);
+            AddGroundOption("Crystal Field (Blue in Dirt)", 894, 464, 299);
+            AddGroundOption("Halon Ring", 336, 1172, 300);
+            AddGroundOption("Tech", 299, 484, 301);
+            AddGroundOption("Eldan Hexagons", 608, 608, 302);
+            AddGroundOption("Eldan Hexagons (Corrupted)", 921, 921, 303);
+            AddGroundOption("Metal Hexagons", 953, 953, 304);
+            AddGroundOption("Scorched Rock", 580, 1250, 305);
+            AddGroundOption("Verdant Rocks", 589, 422, 306);
+            AddGroundOption("Wilderrun Cavern", 430, 422, 307);
+            AddGroundOption("Galeras Valley", 82, 83, 308);
+            AddGroundOption("Rocky", 589, 259, 309);
+            AddGroundOption("Overgrown Temple", 249, 422, 310);
+            AddGroundOption("Chrome", 855, 856, 311);
+            AddGroundOption("Chronium Garden", 757, 856, 312);
             AddEmote(7834, "lounge1", "lounge", 433);
             AddEmote(7835, "lounge2", null, 434);
 
@@ -1260,6 +1344,11 @@ namespace WildStar.TestBed
 
             // BETA YOLO MOOOODE
             betaMode = true;
+
+            foreach (var table in tables)
+            {
+                table.beta = true;
+            }
 
 
             AddGenericDecor("Art\\Light\\Design\\BossFight\\LIT_Boss_NPE_Combat.m3", null, "Directional Light (Stops at Gizmo)", DecorCategory.Beta, true);
@@ -1282,16 +1371,11 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Natural\\Tree\\TreeofLife\\PRP_Tree_TreeofLife_Root_007.m3", null, "TreeofLife_Root_007", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Natural\\Tree\\TreeofLife\\PRP_Tree_TreeofLife_Root_008.m3", null, "TreeofLife_Root_008", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Natural\\Tree\\TreeofLife\\PRP_Tree_TreeofLife_Root_009.m3", null, "TreeofLife_Root_009", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\BoxyObsidianBlack\\PRP_Rock_BoxyObsidian_Black_002.m3", null, "Obsidian Rock (002)", DecorCategory.Rocks, false);
             AddGenericDecor("Art\\Prop\\Natural\\Water\\Keepfish\\PRP_Water_Keepfish_000.m3", null, "Water_Keepfish", DecorCategory.Beta, true);
             AddGenericDecor("Art\\Water\\Waterfall\\Deradune\\PRP_Waterfall_DeraduneLargeWaterfall_000.m3", null, "DeraduneLargeWaterfall_000", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Water\\Waterfall\\Deradune\\PRP_Waterfall_DeraduneLargeWaterfall_001.m3", null, "DeraduneLargeWaterfall_001", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Water\\Waterfall\\Deradune\\PRP_Waterfall_DeraduneLargeWaterfall_Mist_000.m3", null, "DeraduneLargeWaterfall_Mist", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Water\\Waterfall\\Deradune\\PRP_Waterfall_DeraduneSmallWaterfall_000.m3", null, "DeraduneSmallWaterfall", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Water\\Waterfall\\Water_Waterfall_MistFX_000.m3", null, "MistFX_000", DecorCategory.ParticleEffects, true);
-            AddGenericDecor("Art\\Water\\Waterfall\\Water_Waterfall_MistFX_001.m3", null, "MistFX_001", DecorCategory.ParticleEffects, true);
-            AddGenericDecor("Art\\Water\\Waterfall\\Water_Waterfall_RippleFX_000.m3", null, "Water Ripples", DecorCategory.ParticleEffects, true);
-            AddGenericDecor("Art\\Water\\Waterfall\\Water_Waterfall_SplashFX_000.m3", null, "SplashFX", DecorCategory.ParticleEffects, true);
             AddGenericDecor("Art\\Water\\Waterfall\\Wilderrun\\PRP_Waterfall_Wilderrun_LargerTiered_000.m3", null, "Water_Wilderrun_LargeTiered_000", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Water\\Waterfall\\Wilderrun\\PRP_Waterfall_Wilderrun_LargerTiered_001.m3", null, "Water_Wilderrun_LargeTiered_001", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Water\\Waterfall\\Wilderrun\\PRP_Waterfall_Wilderrun_LargerTiered_002.m3", null, "Water_Wilderrun_LargeTiered_002", DecorCategory.Beta, false);
@@ -1299,37 +1383,37 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Water\\Waterfall\\Wilderrun\\PRP_Waterfall_Wilderrun_LargerTiered_004.m3", null, "Water_Wilderrun_LargeTiered_004", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Water\\Waterfall\\Wilderrun\\PRP_Waterfall_Wilderrun_TempleFalls_000.m3", null, "Water_Wilderrun_TempleFalls_000", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Water\\Waterfall\\Wilderrun\\PRP_Waterfall_Wilderrun_TempleFalls_Corrupted_000.m3", null, "Water_Wilderrun_TempleFalls_Corrupted", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\FX\\Echo\\Earth_BRN\\Earth_BRN.m3", null, "Echo_Earth", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Echo\\Fire_OGE\\Fire_1o5mPosY_OGE.m3", null, "Echo_Fire_000", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Echo\\Fire_OGE\\Fire_OGE.m3", null, "Echo_Fire_001", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Echo\\Shock_BLE\\Shock_BLE.m3", null, "Echo_Shock", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Echo\\Water_BLE\\Water_BLE.m3", null, "Echo_Water", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\AE\\Caster\\Fire_FireRain\\Fire_FireRain_10m.m3", null, "Caster_FireRain_000", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\AE\\Caster\\Fire_FireRain\\Fire_FireRain_SingleLarge.m3", null, "Caster_FireRain_001", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\AE\\Caster\\Fire_FireRain\\Fire_FireRain_noDecalnGrdFX_10m.m3", null, "Caster_FireRain_002", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\AE\\Caster\\Ice_Blizzard\\Ice_Blizzard_5m.m3", null, "Caster_Blizzard_000", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\AE\\Caster\\Ice_Blizzard\\Ice_Blizzard_Flurry_5m.m3", null, "Caster_Blizzard_001", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\AE\\Fire_OGE\\Fire_NoDecal_OGE.m3", null, "Model_Fire_000", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\AE\\Fire_OGE\\Fire_OGE.m3", null, "Model_Fire_001", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\AE\\Fire_Trail\\Fire_Trail_Loop_OGE.m3", null, "Model_Fire_002", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\AE\\Fire_Trail\\Fire_Trail_OGE.m3", null, "Model_Fire_003", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Test\\MMalley\\Test_Weapon_Orb_FireBall_Stationary.m3", null, "MMalley_Fireball", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Test\\SLee\\3D\\TS_Fire_Ground.m3", null, "Fire_Ground", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\Action\\Fire_Flame_OGE\\Fire_Flame_OGE.m3", null, "Fire_FLame_OGE", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\AE\\Molotov_Fire_ORA\\Molotov_Fire_ORA.m3", null, "Fire_Molotov", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\AE\\Molotov_Fire_ORA\\Molotov_Fire_noDecal_ORA.m3", null, "Fire_Molotov_noDecal", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\AE\\Probebot_Pell\\Probebot_Pell_LaserSweep_FireRing\\ProbeBot_Pell_LaserSweep_FireRing.m3", null, "Laser_FireRing", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\Cast\\Caster\\Fire_OrbitingFlames\\Fire_OrbitingFlames_OGE.m3", null, "Fire_Orbiting", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_BallDual_OGE\\Fire_BallDual_3FL_OGE.m3", null, "Fire_BallDual_3FL", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_BallDual_OGE\\Fire_BallDual_OGE.m3", null, "Fire_BallDual", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_BallQuad_OGE\\Fire_BallQuad_3FL_OGE.m3", null, "Fire_BallQuad_3FL", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_BallQuad_OGE\\Fire_BallQuad_OGE.m3", null, "Fire_BallQuad", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_Ball\\Fire_Ball_GRN_12.m3", null, "Fire_Ball_GRN", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_Ball_OGE\\Fire_Ball_3FL_OGE_12.m3", null, "Fire_Ball_3FL", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_Ball_OGE\\Fire_Ball_OGE_12.m3", null, "Fire_Ball", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_Burn_OGE\\Fire_Burn_OGE.m3", null, "Fire_urn", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_Flame_OGE\\Fire_Flame_OGE.m3", null, "(though the) Fire_Flame", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_OrbitingFlames\\Fire_OrbitingFlames_OGE.m3", null, "Caster_Fire_Orbiting", DecorCategory.Beta, true);
+            AddGenericDecor("Art\\FX\\Echo\\Earth_BRN\\Earth_BRN.m3", null, "Echo_Earth", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Echo\\Fire_OGE\\Fire_1o5mPosY_OGE.m3", null, "Echo_Fire_000", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Echo\\Fire_OGE\\Fire_OGE.m3", null, "Echo_Fire_001", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Echo\\Shock_BLE\\Shock_BLE.m3", null, "Echo_Shock", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Echo\\Water_BLE\\Water_BLE.m3", null, "Echo_Water", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\AE\\Caster\\Fire_FireRain\\Fire_FireRain_10m.m3", null, "Fire Rain (Scorched Earth)", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\AE\\Caster\\Fire_FireRain\\Fire_FireRain_SingleLarge.m3", null, "Fire Rain (Single Strike)", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\AE\\Caster\\Fire_FireRain\\Fire_FireRain_noDecalnGrdFX_10m.m3", null, "Fire Rain", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\AE\\Caster\\Ice_Blizzard\\Ice_Blizzard_5m.m3", null, "Blizzard", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\AE\\Caster\\Ice_Blizzard\\Ice_Blizzard_Flurry_5m.m3", null, "Blizzard (Intervals)", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\AE\\Fire_OGE\\Fire_NoDecal_OGE.m3", null, "Model_Fire_000", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\AE\\Fire_OGE\\Fire_OGE.m3", null, "Model_Fire_001", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\AE\\Fire_Trail\\Fire_Trail_Loop_OGE.m3", null, "Model_Fire_002", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\AE\\Fire_Trail\\Fire_Trail_OGE.m3", null, "Model_Fire_003", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Test\\MMalley\\Test_Weapon_Orb_FireBall_Stationary.m3", null, "MMalley_Fireball", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Test\\SLee\\3D\\TS_Fire_Ground.m3", null, "Fire_Ground", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\Action\\Fire_Flame_OGE\\Fire_Flame_OGE.m3", null, "Fire_FLame_OGE", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\AE\\Molotov_Fire_ORA\\Molotov_Fire_ORA.m3", null, "Fire_Molotov", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\AE\\Molotov_Fire_ORA\\Molotov_Fire_noDecal_ORA.m3", null, "Fire_Molotov_noDecal", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\AE\\Probebot_Pell\\Probebot_Pell_LaserSweep_FireRing\\ProbeBot_Pell_LaserSweep_FireRing.m3", null, "Laser_FireRing", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\Cast\\Caster\\Fire_OrbitingFlames\\Fire_OrbitingFlames_OGE.m3", null, "Fire Anomaly", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_BallDual_OGE\\Fire_BallDual_3FL_OGE.m3", null, "Fire_BallDual_3FL", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_BallDual_OGE\\Fire_BallDual_OGE.m3", null, "Fire_BallDual", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_BallQuad_OGE\\Fire_BallQuad_3FL_OGE.m3", null, "Fire_BallQuad_3FL", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_BallQuad_OGE\\Fire_BallQuad_OGE.m3", null, "Fire_BallQuad", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_Ball\\Fire_Ball_GRN_12.m3", null, "Fire_Ball_GRN", DecorCategory.ParticleEffects, false);
+            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_Ball_OGE\\Fire_Ball_3FL_OGE_12.m3", null, "Fire_Ball_3FL", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_Ball_OGE\\Fire_Ball_OGE_12.m3", null, "Fire_Ball", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_Burn_OGE\\Fire_Burn_OGE.m3", null, "Fire_urn", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_Flame_OGE\\Fire_Flame_OGE.m3", null, "(though the) Fire_Flame", DecorCategory.ParticleEffects, true);
+            AddGenericDecor("Art\\FX\\Model\\Cast\\Fire_OrbitingFlames\\Fire_OrbitingFlames_OGE.m3", null, "Caster_Fire_Orbiting", DecorCategory.ParticleEffects, true);
             AddGenericDecor("Art\\Prop\\Constructed\\Robots\\WorldDestroyer_Destroyed\\PRP_WorldDestroyer_Torso_002.m3", null, "Destroyer_Torso_002", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Cassian\\PRP_Entry_CassianMedium_B.m3", null, "Entry_Cassian_B", DecorCategory.BuildingBlocks, false);
             AddGenericDecor("Art\\Prop\\Housing\\Decor\\Entry\\Cassian\\PRP_Entry_CassianSmall_B.m3", null, "Entry_Cassian_Small_B", DecorCategory.BuildingBlocks, false);
@@ -1358,42 +1442,35 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Natural\\Crystals\\PRP_Crystals_AlgorocMineCrystal_Blue_006.m3", null, "AlgorocMineCrystal_Blue_006", DecorCategory.Accents, false);
             AddGenericDecor("Art\\Prop\\Natural\\Crystals\\PRP_Crystals_AlgorocMineCrystals_Blue_000.m3", null, "AlgorocMineCrystal_Blue_007", DecorCategory.Accents, false);
             AddGenericDecor("Art\\Prop\\Natural\\Crystals\\PRP_Crystals_AlgorocMineCrystals_Blue_001.m3", null, "AlgorocMineCrystal_Blue_008", DecorCategory.Accents, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tree\\Deciduous_RootyMangrove\\Augmented\\PRP_Tree_Deciduous_RootyMangrove_Augmented_Green_000.m3", null, "Exanite Wall Fragment ", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tree\\Deciduous_RootyMangrove\\Augmented\\PRP_Tree_Deciduous_RootyMangrove_Augmented_Green_001.m3", null, "Exanite Wall Fragment ", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tree\\Deciduous_RootyMangrove\\Augmented\\PRP_Tree_Deciduous_RootyMangrove_Augmented_Green_002.m3", null, "Exanite Wall Fragment ", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tree\\Deciduous_RootyMangrove\\Augmented\\PRP_Tree_Deciduous_RootyMangrove_Augmented_Green_003.m3", null, "Exanite Wall Fragment ", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tree\\Elderoot\\PRP_Tree_Elderoot_Tentacles_000.m3", null, "Wiggling Augmented Stump", DecorCategory.Trees, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\BrokenWall\\PRP_Rock_Exanite_BrokenWall_000.m3", null, "Exanite_Brokenwall_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\BrokenWall\\PRP_Rock_Exanite_BrokenWall_001.m3", null, "Exanite_Brokenwall_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\BrokenWall\\PRP_Rock_Exanite_BrokenWall_002.m3", null, "Exanite_Brokenwall_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\BrokenWall\\PRP_Rock_Exanite_BrokenWall_003.m3", null, "Exanite_Brokenwall_003", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\BrokenWall\\PRP_Rock_Exanite_BrokenWall_004.m3", null, "Exanite_Brokenwall_004", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\PRP_Rock_Exanite_TreeofLifeGateDestroyed_000.m3", null, "Overgrown Exanite Wall (Broken)", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\PRP_Rock_Exanite_TreeofLifeGate_000.m3", null, "Overgrown Exanite Wall", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\Exanite_Wall\\PRP_Rock_Exanite_Wall_001.m3", null, "Exanite_Wall_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\Exanite_Wall\\PRP_Rock_Exanite_Wall_002.m3", null, "Exanite_Wall_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\Exanite_Wall\\PRP_Rock_Exanite_Wall_003.m3", null, "Exanite_Wall_003", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\Exanite_Wall\\PRP_Rock_Exanite_Wall_004.m3", null, "Exanite_Wall_004", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\Exanite_Wall\\PRP_Rock_Exanite_Wall_005.m3", null, "Exanite_Wall_005", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\Exanite_Wall\\PRP_Rock_Exanite_Wall_006.m3", null, "Exanite_Wall_006", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\Exanite_Wall\\PRP_Rock_Exanite_Wall_Illium_001.m3", null, "Exanite_Wall_Illium", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\PRP_Rock_ExanitePillarCap_Huge_000.m3", null, "ExanitePillarCap_Huge", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\PRP_Rock_ExanitePillarCap_Large_000.m3", null, "ExanitePillarCap_Large", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\PRP_Rock_ExanitePillar_Large_000.m3", null, "ExanitePillar_Large", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\PRP_Rock_ExanitePillar_Pillar_001.m3", null, "ExanitePillar_Pillar", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\PRP_Rock_ExanitePillar_Platform_000.m3", null, "ExanitePillar_Platform", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\PRP_Rock_ExanitePillar_SmallFloating_000.m3", null, "ExanitePillar_SmallFloating", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tree\\Deciduous_RootyMangrove\\Augmented\\PRP_Tree_Deciduous_RootyMangrove_Augmented_Green_000.m3", null, "Exanite Wall Fragment ", DecorCategory.Trees, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tree\\Deciduous_RootyMangrove\\Augmented\\PRP_Tree_Deciduous_RootyMangrove_Augmented_Green_001.m3", null, "Exanite Wall Fragment ", DecorCategory.Trees, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tree\\Deciduous_RootyMangrove\\Augmented\\PRP_Tree_Deciduous_RootyMangrove_Augmented_Green_002.m3", null, "Exanite Wall Fragment ", DecorCategory.Trees, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tree\\Deciduous_RootyMangrove\\Augmented\\PRP_Tree_Deciduous_RootyMangrove_Augmented_Green_003.m3", null, "Exanite Wall Fragment ", DecorCategory.Trees, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\BrokenWall\\PRP_Rock_Exanite_BrokenWall_000.m3", null, "Exanite Fragment (Zig Zag)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\BrokenWall\\PRP_Rock_Exanite_BrokenWall_001.m3", null, "Exanite Fragment (Jagged)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\BrokenWall\\PRP_Rock_Exanite_BrokenWall_002.m3", null, "Exanite Fragment (Shard)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\BrokenWall\\PRP_Rock_Exanite_BrokenWall_003.m3", null, "Exanite Fragment (Chunk)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\BrokenWall\\PRP_Rock_Exanite_BrokenWall_004.m3", null, "Exanite Fragment (Thick)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\Exanite_Wall\\PRP_Rock_Exanite_Wall_001.m3", null, "Exanite Wall (Jagged)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\Exanite_Wall\\PRP_Rock_Exanite_Wall_002.m3", null, "Exanite Wall (Layered)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\Exanite_Wall\\PRP_Rock_Exanite_Wall_004.m3", null, "Exanite Wall (Overlapping)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\Exanite_Wall\\PRP_Rock_Exanite_Wall_005.m3", null, "Exanite Wall (Sturdy)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\Exanite_Wall\\PRP_Rock_Exanite_Wall_006.m3", null, "Exanite Wall (Tall)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\Exanite_Wall\\PRP_Rock_Exanite_Wall_Illium_001.m3", null, "Exanite Wall (Craggy)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\PRP_Rock_ExanitePillarCap_Huge_000.m3", null, "Exanite Platform (Short)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\PRP_Rock_ExanitePillar_Large_000.m3", null, "Exanite Pillar", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\PRP_Rock_ExanitePillar_Platform_000.m3", null, "Exanite Platform (Tall, Blue glow)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\PRP_Rock_ExanitePillar_SmallFloating_000.m3", null, "Exanite Pillar (Floating)", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\PRP_RMT_Vents_000.m3", null, "RMT_Vents", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\PRP_RMT_Bathroom_Shower_Decals_Puddle_000.m3", null, "Shower_Decals_Puddle", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\prp_rmt_bathroom_shower_decals_Hand_000.m3", null, "Shower_Decals_Hand_000", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\prp_rmt_bathroom_shower_decals_Hand_001.m3", null, "Shower_Decals_Hand_001", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\prp_rmt_bathroom_shower_decals_LFoot_000.m3", null, "Shower_Decals_LFoot_000", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\prp_rmt_bathroom_shower_decals_LFoot_001.m3", null, "Shower_Decals_LFoot_001", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\prp_rmt_bathroom_shower_decals_RFoot_000.m3", null, "Shower_Decals_RFoot_000", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\prp_rmt_bathroom_shower_decals_RFoot_001.m3", null, "Shower_Decals_RFoot_001", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\prp_rmt_bathroom_shower_decals_Smear_000.m3", null, "Shower_Decals_Smear", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\prp_rmt_bathroom_shower_decals_Trail_000.m3", null, "Shower_Decals_Trail", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Act3\\AsteroidBelt\\PRP_RMT_AsteroidBelt_Arc_000.m3", null, "RMT_AsteroidBelt", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\PRP_RMT_Bathroom_Shower_Decals_Puddle_000.m3", null, "Puddle", DecorCategory.Beta, true);
+            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\prp_rmt_bathroom_shower_decals_Hand_000.m3", null, "Handprint (Left)", DecorCategory.Beta, true);
+            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\prp_rmt_bathroom_shower_decals_Hand_001.m3", null, "Handprint (Right, Smeared)", DecorCategory.Beta, true);
+            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\prp_rmt_bathroom_shower_decals_LFoot_000.m3", null, "Footprint (Left, (Smeared)", DecorCategory.Beta, true);
+            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\prp_rmt_bathroom_shower_decals_LFoot_001.m3", null, "Footprint (Left)", DecorCategory.Beta, true);
+            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\prp_rmt_bathroom_shower_decals_RFoot_000.m3", null, "Footprint (Right, Smeared)", DecorCategory.Beta, true);
+            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\prp_rmt_bathroom_shower_decals_RFoot_001.m3", null, "Footprint (Right)", DecorCategory.Beta, true);
+            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\prp_rmt_bathroom_shower_decals_Smear_000.m3", null, "Puddle (Smear)", DecorCategory.Beta, true);
+            AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Poop\\prp_rmt_bathroom_shower_decals_Trail_000.m3", null, "Footprint (Trail)", DecorCategory.Beta, true);
             AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Act2\\SquidPlant\\PRP_RMT_Act2_SquidPlant_000.m3", null, "RMT_Squidplant", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Act3\\SewagePipes\\PRP_RMT_SewagePipes_003.m3", null, "RMT_SewagePipes_003", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Act3\\SewagePipes\\PRP_RMT_SewagePipes_004.m3", null, "RMT_SewagePipes_004", DecorCategory.Beta, false);
@@ -1403,18 +1480,6 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\PRP_RMT_Engine_FlamePillar_000.m3", null, "Engine_FlamePillar", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\PRP_RMT_Lavaka_Grill_000.m3", null, "Lavaka_Grill", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\PRP_RMT_Lavaka_IncineratorPit_000.m3", null, "Lavaka_IncineratorPit", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Roots\\TreeofLife\\PRP_Tree_TreeofLife_Roots_000.m3", null, "Liferoot (Curved)", DecorCategory.Trees, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Roots\\TreeofLife\\PRP_Tree_TreeofLife_Roots_001.m3", null, "Liferoot (Split)", DecorCategory.Trees, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Roots\\TreeofLife\\PRP_Tree_TreeofLife_Roots_002.m3", null, "Liferoot (Pointy)", DecorCategory.Trees, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Roots\\TreeofLife\\PRP_Tree_TreeofLife_Roots_003.m3", null, "Liferoot (Forked)", DecorCategory.Trees, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Roots\\TreeofLife\\PRP_Tree_TreeofLife_Roots_004.m3", null, "Liferoot (Gnarly)", DecorCategory.Trees, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Roots\\DeadBranchRoot\\PRP_Root_DreadmoorDeadBranch_GreenBrown_000.m3", null, "DeadBranch_GreenBrown_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Roots\\DeadBranchRoot\\PRP_Root_DreadmoorDeadBranch_GreenBrown_001.m3", null, "DeadBranch_GreenBrown_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Roots\\DeadBranchRoot\\PRP_Root_DreadmoorDeadBranch_GreenBrown_002.m3", null, "DeadBranch_GreenBrown_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Roots\\DeadBranchRoot\\PRP_Root_DreadmoorDeadBranch_GreenBrown_003.m3", null, "DeadBranch_GreenBrown_003", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Roots\\DeadBranchRoot\\PRP_Root_DreadmoorDeadBranch_GreenBrown_004.m3", null, "DeadBranch_GreenBrown_004", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Roots\\DeraduneCanopy\\PRP_Roots_DeraduneCanopy_BlueBall_001.m3", null, "Blue Bulb Growth (Style 2)", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Roots\\DeraduneCanopy\\PRP_Roots_DeraduneCanopy_BlueBall_002.m3", null, "Blue Bulb Growth (Style 3)", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Logicleaf\\PRP_Tradeskill_Plant_Logicleaf_000.m3", null, "Tradeskill_Logicleaf", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\MiningNode\\Exanite\\MiningNode_Exanite_000.m3", null, "MiningNode_Exanite", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\MiningNode\\Exanite\\PRP_Tradeskill_MiningNode_Exanite_000.m3", null, "PRP_MiningNode_Exanite", DecorCategory.Beta, false);
@@ -1434,309 +1499,268 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\MiningNode\\Xenocite\\PRP_Tradeskill_MiningNode_Xenocite_000.m3", null, "PRP_MiningNode_Xenocite", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\MiningNode\\Zephyrite\\MiningNode_Zephyrite.m3", null, "MiningNode_Zephyrite", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\MiningNode\\Zephyrite\\PRP_Tradeskill_MiningNode_Zephyrite_000.m3", null, "PRP_MiningNode_Zephyrite", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Growthshroom_GRN_000.m3", null, "Growthshroom_GRN_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Growthshroom_GRN_001.m3", null, "Growthshroom_GRN_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Growthshroom_GRN_002.m3", null, "Growthshroom_GRN_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Harvestshroom_RED_000.m3", null, "Growthshroom_RED_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Harvestshroom_RED_001.m3", null, "Growthshroom_RED_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Harvestshroom_RED_002.m3", null, "Growthshroom_RED_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Renewshroom_BLU_000.m3", null, "Growthshroom_BLU_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Renewshroom_BLU_001.m3", null, "Growthshroom_BLU_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Renewshroom_BLU_002.m3", null, "Growthshroom_BLU_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Bladeleaf\\PRP_Tradeskill_Plant_Bladeleaf_000.m3", null, "Tradeskill_Plant_Bladeleaf", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\BloodBriar\\PRP_Tradeskill_Plant_BloodBriar_000.m3", null, "Tradeskill_Plant_BloodBriar", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Candleflower\\PRP_Tradeskill_Plant_Candleflower_000.m3", null, "Tradeskill_Plant_CandleFlower", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Clawblossom\\PRP_Tradeskill_Plant_Clowblossom_000.m3", null, "Tradeskill_Plant_Clowblossom", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Coralscale\\PRP_Tradeskill_Plant_Coralscale_000.m3", null, "Tradeskill_Plant_Coralscale", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Crowncorn\\PRP_Tradeskill_Plant_Crowncorn_000.m3", null, "Tradeskill_Plant_Crowncorn", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Devilspine\\PRP_Tradeskill_Plant_Devilspine_000.m3", null, "Tradeskill_Plant_Devilspine", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Faerybloom\\PRP_Tradeskill_Plant_Faerybloom_000.m3", null, "Tradeskill_Plant_Faerybloom", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Fiberstalk\\PRP_Tradeskill_Plant_Fiberstalk_000.m3", null, "Tradeskill_Plant_Fiberstalk", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Flamefrond\\PRP_Tradeskill_Plant_Flamefrond_000.m3", null, "Tradeskill_Plant_Flamefrond", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Glowmelon\\PRP_Tradeskill_Plant_Glowmelon_000.m3", null, "Tradeskill_Plant_Glowmelon", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Goldleaf\\PRP_Tradeskill_Plant_Goldleaf_000.m3", null, "Tradeskill_Plant_Goldleaf", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Grimgourd\\PRP_Tradeskill_Plant_Grimgourd_000.m3", null, "Tradeskill_Plant_Grimgourd", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Gunberry\\PRP_Tradeskill_Plant_Gunberry_000.m3", null, "Tradeskill_Plant_Gunberry", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Heartichoke\\PRP_Tradeskill_Plant_Heartichoke_000.m3", null, "Tradeskill_Plant_Heartichoke", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Honeywheat\\PRP_Tradeskill_Plant_Honeywheat_000.m3", null, "Tradeskill_Plant_Honeywheat", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Logicleaf\\PRP_Tradeskill_Plant_Logicleaf_000.m3", null, "Tradeskill_Plant_Logicleaf", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Mourningstar\\PRP_Tradeskill_Plant_Mourningstar_000.m3", null, "Tradeskill_Plant_Mourningstar", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Octopod\\PRP_Tradeskill_Plant_Octopod_000.m3", null, "Tradeskill_Plant_Octopod", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Pummelgranate\\PRP_Tradeskill_Plant_Pummelgranate_000.m3", null, "Tradeskill_Plant_Pummelgrenate", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Scorchweed\\PRP_Tradeskill_Plant_Scorchweed_000.m3", null, "Tradeskill_Plant_Scorchweed", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Serpentlily\\PRP_Tradeskill_Plant_Serpentlily_000.m3", null, "Tradeskill_Plant_Serpentlily", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Spikepetal\\PRP_Tradeskill_Plant_Spikepetal_000.m3", null, "Tradeskill_Plant_Spikepetal", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Spirovine\\PRP_Tradeskill_Plant_Spirovine_000.m3", null, "Tradeskill_Plant_Spirovine", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Stoutroot\\PRP_Tradeskill_Plant_Stoutroot_000.m3", null, "Tradeskill_Plant_Stoutroot", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Growthshroom_GRN_000.m3", null, "Mushroom (Green, Small Cluster)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Growthshroom_GRN_001.m3", null, "Mushroom (Green, Medium Cluster)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Growthshroom_GRN_002.m3", null, "Mushroom (Green, Large Cluster)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Harvestshroom_RED_000.m3", null, "Mushroom (Red, Single)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Harvestshroom_RED_001.m3", null, "Mushroom (Red, Double)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Harvestshroom_RED_002.m3", null, "Mushroom (Red, Triple)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Renewshroom_BLU_000.m3", null, "Mushroom (Blue, Single)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Renewshroom_BLU_001.m3", null, "Mushroom (Blue, Triple)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Mushrooms\\PRP_Tradeskill_Mushrooms_Renewshroom_BLU_002.m3", null, "Mushroom (Blue, Branching)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Bladeleaf\\PRP_Tradeskill_Plant_Bladeleaf_000.m3", null, "Bladeleaf", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\BloodBriar\\PRP_Tradeskill_Plant_BloodBriar_000.m3", null, "Bloodbriar", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Candleflower\\PRP_Tradeskill_Plant_Candleflower_000.m3", null, "Candle Flower", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Clawblossom\\PRP_Tradeskill_Plant_Clowblossom_000.m3", null, "Clowblossom", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Coralscale\\PRP_Tradeskill_Plant_Coralscale_000.m3", null, "Coralscale", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Crowncorn\\PRP_Tradeskill_Plant_Crowncorn_000.m3", null, "Crowncorn", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Devilspine\\PRP_Tradeskill_Plant_Devilspine_000.m3", null, "Devilspine", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Faerybloom\\PRP_Tradeskill_Plant_Faerybloom_000.m3", null, "Faerybloom", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Fiberstalk\\PRP_Tradeskill_Plant_Fiberstalk_000.m3", null, "Fiberstalk", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Flamefrond\\PRP_Tradeskill_Plant_Flamefrond_000.m3", null, "Flamefrond", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Glowmelon\\PRP_Tradeskill_Plant_Glowmelon_000.m3", null, "Glowmelons", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Goldleaf\\PRP_Tradeskill_Plant_Goldleaf_000.m3", null, "Goldleaf", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Grimgourd\\PRP_Tradeskill_Plant_Grimgourd_000.m3", null, "Grimgourd (Leafy)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Gunberry\\PRP_Tradeskill_Plant_Gunberry_000.m3", null, "Gunberry Bush", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Heartichoke\\PRP_Tradeskill_Plant_Heartichoke_000.m3", null, "Heartichoke", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Honeywheat\\PRP_Tradeskill_Plant_Honeywheat_000.m3", null, "Honeywheat", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Logicleaf\\PRP_Tradeskill_Plant_Logicleaf_000.m3", null, "Logicleaf", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Mourningstar\\PRP_Tradeskill_Plant_Mourningstar_000.m3", null, "Twisted Thornstalk Tree (Red)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Octopod\\PRP_Tradeskill_Plant_Octopod_000.m3", null, "Octopod", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Pummelgranate\\PRP_Tradeskill_Plant_Pummelgranate_000.m3", null, "Drooping Gorgefruit (Thorns)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Scorchweed\\PRP_Tradeskill_Plant_Scorchweed_000.m3", null, "Scorchweed", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Serpentlily\\PRP_Tradeskill_Plant_Serpentlily_000.m3", null, "Serpentlily", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Spikepetal\\PRP_Tradeskill_Plant_Spikepetal_000.m3", null, "Thorny Aloe (Darker)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Spirovine\\PRP_Tradeskill_Plant_Spirovine_000.m3", null, "Spiral Leaf (Summer)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Stoutroot\\PRP_Tradeskill_Plant_Stoutroot_000.m3", null, "Stoutroot", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Witherwood\\PRP_Tradeskill_Plant_Witherwood_000.m3", null, "Tradeskill_Plant_Witherwood", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Yellowbell\\PRP_Tradeskill_Plant_Yellowbell_000.m3", null, "Tradeskill_Plant_Yellowbell", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Auroria\\PRP_Tradeskill_Tree_Auroria_000.m3", null, "Tradeskill_Tree_Auroria", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\BulbyThickDecidious\\PRP_Tradeskill_Tree_BulbyThickDecidious_000.m3", null, "Tradeskill_Tree_BulbyThickDecidious", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\CelestionTreeNode\\PRP_Tree_CelestionTreeNode_Pale_000.m3", null, "Tradeskill_Tree_CelestionTree", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Coralus\\PRP_Tradeskill_Tree_Coralus_000.m3", null, "Tradeskill_Tree_Coralus", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Dreadmoore\\PRP_Tradeskill_Tree_Dreadmoore_000.m3", null, "Tradeskill_Tree_Dreadmoore", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Ellevar\\PRP_Tradeskill_Tree_Ellevar_000.m3", null, "Tradeskill_Tree_Ellevar", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Farside\\PRP_Tradeskill_Tree_Farside_000.m3", null, "Tradeskill_Tree_Farside", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Galeras\\PRP_Tradeskill_Tree_Galeras_000.m3", null, "Tradeskill_Tree_Galeras", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\HalonRing\\PRP_Tradeskill_Tree_HalonRing_000.m3", null, "Tradeskill_Tree_Halonring", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Invisible_Dead_Tree\\Invisible_Dead_Tree.m3", null, "Tradeskill_Tree_DeadTree", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Isigrol\\PRP_Tradeskill_Tree_Isigrol_000.m3", null, "Tradeskill_Tree_Isigrol", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Malgrave\\PRP_Tradeskill_Tree_Malgrave_000.m3", null, "Tradeskill_Tree_Malgrave", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Murkmire\\PRP_Tradeskill_Tree_Murkmire_000.m3", null, "Tradeskill_Tree_Murkmire", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\PointyPineThick\\PRP_Tradeskill_Tree_PointyPineTallThin_000.m3", null, "Tradeskill_Tree_PineThin", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\PointyPineThick\\PRP_Tradeskill_Tree_PointyPineThick_000.m3", null, "Tradeskill_Tree_PineThick", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Whitevale\\PRP_Tradeskill_Tree_Whitevale_000.m3", null, "Tradeskill_Tree_Whitevale", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Wilderrun\\PRP_Tradeskill_Tree_Wilderrun_000.m3", null, "Tradeskill_Tree_Wilderrun", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Aurin\\PRP_Platforms_AurinShopTeleport_001.m3", null, "AurinShopTeleport", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Aurin\\PRP_Platforms_AurinShopTeleport_NoRail_000.m3", null, "AurinShopTeleport_NoRail", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Aurin\\PRP_Platforms_AurinSmallFloating_000.m3", null, "AurinSmallFloating", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Aurin\\PRP_Platforms_AurinSmallFloating_NoRail_000.m3", null, "AurinSmallFloating_NoRail", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Chua\\PRP_Platfrom_LandingPad_Chua_001.m3", null, "LandingPad_Chua", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Plant\\Yellowbell\\PRP_Tradeskill_Plant_Yellowbell_000.m3", null, "Yellowbell", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Auroria\\PRP_Tradeskill_Tree_Auroria_000.m3", null, "Tree stump (Auroria)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\BulbyThickDecidious\\PRP_Tradeskill_Tree_BulbyThickDecidious_000.m3", null, "Tree stump (Bulby Decidious)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\CelestionTreeNode\\PRP_Tree_CelestionTreeNode_Pale_000.m3", null, "Tree stump (Celestion)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Coralus\\PRP_Tradeskill_Tree_Coralus_000.m3", null, "Tree stump (Coralus)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Dreadmoore\\PRP_Tradeskill_Tree_Dreadmoore_000.m3", null, "Tree stump (Dreadmoore)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Ellevar\\PRP_Tradeskill_Tree_Ellevar_000.m3", null, "Tree stump (Elevar)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Farside\\PRP_Tradeskill_Tree_Farside_000.m3", null, "Tree stump (Farside)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Galeras\\PRP_Tradeskill_Tree_Galeras_000.m3", null, "Tree stump (Galeras)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\HalonRing\\PRP_Tradeskill_Tree_HalonRing_000.m3", null, "Tree stump (Halon Ring)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Isigrol\\PRP_Tradeskill_Tree_Isigrol_000.m3", null, "Tree stump (Isigrol)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Malgrave\\PRP_Tradeskill_Tree_Malgrave_000.m3", null, "Tree stump (Malgrave)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Murkmire\\PRP_Tradeskill_Tree_Murkmire_000.m3", null, "Tree stump (Murkmire)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\PointyPineThick\\PRP_Tradeskill_Tree_PointyPineTallThin_000.m3", null, "Pine Tree (Thin)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\PointyPineThick\\PRP_Tradeskill_Tree_PointyPineThick_000.m3", null, "Tree stump (Pine)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Whitevale\\PRP_Tradeskill_Tree_Whitevale_000.m3", null, "Tree stump (Whitevale)", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Tradeskill\\Tree\\Wilderrun\\PRP_Tradeskill_Tree_Wilderrun_000.m3", null, "Tree stump (Wilderrun)", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Defiance\\PRP_Platform_DefianceMilitary_001.m3", null, "Platform_DefianceMilitary", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Defiance\\PRP_Platfrom_LandingPad_Defiance_000.m3", null, "LandingPad_Defiance", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Drakken\\PRP_Platform_Drakken_CircularPlatform_000.m3", null, "Draken Platform", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Imperium\\PRP_Platform_ImperiumMilitary_001.m3", null, "Platform_ImperiumMilitary_001", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Imperium\\PRP_Platform_ImperiumMilitary_002.m3", null, "Platform_ImperiumMilitary_002", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Imperium\\PRP_Platform_ImperiumMilitary_003.m3", null, "Platform_ImperiumMilitary_003", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\PRP_Platform_CryoChamberRevivalPlatformArm_001.m3", null, "Platform_CryoChamberArm_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\PRP_Platform_CryoChamberRevivalPlatform_000.m3", null, "Cryochamber Platform", DecorCategory.ToolsHardware, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\PRP_Platform_Stormtalon_PellPlatformLargeBackingOnly_000.m3", null, "PellPlatForm_BackingOnly", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\PRP_Platform_Stormtalon_PellPlatformLargeBaseOnly_000.m3", null, "PellPlatForm_BaseOnly", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\PRP_Platform_Stormtalon_PellPlatformLarge_000.m3", null, "PellPlatForm", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Protostar\\PRP_ProtostarElevatorBase_000.m3", null, "ProtostarElevator_Base", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Protostar\\PRP_ProtostarElevator_000.m3", null, "ProtostarElevator", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Platforms\\Protostar\\PRP_ProtostarPlatform_000.m3", null, "ProtostarPlatform", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Lantern\\Marauder\\PRP_RMC_Lantern_Fancy_001.m3", null, "Hanging Lamp (Fancy, Short)", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Holiday\\PartyGraw\\TotemBar\\PRP_PartyGraw_TotemBar_000.m3", null, "Tiki Bar", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Walls\\Generic\\BossIndicator\\PRP_Walls_Generic_BossIndicator_Hexagon_000.m3", null, "Walls_BossIndicator_000", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Walls\\Generic\\BossIndicator\\PRP_Walls_Generic_BossIndicator_Hexagon_001.m3", null, "Walls_BossIndicator_001", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Walls\\Generic\\BossIndicator\\PRP_Walls_Generic_BossIndicator_Hexagon_30Degree_000.m3", null, "Walls_BossIndicator_30Degree", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Walls\\Generic\\BossIndicator\\PRP_Walls_Generic_BossIndicator_Hexagon_30Degree_Left_000.m3", null, "Walls_BossIndicator_30Degree_Left", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Walls\\Generic\\BossIndicator\\PRP_Walls_Generic_BossIndicator_Hexagon_30Degree_Right_000.m3", null, "Walls_BossIndicator_30Degree_Right", DecorCategory.Beta, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Walls\\Generic\\PRP_Brace_RetainingWallScrew_001.m3", null, "RetainingWall_Screw_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_000.m3", null, "Bamboo_Stalks_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Barrel_000.m3", null, "Bamboo_Stalks_Beige_Barrel", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Cut_000.m3", null, "Bamboo_Stalks_Beige_Cut", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Large_000.m3", null, "Bamboo_Stalks_Beige_Large_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Large_001.m3", null, "Bamboo_Stalks_Beige_Large_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Large_002.m3", null, "Bamboo_Stalks_Beige_Large_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Med_000.m3", null, "Bamboo_Stalks_Beige_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Med_001.m3", null, "Bamboo_Stalks_Beige_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Med_002.m3", null, "Bamboo_Stalks_Beige_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Pipe_All_000.m3", null, "Bamboo_Stalks_Beige_Pipe", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Pipe_Curved_000.m3", null, "Bamboo_Stalks_Beige_Curved_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Pipe_Curved_001.m3", null, "Bamboo_Stalks_Beige_Curved_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Pipe_Curved_002.m3", null, "Bamboo_Stalks_Beige_Curved_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Pipe_Curved_003.m3", null, "Bamboo_Stalks_Beige_Curved_003", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Pipe_Curved_004.m3", null, "Bamboo_Stalks_Beige_Curved_004", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Pipe_Straight_000.m3", null, "Bamboo_Stalks_Beige_Straight", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Plank_000.m3", null, "Bamboo_Stalks_Beige_Plank", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Thin_000.m3", null, "Bamboo_Stalks_Beige_Thin_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Thin_001.m3", null, "Bamboo_Stalks_Beige_Thin_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Thin_002.m3", null, "Bamboo_Stalks_Beige_Thin_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Barrel_000.m3", null, "Bamboo_Stalks_Beige_Barrel", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Cut_000.m3", null, "Bamboo_Stalks_Purple_Cut", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Large_000.m3", null, "Bamboo_Stalks_Purple_Large_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Large_001.m3", null, "Bamboo_Stalks_Purple_Large_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Large_002.m3", null, "Bamboo_Stalks_Purple_Large_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Med_000.m3", null, "Bamboo_Stalks_Purple_Med_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Med_001.m3", null, "Bamboo_Stalks_Purple_Med_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Med_002.m3", null, "Bamboo_Stalks_Purple_Med_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Pipe_All_000.m3", null, "Bamboo_Stalks_Purple_Pipe", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Pipe_Curved_000.m3", null, "Bamboo_Stalks_Purple_Curved_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Pipe_Curved_001.m3", null, "Bamboo_Stalks_Purple_Curved_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Pipe_Curved_002.m3", null, "Bamboo_Stalks_Purple_Curved_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Pipe_Curved_003.m3", null, "Bamboo_Stalks_Purple_Curved_003", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Pipe_Curved_004.m3", null, "Bamboo_Stalks_Purple_Curved_004", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Pipe_Straight_000.m3", null, "Bamboo_Stalks_Purple_Straight", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Plank_000.m3", null, "Bamboo_Stalks_Purple_Plank", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Thin_000.m3", null, "Bamboo_Stalks_Purple_Thin_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Thin_001.m3", null, "Bamboo_Stalks_Purple_Thin_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Thin_002.m3", null, "Bamboo_Stalks_Purple_Thin_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinDeckHalf_000.m3", null, "Walkways_AurinDeckHalf", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinDockEnd_000.m3", null, "Walkways_AurinDockEnd", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinDoubleEndLong_000.m3", null, "Walkways_AurinEndLong", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinDoubleEndShort_000.m3", null, "Walkways_AurinEndShort", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinExtension_000.m3", null, "Walkways_AurinExtension", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinPost_000.m3", null, "Walkways_AurinPost", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinRampSmall_000.m3", null, "Walkways_AurinRampSmall", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinRampTall_000.m3", null, "Walkways_AurinRampTall", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinStairsSmall_000.m3", null, "Walkways_AurinStairsSmall", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinStairsTall_000.m3", null, "Walkways_AurinStairsTall", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinStraightBeam_000.m3", null, "Walkways_AurinStraightBeam", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinStraight_000.m3", null, "Walkways_AurinStraight_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinStraight_001.m3", null, "Walkways_AurinStraight_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinTIntersection_000.m3", null, "Walkways_AurinIntersection", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinTreeTrunkStairs_000.m3", null, "Walkways_AurinTrunkStairs", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinXRoad_000.m3", null, "Walkways_AurinXRoad", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_ClosedEndRound_000.m3", null, "Walkways_Chua_ClosedEndRound", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_ClosedEndRound_Wide_000.m3", null, "Walkways_Chua_ClosedEndRound_Wide", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_CoverSeams_001.m3", null, "Walkways_Chua_CoverSeams", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_CoverSeams_Wide_001.m3", null, "Walkways_Chua_CoverSeams_Wide", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Curved_000.m3", null, "Walkways_Chua_Curved", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Curved_Wide_000.m3", null, "Walkways_Chua_Wide_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Curved_Wide_001.m3", null, "Walkways_Chua_Wide_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Extension_000.m3", null, "Walkways_Chua_Extension_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Extension_001.m3", null, "Walkways_Chua_Extension_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Extension_002.m3", null, "Walkways_Chua_Extension_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Extension_003.m3", null, "Walkways_Chua_Extension_003", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Extension_004.m3", null, "Walkways_Chua_Extension_004", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Extension_005.m3", null, "Walkways_Chua_Extension_005", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Extension_006.m3", null, "Walkways_Chua_Extension_006", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_RampLong_000.m3", null, "Walkways_Chua_RampLong", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_RampLong_Wide_000.m3", null, "Walkways_Chua_RampLong_Wide", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_RampShort_000.m3", null, "Walkways_Chua_RampShort", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Ramp_000.m3", null, "Walkways_Chua_Ramp", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Ramp_Wide_000.m3", null, "Walkways_Chua_Ramp_Wide", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_StraitWide_000.m3", null, "Walkways_Chua_StraitWide_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_StraitWide_001.m3", null, "Walkways_Chua_StraitWide_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Strait_000.m3", null, "Walkways_Chua_Strait_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Strait_001.m3", null, "Walkways_Chua_Strait_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Strait_Short_000.m3", null, "Walkways_Chua_Strait_Short", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Strait_Short_Wide_000.m3", null, "Walkways_Chua_Strait_Short_Wide_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Strait_Short_Wide_001.m3", null, "Walkways_Chua_Strait_Short_Wide_003", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_TJunction_000.m3", null, "Walkways_Chua_TJunction", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_TJunction_Wide_000.m3", null, "Walkways_Chua_TJunctionWide_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_TJunction_Wide_001.m3", null, "Walkways_Chua_TJunctionWide_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_2Pillers_000.m3", null, "Walkways_Drakken_2Pillers", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_4way_000.m3", null, "Walkways_Drakken_4way", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Curved_000.m3", null, "Walkways_Drakken_Curved", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_GroundStairs_000.m3", null, "Walkways_Drakken_GroundStairs", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Piller_000.m3", null, "Walkways_Drakken_Piller", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Small_000.m3", null, "Walkways_Drakken_Small", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Stairs_000.m3", null, "Walkways_Drakken_Stairs", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Stairs_Small_000.m3", null, "Walkways_Drakken_Stairs_Small", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Strait_000.m3", null, "Walkways_Drakken_Strait_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Strait_001.m3", null, "Walkways_Drakken_Strait_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Strait_002.m3", null, "Walkways_Drakken_Strait_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Drakken\\PRP_Drakken_Walkways_Strait_003.m3", null, "Walkways_Drakken_Strait_003", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_Dreadmoor_FullBridge_Brown_000.m3", null, "Walkways_Dreadmoor_FullBridge_Brown", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_Dreadmoor_WalkwayCurvedStairs_Brown_000.m3", null, "Walkways_Dreadmoor_CurvedStairs", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_Dreadmoor_WalkwayStraightLong_Brown_000.m3", null, "Walkways_Dreadmoor_Long", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_Dreadmoor_WalkwayStraightLong_GreenBrown_000.m3", null, "Walkways_Dreadmoor_Long_Green", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_Dreadmoor_WalkwayStraightShort_GreenBrown_000.m3", null, "Walkways_Dreadmoor_Short_Green", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_Dreadmoor_WalkwayStraightmedium_GreenBrown_000.m3", null, "Walkways_Dreadmoor_Medium_Green", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_Pell_DreadmoorWalkwayCurvedStairs_Brown_000.m3", null, "Walkways_Dreadmoor_CurvedStairs_Pell", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_SideWalk_DreadmoorStraight_Brown_001.m3", null, "Walkways_Dreadmoor_SideWalk", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWayStair_DreadmoorStraight_GreenBrown_000.m3", null, "Walkways_Dreadmoor_Stair", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorCurved_GreenBrown_000.m3", null, "Walkways_Dreadmoor_Curved", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorEndPlanks_GreenBrown_000.m3", null, "Walkways_Dreadmoor_Endplanks_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorEndPlanks_GreenBrown_004.m3", null, "Walkways_Dreadmoor_Endplanks_004", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorPlank_GreenBrown_000.m3", null, "Walkways_Dreadmoor_Plank_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorPlank_GreenBrown_001.m3", null, "Walkways_Dreadmoor_Plank_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorPlank_GreenBrown_003.m3", null, "Walkways_Dreadmoor_Plank_003", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorPlatformExtensionMed_GreenBrown_000.m3", null, "Walkways_Dreadmoor_Platform_Extension_Medium", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorPlatformMed_GreenBrown_000.m3", null, "Walkways_Dreadmoor_Platform_Medium_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorPlatformMed_GreenBrown_001.m3", null, "Walkways_Dreadmoor_Platform_Medium_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorPlatformSm_GreenBrown_000.m3", null, "Walkways_Dreadmoor_Platform_Small", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_CornerPost_001.m3", null, "Walkways_Imperium_Corner_Post", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_EndCap_001.m3", null, "Walkways_Imperium_EndCap", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_EntranceExit_001.m3", null, "Walkways_Imperium_EntranceExit", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_EntranceExit_noExtension_001.m3", null, "Walkways_Imperium_EntranceExit_NoExtension", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_EntranceExit_noExtension_No_Bracers_001.m3", null, "Walkways_Imperium_EntranceExit_Plain", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Extension_001.m3", null, "Walkways_Imperium_Extension", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Extension_NOrailing_001.m3", null, "Walkways_Imperium_Plain", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_MetalJunction_001.m3", null, "Walkways_Imperium_Junction", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Pillar_Fancy_000.m3", null, "Walkways_Imperium_Pillar_Fancy_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Pillar_Fancy_001.m3", null, "Walkways_Imperium_Pillar_Fancy_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Pillars_EndCap_001.m3", null, "Walkways_Imperium_Pillars_EndCap", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Pillars_Extension_001.m3", null, "Walkways_Imperium_Pillars_Extension", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Ramp_SHORT_001.m3", null, "Walkways_Imperium_Ramp_Short", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Ramp_TALL_001.m3", null, "Walkways_Imperium_Ramp_Tall", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Stairs_90_LEFT_001.m3", null, "Walkways_Imperium_Stairs_Quarter_Left", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Stairs_QUARTER_001.m3", null, "Walkways_Imperium_Stairs_Quarter_Right", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Stairs_SHORT_001.m3", null, "Walkways_Imperium_Stairs_Short", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Stairs_TALL_001.m3", null, "Walkways_Imperium_Stairs_Tall", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_TBone_001.m3", null, "Walkways_Imperium_T-Bone", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Turn_001.m3", null, "Walkways_Imperium_Turn", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_XRoads_001.m3", null, "Walkways_Imperium_Junction", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_t_Segment_001.m3", null, "Walkways_Imperium_T-Segment", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Walkways_Stairs_90_LEFT_Narrow_001.m3", null, "Walkways_Imperium_Quarter_Left_Narrow", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Walkways_Stairs_90_Right_Narrow_001.m3", null, "Walkways_Imperium_Quarter_Right_Narrow", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Pell\\PRP_Pell_FullBridge_000.m3", null, "Walkways_Pell_Full_Bridge", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Pell\\PRP_Pell_WalkwayCurvedDip_000.m3", null, "Walkways_Pell_Curved_Dip", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Pell\\PRP_Pell_WalkwayCurvedStairs_000.m3", null, "Walkways_Pell_Curved_Stairs", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Pell\\PRP_Pell_WalkwaySlopedRamp_000.m3", null, "Walkways_Pell_Sloped_Ramp", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Pell\\PRP_Pell_WalkwayStraightLong_000.m3", null, "Walkways_Pell_Straight_Long", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Pell\\PRP_Pell_WalkwayWoodPlank_000.m3", null, "Walkways_Pell_Wood_Plank", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Protostar\\PRP_Protostar_Walkway_Corner_000.m3", null, "Walkways_Protostar_Corner_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Protostar\\PRP_Protostar_Walkway_Corner_001.m3", null, "Walkways_Protostar_Corner_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Protostar\\PRP_Protostar_Walkway_Corner_002.m3", null, "Walkways_Protostar_Corner_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Protostar\\PRP_Protostar_Walkway_Corner_003.m3", null, "Walkways_Protostar_Corner_003", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Protostar\\PRP_Protostar_Walkway_Straight_000.m3", null, "Walkways_Protostar_Straight", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_SideWalk_SanctuaryCommonStraight_Brown_001.m3", null, "Walkways_Sanctuary_Sidewalk", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_SquirdStand_SanctuaryCommon_Rust_000.m3", null, "Walkways_Sanctuary_Squird_Stand", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WWStair_SCLeftDblWide_Brown_000.m3", null, "Walkways_Sanctuary_Stair_Wide_Left", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WWStair_SCRgtDblWide_Brown_000.m3", null, "Walkways_Sanctuary_Stair_Wide_Right", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WWStair_SCStraightDblWide_Brown_000.m3", null, "Walkways_Sanctuary_Straight_Wide_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WWStair_SCStraightDblWide_Brown_001.m3", null, "Walkways_Sanctuary_Straight_Wide_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWayStair_SanctuaryCommonLeft_Brown_000.m3", null, "Walkways_Sanctuary_Stair_Left", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWayStair_SanctuaryCommonRight_Brown_000.m3", null, "Walkways_Sanctuary_Stair_Right", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWayStair_SanctuaryCommonStraight_Brown_000.m3", null, "Walkways_Sanctuary_Stair_Straight_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWayStair_SanctuaryCommonStraight_Brown_001.m3", null, "Walkways_Sanctuary_Stair_Straight_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWayStair_SanctuaryCommonStraight_Brown_002.m3", null, "Walkways_Sanctuary_Stair_Straight_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SCPlatformExtensionMed_Brown_000.m3", null, "Walkways_Sanctuary_Platform_Extension_Medium_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SCPlatformExtensionMed_Brown_001.m3", null, "Walkways_Sanctuary_Platform_Extension_Medium_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonCurved_Brown_000.m3", null, "Walkways_Sanctuary_Curved", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonEndPlanks_Brown_000.m3", null, "Walkways_Sanctuary_End_Planks", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonPlank_Brown_000.m3", null, "Walkways_Sanctuary_Plank_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonPlank_Brown_001.m3", null, "Walkways_Sanctuary_Plank_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonPlank_Brown_002.m3", null, "Walkways_Sanctuary_Plank_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonPlank_Brown_003.m3", null, "Walkways_Sanctuary_Plank_003", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonPlatformMed_Brown_000.m3", null, "Walkways_Sanctuary_Platform_Medium_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonPlatformMed_Brown_001.m3", null, "Walkways_Sanctuary_Platform_Medium_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonRailing_Brown_000.m3", null, "Walkways_Sanctuary_Railing", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonStraight_Brown_000.m3", null, "Walkways_Sanctuary_Straight", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PrP_WalkWay_SanctuaryCommonPlatformSm_Brown_000.m3", null, "Walkways_Sanctuary_Platform_Small_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PrP_WalkWay_SanctuaryCommonPlatformSm_Brown_001.m3", null, "Walkways_Sanctuary_Platform_Small_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Curved_000.m3", null, "Walkways_Bamboo_Curved", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Curved_Ramp_LT_000.m3", null, "Walkways_Bamboo_Curved_(Descend)", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Curved_Ramp_RT_000.m3", null, "Walkways_Bamboo_Curved_(Ascend)", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Curved_000.m3", null, "Walkways_Bamboo_Wide_Curved", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Curved_LT_000.m3", null, "Walkways_Bamboo_Wide_Curved_(Left)", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Curved_RT_000.m3", null, "Walkways_Bamboo_Wide_Curved_(Right)", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_EXT_000.m3", null, "Walkways_Bamboo_Wide_Extension", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_EXT_4WAY_000.m3", null, "Walkways_Bamboo_Wide_Extension_Junction", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Long_000.m3", null, "Walkways_Bamboo_Wide_Long", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Long_Rail_000.m3", null, "Walkways_Bamboo_Wide_Long_Railing", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Long_Ramp_000.m3", null, "Walkways_Bamboo_Wide_Long_Ramp", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Short_Ramp_000.m3", null, "Walkways_Bamboo_Wide_Ramp_Short", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Square_000.m3", null, "Walkways_Bamboo_Wide_Square", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Square_4WAY_000.m3", null, "Walkways_Bamboo_Wide_Square_Junction", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Square_Rail_000.m3", null, "Walkways_Bamboo_Wide_Square_Railing", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Square_Tall_000.m3", null, "Walkways_Bamboo_Wide_Square_Tall", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Square_Tall_4WAY_000.m3", null, "Walkways_Bamboo_Wide_Square_Tall_Junction", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Square_Tall_Rail_000.m3", null, "Walkways_Bamboo_Wide_Square_Tall_Railing", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Long_000.m3", null, "Walkways_Bamboo_Long", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Long_Rail_000.m3", null, "Walkways_Bamboo_Long_Railing", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Long_Ramp_000.m3", null, "Walkways_Bamboo_Long_Ramp", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Rail_000.m3", null, "Walkways_Bamboo_Railing", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Short_Ramp_000.m3", null, "Walkways_Bamboo_Short_Ramp", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Square_000.m3", null, "Walkways_Bamboo_Square", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Square_4Way_000.m3", null, "Walkways_Bamboo_Square_Junction", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Square_Rail_000.m3", null, "Walkways_Bamboo_Square_Railing", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Square_Tall_000.m3", null, "Walkways_Bamboo_Square_Tall", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Square_Tall_4WAY_000.m3", null, "Walkways_Bamboo_Square_Tall_Junction", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Square_Tall_Rail_000.m3", null, "Walkways_Bamboo_Square_Tall_Railing", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Sign\\Imperium\\PRP_Sign_ImperiumPropaganda_000.m3", null, "Dominion Propaganda Screen", DecorCategory.Accents, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderArrows_000.m3", null, "Sign_MarauderArrows_000", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderArrows_001.m3", null, "Sign_MarauderArrows_001", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderArrows_002.m3", null, "Sign_MarauderArrows_002", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderArrows_003.m3", null, "Sign_MarauderArrows_003", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Sign\\Mine\\PRP_Sign_Mine_Entrance_001.m3", null, "Sign_Mine_Entrance", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Sign\\Mine\\PRP_Sign_Mine_Entrance_Metal_001.m3", null, "Sign_Mine_Entrance_Metal", DecorCategory.Beta, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_002.m3", null, "Pipes_Dreadmoore_002", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_004.m3", null, "Pipes_Dreadmoore_004", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_005.m3", null, "Pipes_Dreadmoore_005", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_006.m3", null, "Pipes_Dreadmoore_006", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_007.m3", null, "Pipes_Dreadmoore_007", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_008.m3", null, "Pipes_Dreadmoore_008", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_009.m3", null, "Pipes_Dreadmoore_009", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_010.m3", null, "Pipes_Dreadmoore_010", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_011.m3", null, "Pipes_Dreadmoore_011", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_012.m3", null, "Pipes_Dreadmoore_012", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_013.m3", null, "Pipes_Dreadmoore_013", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_014.m3", null, "Pipes_Dreadmoore_014", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_000.m3", null, "Bamboo_Stalks_000", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Barrel_000.m3", null, "Bamboo_Stalks_Beige_Barrel", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Cut_000.m3", null, "Bamboo_Stalks_Beige_Cut", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Large_000.m3", null, "Bamboo_Stalks_Beige_Large_000", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Large_001.m3", null, "Bamboo_Stalks_Beige_Large_001", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Large_002.m3", null, "Bamboo_Stalks_Beige_Large_002", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Med_000.m3", null, "Bamboo_Stalks_Beige_000", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Med_001.m3", null, "Bamboo_Stalks_Beige_001", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Med_002.m3", null, "Bamboo_Stalks_Beige_002", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Pipe_All_000.m3", null, "Bamboo_Stalks_Beige_Pipe", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Pipe_Curved_000.m3", null, "Bamboo_Stalks_Beige_Curved_000", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Pipe_Curved_001.m3", null, "Bamboo_Stalks_Beige_Curved_001", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Pipe_Curved_002.m3", null, "Bamboo_Stalks_Beige_Curved_002", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Pipe_Curved_003.m3", null, "Bamboo_Stalks_Beige_Curved_003", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Pipe_Curved_004.m3", null, "Bamboo_Stalks_Beige_Curved_004", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Pipe_Straight_000.m3", null, "Bamboo_Stalks_Beige_Straight", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Plank_000.m3", null, "Bamboo_Stalks_Beige_Plank", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Thin_000.m3", null, "Bamboo_Stalks_Beige_Thin_000", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Thin_001.m3", null, "Bamboo_Stalks_Beige_Thin_001", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Beige_Thin_002.m3", null, "Bamboo_Stalks_Beige_Thin_002", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Barrel_000.m3", null, "Bamboo_Stalks_Beige_Barrel", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Cut_000.m3", null, "Bamboo_Stalks_Purple_Cut", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Large_000.m3", null, "Bamboo_Stalks_Purple_Large_000", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Large_001.m3", null, "Bamboo_Stalks_Purple_Large_001", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Large_002.m3", null, "Bamboo_Stalks_Purple_Large_002", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Med_000.m3", null, "Bamboo_Stalks_Purple_Med_000", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Med_001.m3", null, "Bamboo_Stalks_Purple_Med_001", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Med_002.m3", null, "Bamboo_Stalks_Purple_Med_002", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Pipe_All_000.m3", null, "Bamboo_Stalks_Purple_Pipe", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Pipe_Curved_000.m3", null, "Bamboo_Stalks_Purple_Curved_000", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Pipe_Curved_001.m3", null, "Bamboo_Stalks_Purple_Curved_001", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Pipe_Curved_002.m3", null, "Bamboo_Stalks_Purple_Curved_002", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Pipe_Curved_003.m3", null, "Bamboo_Stalks_Purple_Curved_003", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Pipe_Curved_004.m3", null, "Bamboo_Stalks_Purple_Curved_004", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Pipe_Straight_000.m3", null, "Bamboo_Stalks_Purple_Straight", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Plank_000.m3", null, "Bamboo_Stalks_Purple_Plank", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Thin_000.m3", null, "Bamboo_Stalks_Purple_Thin_000", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Thin_001.m3", null, "Bamboo_Stalks_Purple_Thin_001", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\Bamboo\\PRP_Bamboo_Stalks_Purple_Thin_002.m3", null, "Bamboo_Stalks_Purple_Thin_002", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinDeckHalf_000.m3", null, "Walkways_AurinDeckHalf", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinDockEnd_000.m3", null, "Walkways_AurinDockEnd", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinDoubleEndLong_000.m3", null, "Walkways_AurinEndLong", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinDoubleEndShort_000.m3", null, "Walkways_AurinEndShort", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinExtension_000.m3", null, "Walkways_AurinExtension", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinPost_000.m3", null, "Walkways_AurinPost", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinRampSmall_000.m3", null, "Walkways_AurinRampSmall", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinRampTall_000.m3", null, "Walkways_AurinRampTall", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinStairsSmall_000.m3", null, "Walkways_AurinStairsSmall", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinStairsTall_000.m3", null, "Walkways_AurinStairsTall", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinStraightBeam_000.m3", null, "Walkways_AurinStraightBeam", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinStraight_000.m3", null, "Walkways_AurinStraight_000", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinStraight_001.m3", null, "Walkways_AurinStraight_001", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinTIntersection_000.m3", null, "Walkways_AurinIntersection", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinTreeTrunkStairs_000.m3", null, "Walkways_AurinTrunkStairs", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Aurin\\PRP_Walkways_AurinXRoad_000.m3", null, "Walkways_AurinXRoad", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_ClosedEndRound_000.m3", null, "Chua Walkway (End)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_CoverSeams_001.m3", null, "Chua Cover Panel", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_CoverSeams_Wide_001.m3", null, "Chua Cover Panel (Wide)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Curved_000.m3", null, "Chua Walkway (Curved)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Curved_Wide_000.m3", null, "Chua Walkway (Curved, Wide)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Curved_Wide_001.m3", null, "Chua Walkway (Curved, Wide, No lamps)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Extension_000.m3", null, "Chua Pipe Extension (Quadruple, Elaborate)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Extension_001.m3", null, "Chua Pipe Extension (Quadruple)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Extension_002.m3", null, "Chua Pipe Extension (Double, Twisted)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Extension_003.m3", null, "Chua Pipe Extension (Double, Parallel)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Extension_004.m3", null, "Chua Pipe Extension (Single, Bent)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Extension_005.m3", null, "Chua Pipe Extension (Single, Slanted)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Extension_006.m3", null, "Chua Pipe Extension (Single, Twisted)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_RampLong_000.m3", null, "Chua Ramp (Pipes)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_RampLong_Wide_000.m3", null, "Chua Ramp (Pipes, Wide)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_RampShort_000.m3", null, "Chua Ramp (Short)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Ramp_000.m3", null, "Chua Ramp", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Ramp_Wide_000.m3", null, "Chua Ramp (Wide)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_StraitWide_000.m3", null, "Chua Walkway (Wide)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_StraitWide_001.m3", null, "Chua Walkway (Wide, No lamps)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Strait_000.m3", null, "Chua Walkway", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Strait_001.m3", null, "Chua Walkway (No supports)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Strait_Short_000.m3", null, "Chua Walkway (Short)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Strait_Short_Wide_000.m3", null, "Chua Walkway (Short, Wide)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_Strait_Short_Wide_001.m3", null, "Chua Walkway (Short, Wide, No lamps)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_TJunction_000.m3", null, "Chua Walkway (Junction)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_TJunction_Wide_000.m3", null, "Chua Walkway (Junction, Wide)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Chua\\PRP_Walkways_Chua_TJunction_Wide_001.m3", null, "Chua Walkway (Junction, Wide, No lamps)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_Dreadmoor_FullBridge_Brown_000.m3", null, "Dreadmoor Walkway (Bendy)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_Dreadmoor_WalkwayCurvedStairs_Brown_000.m3", null, "Dreadmoor Stairs (Curved, Right)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_Dreadmoor_WalkwayStraightLong_Brown_000.m3", null, "Dreadmoor Walkway (Long)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_Dreadmoor_WalkwayStraightLong_GreenBrown_000.m3", null, "Dreadmoor Walkway (Long, Rickety)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_Dreadmoor_WalkwayStraightShort_GreenBrown_000.m3", null, "Dreadmoor Walkway (Short)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_Dreadmoor_WalkwayStraightmedium_GreenBrown_000.m3", null, "Dreadmoor Walkway (Medium)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_SideWalk_DreadmoorStraight_Brown_001.m3", null, "Wooden Pallet (Aged)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWayStair_DreadmoorStraight_GreenBrown_000.m3", null, "Dreadmoor Stairs", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorCurved_GreenBrown_000.m3", null, "Dreadmoor Walkway (Curved)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorEndPlanks_GreenBrown_000.m3", null, "Dreadmoor Plank Cluster (Broadening)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorEndPlanks_GreenBrown_004.m3", null, "Dreadmoor Plank Cluster", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorPlank_GreenBrown_000.m3", null, "Dreadmoor Plank (Short)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorPlank_GreenBrown_001.m3", null, "Dreadmoor Plank (Medium)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorPlank_GreenBrown_003.m3", null, "Dreadmoor Plank (Large)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorPlatformExtensionMed_GreenBrown_000.m3", null, "Dreadmoor Walkway (Scaffolding)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorPlatformMed_GreenBrown_000.m3", null, "Dreadmoor Walkway (End Platform)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorPlatformMed_GreenBrown_001.m3", null, "Walkways_Dreadmoor_Platform_Medium_001", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Dreadmoor\\PRP_WalkWay_DreadmoorPlatformSm_GreenBrown_000.m3", null, "Walkways_Dreadmoor_Platform_Small", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_CornerPost_001.m3", null, "Walkways_Imperium_Corner_Post", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_EndCap_001.m3", null, "Walkways_Imperium_EndCap", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_EntranceExit_001.m3", null, "Walkways_Imperium_EntranceExit", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_EntranceExit_noExtension_001.m3", null, "Walkways_Imperium_EntranceExit_NoExtension", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_EntranceExit_noExtension_No_Bracers_001.m3", null, "Walkways_Imperium_EntranceExit_Plain", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Extension_001.m3", null, "Walkways_Imperium_Extension", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Extension_NOrailing_001.m3", null, "Walkways_Imperium_Plain", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_MetalJunction_001.m3", null, "Walkways_Imperium_Junction", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Pillar_Fancy_000.m3", null, "Walkways_Imperium_Pillar_Fancy_000", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Pillar_Fancy_001.m3", null, "Walkways_Imperium_Pillar_Fancy_001", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Pillars_EndCap_001.m3", null, "Walkways_Imperium_Pillars_EndCap", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Pillars_Extension_001.m3", null, "Walkways_Imperium_Pillars_Extension", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Ramp_SHORT_001.m3", null, "Walkways_Imperium_Ramp_Short", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Ramp_TALL_001.m3", null, "Walkways_Imperium_Ramp_Tall", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Stairs_90_LEFT_001.m3", null, "Walkways_Imperium_Stairs_Quarter_Left", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Stairs_QUARTER_001.m3", null, "Walkways_Imperium_Stairs_Quarter_Right", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Stairs_SHORT_001.m3", null, "Walkways_Imperium_Stairs_Short", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Stairs_TALL_001.m3", null, "Walkways_Imperium_Stairs_Tall", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_TBone_001.m3", null, "Walkways_Imperium_T-Bone", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_Turn_001.m3", null, "Walkways_Imperium_Turn", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_XRoads_001.m3", null, "Walkways_Imperium_Junction", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Imperium_Walkways_t_Segment_001.m3", null, "Walkways_Imperium_T-Segment", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Walkways_Stairs_90_LEFT_Narrow_001.m3", null, "Walkways_Imperium_Quarter_Left_Narrow", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Imperium\\Imperium_Variants\\PRP_Walkways_Stairs_90_Right_Narrow_001.m3", null, "Walkways_Imperium_Quarter_Right_Narrow", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Pell\\PRP_Pell_FullBridge_000.m3", null, "Walkways_Pell_Full_Bridge", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Pell\\PRP_Pell_WalkwayCurvedDip_000.m3", null, "Walkways_Pell_Curved_Dip", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Pell\\PRP_Pell_WalkwayCurvedStairs_000.m3", null, "Walkways_Pell_Curved_Stairs", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Pell\\PRP_Pell_WalkwaySlopedRamp_000.m3", null, "Walkways_Pell_Sloped_Ramp", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Pell\\PRP_Pell_WalkwayStraightLong_000.m3", null, "Walkways_Pell_Straight_Long", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Pell\\PRP_Pell_WalkwayWoodPlank_000.m3", null, "Walkways_Pell_Wood_Plank", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Protostar\\PRP_Protostar_Walkway_Corner_000.m3", null, "Walkways_Protostar_Corner_000", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Protostar\\PRP_Protostar_Walkway_Corner_001.m3", null, "Walkways_Protostar_Corner_001", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Protostar\\PRP_Protostar_Walkway_Corner_002.m3", null, "Walkways_Protostar_Corner_002", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Protostar\\PRP_Protostar_Walkway_Corner_003.m3", null, "Walkways_Protostar_Corner_003", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Protostar\\PRP_Protostar_Walkway_Straight_000.m3", null, "Walkways_Protostar_Straight", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WWStair_SCLeftDblWide_Brown_000.m3", null, "Sanctuary Stairs (Wide, Curved, Left)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WWStair_SCRgtDblWide_Brown_000.m3", null, "Sanctuary Stairs (Wide, Curved, Right", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WWStair_SCStraightDblWide_Brown_000.m3", null, "Sanctuary Stairs (Wide)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WWStair_SCStraightDblWide_Brown_001.m3", null, "Sanctuary Stairs (Wide, Short)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWayStair_SanctuaryCommonLeft_Brown_000.m3", null, "Sanctuary Stairs (Curved, Left)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWayStair_SanctuaryCommonRight_Brown_000.m3", null, "Sanctuary Stairs (Curved, Right)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWayStair_SanctuaryCommonStraight_Brown_000.m3", null, "Sanctuary Stairs", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWayStair_SanctuaryCommonStraight_Brown_001.m3", null, "Sanctuary Stairs (Short)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWayStair_SanctuaryCommonStraight_Brown_002.m3", null, "Sanctuary Stairs (Elevated)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SCPlatformExtensionMed_Brown_000.m3", null, "Sanctuary Walkway (Scaffolding)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SCPlatformExtensionMed_Brown_001.m3", null, "Sanctuary Walkway (Wide, No supports)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonCurved_Brown_000.m3", null, "Sanctuary Walkway (Curved)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonEndPlanks_Brown_000.m3", null, "Sanctuary Plank Cluster (Broadening)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonPlank_Brown_000.m3", null, "Sanctuary Plank (Short)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonPlank_Brown_001.m3", null, "Sanctuary Plank (Medium)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonPlank_Brown_002.m3", null, "Sanctuary Plank (Uneven)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonPlank_Brown_003.m3", null, "Sanctuary Plank (Long)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonPlatformMed_Brown_000.m3", null, "Sanctuary Walkway (Wide)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonPlatformMed_Brown_001.m3", null, "Sanctuary Walkway (End Platform)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonRailing_Brown_000.m3", null, "Sanctuary Railing", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PRP_WalkWay_SanctuaryCommonStraight_Brown_000.m3", null, "Sanctuary Walkway (Straight)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PrP_WalkWay_SanctuaryCommonPlatformSm_Brown_000.m3", null, "Sanctuary Walkway (Short)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\SanctuaryCommon\\PrP_WalkWay_SanctuaryCommonPlatformSm_Brown_001.m3", null, "Sanctuary Walkway (Short, No supports)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Curved_000.m3", null, "Walkways_Bamboo_Curved", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Curved_Ramp_LT_000.m3", null, "Walkways_Bamboo_Curved_(Descend)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Curved_Ramp_RT_000.m3", null, "Walkways_Bamboo_Curved_(Ascend)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Curved_000.m3", null, "Walkways_Bamboo_Wide_Curved", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Curved_LT_000.m3", null, "Walkways_Bamboo_Wide_Curved_(Left)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Curved_RT_000.m3", null, "Walkways_Bamboo_Wide_Curved_(Right)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_EXT_000.m3", null, "Walkways_Bamboo_Wide_Extension", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_EXT_4WAY_000.m3", null, "Walkways_Bamboo_Wide_Extension_Junction", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Long_000.m3", null, "Walkways_Bamboo_Wide_Long", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Long_Rail_000.m3", null, "Walkways_Bamboo_Wide_Long_Railing", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Long_Ramp_000.m3", null, "Walkways_Bamboo_Wide_Long_Ramp", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Short_Ramp_000.m3", null, "Walkways_Bamboo_Wide_Ramp_Short", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Square_000.m3", null, "Walkways_Bamboo_Wide_Square", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Square_4WAY_000.m3", null, "Walkways_Bamboo_Wide_Square_Junction", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Square_Rail_000.m3", null, "Walkways_Bamboo_Wide_Square_Railing", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Square_Tall_000.m3", null, "Walkways_Bamboo_Wide_Square_Tall", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Square_Tall_4WAY_000.m3", null, "Walkways_Bamboo_Wide_Square_Tall_Junction", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_DBL_Square_Tall_Rail_000.m3", null, "Walkways_Bamboo_Wide_Square_Tall_Railing", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Long_000.m3", null, "Walkways_Bamboo_Long", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Long_Rail_000.m3", null, "Walkways_Bamboo_Long_Railing", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Long_Ramp_000.m3", null, "Walkways_Bamboo_Long_Ramp", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Rail_000.m3", null, "Walkways_Bamboo_Railing", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Short_Ramp_000.m3", null, "Walkways_Bamboo_Short_Ramp", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Square_000.m3", null, "Walkways_Bamboo_Square", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Square_4Way_000.m3", null, "Walkways_Bamboo_Square_Junction", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Square_Rail_000.m3", null, "Walkways_Bamboo_Square_Railing", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Square_Tall_000.m3", null, "Walkways_Bamboo_Square_Tall", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Square_Tall_4WAY_000.m3", null, "Walkways_Bamboo_Square_Tall_Junction", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\WalkWays\\Tribal\\PRP_WalkWay_Bamboo_Square_Tall_Rail_000.m3", null, "Walkways_Bamboo_Square_Tall_Railing", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_002.m3", null, "Dreadmoor Tube (Rounded)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_004.m3", null, "Dreadmoor Tube (Angled)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_005.m3", null, "Dreadmoor Tube (Straight)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_006.m3", null, "Dreadmoor Tube (Straight, Thin)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_007.m3", null, "Dreadmoor Tube (Curved)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_008.m3", null, "Dreadmoor Tube (Narrowing)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_009.m3", null, "Dreadmoor Tube (Curved, Narrowing)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_012.m3", null, "Valve", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_013.m3", null, "Dreadmoor Tube (Straight, Long)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Dreadmoore\\PRP_Pipes_Dreadmoore_014.m3", null, "Faucet", DecorCategory.BuildingBlocks, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_BlackholeBridge_Pipes_000.m3", null, "Wiggling Pipe (Warped)", DecorCategory.BuildingBlocks, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_BlackholeBridge_Pipes_001.m3", null, "Wiggling Pipe (Twisted)", DecorCategory.BuildingBlocks, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_BlackholeBridge_Pipes_002.m3", null, "Wiggling Pipe (Short)", DecorCategory.BuildingBlocks, false);
@@ -1747,23 +1771,17 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_021.m3", null, "Pipes_Generic_020", DecorCategory.BuildingBlocks, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_022.m3", null, "Pipes_Generic_021", DecorCategory.BuildingBlocks, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_023.m3", null, "Pipes_Generic_022", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_000.m3", null, "Pipes_Generic_Connector_000", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_001.m3", null, "Pipes_Generic_Connector_001", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_002.m3", null, "Pipes_Generic_Connector_002", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_003.m3", null, "Pipes_Generic_Connector_003", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_004.m3", null, "Pipes_Generic_Connector_004", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_005.m3", null, "Pipes_Generic_Connector_005", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_006.m3", null, "Pipes_Generic_Connector_006", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_007.m3", null, "Pipes_Generic_Connector_007", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_008.m3", null, "Pipes_Generic_Connector_008", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_009.m3", null, "Pipes_Generic_Connector_009", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_010.m3", null, "Pipes_Generic_Connector_010", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Ikthian\\PRP_Ikthian_Pipes_000.m3", null, "Pipes_Ikthian_000", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Ikthian\\PRP_Ikthian_Pipes_001.m3", null, "Pipes_Ikthian_001", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Ikthian\\PRP_Ikthian_Pipes_002.m3", null, "Pipes_Ikthian_002", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Ikthian\\PRP_Ikthian_Pipes_003.m3", null, "Pipes_Ikthian_003", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Ikthian\\PRP_Ikthian_Pipes_004.m3", null, "Pipes_Ikthian_004", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Ikthian\\PRP_Ikthian_Pipes_Stacker_000.m3", null, "Pipes_Ikthian_Stacker", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_000.m3", null, "Tube Connector (Rounded)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_001.m3", null, "Tube Connector (Straight, Markings)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_002.m3", null, "Tube Connector (Uneven)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_003.m3", null, "Tube Connector (Short)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_004.m3", null, "Tube Connector (Uneven, Short)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_005.m3", null, "Tube Connector (Uneven, Markings)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_006.m3", null, "Tube Connector (Uneven, Screwed)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_007.m3", null, "Tube Connector (Short, Dark)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_008.m3", null, "Tube Connector (Screwed, Short)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_009.m3", null, "Tube Connector (Screwed)", DecorCategory.BuildingBlocks, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Generic\\PRP_Generic_Pipes_Connector_010.m3", null, "Tube Connector (Rounded, Short)", DecorCategory.BuildingBlocks, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\RedMoonCove\\PRP_PipeBase_RMC_000.m3", null, "PipesBase_RMC", DecorCategory.BuildingBlocks, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\RedMoonCove\\PRP_Pipe_AirVent_RMC_000.m3", null, "Pipes_RMC_AirVent", DecorCategory.BuildingBlocks, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\RedMoonCove\\PRP_Pipe_ManHole_RMC_000.m3", null, "Pipes_RMC_ManHole", DecorCategory.BuildingBlocks, false);
@@ -1791,20 +1809,13 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\Refinery\\PRP_Pipes_Refinery_003.m3", null, "Pipes_Refinery_003", DecorCategory.BuildingBlocks, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\SanctuaryCommon\\PRP_Pipe_LongSegment_GreyBrown_000.m3", null, "Pipes_LongSegment_GreyBrown", DecorCategory.BuildingBlocks, false);
             AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\SanctuaryCommon\\PRP_Pipe_MidSegment_GreyBrown_000.m3", null, "Pipes_MidSegment_Greybrown", DecorCategory.BuildingBlocks, false);
-            AddGenericDecor("Art\\Prop\\Constructed\\Pipes\\SanctuaryCommon\\PRP_Pipe_Tap_GreyBrown_001.m3", null, "Pipes_Tap_GreyBrown", DecorCategory.Accents, false);
             AddGenericDecor("Art\\FX\\3D\\Splatter_Goo_Decal_GRN\\Splatter_Goo_Decal_02_GRN.m3", null, "Goo_Decal_02", DecorCategory.Beta, true);
             AddGenericDecor("Art\\FX\\3D\\Splatter_Goo_Decal_GRN\\Splatter_Goo_Decal_03_GRN.m3", null, "Goo_Decal_03", DecorCategory.Beta, true);
             AddGenericDecor("Art\\FX\\3D\\Splatter_Goo_Decal_GRN\\Splatter_Goo_Decal_04_GRN.m3", null, "Goo_Decal_04", DecorCategory.Beta, true);
             AddGenericDecor("Art\\FX\\3D\\Splatter_Goo_Decal_GRN\\Splatter_Goo_Decal_GRN.m3", null, "Goo_Decal_GRN", DecorCategory.Beta, true);
             AddGenericDecor("Art\\FX\\3D\\Spray_BB_BLE\\Spray_BB_BLE.m3", null, "Spray_BLE", DecorCategory.Beta, true);
             AddGenericDecor("Art\\FX\\3D\\Square_BB_BLE\\Square_BB_BLE.m3", null, "Square_BLE", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\AE\\Ice_Ground\\Ice_Ground_Decal.m3", null, "Ice_Ground_Decal", DecorCategory.Beta, true);
             AddGenericDecor("Art\\FX\\Model\\Impacts\\Goo_Splatter_Decal_GRN\\Goo_Splatter_Decal_GRN.m3", null, "Goo_Splatter_Decal", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\OT\\Buff\\Decal\\Decal_Elements\\Decal_Elements_5m_AQU.m3", null, "Buff_Decal_Elements", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\OT\\Esper\\Graveyard\\Graveyard_SmokeyDecal_01_BLU.m3", null, "SmokeDecal_BLU", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\OT\\Garr\\Vomit\\Garr_VomitDecal_90d_10mR_GRN_9.m3", null, "VomitDecal", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\FX\\Model\\OT\\Garr\\Vomit\\Garr_VomitDecal_90d_10mR_wBones_GRN_9.m3", null, "VomitDecal_Bones", DecorCategory.Beta, true);
-            AddGenericDecor("Art\\Prop\\Constructed\\Lootpile\\PRP_Decal_LootPile_Generic_Gold_000.m3", null, "Decal_LootPile", DecorCategory.Beta, true);
             AddGenericDecor("Art\\Prop\\Natural\\Rock\\BlastedJagged\\PRP_Rock_BlastedJagged_Black_00.m3", null, "Rock_BlastedJagged_00", DecorCategory.Rocks, false);
             AddGenericDecor("Art\\Prop\\Natural\\Rock\\BlastedJagged\\PRP_Rock_BlastedJagged_Black_01.m3", null, "Rock_BlastedJagged_01", DecorCategory.Rocks, false);
             AddGenericDecor("Art\\Prop\\Natural\\Rock\\BlastedJagged\\PRP_Rock_BlastedJagged_Black_02.m3", null, "Rock_BlastedJagged_02", DecorCategory.Rocks, false);
@@ -1812,48 +1823,141 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Natural\\Rock\\BlastedJagged\\PRP_Rock_BlastedJagged_Black_04.m3", null, "Rock_BlastedJagged_04", DecorCategory.Rocks, false);
             AddGenericDecor("Art\\Prop\\Natural\\Rock\\BlastedJagged\\PRP_Rock_BlastedJagged_Black_05.m3", null, "Rock_BlastedJagged_05", DecorCategory.Rocks, false);
             AddGenericDecor("Art\\Prop\\Natural\\Rock\\BlastedJagged\\PRP_Rock_BlastedJagged_Black_06.m3", null, "Rock_BlastedJagged_06", DecorCategory.Rocks, false);
-            AddGroundOption("Icescape", 1256, 1257);
-            AddGroundOption("Celestion Moss 1", 137, 138);
-            AddGroundOption("Celestion Moss 2", 137, 193);
-            AddGroundOption("Tech Plate", 480, 359);
-            AddGroundOption("Alien", 566, 857);
-            AddGroundOption("Mossy Rock", 1222, 948);
-            AddGroundOption("Wilderrun Cavern", 430, 422);
-            AddGroundOption("Mystic Rock 1", 346, 645);
-            AddGroundOption("Mystic Rock 2", 347, 766);
-            AddGroundOption("Mystic Rock 3", 1250, 209);
-            AddGroundOption("Gothic Meadow 1", 1034, 476);
-            AddGroundOption("Gothic Meadow 2", 1034, 22);
-            AddGroundOption("Galeras Meadow 2", 544, 757);
-            AddGroundOption("Galeras Meadow 3", 1233, 757);
-            AddGroundOption("Galeras Meadow 4", 757, 82);
-            AddGroundOption("Galeras Muddy", 82, 83);
-            AddGroundOption("Rocky", 589, 259);
-            AddGroundOption("Rocky 2", 981, 525);
-            AddGroundOption("Overgrown Temple", 249, 422);
-            AddGroundOption("Verdant Rocks", 589, 422);
-            AddGroundOption("SLIME TIME", 857, 928);
-            AddGroundOption("Debris Seam 1", 340, 166);
-            AddGroundOption("Debris Seam 2", 30, 166);
-            AddGroundOption("Crystal Field 1", 44, 464);
-            AddGroundOption("Halon Ring (Flowery)", 336, 1046);
-            AddGroundOption("Chrome", 855, 856);
-            AddGroundOption("Metal", 501, 572);
-            AddGroundOption("Hexagons 2", 608, 921);
-            AddGroundOption("Hexagons 5", 953, 856);
-            AddGroundOption("Chronium Garden", 757, 856);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_Holocrypt_000.m3", null, "Holocrypt", DecorCategory.Accents, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_AntiEntropicFluid_000.m3", null, "AntiEntropicFluid", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_ArcBatteries_000.m3", null, "ArcBatteries", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_BankBox_000.m3", null, "BankBox", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_BuffBot_Generator.m3", null, "BuffBot", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_BuffStation_000.m3", null, "BuffStation_000", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_BuffStation_001.m3", null, "BuffStation_001", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_BuildAnim_2x2.m3", null, "BuildAnim", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_Campfire_000.m3", null, "Settler_Campire_000", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_Campfire_001.m3", null, "Settler_Campire_001", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_Campfire_002.m3", null, "Settler_Campire_002", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_CarbonRods_000.m3", null, "CarbonRods", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_Crate_000.m3", null, "Settler_Crate_000", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_Crate_001.m3", null, "Settler_Crate_001", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_Crate_002.m3", null, "Settler_Crate_002", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_Crate_003.m3", null, "Settler_Crate_003", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_DataPyramid_000.m3", null, "DataPyramid", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_Depot_000.m3", null, "Depot", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_EnergizedWater_000.m3", null, "EnergizedWater", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_FuelCell.m3", null, "FuelCell", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_LightningRod_000.m3", null, "LightningRod", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_Mailbox_000.m3", null, "Settler_Mailbox", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_MegaFreezon_000.m3", null, "MegaFreezon", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_PowerBase_000.m3", null, "PowerBase", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_Shop_000.m3", null, "Settler_Shop", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_Sign_POI_000.m3", null, "Settler_Sign", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_Sign_POI_Arrow_000.m3", null, "Settler_Sign_Arrow_000", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_Sign_POI_Arrow_001.m3", null, "Settler_Sign_Arrow_001", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_Sign_POI_Arrow_002.m3", null, "Settler_Sign_Arrow_002", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_SolarFuelCells_000.m3", null, "SolarFuelCells", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_SupplyCapsule.m3", null, "SupplyCapsule", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_Table_Food.m3", null, "Table_Food", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_TaxiSign_000.m3", null, "TaxiSign", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_TechTotem_000.m3", null, "TechTotem", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_VendingMachine_001.m3", null, "Settler_VendingMachine", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_VendorSign_000.m3", null, "Settler_VendorSign", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_WarpedMetal_000.m3", null, "WarpedMetal", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\PRP_PlayerPaths_Settler_WeaponRack_000.m3", null, "WeaponRack", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Player_Paths\\Settler\\holograms\\PRP_PlayerPaths_Settler_HoloTent_001.m3", null, "HoloTent", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\Bandit\\PRP_Tent_Bandit_000.m3", null, "Tent_Bandit_000", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\Bandit\\PRP_Tent_Bandit_002.m3", null, "Tent_Bandit_002", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\CarnivalBooth\\PRP_Tent_CarnivalBooth_000.m3", null, "Tent_Carnival", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\DAS\\PRP_DAS_TentDoor_000.m3", null, "Tent_Door", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\DAS\\PRP_DAS_Tent_000.m3", null, "Tent_DAS", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\DAS\\PRP_DAS_Tent_Open_000.m3", null, "Tent_DAS_Open", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\Destroyed\\PRP_Tent_Destroyed_000.m3", null, "Tent_Destroyed", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\Dregg\\PRP_Tent_Dregg_001.m3", null, "Tent_Dregg", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\Imperium\\PRP_Tent_ImperiumLarge_001.m3", null, "Tent_ImperiumLarge", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\Imperium\\PRP_Tent_ImperiumSmall_001.m3", null, "Tent_ImperiumSmall", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\Lopp\\PRP_Lopp_House_000.m3", null, "Tent_Lopp_000", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\Lopp\\PRP_Lopp_House_001.m3", null, "Tent_Lopp_001", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\Marauder\\PRP_Marauder_Tent_002.m3", null, "Tent_Marauder_002", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\Marauder\\PRP_Marauder_Tent_003.m3", null, "Tent_Marauder_003", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\Marauder\\PRP_Tent_MarauderShieldPod_Graffitti_000.m3", null, "Tent_ShieldpodG", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\Marauder\\PRP_Tent_MarauderShieldPod_Rust_001.m3", null, "Tent_ShieldpodR", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\PRP_Tent_SmugglerLargeSteepled_Brown_000.m3", null, "Tent_SmugglerLarge", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\PRP_Tent_SmugglerSmall_Brown_000.m3", null, "Tent_SmugglerSmall", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\Pell\\PRP_Tent_Pell_Metal_000.m3", null, "Tent_Pell_Metal", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\SwordMaiden\\PRP_Tent_SwordMaiden_000.m3", null, "Tent_Swordmaiden_000", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\SwordMaiden\\PRP_Tent_SwordMaiden_Decor_001.m3", null, "Tent_Swordmaiden_Decor_001", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\SwordMaiden\\PRP_Tent_SwordMaiden_Decor_002.m3", null, "Tent_Swordmaiden_Decor_002", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\SwordMaiden\\PRP_Tent_SwordMaiden_Decor_004.m3", null, "Tent_Swordmaiden_Decor_003", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\Tents_Bone_Hide\\PRP_Tent_BoneHide_BrownTan_000.m3", null, "Tent_Bone_000", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\Tents_Bone_Hide\\PRP_Tent_BoneHide_BrownTan_001.m3", null, "Tent_Bone_001", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tents\\Tents_Bone_Hide\\PRP_Tent_BoneHide_BrownTan_002.m3", null, "Tent_Bone_002", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Dungeon\\Torine\\Platforms\\PRP_TorineSanctuary_Platform_001.m3", null, "TorineSanctuary_Platform_001", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Dungeon\\Torine\\Platforms\\PRP_TorineSanctuary_Platform_002.m3", null, "TorineSanctuary_Platform_002", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Dungeon\\Torine\\Platforms\\PRP_TorineSanctuary_Platform_003.m3", null, "TorineSanctuary_Platform_003", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Weather\\Temp\\Weather_Temp_Snow_White_000.m3", null, "Temp_Snow_White", DecorCategory.Beta, true);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\FlowerStump_Tallthing_Thorny\\PRP_Stump_Tallthing_Torny_000_Brown.m3", null, "Stump_Torny_000", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\FlowerStump_Tallthing_Thorny\\PRP_Stump_Tallthing_Torny_001_Brown.m3", null, "Stump_Torny_001", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\FlowerStump_Tallthing_Thorny\\PRP_Stump_Tallthing_Torny_002_Brown.m3", null, "Stump_Torny_002", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\FlowerStump_Tallthing_Thorny\\PRP_Stump_Tallthing_Torny_003_Brown.m3", null, "Stump_Torny_003", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\FlowerStump_Tallthing_Thorny\\PRP_Stump_Tallthing_Torny_004_Brown.m3", null, "Stump_Torny_004", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\FlowerStump_Tallthing_Thorny\\PRP_Stump_Tallthing_Torny_005_Brown.m3", null, "Stump_Torny_005", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\FlowerStump_Tallthing_Thorny\\PRP_Stump_Tallthing_Torny_006_Brown.m3", null, "Stump_Torny_006", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\FlowerStump_Tallthing_Thorny\\PRP_Stump_Tallthing_Torny_007_Brown.m3", null, "Stump_Torny_007", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\FlowerStump_Tallthing_Thorny\\PRP_Stump_Tallthing_Torny_008_Brown.m3", null, "Stump_Torny_008", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\PointyPine\\PRP_Stump_PointyPine_001.m3", null, "Stump_PointyPine_001", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\PointyPine\\PRP_Stump_PointyPine_002.m3", null, "Stump_PointyPine_002", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\PointyPine\\PRP_Stump_PointyPine_003.m3", null, "Stump_PointyPine_003", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\StandardPine\\PRP_Stump_BurntStandardPine_GreenGrey_000.m3", null, "Stump_Burnt_000", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\StandardPine\\PRP_Stump_BurntStandardPine_GreenGrey_001.m3", null, "Stump_Burnt_001", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\Swirly_TwistedRoots_Large\\PRP_Stump_SwirlyTwisted_GreenGrey_000.m3", null, "Stump_Swirly", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\Swirly_TwistedRoots_Large\\PRP_Stump_SwirlyTwisted_GreenGrey_Skinny_000.m3", null, "Stump_Swirly_Skinny", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\Swirly_TwistedRoots_Large\\PRP_Stump_SwirlyTwisted_RuffEdges_GreenGrey_000.m3", null, "Stump_Stump_Swirly_RuffEdges_000", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\Swirly_TwistedRoots_Large\\PRP_Stump_SwirlyTwisted_RuffEdges_GreenGrey_001.m3", null, "Stump_Stump_Swirly_RuffEdges_001", DecorCategory.Beta, false);
+            AddGenericDecor("Art\\Prop\\Natural\\Stump\\Swirly_TwistedRoots_Large\\PRP_Stump_SwirlyTwisted_RuffEdges_GreenGrey_002.m3", null, "Stump_Stump_Swirly_RuffEdges_002", DecorCategory.Beta, false);
+            AddGroundOption("Icescape", 1256, 1257, null);
+            AddGroundOption("Celestion Moss 1", 137, 138, null);
+            AddGroundOption("Celestion Moss 2", 137, 193, null);
+            AddGroundOption("Tech Plate", 480, 359, null);
+            AddGroundOption("Alien", 566, 857, null);
+            AddGroundOption("Mossy Rock", 1222, 948, null);
+            AddGroundOption("Mystic Rock 1", 346, 645, null);
+            AddGroundOption("Mystic Rock 2", 347, 766, null);
+            AddGroundOption("Mystic Rock 3", 1250, 209, null);
+            AddGroundOption("Gothic Meadow 1", 1034, 476, null);
+            AddGroundOption("Gothic Meadow 2", 1034, 22, null);
+            AddGroundOption("Galeras Meadow 2", 544, 757, null);
+            AddGroundOption("Galeras Meadow 3", 1233, 757, null);
+            AddGroundOption("Galeras Meadow 4", 757, 82, null);
+            AddGroundOption("Rocky 2", 981, 525, null);
+            AddGroundOption("SLIME TIME", 857, 928, null);
+            AddGroundOption("Debris Seam 1", 340, 166, null);
+            AddGroundOption("Debris Seam 2", 30, 166, null);
+            AddGroundOption("Crystal Field 1", 44, 464, null);
+            AddGroundOption("Halon Ring (Flowery)", 336, 1046, null);
+            AddGroundOption("Metal", 501, 572, null);
+            AddGroundOption("Hexagons 2", 608, 921, null);
+            AddGroundOption("Hexagons 5", 953, 856, null);
+            AddGroundOption("GroundTest", 105, 184, null);
+            AddGroundOption("GroundTest2", 711, 184, null);
 
-            uint param = AddCustomizationParameter(null, "Size", 1, 1, 1, 0, 0, 0, 0, 0, 0);
-            AddCustomizationParameterMap(null, 4, 0, 128, param, 0, 0);
+            /*uint param = AddCustomizationParameter(null, "Size", 1, 1, 1, 0, 0, 0, 0, 0, 0);
+            AddCustomizationParameterMap(null, 4, 0, 128, param, 0, 0);*/
 
-            /*foreach(var entry in housingPlugItem.Entries)
+            foreach (var entry in housingPlugItem.table.Entries)
             {
                 uint id = (uint)entry.Values[0].Value;
                 if(id == 557)
                 {
-                    entry.Values[27].SetValue((uint) 0);
+                    entry.Values[14].SetValue((uint)0);
+                    entry.Values[15].SetValue((uint)0);
+                    entry.Values[16].SetValue((uint)0);
+
+                    entry.Values[23].SetValue((uint)0);
+
+                    entry.Values[27].SetValue((uint)0);
+                    entry.Values[28].SetValue((uint)0);
+                    entry.Values[29].SetValue((uint)0);
+                    entry.Values[30].SetValue((uint)0);
+                    // flags is 8
                 }
-            }*/
+            }
 
             SaveTables("../../../../TblBeta/");
             CopyTables("../../../../TblBeta/", "../../../../TblServer/");
@@ -1866,82 +1970,40 @@ namespace WildStar.TestBed
             File.WriteAllLines("../../../../Strings.txt", file);
         }
 
+        static void TestArchiveWriting()
+        {
+            AddAllTables("../../../../Tbl/");
+            LoadTables();
+            SaveTables("../../../../TblTest/");
+        }
+
         static bool betaMode = false;
 
-        static GameTable.GameTable hookAssets;
-        static uint nextHookAsset = 3352;
+        static Table hookAssets = AddTable("HookAsset", true);
+        static Table decorInfo = AddTable("HousingDecorInfo");
+        static Table decorType = AddTable("HousingDecorType");
+        static Table colorShift = AddTable("ColorShift");
+        static Table emotes = AddTable("Emotes");
+        static Table wallpaperInfo = AddTable("HousingWallpaperInfo");
+        static Table worldLayer = AddTable("WorldLayer", true);
+        static Table customizationParameter = AddTable("CustomizationParameter", false, false);
+        static Table customizationParameterMap = AddTable("CustomizationParameterMap", false, false);
+        static Table housingPlugItem = AddTable("HousingPlugItem");
+        static TextTable.TextTable language = null;
 
-        static GameTable.GameTable decorInfo;
-        static uint nextDecorID = 3699;
-
-        static GameTable.GameTable decorType;
-        static uint nextDecorType = 66;
-
-        static GameTable.GameTable colorShift;
-        static uint nextShiftID = 0;
-
-        static GameTable.GameTable emotes;
-        static uint nextEmoteID = 0;
-
-        static GameTable.GameTable wallpaperInfo;
-        static uint nextWallpaper = 0;
-
-        static GameTable.GameTable worldLayer;
-        static uint nextWorldLayer = 0;
-
-        static GameTable.GameTable customizationParameter;
-        static uint nextCustomizationParameter = 0;
-
-        static GameTable.GameTable customizationParameterMap;
-        static uint nextCustomizationParameterMap = 0;
-
-        /*static GameTable.GameTable housingPlugItem;
-        static uint nexthpi = 0;*/
-
-        static TextTable.TextTable language;
+        public static Table AddTable(string name, bool requireID = false, bool doSave = true)
+        {
+            Table table = new Table(name, doSave, requireID);
+            tables.Add(table);
+            return table;
+        }
 
         public static void LoadTables()
         {
-            hookAssets = new GameTable.GameTable();
-            hookAssets.Load("../../../../Tbl/HookAsset.tbl");
-            nextHookAsset = GetMaxID(hookAssets.Entries) + 1;
-
-            decorType = new GameTable.GameTable();
-            decorType.Load("../../../../Tbl/HousingDecorType.tbl");
-            nextDecorType = GetMaxID(decorType.Entries) + 1;
-
-            decorInfo = new GameTable.GameTable();
-            decorInfo.Load("../../../../Tbl/HousingDecorInfo.tbl");
-            nextDecorID = GetMaxID(decorInfo.Entries) + 1;
-
-            colorShift = new GameTable.GameTable();
-            colorShift.Load("../../../../Tbl/ColorShift.tbl");
-            nextShiftID = GetMaxID(colorShift.Entries) + 1;
-
-            emotes = new GameTable.GameTable();
-            emotes.Load("../../../../Tbl/Emotes.tbl");
-            nextEmoteID = GetMaxID(emotes.Entries) + 1;
-
-            wallpaperInfo = new GameTable.GameTable();
-            wallpaperInfo.Load("../../../../Tbl/HousingWallpaperInfo.tbl");
-            nextWallpaper = GetMaxID(wallpaperInfo.Entries) + 1;
-
-            worldLayer = new GameTable.GameTable();
-            worldLayer.Load("../../../../Tbl/WorldLayer.tbl");
-            nextWorldLayer = GetMaxID(worldLayer.Entries) + 1;
-
-            customizationParameter = new GameTable.GameTable();
-            customizationParameter.Load("../../../../Tbl/CustomizationParameter.tbl");
-            nextCustomizationParameter = GetMaxID(customizationParameter.Entries) + 1;
-
-            customizationParameterMap = new GameTable.GameTable();
-            customizationParameterMap.Load("../../../../Tbl/CustomizationParameterMap.tbl");
-            nextCustomizationParameterMap = GetMaxID(customizationParameterMap.Entries) + 1;
-
-            /*housingPlugItem = new GameTable.GameTable();
-            housingPlugItem.Load("../../../../Tbl/HousingPlugItem.tbl");
-            nexthpi = GetMaxID(housingPlugItem.Entries) + 1;*/
-
+            foreach(var table in tables)
+            {
+                table.Load("../../../../Tbl/");
+            }
             language = new TextTable.TextTable();
             language.Load("../../../../Tbl/en-US.bin");
         }
@@ -1949,26 +2011,10 @@ namespace WildStar.TestBed
         public static void SaveTables(string baseFolder)
         {
             Directory.CreateDirectory(baseFolder + "DB");
-
-            hookAssets.Save(baseFolder + "DB/HookAsset.tbl");
-
-            decorType.Save(baseFolder + "DB/HousingDecorType.tbl");
-
-            decorInfo.Save(baseFolder + "DB/HousingDecorInfo.tbl");
-
-            colorShift.Save(baseFolder + "DB/ColorShift.tbl");
-
-            emotes.Save(baseFolder + "DB/Emotes.tbl");
-
-            wallpaperInfo.Save(baseFolder + "DB/HousingWallpaperInfo.tbl");
-
-            /*customizationParameter.Save(baseFolder + "DB/CustomizationParameter.tbl");
-
-            customizationParameterMap.Save(baseFolder + "DB/CustomizationParameterMap.tbl");*/
-
-            worldLayer.Save(baseFolder + "DB/WorldLayer.tbl");
-
-            //housingPlugItem.Save(baseFolder + "DB/HousingPlugItem.tbl");
+            foreach(var table in tables)
+            {
+                table.Save(baseFolder + "DB/");
+            }
 
             language.Save(baseFolder + "en-US.bin");
         }
@@ -1990,23 +2036,36 @@ namespace WildStar.TestBed
             }
         }
 
-        static uint AddEntry(GameTable.GameTable table, GameTable.GameTableEntry entry, ref uint nextIDCounter, uint? id = null)
+        public static void AddAllTables(string baseFolder)
         {
-            uint _id = nextIDCounter;
-            if(id != null)
+            List<string> names = new List<string>();
+            foreach (var name in Directory.GetFiles(baseFolder, "*.tbl", SearchOption.AllDirectories))
             {
-                _id = (uint) id;
+                names.Add(Path.GetFileNameWithoutExtension(name));
             }
-            if(_id >= nextIDCounter)
+            List<string> tableNames = new List<string>();
+            foreach (var table in tables)
             {
-                nextIDCounter = _id + 1;
+                tableNames.Add(table.name);
             }
-            if (table.HasEntry(_id))
+            names.RemoveAll(s => tableNames.Contains(s));
+
+            List<string> cantWrite = new List<string>
             {
-                throw new ArgumentException("Given ID already exists in table!");
+                "ItemRuneSlotRandomization",
+                "MapZoneLevelBand",
+                "MatchingMapPrerequisite",
+                "PublicEventUnitPropertyModifier",
+                "SoundReplaceDescription",
+                "SoundReplace",
+                "WordFilterAlt",
+            };
+            names.RemoveAll(s => cantWrite.Contains(s));
+
+            foreach (var name in names)
+            {
+                AddTable(name);
             }
-            table.AddEntry(entry, _id);
-            return _id;
         }
 
         enum DecorCategory
@@ -2075,23 +2134,21 @@ namespace WildStar.TestBed
             entry.AddSingle(0); // rotation Y
             entry.AddSingle(0); // rotation Z
 
-            hookAssets.AddEntry(entry, nextHookAsset);
-
-            nextHookAsset += 1;
-            return nextHookAsset - 1;
+            uint id = hookAssets.nextEntry;
+            hookAssets.AddEntry(entry, id);
+            return id;
         }
 
-        static uint AddDecorType(DecorCategory id, string name, string luaString)
+        static void AddDecorType(DecorCategory id, string name, string luaString)
         {
             var entry = new GameTableEntry();
             entry.AddInteger(language.AddEntry(name));
             entry.AddString(luaString);
 
-            uint _id = AddEntry(decorType, entry, ref nextDecorType, (uint) id);
-            return _id;
+            decorType.AddEntry(entry, (uint)id);
         }
 
-        static uint AddGenericDecor(string hookAsset, uint? id = null, string name = null, DecorCategory category = DecorCategory.Lighting, bool particleAlt = false, uint week = 0)
+        static void AddGenericDecor(string hookAsset, uint? id = null, string name = null, DecorCategory category = DecorCategory.Lighting, bool particleAlt = false, uint week = 0)
         {
             if(betaMode)
             {
@@ -2136,12 +2193,10 @@ namespace WildStar.TestBed
             entry.AddSingle(0.1f); // min scale
             entry.AddSingle(10f); // max scale
 
-            uint _id = AddEntry(decorInfo, entry, ref nextDecorID, id);
-            log.Info($"Added decor {_id}: {hookAsset}");
-            return _id;
+            decorInfo.AddEntry(entry, id);
         }
 
-        static uint AddColorShift(string colorShiftAsset, uint? id = null, string name = null)
+        static void AddColorShift(string colorShiftAsset, uint? id, string name = null)
         {
             var entry = new GameTableEntry();
             entry.AddString(colorShiftAsset); // Asset path
@@ -2155,10 +2210,10 @@ namespace WildStar.TestBed
             }
             entry.AddString("BasicSprites:Grey"); // preview swatch icon
 
-            return AddEntry(colorShift, entry, ref nextShiftID, id);
+            colorShift.AddEntry(entry, id);
         }
 
-        static uint AddEmote(uint animationID, string command, string command2 = null, uint? id = null)
+        static void AddEmote(uint animationID, string command, string command2 = null, uint? id = null)
         {
             var entry = new GameTableEntry();
             entry.AddInteger(0); // localizedTextIdNoArgToAll
@@ -2187,10 +2242,10 @@ namespace WildStar.TestBed
             entry.AddString(command ?? ""); // universalCommand00
             entry.AddString(command2 ?? ""); // universalCommand01
 
-            return AddEntry(emotes, entry, ref nextEmoteID, id);
+            emotes.AddEntry(entry, id);
         }
 
-        static uint AddWallpaper(uint? id, string name, uint cost, uint flags, uint unlockIndex, uint worldSkyID, uint soundZoneKitID, uint worldLayerID1, uint worldLayerID2)
+        static void AddWallpaper(uint? id, string name, uint cost, uint flags, uint unlockIndex, uint worldSkyID, uint soundZoneKitID, uint worldLayerID1, uint worldLayerID2)
         {
             if(betaMode)
             {
@@ -2213,12 +2268,12 @@ namespace WildStar.TestBed
             entry.AddInteger(0); // worldLayerId03
             entry.AddInteger(0); // accountItemIdUpsell
 
-            return AddEntry(wallpaperInfo, entry, ref nextWallpaper, id);
+            wallpaperInfo.AddEntry(entry, id);
         }
 
-        static uint AddGroundOption(string name, uint worldLayerPrimary, uint worldLayerSecondary, uint? id = null, uint cost = 1)
+        static void AddGroundOption(string name, uint worldLayerPrimary, uint worldLayerSecondary, uint? id = null, uint cost = 1)
         {
-            return AddWallpaper(id, name, cost, 512, 270, 1, 0, worldLayerSecondary, worldLayerPrimary);
+            AddWallpaper(id, name, cost, 512, 270, 1, 0, worldLayerSecondary, worldLayerPrimary);
         }
 
         static GameTableEntry CopyEntry(GameTableEntry copied)
@@ -2241,9 +2296,9 @@ namespace WildStar.TestBed
             }
         }
 
-        static uint AddWorldLayer(uint id, string name, uint copiedID, float? heightScale, float? heightOffset, float? parallaxScale, float? parallaxOffset, float? metersPerTile, string colorTexture, string normalTexture, uint? averageColor, uint? materialType, uint? worldClutterID0, uint? worldClutterID1, uint? worldClutterID2, uint? worldClutterID3, float? specularPower, uint? emissiveGlow, float? scrollSpeed0, float? scrollSpeed1)
+        static void AddWorldLayer(uint id, string name, uint copiedID, float? heightScale, float? heightOffset, float? parallaxScale, float? parallaxOffset, float? metersPerTile, string colorTexture, string normalTexture, uint? averageColor, uint? materialType, uint? worldClutterID0, uint? worldClutterID1, uint? worldClutterID2, uint? worldClutterID3, float? specularPower, uint? emissiveGlow, float? scrollSpeed0, float? scrollSpeed1)
         {
-            var copied = GetEntry(worldLayer, copiedID);
+            var copied = GetEntry(worldLayer.table, copiedID);
             var entry = CopyEntry(copied);
             Overwrite(entry.Values[1], name);
             Overwrite(entry.Values[2], heightScale);
@@ -2267,10 +2322,10 @@ namespace WildStar.TestBed
 
             entry.Values.RemoveAt(0);
 
-            return AddEntry(worldLayer, entry, ref nextWorldLayer, id);
+            worldLayer.AddEntry(entry, id);
         }
 
-        static uint AddCustomizationParameter(uint? id, string name, float sclX, float sclY, float sclZ, float rotX, float rotY, float rotZ, float posX, float posY, float posZ)
+        static void AddCustomizationParameter(uint? id, string name, float sclX, float sclY, float sclZ, float rotX, float rotY, float rotZ, float posX, float posY, float posZ)
         {
             var entry = new GameTableEntry();
 
@@ -2285,10 +2340,10 @@ namespace WildStar.TestBed
             entry.AddSingle(posY);
             entry.AddSingle(posZ);
 
-            return AddEntry(customizationParameter, entry, ref nextCustomizationParameter, id);
+            customizationParameter.AddEntry(entry, id);
         }
 
-        static uint AddCustomizationParameterMap(uint? id, uint raceID, uint genderEnum, uint modelBoneID, uint customizationParameterID, uint dataOrder, uint flags)
+        static void AddCustomizationParameterMap(uint? id, uint raceID, uint genderEnum, uint modelBoneID, uint customizationParameterID, uint dataOrder, uint flags)
         {
             var entry = new GameTableEntry();
 
@@ -2299,21 +2354,7 @@ namespace WildStar.TestBed
             entry.AddInteger(dataOrder);
             entry.AddInteger(flags);
 
-            return AddEntry(customizationParameterMap, entry, ref nextCustomizationParameterMap, id);
-        }
-
-        static uint GetMaxID(List<GameTableEntry> list)
-        {
-            uint maxVal = 0;
-            foreach (var entry in list)
-            {
-                uint id = (uint)entry.Values[0].Value;
-                if (id > maxVal)
-                {
-                    maxVal = id;
-                }
-            }
-            return maxVal;
+            customizationParameterMap.AddEntry(entry, id);
         }
 
         static GameTableEntry GetEntry(GameTable.GameTable table, uint id)
