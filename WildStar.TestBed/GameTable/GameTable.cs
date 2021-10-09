@@ -15,8 +15,6 @@ namespace WildStar.TestBed.GameTable
         public List<GameTableColumn> Columns { get; } = new List<GameTableColumn>();
         public List<GameTableEntry> Entries { get; } = new List<GameTableEntry>();
 
-        private bool minimalStrings;
-
         /// <summary>
         /// 
         /// </summary>
@@ -102,7 +100,7 @@ namespace WildStar.TestBed.GameTable
                 header.RecordOffset = stream.Position - headerSize;
 
                 if (header.RecordCount > 0)
-                    header.RecordSize = Entries[0].CalculateSize(minimalStrings);
+                    header.RecordSize = Entries[0].CalculateSize();
 
                 WriteEntries(writer);
                 header.TotalRecordSize = stream.Position - headerSize - header.RecordOffset;
@@ -183,7 +181,7 @@ namespace WildStar.TestBed.GameTable
 
         private void WriteEntries(BinaryWriter writer)
         {
-            uint entrySize = Entries[0].CalculateSize(minimalStrings);
+            uint entrySize = Entries[0].CalculateSize();
             var stringTableOffset = entrySize * Entries.Count;
             
 
@@ -211,22 +209,16 @@ namespace WildStar.TestBed.GameTable
                                 writer.Write((ulong)value.Value);
                                 break;
                             case DataType.String:
-                            {
-                                if (minimalStrings)
-                                {
-                                    writer.Write((uint)stringTableOffset + (uint)stringTableStream.Position);
-                                    writer.Write((uint)0);
-                                }
-                                else
+                                long a = (writer.BaseStream.Position - start) % 8;
+                                if (a != 0)
                                 {
                                     writer.Write((uint)0);
-                                    writer.Write((uint)stringTableOffset + (uint)stringTableStream.Position);
-                                    writer.Write((uint)0);
                                 }
+                                writer.Write((uint)stringTableOffset + (uint)stringTableStream.Position);
+                                writer.Write((uint)0);
 
                                 stringTableWriter.WriteWideString((string)value.Value);
                                 break;
-                            }
                         }
                     }
 
@@ -350,9 +342,6 @@ namespace WildStar.TestBed.GameTable
                                 value.SetValue(reader.ReadWideString());
 
                                 reader.BaseStream.Position = position;
-
-                                if (offset1 != 0)
-                                    minimalStrings = true;
 
 
                                 break;
