@@ -1916,6 +1916,114 @@ namespace WildStar.TestBed
                 }
             }
 
+            // Factioned character customization stuff
+            // 23 and 24 are factioned versions of 3, Hair Style
+            // 21 and 22 are factioned versions of 1, Face Style
+            // 19 and 20 are factioned versions of 5, Facial Hair Style
+            // 15 and 16 are factioned versions of Jewelry, there's no unfactioned version
+
+            List<(uint, uint, uint)> labelsList = new List<(uint, uint, uint)>()
+            {
+                (24, 23, 3),
+                (22, 21, 1),
+                (20, 19, 5),
+                (16, 15, 15),
+            };
+
+            GetEntry(characterCustomizationLabel.table, 15).Values[2].SetValue(0u);
+
+            Dictionary<uint, (uint, GameTableEntry)> highestValues = new Dictionary<uint, (uint, GameTableEntry)>();
+
+            foreach (var labels in labelsList)
+            {
+                foreach (uint label in new List<uint>() { labels.Item1, labels.Item2, labels.Item3 })
+                {
+                    GameTable.GameTableEntry highestEntry = null;
+                    uint highestNumber = 0;
+                    foreach (var entry in characterCustomizationSelection.table.Entries)
+                    {
+                        uint number = (uint)entry.Values[2].Value;
+                        if (number > highestNumber && ((uint)entry.Values[1].Value) == label)
+                        {
+                            highestEntry = entry;
+                            highestNumber = number;
+                        }
+                    }
+                    highestValues.TryAdd(label, (highestNumber, highestEntry));
+                }
+
+                {
+                    HashSet<uint> existingDisplayIDs = new HashSet<uint>();
+                    List<GameTable.GameTableEntry> entriesToDelete = new List<GameTableEntry>();
+
+                    // New scope for convenience
+                    uint offset = highestValues[labels.Item1].Item1;
+                    uint neededSpace = offset + highestValues[labels.Item2].Item1; // There's no 0 IDs, so this is fine.
+                    var highestEntry = highestValues[labels.Item1].Item2;
+                    for (uint i = highestValues[labels.Item3].Item1; i < neededSpace; ++i)
+                    {
+                        var copy = CopyEntry(highestEntry);
+                        copy.Values[2].SetValue(i);
+                        copy.Values.RemoveAt(0);
+                        characterCustomizationSelection.AddEntry(copy);
+                    }
+
+                    foreach (var entry in characterCustomization.table.Entries)
+                    {
+                        uint entryLabel1 = (uint)entry.Values[6].Value;
+                        uint entryLabel2 = (uint)entry.Values[7].Value;
+
+                        bool dupeCheck = false;
+
+                        if(((uint) entry.Values[1].Value) != 1)
+                        {
+                            continue;
+                        }
+
+                        if (entryLabel1 == labels.Item1)
+                        {
+                            entry.Values[6].SetValue(labels.Item3);
+                            dupeCheck = true;
+                        }
+                        if (entryLabel1 == labels.Item2)
+                        {
+                            entry.Values[6].SetValue(labels.Item3);
+                            entry.Values[8].SetValue(((uint)entry.Values[8].Value) + offset);
+                            dupeCheck = true;
+                        }
+
+                        if (entryLabel2 == labels.Item1)
+                        {
+                            entry.Values[7].SetValue(labels.Item3);
+                            dupeCheck = true;
+                        }
+                        if (entryLabel2 == labels.Item2)
+                        {
+                            entry.Values[7].SetValue(labels.Item3);
+                            entry.Values[9].SetValue(((uint)entry.Values[9].Value) + offset);
+                            dupeCheck = true;
+                        }
+                        if(dupeCheck)
+                        {
+                            uint displayID = (uint)entry.Values[4].Value;
+                            if(existingDisplayIDs.Contains(displayID))
+                            {
+                                entriesToDelete.Add(entry);
+                            } else
+                            {
+                                existingDisplayIDs.Add(displayID);
+                            }
+                        }
+                    }
+
+                    foreach(var entry in entriesToDelete)
+                    {
+                        characterCustomization.table.Entries.Remove(entry);
+                    }
+                }
+            }
+
+
             SaveTables("../../../../TblBeta/");
             CopyTables("../../../../TblBeta/", "../../../../TblServer/");
 
@@ -1945,6 +2053,9 @@ namespace WildStar.TestBed
         static Table worldLayer = AddTable("WorldLayer", true);
         static Table customizationParameter = AddTable("CustomizationParameter", false, false);
         static Table customizationParameterMap = AddTable("CustomizationParameterMap", false, false);
+        static Table characterCustomizationLabel = AddTable("CharacterCustomizationLabel", true);
+        static Table characterCustomization = AddTable("CharacterCustomization", true);
+        static Table characterCustomizationSelection = AddTable("CharacterCustomizationSelection", false);
         static Table housingPlugItem = AddTable("HousingPlugItem");
         static TextTable.TextTable language = null;
 
