@@ -44,66 +44,10 @@ namespace WildStar.TestBed
             AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus125_LUT.tex", 30, "Hue-Shift, Plus 125 Degrees");
             AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus150_LUT.tex", 31, "Hue-Shift, Plus 150 Degrees");
 
-            Dictionary<uint, (String, String)> EmoteLibrary = new Dictionary<uint, (String, String)>()
-            {
-                { 289, ("chairsit", "chairsit1") },
-                { 288, ("chairsit2", null) },
-                { 280, ("channeling", "channeling1") },
-                //{ 231, ("channeling2", null) },
-                //{ 417, ("channeling3", null) },
-                { 199, ("combatloop", null) },
-                { 59, ("dazed", null) },
-                { 259, ("dazedfloat", null) },
-                { 134, ("deadfloat", "deadfloat1") },
-                { 261, ("deadfloat2", null) },
-                { 46, ("dead", "dead1") },
-                { 184, ("dead2", null) },
-                { 185, ("dead3", null) },
-                { 186, ("dead4", null) },
-                //{ 187, ("dead5", null) },
-                //{ 291, ("dominionpose", null) },
-                //{ 290, ("exilepose", null) },
-                { 214, ("falling", null) },
-                { 216, ("floating", null) },
-                { 83, ("holdobject", null) },
-                { 158, ("knockdown", null) },
-                { 96, ("laser", null) },
-                { 425, ("lounge3", null) },
-                { 267, ("mount", null) },
-                //{ 371, ("pistolfire", null) },
-                { 86, ("readyclaws", null) },
-                { 43, ("readycombat", null) },
-                { 269, ("readycombatfloat", null) },
-                { 266, ("readylauncher", null) },
-                { 54, ("readypistols", null) },
-                { 39, ("readyrifle", null) },
-                { 85, ("readysword", null) },
-                { 427, ("shiver", null) },
-                //{ 249, ("staffchannel", null) },
-                //{ 155, ("staffraise", null) },
-                //{ 156, ("stealth", null) },
-                //{ 232, ("swordblock", null) },
-                { 97, ("talking", null) },
-                { 263, ("taxisit", null) },
-                { 102, ("tiedup", null) },
-                { 203, ("tpose", null) },
-                { 42, ("use", "use1") },
-                { 35, ("use2", null) },
-                { 98, ("wounded", "wounded1") },
-                { 99, ("wounded2", null) },
-                { 100, ("wounded3", null) },
-                { 101, ("wounded4", null) }
-            };
 
-            foreach (var entry in emotes.table.Entries)
-            {
-                uint id = (uint)entry.Values[0].Value;
-                if (EmoteLibrary.TryGetValue(id, out var tuple))
-                {
-                    entry.Values[24].SetValue(tuple.Item1 ?? "");
-                    entry.Values[25].SetValue(tuple.Item2 ?? "");
-                }
-            }
+            AddEmoteSlashCommands();
+
+            // Unlock all skies/grounds/musics.
 
             foreach (var entry in wallpaperInfo.table.Entries)
             {
@@ -1927,25 +1871,125 @@ namespace WildStar.TestBed
             /*uint param = AddCustomizationParameter(null, "Size", 1, 1, 1, 0, 0, 0, 0, 0, 0);
             AddCustomizationParameterMap(null, 4, 0, 128, param, 0, 0);*/
 
+            HousingPlugUnlocks();
+            
+            //CharacterCustomizationChanges();
+
+            /*foreach (var entry in itemDisplay.table.Entries)
+            {
+                uint ID = (uint)entry.Values[0].Value;
+                uint dye = (uint)entry.Values[38].Value;
+                if (dye == 91)
+                {
+                    entry.Values[38].SetValue(109u);
+                }
+                if (dye == 134)
+                {
+                    entry.Values[38].SetValue(35u);
+                }
+            }*/
+
+            SaveTables("../../../../TblBeta/");
+            CopyTables("../../../../TblBeta/", "../../../../TblServer/");
+
+            List<string> file = new List<string>();
+            foreach(var entry in language.Entries)
+            {
+                file.Add($"{entry.Id}: {entry.Text}");
+            }
+            File.WriteAllLines("../../../../Strings.txt", file);
+        }
+
+        static void AddEmoteSlashCommands()
+        {
+            // Add /commands to existing emotes
+
+            Dictionary<uint, (String, String)> EmoteLibrary = new Dictionary<uint, (String, String)>()
+            {
+                { 289, ("chairsit", "chairsit1") },
+                { 288, ("chairsit2", null) },
+                { 280, ("channeling", "channeling1") },
+                //{ 231, ("channeling2", null) },
+                //{ 417, ("channeling3", null) },
+                { 199, ("combatloop", null) },
+                { 59, ("dazed", null) },
+                { 259, ("dazedfloat", null) },
+                { 134, ("deadfloat", "deadfloat1") },
+                { 261, ("deadfloat2", null) },
+                { 46, ("dead", "dead1") },
+                { 184, ("dead2", null) },
+                { 185, ("dead3", null) },
+                { 186, ("dead4", null) },
+                //{ 187, ("dead5", null) },
+                //{ 291, ("dominionpose", null) },
+                //{ 290, ("exilepose", null) },
+                { 214, ("falling", null) },
+                { 216, ("floating", null) },
+                { 83, ("holdobject", null) },
+                { 158, ("knockdown", null) },
+                { 96, ("laser", null) },
+                { 425, ("lounge3", null) },
+                { 267, ("mount", null) },
+                //{ 371, ("pistolfire", null) },
+                { 86, ("readyclaws", null) },
+                { 43, ("readycombat", null) },
+                { 269, ("readycombatfloat", null) },
+                { 266, ("readylauncher", null) },
+                { 54, ("readypistols", null) },
+                { 39, ("readyrifle", null) },
+                { 85, ("readysword", null) },
+                { 427, ("shiver", null) },
+                //{ 249, ("staffchannel", null) },
+                //{ 155, ("staffraise", null) },
+                //{ 156, ("stealth", null) },
+                //{ 232, ("swordblock", null) },
+                { 97, ("talking", null) },
+                { 263, ("taxisit", null) },
+                { 102, ("tiedup", null) },
+                { 203, ("tpose", null) },
+                { 42, ("use", "use1") },
+                { 35, ("use2", null) },
+                { 98, ("wounded", "wounded1") },
+                { 99, ("wounded2", null) },
+                { 100, ("wounded3", null) },
+                { 101, ("wounded4", null) }
+            };
+
+            foreach (var entry in emotes.table.Entries)
+            {
+                uint id = (uint)entry.Values[0].Value;
+                if (EmoteLibrary.TryGetValue(id, out var tuple))
+                {
+                    entry.Values[24].SetValue(tuple.Item1 ?? "");
+                    entry.Values[25].SetValue(tuple.Item2 ?? "");
+                }
+            }
+        }
+
+        static void HousingPlugUnlocks()
+        {
             foreach (var entry in housingPlugItem.table.Entries)
             {
                 uint id = (uint)entry.Values[0].Value;
-                if(id == 557)
-                {
-                    entry.Values[14].SetValue((uint)0);
-                    entry.Values[15].SetValue((uint)0);
-                    entry.Values[16].SetValue((uint)0);
+                /*if(id == 557)
+                {*/
+                entry.Values[14].SetValue((uint)0);
+                entry.Values[15].SetValue((uint)0);
+                entry.Values[16].SetValue((uint)0);
 
-                    entry.Values[23].SetValue((uint)0);
+                entry.Values[23].SetValue((uint)0);
 
-                    entry.Values[27].SetValue((uint)0);
-                    entry.Values[28].SetValue((uint)0);
-                    entry.Values[29].SetValue((uint)0);
-                    entry.Values[30].SetValue((uint)0);
-                    // flags is 8
-                }
+                entry.Values[27].SetValue((uint)0);
+                entry.Values[28].SetValue((uint)0);
+                entry.Values[29].SetValue((uint)0);
+                entry.Values[30].SetValue((uint)0);
+                // flags is 8
+                //}
             }
+        }
 
+        static void CharacterCustomizationChanges()
+        {
             // Factioned character customization stuff
             // 23 and 24 are factioned versions of 3, Hair Style
             // 21 and 22 are factioned versions of 1, Face Style
@@ -1995,7 +2039,7 @@ namespace WildStar.TestBed
                         var copy = CopyEntry(highestEntry);
                         copy.Values[2].SetValue(i);
                         copy.Values.RemoveAt(0);
-                        characterCustomizationSelection.AddEntry(copy);
+                        characterCustomizationSelection.AddEntry(copy, characterCustomizationSelection.nextEntry);
                     }
 
                     foreach (var entry in characterCustomization.table.Entries)
@@ -2005,7 +2049,7 @@ namespace WildStar.TestBed
 
                         bool dupeCheck = false;
 
-                        if(((uint) entry.Values[1].Value) != 1)
+                        if (((uint)entry.Values[1].Value) != 1)
                         {
                             continue;
                         }
@@ -2033,32 +2077,33 @@ namespace WildStar.TestBed
                             entry.Values[9].SetValue(((uint)entry.Values[9].Value) + offset);
                             dupeCheck = true;
                         }
-                        if(dupeCheck)
+                        if (dupeCheck)
                         {
                             uint displayID = (uint)entry.Values[4].Value;
-                            if(existingDisplayIDs.Contains(displayID))
+                            if (existingDisplayIDs.Contains(displayID))
                             {
                                 entriesToDelete.Add(entry);
-                            } else
+                            }
+                            else
                             {
                                 existingDisplayIDs.Add(displayID);
                             }
                         }
                     }
 
-                    foreach(var entry in entriesToDelete)
+                    foreach (var entry in entriesToDelete)
                     {
                         characterCustomization.table.Entries.Remove(entry);
                     }
                 }
             }
 
-            foreach(var entry in characterCustomization.table.Entries)
+            foreach (var entry in characterCustomization.table.Entries)
             {
                 uint[] vals = new uint[10];
-                for(int i = 0; i < 10; ++i)
+                for (int i = 0; i < 10; ++i)
                 {
-                    vals[i] = (uint) entry.Values[i].Value;
+                    vals[i] = (uint)entry.Values[i].Value;
                 }
 
                 uint race = vals[1];
@@ -2071,19 +2116,6 @@ namespace WildStar.TestBed
                     entry.Values[1].SetValue(1u);
                 }
             }
-
-
-
-
-            SaveTables("../../../../TblBeta/");
-            CopyTables("../../../../TblBeta/", "../../../../TblServer/");
-
-            List<string> file = new List<string>();
-            foreach(var entry in language.Entries)
-            {
-                file.Add($"{entry.Id}: {entry.Text}");
-            }
-            File.WriteAllLines("../../../../Strings.txt", file);
         }
 
         static void TestArchiveWriting()
@@ -2108,6 +2140,7 @@ namespace WildStar.TestBed
         static Table characterCustomization = AddTable("CharacterCustomization", true);
         static Table characterCustomizationSelection = AddTable("CharacterCustomizationSelection", false);
         static Table housingPlugItem = AddTable("HousingPlugItem");
+        static Table itemDisplay = AddTable("ItemDisplay");
         static TextTable.TextTable language = null;
 
         public static Table AddTable(string name, bool requireID = false, bool doSave = true)
