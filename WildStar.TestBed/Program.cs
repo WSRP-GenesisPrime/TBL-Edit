@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using WildStar.TestBed.GameTable;
 
 namespace WildStar.TestBed
@@ -43,6 +44,14 @@ namespace WildStar.TestBed
             AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus100_LUT.tex", 29, "Hue-Shift, Plus 100 Degrees");
             AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus125_LUT.tex", 30, "Hue-Shift, Plus 125 Degrees");
             AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus150_LUT.tex", 31, "Hue-Shift, Plus 150 Degrees");
+            AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\HueShift_Plus180_LUT.tex", 32, "Hue-Shift, Plus 180 Degrees");
+            AddColorShift("Art\\FX\\LutMaps\\Invert_000_LUT.tex", 33, "Invert");
+            AddColorShift("Art\\FX\\LutMaps\\Desaturate_000_LUT.tex", 34, "Desaturate");
+            AddColorShift("Art\\FX\\LutMaps\\Black_000_LUT.tex", 35, "Black");
+            AddColorShift("Art\\FX\\LutMaps\\Blue_000_LUT.tex", 36, "Blue");
+            AddColorShift("Art\\FX\\LutMaps\\Gold_000_LUT.tex", 37, "Gold");
+            AddColorShift("Art\\FX\\LutMaps\\White_000_LUT.tex", 38, "White");
+
 
 
             AddEmoteSlashCommands();
@@ -1873,21 +1882,7 @@ namespace WildStar.TestBed
 
             HousingPlugUnlocks();
             
-            //CharacterCustomizationChanges();
-
-            /*foreach (var entry in itemDisplay.table.Entries)
-            {
-                uint ID = (uint)entry.Values[0].Value;
-                uint dye = (uint)entry.Values[38].Value;
-                if (dye == 91)
-                {
-                    entry.Values[38].SetValue(109u);
-                }
-                if (dye == 134)
-                {
-                    entry.Values[38].SetValue(35u);
-                }
-            }*/
+            CharacterCustomizationChanges();
 
             SaveTables("../../../../TblBeta/");
             CopyTables("../../../../TblBeta/", "../../../../TblServer/");
@@ -1990,132 +1985,62 @@ namespace WildStar.TestBed
 
         static void CharacterCustomizationChanges()
         {
-            // Factioned character customization stuff
-            // 23 and 24 are factioned versions of 3, Hair Style
-            // 21 and 22 are factioned versions of 1, Face Style
-            // 19 and 20 are factioned versions of 5, Facial Hair Style
-            // 15 and 16 are factioned versions of Jewelry, there's no unfactioned version
+            // share hair, faces, facial hair and jewelry between cassians and exile humans
+            cch.MoveEntriesToLabel(1, -1, 24, 3);
+            cch.MoveEntriesToLabel(1, -1, 23, 3);
 
-            List<(uint, uint, uint)> labelsList = new List<(uint, uint, uint)>()
+            cch.MoveEntriesToLabel(1, -1, 22, 1);
+            cch.MoveEntriesToLabel(1, -1, 21, 1);
+
+            cch.MoveEntriesToLabel(1, -1, 20, 5);
+            cch.MoveEntriesToLabel(1, -1, 19, 5);
+
+            cch.MoveEntriesToLabel(1, -1, 16, 15);
+            characterCustomizationLabel.GetEntry(15).Values[2].SetValue(0u);
+
+
+            // Change some customization colours.
+
+            //cch.GetFreeLabelValue(4, 1, 22);
+            // aurin female
+            // hair
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 109u, 3); // draken red
+            cch.AddColourOption(itemDisplay, 4, 1, 4, GetColorSet(232), 3); // brown
+            cch.AddColourOption(itemDisplay, 4, 1, 4, GetColorSet(224), 3); // hot pink
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 80, 3); // mordesh dark purple hair (looks brown)
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 49, 3); // mordesh light purple hair
+            // skin
+            cch.AddColourOption(itemDisplay, 4, 1, 2, GetColorSet(240), 2); // green (also try 265?)
+            // Draken female
+            // hair
+            cch.AddColourOption(itemDisplay, 5, 1, 4, GetColorSet(232), 2); // brown
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 49, 2); // mordesh light purple hair
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 90, 2); // mordesh teal eye
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 80, 2); // mordesh dark purple hair (looks brown)
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 94, 2); // mordesh orange eye
+
+            // pushed too far, brown on everything.
+            cch.AddColourOption(itemDisplay, 4, 1, 2, GetColorSet(232), 2); // aurin
+            cch.AddColourOption(itemDisplay, 12, 1, 2, GetColorSet(232), 3); // mechari
+            cch.AddColourOption(itemDisplay, 16, 0, 2, GetColorSet(232), 3); // mordesh M
+            cch.AddColourOption(itemDisplay, 16, 1, 2, GetColorSet(232), 3); // mordesh F
+
+            /*foreach (var entry in itemDisplay.table.Entries)
             {
-                (24, 23, 3),
-                (22, 21, 1),
-                (20, 19, 5),
-                (16, 15, 15),
-            };
-
-            GetEntry(characterCustomizationLabel.table, 15).Values[2].SetValue(0u);
-
-            Dictionary<uint, (uint, GameTableEntry)> highestValues = new Dictionary<uint, (uint, GameTableEntry)>();
-
-            foreach (var labels in labelsList)
-            {
-                foreach (uint label in new List<uint>() { labels.Item1, labels.Item2, labels.Item3 })
+                uint colorset = (uint)entry.Values[38].Value;
+                if (colorset == 38)
                 {
-                    GameTable.GameTableEntry highestEntry = null;
-                    uint highestNumber = 0;
-                    foreach (var entry in characterCustomizationSelection.table.Entries)
-                    {
-                        uint number = (uint)entry.Values[2].Value;
-                        if (number > highestNumber && ((uint)entry.Values[1].Value) == label)
-                        {
-                            highestEntry = entry;
-                            highestNumber = number;
-                        }
-                    }
-                    highestValues.TryAdd(label, (highestNumber, highestEntry));
+                    entry.Values[38].SetValue(GetColorSet(81));
                 }
-
+                if (colorset == 91)
                 {
-                    HashSet<uint> existingDisplayIDs = new HashSet<uint>();
-                    List<GameTable.GameTableEntry> entriesToDelete = new List<GameTableEntry>();
-
-                    // New scope for convenience
-                    uint offset = highestValues[labels.Item1].Item1;
-                    uint neededSpace = offset + highestValues[labels.Item2].Item1; // There's no 0 IDs, so this is fine.
-                    var highestEntry = highestValues[labels.Item1].Item2;
-                    for (uint i = highestValues[labels.Item3].Item1; i < neededSpace; ++i)
-                    {
-                        var copy = CopyEntry(highestEntry);
-                        copy.Values[2].SetValue(i);
-                        copy.Values.RemoveAt(0);
-                        characterCustomizationSelection.AddEntry(copy, characterCustomizationSelection.nextEntry);
-                    }
-
-                    foreach (var entry in characterCustomization.table.Entries)
-                    {
-                        uint entryLabel1 = (uint)entry.Values[6].Value;
-                        uint entryLabel2 = (uint)entry.Values[7].Value;
-
-                        bool dupeCheck = false;
-
-                        if (((uint)entry.Values[1].Value) != 1)
-                        {
-                            continue;
-                        }
-
-                        if (entryLabel1 == labels.Item1)
-                        {
-                            entry.Values[6].SetValue(labels.Item3);
-                            dupeCheck = true;
-                        }
-                        if (entryLabel1 == labels.Item2)
-                        {
-                            entry.Values[6].SetValue(labels.Item3);
-                            entry.Values[8].SetValue(((uint)entry.Values[8].Value) + offset);
-                            dupeCheck = true;
-                        }
-
-                        if (entryLabel2 == labels.Item1)
-                        {
-                            entry.Values[7].SetValue(labels.Item3);
-                            dupeCheck = true;
-                        }
-                        if (entryLabel2 == labels.Item2)
-                        {
-                            entry.Values[7].SetValue(labels.Item3);
-                            entry.Values[9].SetValue(((uint)entry.Values[9].Value) + offset);
-                            dupeCheck = true;
-                        }
-                        if (dupeCheck)
-                        {
-                            uint displayID = (uint)entry.Values[4].Value;
-                            if (existingDisplayIDs.Contains(displayID))
-                            {
-                                entriesToDelete.Add(entry);
-                            }
-                            else
-                            {
-                                existingDisplayIDs.Add(displayID);
-                            }
-                        }
-                    }
-
-                    foreach (var entry in entriesToDelete)
-                    {
-                        characterCustomization.table.Entries.Remove(entry);
-                    }
+                    entry.Values[38].SetValue(109u);
                 }
-            }
-
-            foreach (var entry in characterCustomization.table.Entries)
-            {
-                uint[] vals = new uint[10];
-                for (int i = 0; i < 10; ++i)
+                if (colorset == 27)
                 {
-                    vals[i] = (uint)entry.Values[i].Value;
+                    entry.Values[38].SetValue(35u);
                 }
-
-                uint race = vals[1];
-                if (race == 0 && ((vals[6] == 3 && vals[8] == 24) || (vals[7] == 3 && vals[9] == 24)))
-                {
-                    entry.Values[1].SetValue(1u);
-                }
-                if (race == 0 && ((vals[6] == 3 && vals[8] == 29) || (vals[7] == 3 && vals[9] == 29)))
-                {
-                    entry.Values[1].SetValue(1u);
-                }
-            }
+            }*/
         }
 
         static void TestArchiveWriting()
@@ -2136,11 +2061,13 @@ namespace WildStar.TestBed
         static Table worldLayer = AddTable("WorldLayer", true);
         static Table customizationParameter = AddTable("CustomizationParameter", false, false);
         static Table customizationParameterMap = AddTable("CustomizationParameterMap", false, false);
+        static Table characterCustomization = AddTable("CharacterCustomization", false);
         static Table characterCustomizationLabel = AddTable("CharacterCustomizationLabel", true);
-        static Table characterCustomization = AddTable("CharacterCustomization", true);
         static Table characterCustomizationSelection = AddTable("CharacterCustomizationSelection", false);
+        static CharacterCustomizationHandler cch = new CharacterCustomizationHandler();
         static Table housingPlugItem = AddTable("HousingPlugItem");
         static Table itemDisplay = AddTable("ItemDisplay");
+        static Table itemColorSet = AddTable("ItemColorSet");
         static TextTable.TextTable language = null;
 
         public static Table AddTable(string name, bool requireID = false, bool doSave = true)
@@ -2158,6 +2085,7 @@ namespace WildStar.TestBed
             }
             language = new TextTable.TextTable();
             language.Load("../../../../Tbl/en-US.bin");
+            cch.Load(characterCustomization, characterCustomizationLabel, characterCustomizationSelection);
         }
 
         public static void SaveTables(string baseFolder)
@@ -2291,6 +2219,25 @@ namespace WildStar.TestBed
             return id;
         }
 
+        static uint GetColorSet(uint col1, uint col2 = 0, uint col3 = 0)
+        {
+            GameTableEntry entry = itemColorSet.table.Entries.Where(e => 
+                e.Values[1].GetValue<uint>() == col1 &&
+                e.Values[2].GetValue<uint>() == col2 &&
+                e.Values[3].GetValue<uint>() == col3
+            ).FirstOrDefault();
+            if(entry == null)
+            {
+                entry = Table.CopyEntry(itemColorSet.table.Entries[0]);
+                entry.Values[1].SetValue(col1);
+                entry.Values[2].SetValue(col2);
+                entry.Values[3].SetValue(col3);
+                entry.Values.RemoveAt(0);
+                return itemColorSet.AddEntry(entry, itemColorSet.nextEntry);
+            }
+            return entry.Values[0].GetValue<uint>();
+        }
+
         static void AddDecorType(DecorCategory id, string name, string luaString)
         {
             var entry = new GameTableEntry();
@@ -2307,7 +2254,7 @@ namespace WildStar.TestBed
                 category = DecorCategory.Beta;
                 name = "(BETA) " + name;
             }
-            var entry = CopyEntry(GetEntry(decorInfo.table, copiedID));
+            var entry = Table.CopyEntry(decorInfo.GetEntry(copiedID));
             if(category != null)
                 entry.Values[1].SetValue((uint) category); // housingDecorTypeId
 
@@ -2419,29 +2366,17 @@ namespace WildStar.TestBed
 
         static void AddGroundOption(string name, uint worldLayerPrimary, uint worldLayerSecondary, uint? id = null, uint? cost = null)
         {
-            GameTableEntry layer = GetEntry(worldLayer.table, worldLayerPrimary);
+            GameTableEntry layer = worldLayer.GetEntry(worldLayerPrimary);
             if(layer == null)
             {
                 throw new ArgumentException("Worldlayer does not exist in table yet!");
             }
-            layer = GetEntry(worldLayer.table, worldLayerSecondary);
+            layer = worldLayer.GetEntry(worldLayerSecondary);
             if (layer == null)
             {
                 throw new ArgumentException("Worldlayer does not exist in table yet!");
             }
             AddWallpaper(id, name, cost, 512, 270, 1, 0, worldLayerSecondary, worldLayerPrimary);
-        }
-
-        static GameTableEntry CopyEntry(GameTableEntry copied)
-        {
-            GameTableEntry newEntry = new GameTableEntry();
-            foreach (var val in copied.Values)
-            {
-                GameTableValue copy = new GameTableValue(val.Type);
-                copy.SetValue(val.Value);
-                newEntry.Values.Add(copy);
-            }
-            return newEntry;
         }
 
         static void Overwrite(GameTableValue val, object overwrite)
@@ -2454,8 +2389,8 @@ namespace WildStar.TestBed
 
         static void AddWorldLayer(uint id, string name, uint copiedID, float? heightScale, float? heightOffset, float? parallaxScale, float? parallaxOffset, float? metersPerTile, string colorTexture, string normalTexture, uint? averageColor, uint? materialType, uint? worldClutterID0, uint? worldClutterID1, uint? worldClutterID2, uint? worldClutterID3, float? specularPower, uint? emissiveGlow, float? scrollSpeed0, float? scrollSpeed1)
         {
-            var copied = GetEntry(worldLayer.table, copiedID);
-            var entry = CopyEntry(copied);
+            var copied = worldLayer.GetEntry(copiedID);
+            var entry = Table.CopyEntry(copied);
             Overwrite(entry.Values[1], name);
             Overwrite(entry.Values[2], heightScale);
             Overwrite(entry.Values[3], heightOffset);
@@ -2511,18 +2446,6 @@ namespace WildStar.TestBed
             entry.AddInteger(flags);
 
             customizationParameterMap.AddEntry(entry, id);
-        }
-
-        static GameTableEntry GetEntry(GameTable.GameTable table, uint id)
-        {
-            foreach (GameTableEntry entry in table.Entries)
-            {
-                if((uint) entry.Values[0].Value == id)
-                {
-                    return entry;
-                }
-            }
-            return null;
         }
     }
 }
