@@ -1881,14 +1881,16 @@ namespace WildStar.TestBed
             AddCustomizationParameterMap(null, 4, 0, 128, param, 0, 0);*/
 
             HousingPlugUnlocks();
-            
+
             CharacterCustomizationChanges();
+
+            AddWeaponItems();
 
             SaveTables("../../../../TblBeta/");
             CopyTables("../../../../TblBeta/", "../../../../TblServer/");
 
             List<string> file = new List<string>();
-            foreach(var entry in language.Entries)
+            foreach (var entry in language.Entries)
             {
                 file.Add($"{entry.Id}: {entry.Text}");
             }
@@ -2086,6 +2088,107 @@ namespace WildStar.TestBed
             }*/
         }
 
+        static void AddWeaponItems()
+        {
+            List<(uint, string)> list = new List<(uint, string)>
+            {
+                // Type: Hammer
+                (632, "Generic Hammer 1"),
+                (572, "Generic Hammer 2"),
+                (7156, "Generic Hammer 3"),
+                (633, "Grund Hammer"),
+                (2245, "Osun Hammer 1"),
+                (7157, "Osun Hammer 2"),
+                (7952, "Osun Hammer 3"),
+                (6597, "Phage Hammer"),
+
+                // Type: Mace
+                (8639, "Moodie Cleaver"),
+                (6970, "Murgh Mace 1"),
+                (6969, "Murgh Mace 2"),
+                (2092, "Pell Mace"),
+                
+                // Type: Misc
+                (602, "Bone"),
+                (1588, "Glowstick"),
+                (1343, "Mug"),
+                (3400, "Plank"),
+                (684, "Shovel"),
+                (8051, "Sandwich"),
+                (7829, "Drumstick"),
+
+                // Type: Rifle
+                (5393, "Bazooka"),
+                (4869, "Crossbow"),
+                (3049, "Fish Cannon"),
+                (2332, "Flamer"),
+                (4793, "Large Flashlight"),
+                (6588, "Freeze Rifle"),
+                (3161, "Laser Saw"),
+                (1946, "Laser Pickaxe"),
+                (149, "Plasma Rifle"),
+                (3138, "Relic Blaster"),
+                (21, "Sniper Rifle"),
+
+                // Type: Scythe
+                (184, "Generic Scythe 1"),
+                (588, "Generic Scythe 2"),
+                (589, "Generic Scythe 3"),
+
+                // Type: Staff
+                (8029, "Long Fan"),
+                (464, "Generic Staff 1"),
+                (465, "Generic Staff 2"),
+                (144, "Generic Staff 3"),
+                (1611, "Generic Staff 4"),
+                (1612, "Generic Staff 5"),
+                (1613, "Generic Staff 6"),
+                (1614, "Generic Staff 7"),
+                (1615, "Generic Staff 8"),
+                (8019, "Ikthian Stafff"),
+                (7837, "Laveka's Staff"),
+                (595, "Lopp Staff"),
+                (2333, "Osun Staff 1"),
+                (3071, "Osun Staff 2"),
+                (7951, "Osun Glaive 1"),
+                (7816, "Osun Glaive 2"),
+                (2090, "Pell Staff 1"),
+                (2091, "Pell Staff 2"),
+                (79, "Skeech Staff 1"),
+                (7290, "Skeech Staff 2"),
+
+                // Type: Sword 1H
+                (1, "Cross Sword"),
+                (6972, "Falkrin 1H Sword"),
+                (612, "Generic 1H Sword 1"),
+                (145, "Generic 1H Sword 2"),
+                (2089, "Pell Sword"),
+                (2386, "Torohawk Sword"),
+
+                // Type: Sword 2H
+                (7018, "Corrupted Sword"),
+                (6968, "Exile Sword"),
+                (2093, "Falkrin 2H Sword 1"),
+                (6967, "Falkrin 2H Sword 2"),
+                (30, "Generic 2H Sword 1"),
+                (12, "Generic 2H Sword 2"),
+
+                // Type: Wrench
+                (39, "Small Wrench"),
+                (147, "Big Wrench"),
+                (1617, "Ikthian Wrench"),
+            };
+            foreach (var id in list)
+            {
+                var entry = item2.CopyEntry(74762);
+                entry.Values[12].SetValue(0u);
+                entry.Values[10].SetValue(id.Item1);
+                entry.Values[44].SetValue(language.AddEntry(id.Item2));
+                entry.Values.RemoveAt(0);
+                item2.AddEntry(entry, item2.nextEntry);
+            }
+        }
+
         static void TestArchiveWriting()
         {
             AddAllTables("../../../../Tbl/");
@@ -2111,6 +2214,7 @@ namespace WildStar.TestBed
         static Table housingPlugItem = AddTable("HousingPlugItem");
         static Table itemDisplay = AddTable("ItemDisplay");
         static Table itemColorSet = AddTable("ItemColorSet");
+        static Table item2 = AddTable("Item2");
         static TextTable.TextTable language = null;
 
         public static Table AddTable(string name, bool requireID = false, bool doSave = true)
@@ -2122,7 +2226,7 @@ namespace WildStar.TestBed
 
         public static void LoadTables()
         {
-            foreach(var table in tables)
+            foreach (var table in tables)
             {
                 table.Load("../../../../Tbl/");
             }
@@ -2134,7 +2238,7 @@ namespace WildStar.TestBed
         public static void SaveTables(string baseFolder)
         {
             Directory.CreateDirectory(baseFolder + "DB");
-            foreach(var table in tables)
+            foreach (var table in tables)
             {
                 table.Save(baseFolder + "DB/");
             }
@@ -2264,12 +2368,12 @@ namespace WildStar.TestBed
 
         static uint GetColorSet(uint col1, uint col2 = 0, uint col3 = 0)
         {
-            GameTableEntry entry = itemColorSet.table.Entries.Where(e => 
+            GameTableEntry entry = itemColorSet.table.Entries.Where(e =>
                 e.Values[1].GetValue<uint>() == col1 &&
                 e.Values[2].GetValue<uint>() == col2 &&
                 e.Values[3].GetValue<uint>() == col3
             ).FirstOrDefault();
-            if(entry == null)
+            if (entry == null)
             {
                 entry = Table.CopyEntry(itemColorSet.table.Entries[0]);
                 entry.Values[1].SetValue(col1);
@@ -2292,14 +2396,14 @@ namespace WildStar.TestBed
 
         static void AddGenericDecor(string hookAsset, uint copiedID, uint? creature2ID = null, uint? id = null, string name = null, DecorCategory? category = null, bool particleAlt = false, uint week = 0)
         {
-            if(betaMode)
+            if (betaMode)
             {
                 category = DecorCategory.Beta;
                 name = "(BETA) " + name;
             }
             var entry = Table.CopyEntry(decorInfo.GetEntry(copiedID));
-            if(category != null)
-                entry.Values[1].SetValue((uint) category); // housingDecorTypeId
+            if (category != null)
+                entry.Values[1].SetValue((uint)category); // housingDecorTypeId
 
             entry.Values[3].SetValue(language.AddEntry(name ?? hookAsset)); // localizedTextIdName
             entry.Values[5].SetValue(AddHookAsset(hookAsset)); // hookAssetId
@@ -2307,20 +2411,21 @@ namespace WildStar.TestBed
             {
                 week = 99;
             }
-            if(week >= 100)
+            if (week >= 100)
             {
                 week += 1; // skip the 1 silver, when we get there.
             }
             entry.Values[6].SetValue(week); // cost
             entry.Values[7].SetValue(1u); // costCurrencyTypeId
-            if(creature2ID != null)
+            if (creature2ID != null)
                 entry.Values[8].SetValue(creature2ID); // creature2IdActiveProp
             entry.Values[9].SetValue(0u); // prerequisiteIdUnlock
             entry.Values[12].SetValue(""); // altPreviewAsset
             if (particleAlt)
             {
                 entry.Values[13].SetValue("Art\\FX\\Housing\\Decor_FXPlacer\\Decor_FXPlacer_000.m3"); // altEditAsset
-            } else
+            }
+            else
             {
                 entry.Values[13].SetValue("");
             }
@@ -2336,7 +2441,7 @@ namespace WildStar.TestBed
         {
             var entry = new GameTableEntry();
             entry.AddString(colorShiftAsset); // Asset path
-            if(name != null)
+            if (name != null)
             {
                 entry.AddInteger(language.AddEntry(name)); // localizedtextid
             }
@@ -2383,7 +2488,7 @@ namespace WildStar.TestBed
 
         static void AddWallpaper(uint? id, string name, uint cost, uint flags, uint unlockIndex, uint worldSkyID, uint soundZoneKitID, uint worldLayerID1, uint worldLayerID2)
         {
-            if(betaMode)
+            if (betaMode)
             {
                 name = "(BETA) " + name;
             }
@@ -2410,7 +2515,7 @@ namespace WildStar.TestBed
         static void AddGroundOption(string name, uint worldLayerPrimary, uint worldLayerSecondary, uint? id = null, uint cost = 1)
         {
             GameTableEntry layer = worldLayer.GetEntry(worldLayerPrimary);
-            if(layer == null)
+            if (layer == null)
             {
                 throw new ArgumentException("Worldlayer does not exist in table yet!");
             }
@@ -2424,7 +2529,7 @@ namespace WildStar.TestBed
 
         static void Overwrite(GameTableValue val, object overwrite)
         {
-            if(overwrite != null)
+            if (overwrite != null)
             {
                 val.SetValue(overwrite);
             }
