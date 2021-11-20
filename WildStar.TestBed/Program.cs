@@ -2002,28 +2002,57 @@ namespace WildStar.TestBed
             // Change some customization colours.
 
             //cch.GetFreeLabelValue(4, 1, 22);
+            
             // aurin female
             // hair
-            cch.AddColourOption(itemDisplay, 4, 1, 4, 109u, 3); // draken red
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 109u, 3); // red
             cch.AddColourOption(itemDisplay, 4, 1, 4, GetColorSet(232), 3); // brown
             cch.AddColourOption(itemDisplay, 4, 1, 4, GetColorSet(224), 3); // hot pink
-            cch.AddColourOption(itemDisplay, 4, 1, 4, 80, 3); // mordesh dark purple hair (looks brown)
-            cch.AddColourOption(itemDisplay, 4, 1, 4, 49, 3); // mordesh light purple hair
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 80, 3); // umber
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 49, 3); // light purple
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 90, 2); // aqua
             // skin
-            cch.AddColourOption(itemDisplay, 4, 1, 2, GetColorSet(240), 2); // green (also try 265?)
+            cch.AddColourOption(itemDisplay, 4, 1, 2, GetColorSet(240), 2); // moss green
+            cch.AddColourOption(itemDisplay, 4, 1, 2, 80, 3); // dark purple
+
+
             // Draken female
             // hair
             cch.AddColourOption(itemDisplay, 5, 1, 4, GetColorSet(232), 2); // brown
-            cch.AddColourOption(itemDisplay, 5, 1, 4, 49, 2); // mordesh light purple hair
-            cch.AddColourOption(itemDisplay, 5, 1, 4, 90, 2); // mordesh teal eye
-            cch.AddColourOption(itemDisplay, 5, 1, 4, 80, 2); // mordesh dark purple hair (looks brown)
-            cch.AddColourOption(itemDisplay, 5, 1, 4, 94, 2); // mordesh orange eye
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 49, 2); // light purple
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 90, 2); // aqua
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 80, 2); // umber
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 94, 2); // orange
+            cch.AddColourOption(itemDisplay, 5, 1, 4, GetColorSet(240), 2); // moss green
 
-            // pushed too far, brown on everything.
-            cch.AddColourOption(itemDisplay, 4, 1, 2, GetColorSet(232), 2); // aurin
-            cch.AddColourOption(itemDisplay, 12, 1, 2, GetColorSet(232), 3); // mechari
-            cch.AddColourOption(itemDisplay, 16, 0, 2, GetColorSet(232), 3); // mordesh M
-            cch.AddColourOption(itemDisplay, 16, 1, 2, GetColorSet(232), 3); // mordesh F
+
+            // Mechari female
+            // skin
+            cch.AddColourOption(itemDisplay, 12, 1, 2, GetColorSet(232), 3); // brown
+            cch.AddColourOption(itemDisplay, 12, 1, 2, 80, 3); // dark purple
+            cch.AddColourOption(itemDisplay, 12, 1, 2, 49, 2); // light purple
+            cch.AddColourOption(itemDisplay, 12, 1, 2, GetColorSet(224), 3); // hot pink
+
+
+            // Mordesh female
+            // hair
+            cch.AddColourOption(itemDisplay, 16, 1, 4, GetColorSet(232), 2); // brown
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 94, 2); // orange
+            cch.AddColourOption(itemDisplay, 16, 1, 2, GetColorSet(240), 2); // moss green
+            // skin
+            cch.AddColourOption(itemDisplay, 16, 1, 2, GetColorSet(232), 3); // brown
+
+            // Mordesh male
+            // hair
+            cch.AddColourOption(itemDisplay, 16, 0, 4, GetColorSet(232), 2); // brown
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 94, 2); // orange
+            cch.AddColourOption(itemDisplay, 16, 0, 2, GetColorSet(240), 2); // moss green
+            // skin
+            cch.AddColourOption(itemDisplay, 16, 0, 2, GetColorSet(232), 3); // brown
+
+
+
+
 
             /*foreach (var entry in itemDisplay.table.Entries)
             {
