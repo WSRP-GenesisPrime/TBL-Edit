@@ -2008,12 +2008,13 @@ namespace WildStar.TestBed
             cch.AddColourOption(itemDisplay, 4, 1, 4, 109u, 3); // red
             cch.AddColourOption(itemDisplay, 4, 1, 4, GetColorSet(232), 3); // brown
             cch.AddColourOption(itemDisplay, 4, 1, 4, GetColorSet(224), 3); // hot pink
-            cch.AddColourOption(itemDisplay, 4, 1, 4, 80, 3); // umber
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 80, 3); // umber (mordesh dark purple hair)
             cch.AddColourOption(itemDisplay, 4, 1, 4, 49, 3); // light purple
             cch.AddColourOption(itemDisplay, 4, 1, 4, 90, 2); // aqua
+            cch.AddColourOption(itemDisplay, 4, 1, 4, GetColorSet(240), 2); // swamp green (makes a grey-brown)
             // skin
-            cch.AddColourOption(itemDisplay, 4, 1, 2, GetColorSet(240), 2); // moss green
-            cch.AddColourOption(itemDisplay, 4, 1, 2, 80, 3); // dark purple
+            cch.AddColourOption(itemDisplay, 4, 1, 2, GetColorSet(240), 2); // swamp green
+            cch.AddColourOption(itemDisplay, 4, 1, 2, 80, 3); // dark purple (mordesh dark purple hair)
 
 
             // Draken female
@@ -2021,15 +2022,16 @@ namespace WildStar.TestBed
             cch.AddColourOption(itemDisplay, 5, 1, 4, GetColorSet(232), 2); // brown
             cch.AddColourOption(itemDisplay, 5, 1, 4, 49, 2); // light purple
             cch.AddColourOption(itemDisplay, 5, 1, 4, 90, 2); // aqua
-            cch.AddColourOption(itemDisplay, 5, 1, 4, 80, 2); // umber
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 80, 2); // umber (mordesh dark purple hair)
             cch.AddColourOption(itemDisplay, 5, 1, 4, 94, 2); // orange
-            cch.AddColourOption(itemDisplay, 5, 1, 4, GetColorSet(240), 2); // moss green
+            cch.AddColourOption(itemDisplay, 5, 1, 4, GetColorSet(240), 2); // swamp green (makes a grey-brown)
+            cch.AddColourOption(itemDisplay, 5, 1, 4, GetColorSet(224), 3); // hot pink
 
 
             // Mechari female
             // skin
             cch.AddColourOption(itemDisplay, 12, 1, 2, GetColorSet(232), 3); // brown
-            cch.AddColourOption(itemDisplay, 12, 1, 2, 80, 3); // dark purple
+            cch.AddColourOption(itemDisplay, 12, 1, 2, 80, 3); // dark purple (mordesh dark purple hair)
             cch.AddColourOption(itemDisplay, 12, 1, 2, 49, 2); // light purple
             cch.AddColourOption(itemDisplay, 12, 1, 2, GetColorSet(224), 3); // hot pink
 
@@ -2038,17 +2040,29 @@ namespace WildStar.TestBed
             // hair
             cch.AddColourOption(itemDisplay, 16, 1, 4, GetColorSet(232), 2); // brown
             cch.AddColourOption(itemDisplay, 16, 1, 4, 94, 2); // orange
-            cch.AddColourOption(itemDisplay, 16, 1, 2, GetColorSet(240), 2); // moss green
+            cch.AddColourOption(itemDisplay, 16, 1, 4, GetColorSet(240), 2); // swamp green (makes a grey-brown)
             // skin
             cch.AddColourOption(itemDisplay, 16, 1, 2, GetColorSet(232), 3); // brown
+            //male to female skin
+            var morFemSkin = new List<uint> { 80, 81, 82, 83, 84, 85, 86, 87, 88, 89 };
+            foreach (uint id in morFemSkin)
+            {
+                cch.AddColourOption(itemDisplay, 16, 1, 2, id, 3);
+            }
 
             // Mordesh male
             // hair
             cch.AddColourOption(itemDisplay, 16, 0, 4, GetColorSet(232), 2); // brown
             cch.AddColourOption(itemDisplay, 16, 0, 4, 94, 2); // orange
-            cch.AddColourOption(itemDisplay, 16, 0, 2, GetColorSet(240), 2); // moss green
+            cch.AddColourOption(itemDisplay, 16, 0, 4, GetColorSet(240), 2); // swamp green (makes a grey-brown)
             // skin
             cch.AddColourOption(itemDisplay, 16, 0, 2, GetColorSet(232), 3); // brown
+            //female to male skin
+            var morMascSkin = new List<uint> { 126, 127, 128, 129, 130, 131, 132, 133, 134, 135 };
+            foreach (uint id in morMascSkin)
+            {
+                cch.AddColourOption(itemDisplay, 16, 0, 2, id, 3);
+            }
 
 
 
