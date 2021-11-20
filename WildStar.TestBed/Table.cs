@@ -70,5 +70,43 @@ namespace WildStar.TestBed
             table.AddEntry(entry, _id);
             return _id;
         }
+
+        public static GameTableEntry CopyEntry(GameTableEntry copied)
+        {
+            if(copied == null)
+            {
+                return null;
+            }
+            GameTableEntry newEntry = new GameTableEntry();
+            foreach (var val in copied.Values)
+            {
+                GameTableValue copy = new GameTableValue(val.Type);
+                copy.SetValue(val.Value);
+                newEntry.Values.Add(copy);
+            }
+            return newEntry;
+        }
+
+        public GameTableEntry CopyEntry(uint id)
+        {
+            return CopyEntry(GetEntry(id));
+        }
+
+        public static GameTableEntry GetEntry(GameTable.GameTable table, uint id)
+        {
+            foreach (GameTableEntry entry in table.Entries)
+            {
+                if ((uint)entry.Values[0].Value == id)
+                {
+                    return entry;
+                }
+            }
+            return null;
+        }
+
+        public GameTableEntry GetEntry(uint id)
+        {
+            return GetEntry(table, id);
+        }
     }
 }
