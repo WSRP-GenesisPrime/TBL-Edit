@@ -29,7 +29,13 @@ namespace WildStar.TestBed
             AddDecorType(DecorCategory.Decals, "Decals", "INT - Decals");
             AddDecorType(DecorCategory.LightSource, "Light Source", "INT - Light Source");
 
-            CharacterCustomizationBreakingChanges();
+            //CharacterCustomizationBreakingChanges();
+
+            HousingPlugUnlocks();
+
+            CharacterCustomizationChanges();
+
+            AddWeaponItems();
 
 
             AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\CoolShift_LUT.tex", 18, "Cool-Shift");
@@ -1882,12 +1888,6 @@ namespace WildStar.TestBed
             /*uint param = AddCustomizationParameter(null, "Size", 1, 1, 1, 0, 0, 0, 0, 0, 0);
             AddCustomizationParameterMap(null, 4, 0, 128, param, 0, 0);*/
 
-            HousingPlugUnlocks();
-
-            CharacterCustomizationChanges();
-
-            AddWeaponItems();
-
             SaveTables("../../../../TblBeta/");
             CopyTables("../../../../TblBeta/", "../../../../TblServer/");
 
@@ -2018,70 +2018,94 @@ namespace WildStar.TestBed
             cch.AddColourOption(itemDisplay, 4, 1, 4, 49, 3, 15, push1 + 68, push1 + 85); // light purple (mordesh light purple hair)
             cch.AddColourOption(itemDisplay, 4, 1, 4, 90, 3, 16, push1 + 85, push1 + 102); // aqua (mordesh teal eye)
             cch.AddColourOption(itemDisplay, 4, 1, 4, 85, 3, 17, push1 + 102, push1 + 119); // swamp green (makes a grey-brown; mordesh swamp yellow skin)
-            push1 = push1 + 119;
+            push1 = push1 + 17 * 7;
 
             // skin
             cch.AddColourOption(itemDisplay, 4, 1, 2, 85, 2, 11, push1 + 0, push1 + 8); // swamp green (mordesh swamp yellow skin)
             cch.AddColourOption(itemDisplay, 4, 1, 2, 80, 2, 12, push1 + 8, push1 + 16); // dark purple (mordesh dark purple hair)
-            push1 = push1 + 16;
-
-            // Draken female
-            // hair
-            cch.AddColourOption(itemDisplay, 5, 1, 4, 5, 2, 7, push1 + 0, push1 + 6); // brown (aurin f brown skin)
-            cch.AddColourOption(itemDisplay, 5, 1, 4, 49, 2, 8, push1 + 6, push1 + 12); // light purple (mordesh light purple hair)
-            cch.AddColourOption(itemDisplay, 5, 1, 4, 90, 2, 9, push1 + 12, push1 + 18); // aqua (mordesh teal eye)
-            cch.AddColourOption(itemDisplay, 5, 1, 4, 80, 2, 10, push1 + 18, push1 + 24); // umber (mordesh dark purple hair)
-            cch.AddColourOption(itemDisplay, 5, 1, 4, 94, 2, 11, push1 + 24, push1 + 30); // orange (mordesh orange eye)
-            cch.AddColourOption(itemDisplay, 5, 1, 4, 85, 2, 12, push1 + 30, push1 + 36); // swamp green (makes a grey-brown; mordesh swamp yellow skin)
-            cch.AddColourOption(itemDisplay, 5, 1, 4, 48, 2, 13, push1 + 36, push1 + 42); // hot pink (mordesh hot pink hair)
-            push1 = push1 + 42;
-
-            // Mechari female
-            // skin
-            cch.AddColourOption(itemDisplay, 12, 1, 2, 55, 3, 12, push1 + 0, push1 + 15); // brown (aurin f brown skin)
-            cch.AddColourOption(itemDisplay, 12, 1, 2, 80, 3, 13, push1 + 15, push1 + 30); // dark purple (mordesh dark purple hair)
-            cch.AddColourOption(itemDisplay, 12, 1, 2, 49, 3, 14, push1 + 30, push1 + 45); // light purple (mordesh light purple hair)
-            cch.AddColourOption(itemDisplay, 12, 1, 2, 48, 3, 15, push1 + 45, push1 + 60); // hot pink (mordesh hot pink hair)
-            push1 = push1 + 60;
-
+            push1 = push1 + 8 * 2;
 
             uint startID;
             uint startLV;
             uint step;
+            List<uint> list;
+
+            // Draken female
+            startID = push1;
+            startLV = 7;
+            step = 6;
+            // Mordesh male skin as hair
+            list = new List<uint> { 81, 82, 83, 84, 86, 87, 88, 89 };
+            foreach (uint id in list)
+            {
+                cch.AddColourOption(itemDisplay, 5, 1, 4, id, 2, startLV, startID, startID + step);
+                startLV += 1;
+                startID += step;
+            }
+            push1 = push1 + 6 * 8;
+            // hair
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 5, 2, 15, push1 + 0, push1 + 6); // brown (aurin f brown skin)
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 49, 2, 16, push1 + 6, push1 + 12); // light purple (mordesh light purple hair)
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 90, 2, 17, push1 + 12, push1 + 18); // aqua (mordesh teal eye)
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 80, 2, 18, push1 + 18, push1 + 24); // umber (mordesh dark purple hair)
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 94, 2, 19, push1 + 24, push1 + 30); // orange (mordesh orange eye)
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 85, 2, 20, push1 + 30, push1 + 36); // swamp green (makes a grey-brown; mordesh swamp yellow skin)
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 48, 2, 21, push1 + 36, push1 + 42); // hot pink (mordesh hot pink hair)
+            push1 = push1 + 6 * 7;
+
+            // Mechari female
+            startID = push1;
+            startLV = 12;
+            step = 15;
+            // Mordesh female skins
+            list = new List<uint> { 126, 127, 128, 129, 130, 131, 132, 134, 135 };
+            foreach (uint id in list)
+            {
+                cch.AddColourOption(itemDisplay, 12, 1, 2, id, 3, startLV, startID, startID + step);
+                startLV += 1;
+                startID += step;
+            }
+            push1 = push1 + 15 * 9;
+            // skin
+            cch.AddColourOption(itemDisplay, 12, 1, 2, 55, 3, 21, push1 + 0, push1 + 15); // brown (aurin f brown skin)
+            cch.AddColourOption(itemDisplay, 12, 1, 2, 80, 3, 22, push1 + 15, push1 + 30); // dark purple (mordesh dark purple hair)
+            cch.AddColourOption(itemDisplay, 12, 1, 2, 49, 3, 23, push1 + 30, push1 + 45); // light purple (mordesh light purple hair)
+            cch.AddColourOption(itemDisplay, 12, 1, 2, 48, 3, 24, push1 + 45, push1 + 60); // hot pink (mordesh hot pink hair)
+            push1 = push1 + 15 * 4;
 
             // Mordesh female
             startID = push1;
             startLV = 13;
             step = 9;
             // Male to female skin
-            var morFemSkin = new List<uint> { 80, 81, 82, 83, 84, 85, 86, 87, 88, 89 };
-            foreach (uint id in morFemSkin)
+            list = new List<uint> { 80, 81, 82, 83, 84, 85, 86, 87, 88, 89 };
+            foreach (uint id in list)
             {
                 cch.AddColourOption(itemDisplay, 16, 1, 2, id, 3, startLV, startID, startID + step);
                 startLV += 1;
                 startID += step;
             }
-            push1 = push1 + 90;
+            push1 = push1 + 9 * 10;
             // skin
             cch.AddColourOption(itemDisplay, 16, 1, 2, 55, 3, 23, push1, push1 + 9); // brown (aurin f brown skin)
-            push1 = push1 + 9;
+            push1 = push1 + 9 * 1;
 
             // Mordesh male
             startID = push1;
             startLV = 13;
             step = 9;
             // Female to male skin
-            var morMascSkin = new List<uint> { 126, 127, 128, 129, 130, 131, 132, 133, 134, 135 };
-            foreach (uint id in morMascSkin)
+            list = new List<uint> { 126, 127, 128, 129, 130, 131, 132, 133, 134, 135 };
+            foreach (uint id in list)
             {
                 cch.AddColourOption(itemDisplay, 16, 0, 2, id, 3, startLV, startID, startID + step);
                 startLV += 1;
                 startID += step;
             }
-            push1 = push1 + 90;
+            push1 = push1 + 9 * 10;
             // skin
             cch.AddColourOption(itemDisplay, 16, 0, 2, 55, 3, 23); // brown (aurin f brown skin)
-            push1 = push1 + 9;
+            push1 = push1 + 9 * 1;
         }
 
         static void AddWeaponItems()
