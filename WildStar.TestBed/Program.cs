@@ -2006,6 +2006,10 @@ namespace WildStar.TestBed
 
         static void CharacterCustomizationChanges()
         {
+            uint startID;
+            uint startLV;
+            uint step;
+            List<uint> list;
             // Change some customization colours.
 
             uint push1 = 9106; // tracks itemDisplayIDs for push 1, do not use after push 1.
@@ -2021,14 +2025,21 @@ namespace WildStar.TestBed
             push1 = push1 + 17 * 7;
 
             // skin
-            cch.AddColourOption(itemDisplay, 4, 1, 2, 85, 2, 11, push1 + 0, push1 + 8); // swamp green (mordesh swamp yellow skin)
-            cch.AddColourOption(itemDisplay, 4, 1, 2, 80, 2, 12, push1 + 8, push1 + 16); // dark purple (mordesh dark purple hair)
+            startID = push1;
+            startLV = 11;
+            step = 8;
+            // Mordesh female skin colours
+            list = new List<uint> { 126, 127, 128, 129, 130, 131, 132, 133, 134, 135 };
+            foreach (uint id in list)
+            {
+                cch.AddColourOption(itemDisplay, 4, 1, 2, id, 2, startLV, startID, startID + step);
+                startLV += 1;
+                startID += step;
+            }
+            push1 = push1 + 8 * 10;
+            cch.AddColourOption(itemDisplay, 4, 1, 2, 85, 2, 21, push1 + 0, push1 + 8); // swamp green (mordesh swamp yellow skin)
+            cch.AddColourOption(itemDisplay, 4, 1, 2, 80, 2, 22, push1 + 8, push1 + 16); // dark purple (mordesh dark purple hair)
             push1 = push1 + 8 * 2;
-
-            uint startID;
-            uint startLV;
-            uint step;
-            List<uint> list;
 
             // Draken female
             startID = push1;
