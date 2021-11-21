@@ -29,6 +29,8 @@ namespace WildStar.TestBed
             AddDecorType(DecorCategory.Decals, "Decals", "INT - Decals");
             AddDecorType(DecorCategory.LightSource, "Light Source", "INT - Light Source");
 
+            CharacterCustomizationBreakingChanges();
+
 
             AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\CoolShift_LUT.tex", 18, "Cool-Shift");
             AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\WarmShift_LUT.tex", 19, "Warm-Shift");
@@ -1985,9 +1987,10 @@ namespace WildStar.TestBed
             }
         }
 
-        static void CharacterCustomizationChanges()
+        static void CharacterCustomizationBreakingChanges()
         {
             // share hair, faces, facial hair and jewelry between cassians and exile humans
+            // DO NOT ADD NEW LABEL-VALUES TO THEM BEFORE THIS
             cch.MoveEntriesToLabel(1, -1, 24, 3);
             cch.MoveEntriesToLabel(1, -1, 23, 3);
 
@@ -1999,165 +2002,164 @@ namespace WildStar.TestBed
 
             cch.MoveEntriesToLabel(1, -1, 16, 15);
             characterCustomizationLabel.GetEntry(15).Values[2].SetValue(0u);
+        }
 
-
+        static void CharacterCustomizationChanges()
+        {
             // Change some customization colours.
 
             //cch.GetFreeLabelValue(4, 1, 22);
             // aurin female
             // hair
-            cch.AddColourOption(itemDisplay, 4, 1, 4, 109, 3); // draken red hair
-            cch.AddColourOption(itemDisplay, 4, 1, 4, 55, 3); // aurin f brown skin
-            cch.AddColourOption(itemDisplay, 4, 1, 4, 48, 3); // mordesh hot pink hair
-            cch.AddColourOption(itemDisplay, 4, 1, 4, 80, 3); // mordesh dark purple hair (looks brown)
-            cch.AddColourOption(itemDisplay, 4, 1, 4, 49, 3); // mordesh light purple hair
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 109, 3, 11, 9106, 9123); // draken red hair
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 55, 3, 12, 9123, 9140); // aurin f brown skin
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 48, 3, 13, 9140, 9157); // mordesh hot pink hair
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 80, 3, 14, 9157, 9174); // mordesh dark purple hair (looks brown)
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 49, 3, 15, 9174, 9191); // mordesh light purple hair
             // skin
-            cch.AddColourOption(itemDisplay, 4, 1, 2, 85, 2); // mordesh swamp yellow skin (green, also try 265?)
+            cch.AddColourOption(itemDisplay, 4, 1, 2, 85, 2, 11, 9191, 9199); // mordesh swamp yellow skin (green, also try 265?)
             // Draken female
             // hair
-            cch.AddColourOption(itemDisplay, 5, 1, 4, 5, 2); // aurin f brown skin
-            cch.AddColourOption(itemDisplay, 5, 1, 4, 49, 2); // mordesh light purple hair
-            cch.AddColourOption(itemDisplay, 5, 1, 4, 90, 2); // mordesh teal eye
-            cch.AddColourOption(itemDisplay, 5, 1, 4, 80, 2); // mordesh dark purple hair (looks brown)
-            cch.AddColourOption(itemDisplay, 5, 1, 4, 94, 2); // mordesh orange eye
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 5, 2, 7, 9199, 9205); // aurin f brown skin
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 49, 2, 8, 9205, 9211); // mordesh light purple hair
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 90, 2, 9, 9211, 9217); // mordesh teal eye
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 80, 2, 10, 9217, 9223); // mordesh dark purple hair (looks brown)
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 94, 2, 11, 9223, 9229); // mordesh orange eye
 
             // pushed too far, brown on everything.
-            cch.AddColourOption(itemDisplay, 12, 1, 2, 55, 3); // mechari
-            cch.AddColourOption(itemDisplay, 16, 0, 2, 55, 3); // mordesh M
-            cch.AddColourOption(itemDisplay, 16, 1, 2, 55, 3); // mordesh F
+            cch.AddColourOption(itemDisplay, 12, 1, 2, 55, 3, 12, 9229, 9244); // mechari
+            cch.AddColourOption(itemDisplay, 16, 0, 2, 55, 3, 12, 9244, 9253); // mordesh M
+            cch.AddColourOption(itemDisplay, 16, 1, 2, 55, 3, 12, 9253, 9262); // mordesh F
 
+            uint startID;
+            uint startLV;
+            uint step;
             // Mordesh female
             // skin
+            startID = 9262;
+            startLV = 13;
+            step = 9;
             var morFemSkin = new List<uint> { 80, 81, 82, 83, 84, 85, 86, 87, 88, 89 };
             foreach (uint id in morFemSkin)
             {
-                cch.AddColourOption(itemDisplay, 16, 1, 2, id, 3);
+                cch.AddColourOption(itemDisplay, 16, 1, 2, id, 3, startLV, startID, startID + step);
+                startLV += 1;
+                startID += step;
             }
 
             // Mordesh male
             // skin
+            startID = 9352;
+            startLV = 13;
+            step = 9;
             var morMascSkin = new List<uint> { 126, 127, 128, 129, 130, 131, 132, 133, 134, 135 };
             foreach (uint id in morMascSkin)
             {
-                cch.AddColourOption(itemDisplay, 16, 0, 2, id, 3);
+                cch.AddColourOption(itemDisplay, 16, 0, 2, id, 3, startLV, startID, startID + step);
+                startLV += 1;
+                startID += step;
             }
-
-            /*foreach (var entry in itemDisplay.table.Entries)
-            {
-                uint colorset = (uint)entry.Values[38].Value;
-                if (colorset == 38)
-                {
-                    entry.Values[38].SetValue(GetColorSet(81));
-                }
-                if (colorset == 91)
-                {
-                    entry.Values[38].SetValue(109u);
-                }
-                if (colorset == 27)
-                {
-                    entry.Values[38].SetValue(35u);
-                }
-            }*/
         }
 
         static void AddWeaponItems()
         {
-            List<(uint, string)> list = new List<(uint, string)>
+            uint startID = 92834;
+            List<(uint, uint, string)> list = new List<(uint, uint, string)>
             {
                 // Type: Hammer
-                (632, "Generic Hammer 1"),
-                (572, "Generic Hammer 2"),
-                (7156, "Generic Hammer 3"),
-                (633, "Grund Hammer"),
-                (2245, "Osun Hammer 1"),
-                (7157, "Osun Hammer 2"),
-                (7952, "Osun Hammer 3"),
-                (6597, "Phage Hammer"),
+                (632, startID++, "Generic Hammer 1"),
+                (572, startID++, "Generic Hammer 2"),
+                (7156, startID++, "Generic Hammer 3"),
+                (633, startID++, "Grund Hammer"),
+                (2245, startID++, "Osun Hammer 1"),
+                (7157, startID++, "Osun Hammer 2"),
+                (7952, startID++, "Osun Hammer 3"),
+                (6597, startID++, "Phage Hammer"),
 
                 // Type: Mace
-                (8639, "Moodie Cleaver"),
-                (6970, "Murgh Mace 1"),
-                (6969, "Murgh Mace 2"),
-                (2092, "Pell Mace"),
+                (8639, startID++, "Moodie Cleaver"),
+                (6970, startID++, "Murgh Mace 1"),
+                (6969, startID++, "Murgh Mace 2"),
+                (2092, startID++, "Pell Mace"),
                 
                 // Type: Misc
-                (602, "Bone"),
-                (1588, "Glowstick"),
-                (1343, "Mug"),
-                (3400, "Plank"),
-                (684, "Shovel"),
-                (8051, "Sandwich"),
-                (7829, "Drumstick"),
+                (602, startID++, "Bone"),
+                (1588, startID++, "Glowstick"),
+                (1343, startID++, "Mug"),
+                (3400, startID++, "Plank"),
+                (684, startID++, "Shovel"),
+                (8051, startID++, "Sandwich"),
+                (7829, startID++, "Drumstick"),
 
                 // Type: Rifle
-                (5393, "Bazooka"),
-                (4869, "Crossbow"),
-                (3049, "Fish Cannon"),
-                (2332, "Flamer"),
-                (4793, "Large Flashlight"),
-                (6588, "Freeze Rifle"),
-                (3161, "Laser Saw"),
-                (1946, "Laser Pickaxe"),
-                (149, "Plasma Rifle"),
-                (3138, "Relic Blaster"),
-                (21, "Sniper Rifle"),
+                (5393, startID++, "Bazooka"),
+                (4869, startID++, "Crossbow"),
+                (3049, startID++, "Fish Cannon"),
+                (2332, startID++, "Flamer"),
+                (4793, startID++, "Large Flashlight"),
+                (6588, startID++, "Freeze Rifle"),
+                (3161, startID++, "Laser Saw"),
+                (1946, startID++, "Laser Pickaxe"),
+                (149, startID++, "Plasma Rifle"),
+                (3138, startID++, "Relic Blaster"),
+                (21, startID++, "Sniper Rifle"),
 
                 // Type: Scythe
-                (184, "Generic Scythe 1"),
-                (588, "Generic Scythe 2"),
-                (589, "Generic Scythe 3"),
+                (184, startID++, "Generic Scythe 1"),
+                (588, startID++, "Generic Scythe 2"),
+                (589, startID++, "Generic Scythe 3"),
 
                 // Type: Staff
-                (8029, "Long Fan"),
-                (464, "Generic Staff 1"),
-                (465, "Generic Staff 2"),
-                (144, "Generic Staff 3"),
-                (1611, "Generic Staff 4"),
-                (1612, "Generic Staff 5"),
-                (1613, "Generic Staff 6"),
-                (1614, "Generic Staff 7"),
-                (1615, "Generic Staff 8"),
-                (8019, "Ikthian Stafff"),
-                (7837, "Laveka's Staff"),
-                (595, "Lopp Staff"),
-                (2333, "Osun Staff 1"),
-                (3071, "Osun Staff 2"),
-                (7951, "Osun Glaive 1"),
-                (7816, "Osun Glaive 2"),
-                (2090, "Pell Staff 1"),
-                (2091, "Pell Staff 2"),
-                (79, "Skeech Staff 1"),
-                (7290, "Skeech Staff 2"),
+                (8029, startID++, "Long Fan"),
+                (464, startID++, "Generic Staff 1"),
+                (465, startID++, "Generic Staff 2"),
+                (144, startID++, "Generic Staff 3"),
+                (1611, startID++, "Generic Staff 4"),
+                (1612, startID++, "Generic Staff 5"),
+                (1613, startID++, "Generic Staff 6"),
+                (1614, startID++, "Generic Staff 7"),
+                (1615, startID++, "Generic Staff 8"),
+                (8019, startID++, "Ikthian Stafff"),
+                (7837, startID++, "Laveka's Staff"),
+                (595, startID++, "Lopp Staff"),
+                (2333, startID++, "Osun Staff 1"),
+                (3071, startID++, "Osun Staff 2"),
+                (7951, startID++, "Osun Glaive 1"),
+                (7816, startID++, "Osun Glaive 2"),
+                (2090, startID++, "Pell Staff 1"),
+                (2091, startID++, "Pell Staff 2"),
+                (79, startID++, "Skeech Staff 1"),
+                (7290, startID++, "Skeech Staff 2"),
 
                 // Type: Sword 1H
-                (1, "Cross Sword"),
-                (6972, "Falkrin 1H Sword"),
-                (612, "Generic 1H Sword 1"),
-                (145, "Generic 1H Sword 2"),
-                (2089, "Pell Sword"),
-                (2386, "Torohawk Sword"),
+                (1, startID++, "Cross Sword"),
+                (6972, startID++, "Falkrin 1H Sword"),
+                (612, startID++, "Generic 1H Sword 1"),
+                (145, startID++, "Generic 1H Sword 2"),
+                (2089, startID++, "Pell Sword"),
+                (2386, startID++, "Torohawk Sword"),
 
                 // Type: Sword 2H
-                (7018, "Corrupted Sword"),
-                (6968, "Exile Sword"),
-                (2093, "Falkrin 2H Sword 1"),
-                (6967, "Falkrin 2H Sword 2"),
-                (30, "Generic 2H Sword 1"),
-                (12, "Generic 2H Sword 2"),
+                (7018, startID++, "Corrupted Sword"),
+                (6968, startID++, "Exile Sword"),
+                (2093, startID++, "Falkrin 2H Sword 1"),
+                (6967, startID++, "Falkrin 2H Sword 2"),
+                (30, startID++, "Generic 2H Sword 1"),
+                (12, startID++, "Generic 2H Sword 2"),
 
                 // Type: Wrench
-                (39, "Small Wrench"),
-                (147, "Big Wrench"),
-                (1617, "Ikthian Wrench"),
+                (39, startID++, "Small Wrench"),
+                (147, startID++, "Big Wrench"),
+                (1617, startID++, "Ikthian Wrench"),
             };
             foreach (var id in list)
             {
                 var entry = item2.CopyEntry(74762);
                 entry.Values[12].SetValue(0u);
                 entry.Values[10].SetValue(id.Item1);
-                entry.Values[44].SetValue(language.AddEntry(id.Item2));
+                entry.Values[44].SetValue(language.AddEntry(id.Item3));
                 entry.Values.RemoveAt(0);
-                item2.AddEntry(entry, item2.nextEntry);
+                item2.AddEntry(entry, id.Item2);
             }
         }
 

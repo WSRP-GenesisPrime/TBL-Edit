@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using WildStar.TestBed.GameTable;
 
 namespace WildStar.TestBed
@@ -62,7 +61,7 @@ namespace WildStar.TestBed
                 entry.AddInteger(value);
                 entry.Values.Add(new GameTableValue(GameTable.Static.DataType.Long));
                 entry.Values[2].SetValue(644245094400000ul);
-                characterCustomizationSelectionTable.AddEntry(entry);
+                characterCustomizationSelectionTable.AddEntry(entry, characterCustomizationSelectionTable.nextEntry);
                 selectionMap.Add((label, value), entry);
             }
         }
@@ -196,14 +195,48 @@ namespace WildStar.TestBed
             return newValue;
         }
 
-        public void AddColourOption(Table itemDisplay, uint race, uint gender, uint label, uint colourID, uint colourToCopy)
+        public bool IsLabelValueFree(uint race, uint gender, uint label, uint labelValue)
+        {
+            if (!customizationsByRaceGender.TryGetValue((race, gender), out var list))
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            foreach (var entry in list)
+            {
+                if (entry.Values[6].GetValue<uint>() == label)
+                {
+                    if (entry.Values[8].GetValue<uint>() == labelValue) return false;
+                }
+                if (entry.Values[7].GetValue<uint>() == label)
+                {
+                    if (entry.Values[9].GetValue<uint>() == labelValue) return false;
+                }
+            }
+            return true;
+        }
+
+        public void AddColourOption(Table itemDisplay, uint race, uint gender, uint label, uint colourID, uint colourToCopy, uint newLabelValue = 0, uint displayIDStart = 0, uint displayIDEnd = 0)
         {
             if (!customizationsByRaceGender.TryGetValue((race, gender), out var list))
             {
                 return;
             }
-            uint newValue = GetFreeLabelValue(race, gender, label);
-            AddSelectionEntry(label, newValue);
+            if (newLabelValue == 0)
+            {
+                newLabelValue = GetFreeLabelValue(race, gender, label);
+            }
+            else
+            {
+                if(!IsLabelValueFree(race, gender, label, newLabelValue))
+                {
+                    throw new ArgumentException("Label-value isn't free!");
+                }
+                AddSelectionEntry(label, newLabelValue);
+            }
+            if(displayIDStart == 0)
+            {
+                displayIDStart = itemDisplay.GetMaxID() + 1;
+            }
 
             for(int i = 0; i < list.Count; ++i)
             {
@@ -212,31 +245,49 @@ namespace WildStar.TestBed
                 uint label2 = entry.Values[7].GetValue<uint>();
                 uint labelValue1 = entry.Values[8].GetValue<uint>();
                 uint labelValue2 = entry.Values[9].GetValue<uint>();
+                int offset = 0;
+                bool found = false;
 
                 if (label1 == label)
                 {
                     if (labelValue1 == colourToCopy)
                     {
-                        list.Add(MakeColourOption(itemDisplay, entry, colourID, 0, newValue));
+                        offset = 0;
+                        found = true;
                     }
                 }
                 else if (label2 == label)
                 {
                     if (labelValue2 == colourToCopy)
                     {
-                        list.Add(MakeColourOption(itemDisplay, entry, colourID, 1, newValue));
+                        offset = 1;
+                        found = true;
                     }
                 }
+
+                if(found)
+                {
+                    if(itemDisplay.GetEntry(displayIDStart) != null)
+                    {
+                        throw new ArgumentException("DisplayID range isn't free!");
+                    }
+                    list.Add(MakeColourOption(itemDisplay, entry, colourID, offset, newLabelValue, displayIDStart));
+                    displayIDStart += 1;
+                }
+            }
+            if(displayIDStart != displayIDEnd && displayIDEnd != 0)
+            {
+                throw new ArgumentException("DisplayID range did not match actual number of added itemDisplays!");
             }
         }
 
-        private GameTableEntry MakeColourOption(Table itemDisplay, GameTableEntry entry, uint colourID, int offset, uint newLabelValue)
+        private GameTableEntry MakeColourOption(Table itemDisplay, GameTableEntry entry, uint colourID, int offset, uint newLabelValue, uint displayID)
         {
             uint itemDisplayID = entry.Values[4].GetValue<uint>();
             GameTableEntry ide = itemDisplay.CopyEntry(itemDisplayID);
             ide.Values[38].SetValue(colourID);
             ide.Values.RemoveAt(0);
-            uint newDisplayID = itemDisplay.AddEntry(ide, itemDisplay.nextEntry);
+            uint newDisplayID = itemDisplay.AddEntry(ide, displayID);
             
             GameTableEntry e = Table.CopyEntry(entry);
             e.Values[8 + offset].SetValue(newLabelValue);

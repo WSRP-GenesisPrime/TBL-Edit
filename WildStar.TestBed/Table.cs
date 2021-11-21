@@ -34,7 +34,7 @@ namespace WildStar.TestBed
             }
         }
 
-        uint GetMaxID()
+        public uint GetMaxID()
         {
             uint maxVal = 0;
             foreach (var entry in table.Entries)
