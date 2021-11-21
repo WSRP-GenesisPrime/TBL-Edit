@@ -293,7 +293,7 @@ namespace WildStar.TestBed
             e.Values[8 + offset].SetValue(newLabelValue);
             e.Values[4].SetValue(newDisplayID);
             e.Values.RemoveAt(0);
-            characterCustomizationTable.AddEntry(e);
+            characterCustomizationTable.AddEntry(e, characterCustomizationTable.nextEntry);
             return e;
         }
     }
