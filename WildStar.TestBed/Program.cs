@@ -1690,8 +1690,13 @@ namespace WildStar.TestBed
             AddEmote(889, "readycombat2", null, 469);
             AddEmote(575, null, null, 470);
 
+            AddSFWItemVersions();
 
             SaveTables("../../../../TblNormal/");
+
+            AddNSFWSItems();
+
+            SaveTables("../../../../TblNSFWS/");
 
             // BETA YOLO MOOOODE
             betaMode = true;
@@ -2219,6 +2224,113 @@ namespace WildStar.TestBed
                 entry.Values.RemoveAt(0);
                 item2.AddEntry(entry, id.Item2);
             }
+        }
+
+        static uint ChestId = 1000000u;
+        static uint NsfwsChestDisplayId = 20000u;
+        static uint SfwChestDisplayId = 20001u;
+        static uint PantsId = 1000001u;
+        static uint NsfwsPantsDisplayId = 20002u;
+        static uint SfwPantsDisplayId = 20003u;
+
+        static void AddSFWItemVersions()
+        {
+            //Chest slot
+            var chestDisplayEntry = itemDisplay.CopyEntry(8669); //swimsuit top 000A
+            itemDisplay.AddEntry(chestDisplayEntry, SfwChestDisplayId);
+            List<(uint, uint, string)> chestList = new List<(uint, uint, string)>
+            {
+                (SfwChestDisplayId, ChestId, "Emperor's Shirt"),
+            };
+            foreach (var id in chestList)
+            {
+                var entry = item2.CopyEntry(26807); //Blue jumpsuit chest
+                entry.Values[12].SetValue(0u);
+                entry.Values[10].SetValue(id.Item1); //item2DisplayId
+                entry.Values[44].SetValue(language.AddEntry(id.Item3)); //Item name
+                entry.Values.RemoveAt(0);
+                item2.AddEntry(entry, id.Item2);
+            }
+
+            //Legs slot
+            var pantsDisplayEntry = itemDisplay.CopyEntry(8663); //swimsuit bottoms 000A
+            itemDisplay.AddEntry(pantsDisplayEntry, SfwPantsDisplayId);
+            List<(uint, uint, string)> pantsList = new List<(uint, uint, string)>
+            {
+                (SfwPantsDisplayId, PantsId, "Emperor's Pants"),
+            };
+            foreach (var id in pantsList)
+            {
+                var entry = item2.CopyEntry(26819); //Blue jumpsuit pants
+                entry.Values[12].SetValue(0u);
+                entry.Values[10].SetValue(id.Item1); //item2DisplayId
+                entry.Values[44].SetValue(language.AddEntry(id.Item3)); //Item name
+                entry.Values.RemoveAt(0);
+                item2.AddEntry(entry, id.Item2);
+            }
+        }
+
+        static void AddNSFWSItems()
+        {
+            // nakey chest
+            // Confirmed works for: Human F, Draken F, Aurin F, Mechari F, Mordesh F, Granok F
+            // (didn't count the male character models or chua, since they go bare-chested by default)
+            var chestDisplayEntry = itemDisplay.CopyEntry(8939u); //"love" hoverboard side flair
+            /*chestDisplayEntry.Values[3].SetValue("");
+            chestDisplayEntry.Values[4].SetValue("");
+            chestDisplayEntry.Values[5].SetValue("");
+            chestDisplayEntry.Values[6].SetValue("");
+            chestDisplayEntry.Values[7].SetValue(0u);
+            chestDisplayEntry.Values[8].SetValue(0u);
+            chestDisplayEntry.Values[9].SetValue("");
+            chestDisplayEntry.Values[10].SetValue("");
+            chestDisplayEntry.Values[11].SetValue("");
+            chestDisplayEntry.Values[12].SetValue("");
+            chestDisplayEntry.Values[13].SetValue(0u);
+            chestDisplayEntry.Values[14].SetValue(0u);
+            chestDisplayEntry.Values[15].SetValue(0u);
+            chestDisplayEntry.Values[16].SetValue(0u);
+            chestDisplayEntry.Values[17].SetValue(0u);
+            chestDisplayEntry.Values[18].SetValue(0u);
+            chestDisplayEntry.Values[19].SetValue(0u);
+            chestDisplayEntry.Values[20].SetValue(0u);
+            chestDisplayEntry.Values[23].SetValue("");
+            chestDisplayEntry.Values[24].SetValue("");
+            chestDisplayEntry.Values[25].SetValue("");*/
+            itemDisplay.AddEntry(chestDisplayEntry, NsfwsChestDisplayId);
+
+            var chestEntry = item2.GetEntry(ChestId);
+            chestEntry.Values[10].SetValue(NsfwsChestDisplayId);
+
+            // nakey pants
+            // Confirmed works for: Human F/M, Aurin F/M, Mechari F/M, Chua, Mordesh F, Granok F/M
+            // (just missing Draken F and Mordesh M)
+            var pantsDisplayEntry = itemDisplay.CopyEntry(8939u); //"love" hoverboard side flair
+            /*pantsDisplayEntry.Values[3].SetValue("");
+            pantsDisplayEntry.Values[4].SetValue("");
+            pantsDisplayEntry.Values[5].SetValue("");
+            pantsDisplayEntry.Values[6].SetValue("");
+            pantsDisplayEntry.Values[7].SetValue(0u);
+            pantsDisplayEntry.Values[8].SetValue(0u);
+            pantsDisplayEntry.Values[9].SetValue("");
+            pantsDisplayEntry.Values[10].SetValue("");
+            pantsDisplayEntry.Values[11].SetValue("");
+            pantsDisplayEntry.Values[12].SetValue("");
+            pantsDisplayEntry.Values[13].SetValue(0u);
+            pantsDisplayEntry.Values[14].SetValue(0u);
+            pantsDisplayEntry.Values[15].SetValue(0u);
+            pantsDisplayEntry.Values[16].SetValue(0u);
+            pantsDisplayEntry.Values[17].SetValue(0u);
+            pantsDisplayEntry.Values[18].SetValue(0u);
+            pantsDisplayEntry.Values[19].SetValue(0u);
+            pantsDisplayEntry.Values[20].SetValue(0u);
+            pantsDisplayEntry.Values[23].SetValue("");
+            pantsDisplayEntry.Values[24].SetValue("");
+            pantsDisplayEntry.Values[25].SetValue("");*/
+            itemDisplay.AddEntry(pantsDisplayEntry, NsfwsPantsDisplayId);
+
+            var pantsEntry = item2.GetEntry(PantsId);
+            pantsEntry.Values[10].SetValue(NsfwsPantsDisplayId);
         }
 
         static void TestArchiveWriting()
