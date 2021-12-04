@@ -2013,6 +2013,7 @@ namespace WildStar.TestBed
             // Change some customization colours.
 
             uint push1 = 9106; // tracks itemDisplayIDs for push 1, do not use after push 1.
+            uint push2 = 9805; // tracks itemDisplayIDs for push 2, do not use after push 2.
             // aurin female
             // hair
             cch.AddColourOption(itemDisplay, 4, 1, 4, 109, 3, 11, push1 + 0, push1 + 17); // red (draken red hair)
@@ -2117,6 +2118,36 @@ namespace WildStar.TestBed
             // skin
             cch.AddColourOption(itemDisplay, 16, 0, 2, 55, 3, 23); // brown (aurin f brown skin)
             push1 = push1 + 9 * 1;
+            //Push 1 ends at ID: 9804
+
+
+            //Messing around for Push 2****************************************************************************************************
+            //Mechari female
+            //hair
+            list = new List<uint> { 126, 127, 128, 129, 130, 131, 132, 133, 134, 135,
+                                    80, 81, 82, 83, 84, 85, 86, 87, 88, 89}; // mordesh M & F skin colors
+            //startID = push2;
+            //startLV = 13;
+            //step = 13;
+            foreach (uint id in list)
+            {
+                cch.AddColourOption(itemDisplay, 12, 1, 14, id, 2);
+                //cch.AddColourOption(itemDisplay, 12, 1, 14, id, 2, startLV, startID, startID + step);
+                //startLV += 1;
+                //startID += step;
+            }
+            //push2 = push2 + 13 * 20;
+
+            //Mordesh female
+            //hair
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 55, 3); // brown (aurin f brown skin)
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 94, 3); // orange (mordesh orange eyes)
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 85, 2); // swamp green (makes a grey-brown; mordesh swamp yellow skin)
+            //Mordesh male
+            //hair
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 55, 3); // brown (aurin f brown skin)
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 94, 3); // orange (mordesh orange eyes)
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 85, 2); // swamp green (makes a grey-brown; mordesh swamp yellow skin)
         }
 
         static void AddWeaponItems()
