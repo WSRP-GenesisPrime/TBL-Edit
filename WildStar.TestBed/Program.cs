@@ -35,7 +35,8 @@ namespace WildStar.TestBed
 
             CharacterCustomizationChanges();
 
-            AddWeaponItems();
+            uint startItem2Id = 92834;
+            startItem2Id = AddWeaponItems(startItem2Id);
 
 
             AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\CoolShift_LUT.tex", 18, "Cool-Shift");
@@ -1888,6 +1889,8 @@ namespace WildStar.TestBed
             /*uint param = AddCustomizationParameter(null, "Size", 1, 1, 1, 0, 0, 0, 0, 0, 0);
             AddCustomizationParameterMap(null, 4, 0, 128, param, 0, 0);*/
 
+            startItem2Id = AddCreaturesMounts(startItem2Id);
+
             SaveTables("../../../../TblBeta/");
             CopyTables("../../../../TblBeta/", "../../../../TblServer/");
 
@@ -2153,9 +2156,8 @@ namespace WildStar.TestBed
             push2 = push2 + 5 * 3;
         }
 
-        static void AddWeaponItems()
+        static uint AddWeaponItems(uint startID)
         {
-            uint startID = 92834;
             List<(uint, uint, string)> list = new List<(uint, uint, string)>
             {
                 // Type: Hammer
@@ -2253,7 +2255,259 @@ namespace WildStar.TestBed
                 entry.Values.RemoveAt(0);
                 item2.AddEntry(entry, id.Item2);
             }
+            return startID;
         }
+
+        static uint AddCreaturesMounts(uint startItem2Id)
+        {
+            //GetMaxID is NOT returning the highest ID currently in these tables...
+            uint startCreature2ID = creature2.GetMaxID() + 1000;
+            uint startCreature2DisplayGroupID = 41453 + 1000;
+            uint startCreature2DisplayGroupEntryID = creature2DisplayGroupEntry.GetMaxID() + 1000;
+            uint startCreature2DisplayInfoID = creature2DisplayInfo.GetMaxID() + 1000;
+
+            // Type: Riding Pumera
+            // (Texture, Name, Creature2 ID, Creature2DisplayGroup ID, Creature2DisplayGroupEntry ID, Creature2DisplayInfo ID)
+            List<(string, string, uint, uint, uint, uint)> ridingPumera = new List<(string, string, uint, uint, uint, uint)>
+            {
+                ("Art\\Creature\\Pumera\\CRT_Pumera_B_Color.tex", "Riding Pumera (Tawny)", startCreature2ID, startCreature2DisplayGroupID, startCreature2DisplayGroupEntryID, startCreature2DisplayInfoID),
+                ("Art\\Creature\\Pumera\\CRT_Pumera_Exotic_01_Color.tex", "Riding Pumera (Sienna)", startCreature2ID+1, startCreature2DisplayGroupID+1, startCreature2DisplayGroupEntryID+1, startCreature2DisplayInfoID+1),
+                ("Art\\Creature\\Pumera\\CRT_Pumera_Exotic_02_Color.tex", "Riding Pumera (Magenta)", startCreature2ID+2, startCreature2DisplayGroupID+2, startCreature2DisplayGroupEntryID+2, startCreature2DisplayInfoID+2),
+                ("Art\\Creature\\Pumera\\CRT_Pumera_Exotic_03_Color.tex", "Riding Pumera (Golden)", startCreature2ID+3, startCreature2DisplayGroupID+3, startCreature2DisplayGroupEntryID+3, startCreature2DisplayInfoID+3),
+                ("Art\\Creature\\Pumera\\CRT_Pumera_A_Color.tex", "Riding Pumera (Maroon)", startCreature2ID+4, startCreature2DisplayGroupID+4, startCreature2DisplayGroupEntryID+4, startCreature2DisplayInfoID+4),
+                ("Art\\Creature\\Pumera\\CRT_Pumera_C_Color.tex", "Riding Pumera (Snowy)", startCreature2ID+5, startCreature2DisplayGroupID+5, startCreature2DisplayGroupEntryID+5, startCreature2DisplayInfoID+5),
+                ("Art\\Creature\\Pumera\\CRT_Pumera_Icy_02_color.tex", "Riding Pumera (Snow Stripe)", startCreature2ID+6, startCreature2DisplayGroupID+6, startCreature2DisplayGroupEntryID+6, startCreature2DisplayInfoID+6),
+                ("Art\\Creature\\Pumera\\CRT_Pumera_Icy_03_color.tex", "Riding Pumera (Steely)", startCreature2ID+7, startCreature2DisplayGroupID+7, startCreature2DisplayGroupEntryID+7, startCreature2DisplayInfoID+7),
+                ("Art\\Creature\\Pumera\\CRT_Pumera_Icy_01_color.tex", "Riding Pumera (Whitevale)", startCreature2ID+8, startCreature2DisplayGroupID+8, startCreature2DisplayGroupEntryID+8, startCreature2DisplayInfoID+8),
+            };
+            foreach (var row in ridingPumera) {
+                // Create Display Info
+                var displayInfoEntry = creature2DisplayInfo.CopyEntry(38342); // Copy generic Grey Pumera mount display info
+                displayInfoEntry.Values[3].SetValue(row.Item1); //switch assetTexture00 to the given texture path
+                displayInfoEntry.Values.RemoveAt(0);
+                creature2DisplayInfo.AddEntry(displayInfoEntry, row.Item6);
+                
+
+                // Create Display Group Entry
+                var displayGroupEntry = creature2DisplayGroupEntry.CopyEntry(44325); // Copy generic Grey Pumera mount display group entry
+                displayGroupEntry.Values[1].SetValue(row.Item4); //creature2DisplayGroupId
+                displayGroupEntry.Values[2].SetValue(row.Item6); //creature2DisplayInfoId
+                displayGroupEntry.Values.RemoveAt(0);
+                creature2DisplayGroupEntry.AddEntry(displayGroupEntry, row.Item5);
+
+
+                // Create Creature2
+                var entry = creature2.CopyEntry(73213); // Copy generic Grey Pumera mount
+                entry.Values[2].SetValue(row.Item2); //description
+                uint localizedTextIdName = language.AddEntry(row.Item2);
+                entry.Values[3].SetValue(localizedTextIdName); //localizedTextIdName
+                entry.Values[10].SetValue(row.Item4); //creature2DisplayGroupId
+                entry.Values.RemoveAt(0);
+                creature2.AddEntry(entry, row.Item3);
+
+                // Do Item/Spell stuff for the mount unlock
+                /*
+                uint copySpell4BaseId_Unlock = 62733u; // Striped Torine pumera unlock spell
+                uint copySpell4BaseId_Summon = 62732u; // Striped Torine pumera summon spell
+                uint copySpell4Id_Unlock = 87660u; // Striped Torine pumera unlock spell
+                uint copySpell4Id_Summon = 87659u; // Striped Torine pumera summon spell
+                uint copyItem2Id = 91368u; // Striped Torine pumera item
+                uint copyItemSpecialId = 10002u; // Striped Torine pumera item special
+                startItem2Id = AddSpellsItemForMount(startItem2Id, row.Item3, row.Item2, localizedTextIdName, copySpell4BaseId_Unlock, copySpell4BaseId_Summon, copySpell4Id_Unlock, copySpell4Id_Summon, copyItem2Id, copyItemSpecialId);
+                */
+            }
+            startCreature2ID += 9;
+            startCreature2DisplayGroupID += 9;
+            startCreature2DisplayGroupEntryID += 9;
+            startCreature2DisplayInfoID += 9;
+
+            
+            // Type: Equirin
+            // (Texture, Name, Creature2 ID, Creature2DisplayGroup ID, Creature2DisplayGroupEntry ID, Creature2DisplayInfo ID, Normal)
+            List<(string, string, uint, uint, uint, uint, string)> equirin = new List<(string, string, uint, uint, uint, uint, string)>
+            {
+                ("Art\\Mount\\Ground\\Creature_Horse\\Equivar\\Textures\\mount_creature_horse_equivar_000b_color.tex", "Equirin (Blue)", startCreature2ID, startCreature2DisplayGroupID, startCreature2DisplayGroupEntryID, startCreature2DisplayInfoID, "Art\\Mount\\Ground\\Creature_Horse\\Equivar\\Textures\\Mount_Creature_Horse_Equivar_000_normal.tex"),
+                ("Art\\Mount\\Ground\\Creature_Horse\\Equivar\\Textures\\mount_creature_horse_equivar_moss_000_color.tex", "Equirin (Verdant)", startCreature2ID+1, startCreature2DisplayGroupID+1, startCreature2DisplayGroupEntryID+1, startCreature2DisplayInfoID+1, "Art\\Mount\\Ground\\Creature_Horse\\Equivar\\Textures\\Mount_Creature_Horse_Equivar_000_normal.tex"),
+                ("Art\\Mount\\Ground\\Creature_Horse\\Equivar\\Textures\\mount_creature_horse_equivar_000c_color.tex", "Equirin (Green)", startCreature2ID+2, startCreature2DisplayGroupID+2, startCreature2DisplayGroupEntryID+2, startCreature2DisplayInfoID+2, "Art\\Mount\\Ground\\Creature_Horse\\Equivar\\Textures\\Mount_Creature_Horse_Equivar_000_normal.tex"),
+                ("Art\\Mount\\Ground\\Creature_Horse\\Equivar\\Textures\\mount_creature_horse_equivar_000a_color.tex", "Equirin (Purple)", startCreature2ID+3, startCreature2DisplayGroupID+3, startCreature2DisplayGroupEntryID+3, startCreature2DisplayInfoID+3, "Art\\Mount\\Ground\\Creature_Horse\\Equivar\\Textures\\Mount_Creature_Horse_Equivar_000_normal.tex"),
+                ("Art\\Mount\\Ground\\Creature_Horse\\Equivar\\Textures\\mount_creature_horse_equivar_variant_BlackWhite_000_color.tex", "Equirin (Obsidian)", startCreature2ID+4, startCreature2DisplayGroupID+4, startCreature2DisplayGroupEntryID+4, startCreature2DisplayInfoID+4, "Art\\Mount\\Ground\\Creature_Horse\\Equivar\\Textures\\mount_creature_horse_equivar_variant_blackwhite_000_normal.tex"),
+                ("Art\\Mount\\Ground\\Creature_Horse\\Equivar\\Textures\\mount_creature_horse_equivar_variant_rock_000_color.tex", "Equirin (Luminous)", startCreature2ID+5, startCreature2DisplayGroupID+5, startCreature2DisplayGroupEntryID+5, startCreature2DisplayInfoID+5, "Art\\Mount\\Ground\\Creature_Horse\\Equivar\\Textures\\mount_creature_horse_equivar_variant_rock_000_normal.tex"),
+            };
+            foreach (var row in equirin)
+            {
+                // Create Display Info
+                var displayInfoEntry = creature2DisplayInfo.CopyEntry(37424); // Copy generic Horned Equivar display info
+                displayInfoEntry.Values[3].SetValue(row.Item1); //switch assetTexture00 to the given texture path
+                displayInfoEntry.Values[4].SetValue(row.Item7); //switch assetTexture01 to the given normal path
+                displayInfoEntry.Values[9].SetValue(1u); //modelTextureId00
+                displayInfoEntry.Values[10].SetValue(2u); //modelTextureId01
+                displayInfoEntry.Values.RemoveAt(0);
+                creature2DisplayInfo.AddEntry(displayInfoEntry, row.Item6);
+
+
+                // Create Display Group Entry
+                var displayGroupEntry = creature2DisplayGroupEntry.CopyEntry(43267); // Copy generic Horned Equivar mount display group entry
+                displayGroupEntry.Values[1].SetValue(row.Item4); //creature2DisplayGroupId
+                displayGroupEntry.Values[2].SetValue(row.Item6); //creature2DisplayInfoId
+                displayGroupEntry.Values.RemoveAt(0);
+                creature2DisplayGroupEntry.AddEntry(displayGroupEntry, row.Item5);
+
+
+                // Create Creature2
+                var entry = creature2.CopyEntry(71476); // Copy generic Horned Equivar mount
+                entry.Values[2].SetValue(row.Item2); //description
+                entry.Values[3].SetValue(language.AddEntry(row.Item2)); //localizedTextIdName
+                entry.Values[10].SetValue(row.Item4); //creature2DisplayGroupId
+                entry.Values.RemoveAt(0);
+                creature2.AddEntry(entry, row.Item3);
+            }
+            startCreature2ID += 6;
+            startCreature2DisplayGroupID += 6;
+            startCreature2DisplayGroupEntryID += 6;
+            startCreature2DisplayInfoID += 6;
+
+
+            // Type: Trask
+            // (Texture, Name, Creature2 ID, Creature2DisplayGroup ID, Creature2DisplayGroupEntry ID, Creature2DisplayInfo ID)
+            List<(string, string, uint, uint, uint, uint)> trask = new List<(string, string, uint, uint, uint, uint)>
+            {
+                ("Art\\Mount\\Cat_Preset\\Mount_Eshara\\EsharaMount_Green_Color.tex", "Trask (Blue)", startCreature2ID, startCreature2DisplayGroupID, startCreature2DisplayGroupEntryID, startCreature2DisplayInfoID),
+                ("Art\\Mount\\Cat_Preset\\Mount_Eshara\\EsharaMount_Red_Color.tex", "Trask (Red)", startCreature2ID+1, startCreature2DisplayGroupID+1, startCreature2DisplayGroupEntryID+1, startCreature2DisplayInfoID+1),
+                ("Art\\Mount\\Cat_Preset\\Mount_Eshara\\EsharaMount_yellow_Color.tex", "Trask (Yellow)", startCreature2ID+2, startCreature2DisplayGroupID+2, startCreature2DisplayGroupEntryID+2, startCreature2DisplayInfoID+2),
+                ("Art\\Mount\\Cat_Preset\\Mount_Eshara\\EsharaMount_black_Color.tex", "Trask (Black)", startCreature2ID+3, startCreature2DisplayGroupID+3, startCreature2DisplayGroupEntryID+3, startCreature2DisplayInfoID+3),
+            };
+            foreach (var row in trask)
+            {
+                // Create Display Info
+                var displayInfoEntry = creature2DisplayInfo.CopyEntry(21981); // Copy generic Trask display info
+                displayInfoEntry.Values[3].SetValue(row.Item1); //switch assetTexture00 to the given texture path
+                displayInfoEntry.Values.RemoveAt(0);
+                creature2DisplayInfo.AddEntry(displayInfoEntry, row.Item6);
+
+
+                // Create Display Group Entry
+                var displayGroupEntry = creature2DisplayGroupEntry.CopyEntry(21994); // Copy generic Trask display group entry
+                displayGroupEntry.Values[1].SetValue(row.Item4); //creature2DisplayGroupId
+                displayGroupEntry.Values[2].SetValue(row.Item6); //creature2DisplayInfoId
+                displayGroupEntry.Values.RemoveAt(0);
+                creature2DisplayGroupEntry.AddEntry(displayGroupEntry, row.Item5);
+
+
+                // Create Creature2
+                var entry = creature2.CopyEntry(5212); // Copy generic Trask
+                entry.Values[2].SetValue(row.Item2); //description
+                entry.Values[3].SetValue(language.AddEntry(row.Item2)); //localizedTextIdName
+                entry.Values[10].SetValue(row.Item4); //creature2DisplayGroupId
+                entry.Values.RemoveAt(0);
+                creature2.AddEntry(entry, row.Item3);
+            }
+            startCreature2ID += 4;
+            startCreature2DisplayGroupID += 4;
+            startCreature2DisplayGroupEntryID += 4;
+            startCreature2DisplayInfoID += 4;
+
+
+            // Type: Riding Girrok
+            // (Texture, Name, Creature2 ID, Creature2DisplayGroup ID, Creature2DisplayGroupEntry ID, Creature2DisplayInfo ID)
+            List<(string, string, uint, uint, uint, uint, string)> ridingGirrok = new List<(string, string, uint, uint, uint, uint, string)>
+            {
+                ("Art\\Creature\\Girok\\Girok_A_Color.tex", "Riding Girrok (Black)", startCreature2ID, startCreature2DisplayGroupID, startCreature2DisplayGroupEntryID, startCreature2DisplayInfoID, "Art\\Creature\\Girok\\Girok_Normal.tex"),
+                ("Art\\Creature\\Girok\\Textures\\Girok_B_White_Color.tex", "Riding Girrok (White)", startCreature2ID+1, startCreature2DisplayGroupID+1, startCreature2DisplayGroupEntryID+1, startCreature2DisplayInfoID+1, "Art\\Creature\\Girok\\Girok_Normal.tex"),
+                ("Art\\Creature\\Girok\\Girok_B_Color.tex", "Riding Girrok (Purple)", startCreature2ID+2, startCreature2DisplayGroupID+2, startCreature2DisplayGroupEntryID+2, startCreature2DisplayInfoID+2, "Art\\Creature\\Girok\\Girok_Normal.tex"),
+                ("Art\\Creature\\Girok\\Girok_Boss_Color.tex", "Riding Girrok (Scarred)", startCreature2ID+3, startCreature2DisplayGroupID+3, startCreature2DisplayGroupEntryID+3, startCreature2DisplayInfoID+3, "Art\\Creature\\Girok\\Girok_Boss_Normal.tex"),
+                ("Art\\Creature\\Girok\\Textures\\Girok_C_Color.tex", "Riding Girrok (Purple Stripe)", startCreature2ID+4, startCreature2DisplayGroupID+4, startCreature2DisplayGroupEntryID+4, startCreature2DisplayInfoID+4, "Art\\Creature\\Girok\\Girok_Normal.tex"),
+            };
+            foreach (var row in ridingGirrok)
+            {
+                // Create Display Info
+                var displayInfoEntry = creature2DisplayInfo.CopyEntry(38343); // Copy generic Girrok mount display info
+                displayInfoEntry.Values[3].SetValue(row.Item1); //switch assetTexture00 to the given texture path
+                displayInfoEntry.Values[4].SetValue(row.Item7); //switch assetTexture01 to the given normal path
+                displayInfoEntry.Values[9].SetValue(1u); //modelTextureId00
+                displayInfoEntry.Values[10].SetValue(2u); //modelTextureId01
+                displayInfoEntry.Values.RemoveAt(0);
+                creature2DisplayInfo.AddEntry(displayInfoEntry, row.Item6);
+
+
+                // Create Display Group Entry
+                var displayGroupEntry = creature2DisplayGroupEntry.CopyEntry(44326); // Copy generic Girrok mount display group entry
+                displayGroupEntry.Values[1].SetValue(row.Item4); //creature2DisplayGroupId
+                displayGroupEntry.Values[2].SetValue(row.Item6); //creature2DisplayInfoId
+                displayGroupEntry.Values.RemoveAt(0);
+                creature2DisplayGroupEntry.AddEntry(displayGroupEntry, row.Item5);
+
+
+                // Create Creature2
+                var entry = creature2.CopyEntry(73222); // Copy generic Girrok mount
+                entry.Values[2].SetValue(row.Item2); //description
+                entry.Values[3].SetValue(language.AddEntry(row.Item2)); //localizedTextIdName
+                entry.Values[10].SetValue(row.Item4); //creature2DisplayGroupId
+                entry.Values.RemoveAt(0);
+                creature2.AddEntry(entry, row.Item3);
+            }
+            startCreature2ID += 5;
+            startCreature2DisplayGroupID += 5;
+            startCreature2DisplayGroupEntryID += 5;
+            startCreature2DisplayInfoID += 5;
+
+
+            
+            
+            return startItem2Id;
+        }
+
+        /*
+        static uint AddSpellsItemForMount(uint startItem2Id, uint creature2Id, string description, uint localizedTextIdName, uint copySpell4BaseId_Unlock, uint copySpell4BaseId_Summon, uint copySpell4Id_Unlock, uint copySpell4Id_Summon, uint copyItem2Id, uint copyItemSpecialId)
+        {
+            // Create Spell4Base for unlock spell
+            var entry_spell4Base_Unlock = spell4Base.CopyEntry(copySpell4BaseId_Unlock);
+            entry_spell4Base_Unlock.Values[1].SetValue(localizedTextIdName);
+            entry_spell4Base_Unlock.Values.RemoveAt(0);
+            uint newSpell4BaseId_Unlock = spell4Base.AddEntry(entry_spell4Base_Unlock);
+
+            // Create Spell4 for unlock spell
+            var entry_spell4_Unlock = spell4.CopyEntry(copySpell4Id_Unlock);
+            entry_spell4_Unlock.Values[1].SetValue("Unlock Spell - " + description);
+            entry_spell4_Unlock.Values[2].SetValue(newSpell4BaseId_Unlock);
+            entry_spell4_Unlock.Values[29].SetValue(localizedTextIdName); //localizedTextIdActionBarTooltip
+            entry_spell4_Unlock.Values.RemoveAt(0);
+            uint newSpell4Id_Unlock = spell4.AddEntry(entry_spell4_Unlock);
+
+            // Create ItemSpecial for unlock
+            var entry_itemSpecial_Unlock = itemSpecial.CopyEntry(copyItemSpecialId);
+            entry_itemSpecial_Unlock.Values[4].SetValue(newSpell4Id_Unlock); //spell4IdOnActivate
+            entry_itemSpecial_Unlock.Values.RemoveAt(0);
+            uint newItemSpecialId_Unlock = itemSpecial.AddEntry(entry_itemSpecial_Unlock);
+
+            // Create Item2 for unlock
+            var entry_item2_Unlock = item2.CopyEntry(copyItem2Id);
+            entry_item2_Unlock.Values[5].SetValue(newItemSpecialId_Unlock);
+            entry_item2_Unlock.Values[44].SetValue(localizedTextIdName);
+            entry_item2_Unlock.Values.RemoveAt(0);
+            startItem2Id++;
+            item2.AddEntry(entry_item2_Unlock, startItem2Id);
+
+
+
+            // Create Spell4Base for summon spell
+            var entry_spell4Base_Summon = spell4Base.CopyEntry(copySpell4BaseId_Summon);
+            entry_spell4Base_Summon.Values[1].SetValue(localizedTextIdName);
+            entry_spell4Base_Summon.Values.RemoveAt(0);
+            uint newSpell4BaseId_Summon = spell4Base.AddEntry(entry_spell4Base_Summon);
+
+            // Create Spell4 for summon spell
+            var entry_spell4_Summon = spell4.CopyEntry(copySpell4Id_Summon);
+            entry_spell4_Summon.Values[1].SetValue("Summon Spell - " + description);
+            entry_spell4_Summon.Values[2].SetValue(newSpell4BaseId_Summon);
+            entry_spell4_Summon.Values[29].SetValue(localizedTextIdName); //localizedTextIdActionBarTooltip
+            entry_spell4_Summon.Values[60].SetValue(localizedTextIdName); //localizedTextIdCasterIconSpellText
+            entry_spell4_Summon.Values.RemoveAt(0);
+            uint newSpell4Id_Summon = spell4.AddEntry(entry_spell4_Summon);
+
+
+            return startItem2Id;
+        }
+        */
 
         static void TestArchiveWriting()
         {
@@ -2264,6 +2518,8 @@ namespace WildStar.TestBed
 
         static bool betaMode = false;
 
+        static Table spell4Base = AddTable("Spell4Base");
+        static Table spell4 = AddTable("Spell4");
         static Table hookAssets = AddTable("HookAsset", true);
         static Table decorInfo = AddTable("HousingDecorInfo");
         static Table decorType = AddTable("HousingDecorType");
@@ -2277,9 +2533,13 @@ namespace WildStar.TestBed
         static Table characterCustomizationLabel = AddTable("CharacterCustomizationLabel", true);
         static Table characterCustomizationSelection = AddTable("CharacterCustomizationSelection", false);
         static CharacterCustomizationHandler cch = new CharacterCustomizationHandler();
+        static Table creature2DisplayInfo = AddTable("Creature2DisplayInfo");
+        static Table creature2DisplayGroupEntry = AddTable("Creature2DisplayGroupEntry");
+        static Table creature2 = AddTable("Creature2");
         static Table housingPlugItem = AddTable("HousingPlugItem");
         static Table itemDisplay = AddTable("ItemDisplay");
         static Table itemColorSet = AddTable("ItemColorSet");
+        //static Table itemSpecial = AddTable("ItemSpecial");
         static Table item2 = AddTable("Item2");
         static TextTable.TextTable language = null;
 
