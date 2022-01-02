@@ -38,6 +38,8 @@ namespace WildStar.TestBed
             uint startItem2Id = 92834;
             startItem2Id = AddWeaponItems(startItem2Id);
 
+            startItem2Id = AddCreaturesMounts(startItem2Id);
+
 
             AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\CoolShift_LUT.tex", 18, "Cool-Shift");
             AddColorShift("Art\\FX\\LutMaps\\HousingDecor\\WarmShift_LUT.tex", 19, "Warm-Shift");
@@ -1888,8 +1890,6 @@ namespace WildStar.TestBed
 
             /*uint param = AddCustomizationParameter(null, "Size", 1, 1, 1, 0, 0, 0, 0, 0, 0);
             AddCustomizationParameterMap(null, 4, 0, 128, param, 0, 0);*/
-
-            startItem2Id = AddCreaturesMounts(startItem2Id);
 
             SaveTables("../../../../TblBeta/");
             CopyTables("../../../../TblBeta/", "../../../../TblServer/");
