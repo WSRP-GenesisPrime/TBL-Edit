@@ -19,6 +19,10 @@ namespace WildStar.TestBed
             //TestArchiveWriting();
         }
 
+        static uint NsfwsItemId_Top = 0u;
+        static uint NsfwsItemDisplayId_Top = 0u;
+        static uint NsfwsItemId_Bottom = 0u;
+        static uint NsfwsItemDisplayId_Bottom = 0u;
         static void MakeArchive()
         {
             LoadTables();
@@ -1693,8 +1697,13 @@ namespace WildStar.TestBed
             AddEmote(889, "readycombat2", null, 469);
             AddEmote(575, null, null, 470);
 
+            startItem2Id = AddSFWItems(startItem2Id);
 
             SaveTables("../../../../TblNormal/");
+
+            startItem2Id = DoNSFWSItemDisplays(startItem2Id);
+
+            SaveTables("../../../../TblNSFWS/");
 
             // BETA YOLO MOOOODE
             betaMode = true;
@@ -1901,6 +1910,71 @@ namespace WildStar.TestBed
             }
             File.WriteAllLines("../../../../Strings.txt", file);
         }
+
+        static uint AddSFWItems(uint startItem2Id)
+        {
+            uint itemDisplayStartId = itemDisplay.GetMaxID();
+
+            // Create chest entry
+            var  itemDisplayEntry_Top = itemDisplay.CopyEntry(8669); // copy swimsuit top display
+            itemDisplayEntry_Top.Values.RemoveAt(0);
+            uint itemDisplayEntryId_Top = itemDisplay.AddEntry(itemDisplayEntry_Top, itemDisplayStartId+1);
+            itemDisplayStartId++;
+
+            var item2Entry_Top = item2.CopyEntry(44791); // copy arcane chest item
+            item2Entry_Top.Values[10].SetValue(itemDisplayEntryId_Top);
+            item2Entry_Top.Values[44].SetValue(language.AddEntry("Emperor's Shirt"));
+            item2Entry_Top.Values.RemoveAt(0);
+            uint item2EntryId_Top = item2.AddEntry(item2Entry_Top, startItem2Id + 1);
+            startItem2Id++;
+
+            NsfwsItemId_Top = item2EntryId_Top;
+            NsfwsItemDisplayId_Top = itemDisplayEntryId_Top;
+            
+
+            // Create pants entry
+            var itemDisplayEntry_Bottom = itemDisplay.CopyEntry(8663); // copy swimsuit bottom display
+            itemDisplayEntry_Bottom.Values.RemoveAt(0);
+            uint itemDisplayEntryId_Bottom = itemDisplay.AddEntry(itemDisplayEntry_Bottom, itemDisplayStartId+1);
+            itemDisplayStartId++;
+
+            var item2Entry_Bottom = item2.CopyEntry(44792); // copy arcane pants item
+            item2Entry_Bottom.Values[10].SetValue(itemDisplayEntryId_Bottom);
+            item2Entry_Bottom.Values[44].SetValue(language.AddEntry("Emperor's Pants"));
+            item2Entry_Bottom.Values.RemoveAt(0);
+            uint item2EntryId_Bottom = item2.AddEntry(item2Entry_Bottom, startItem2Id + 1);
+            startItem2Id++;
+
+            NsfwsItemId_Bottom = item2EntryId_Bottom;
+            NsfwsItemDisplayId_Bottom = itemDisplayEntryId_Bottom;
+
+            return startItem2Id;
+        }
+        static uint DoNSFWSItemDisplays(uint startItem2Id)
+        {
+            // change chest display entry
+            var itemDisplayEntry_Top = itemDisplay.GetEntry(NsfwsItemDisplayId_Top);
+            itemDisplayEntry_Top.Values[14].SetValue(0u);
+            itemDisplayEntry_Top.Values[16].SetValue(0u);
+            itemDisplayEntry_Top.Values[19].SetValue(0u);
+            itemDisplayEntry_Top.Values[20].SetValue(0u);
+            itemDisplayEntry_Top.Values[23].SetValue("");
+            itemDisplayEntry_Top.Values[24].SetValue("");
+            itemDisplayEntry_Top.Values[42].SetValue(0u);
+
+            // change pants display entry
+            var itemDisplayEntry_Bottom = itemDisplay.GetEntry(NsfwsItemDisplayId_Bottom);
+            itemDisplayEntry_Bottom.Values[14].SetValue(0u);
+            itemDisplayEntry_Bottom.Values[16].SetValue(0u);
+            itemDisplayEntry_Bottom.Values[19].SetValue(0u);
+            itemDisplayEntry_Bottom.Values[20].SetValue(0u);
+            itemDisplayEntry_Bottom.Values[23].SetValue("");
+            itemDisplayEntry_Bottom.Values[24].SetValue("");
+            itemDisplayEntry_Bottom.Values[42].SetValue(0u);
+
+            return startItem2Id;
+        }
+
 
         static void AddEmoteSlashCommands()
         {
