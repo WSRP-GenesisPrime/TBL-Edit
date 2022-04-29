@@ -2036,12 +2036,13 @@ namespace WildStar.TestBed
             foreach (uint id in list)
             {
                 cch.AddColourOption(itemDisplay, 4, 1, 2, id, 2, startLV, startID, startID + step);
+                cch.ChangeDyeTexture(itemDisplay, 4, 1, 2, 1, startLV, 8, "Art\\Character\\Aurin\\Female\\Textures\\CHR_Aurin_F_Skin_07_Dye.Skin_Head.tex");
                 startLV += 1;
                 startID += step;
             }
             push1 = push1 + 8 * 10;
-            cch.AddColourOption(itemDisplay, 4, 1, 2, 85, 2, 21, push1 + 0, push1 + 8); // swamp green (mordesh swamp yellow skin)
-            cch.AddColourOption(itemDisplay, 4, 1, 2, 80, 2, 22, push1 + 8, push1 + 16); // dark purple (mordesh dark purple hair)
+            cch.AddColourOption(itemDisplay, 4, 1, 2, 85, 11, 21, push1 + 0, push1 + 8); // swamp green (mordesh swamp yellow skin)
+            cch.AddColourOption(itemDisplay, 4, 1, 2, 80, 11, 22, push1 + 8, push1 + 16); // dark purple (mordesh dark purple hair)
             push1 = push1 + 8 * 2;
 
             // Draken female
@@ -2151,6 +2152,31 @@ namespace WildStar.TestBed
             cch.AddColourOption(itemDisplay, 16, 0, 4, 94, 3, 28, push2 + 5, push2 + 10); // orange (mordesh orange eyes)
             cch.AddColourOption(itemDisplay, 16, 0, 4, 85, 2, 29, push2 + 10, push2 + 15); // swamp green (makes a grey-brown; mordesh swamp yellow skin)
             push2 = push2 + 5 * 3;
+
+
+            var example = itemDisplay.GetEntry(4935);
+            var e = itemDisplay.GetEntry(8669);
+            
+            /*for(int i = 0; i < itemDisplay.table.Columns.Count; ++i)
+            {
+                var c = itemDisplay.table.Columns[i].Name;
+                var a = example.Values[i].Value;
+                var b = e.Values[i].Value;
+
+                if(i != 0)
+                {
+                    e.Values[i].SetValue(a);
+                    var d = e.Values[i].Value;
+                }
+            }*/
+
+            //e.Values[26].SetValue("Art\\Item\\Armor\\Outfit\\swimsuit_000\\CHR_Outfit_Swimsuit_000_dye.dds");
+            //e.Values[26].SetValue("Art\\Character\\Aurin\\Female\\Textures\\CHR_Outfit_Swimsuit_000_dye.dds");
+            e.Values[26].SetValue("Art\\Character\\Aurin\\Female\\Textures\\chr_aurin_f_skin_09_Dye.dds");
+            e.Values[38].SetValue(134u);
+            e.Values[39].SetValue(7u);
+
+
         }
 
         static void AddWeaponItems()

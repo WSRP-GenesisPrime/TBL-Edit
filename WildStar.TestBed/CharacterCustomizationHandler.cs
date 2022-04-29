@@ -227,18 +227,18 @@ namespace WildStar.TestBed
             }
             else
             {
-                if(!IsLabelValueFree(race, gender, label, newLabelValue))
+                if (!IsLabelValueFree(race, gender, label, newLabelValue))
                 {
                     throw new ArgumentException("Label-value isn't free!");
                 }
                 AddSelectionEntry(label, newLabelValue);
             }
-            if(displayIDStart == 0)
+            if (displayIDStart == 0)
             {
                 displayIDStart = itemDisplay.GetMaxID() + 1;
             }
 
-            for(int i = 0; i < list.Count; ++i)
+            for (int i = 0; i < list.Count; ++i)
             {
                 var entry = list[i];
                 uint label1 = entry.Values[6].GetValue<uint>();
@@ -265,9 +265,9 @@ namespace WildStar.TestBed
                     }
                 }
 
-                if(found)
+                if (found)
                 {
-                    if(itemDisplay.GetEntry(displayIDStart) != null)
+                    if (itemDisplay.GetEntry(displayIDStart) != null)
                     {
                         throw new ArgumentException("DisplayID range isn't free!");
                     }
@@ -275,10 +275,61 @@ namespace WildStar.TestBed
                     displayIDStart += 1;
                 }
             }
-            if(displayIDStart != displayIDEnd && displayIDEnd != 0)
+            if (displayIDStart != displayIDEnd && displayIDEnd != 0)
             {
                 throw new ArgumentException("DisplayID range did not match actual number of added itemDisplays!");
             }
+        }
+
+        public void ChangeDyeTexture(Table itemDisplay, uint race, uint gender, uint label1, uint label2, uint labelValue1, uint labelValue2, string newTexture)
+        {
+            GameTableEntry entry = characterCustomizationTable.table.Entries.Where(e => MatchesLabels(e, label1, label2, labelValue1, labelValue2) && e.Values[1].GetValue<uint>() == race && e.Values[2].GetValue<uint>() == gender).SingleOrDefault();
+
+            if(entry != null)
+            {
+                uint itemDisplayID = entry.Values[4].GetValue<uint>();
+                GameTableEntry ide = itemDisplay.GetEntry(itemDisplayID);
+                GameTableEntry comparison = itemDisplay.GetEntry(5783);
+                if (ide != null)
+                {
+                    ide.Values[26].SetValue(newTexture);
+
+                    for(int i = 0; i < itemDisplay.table.Columns.Count; ++i)
+                    {
+                        var v1 = ide.Values[i].Value;
+                        var v2 = comparison.Values[i].Value;
+                        string c = itemDisplay.table.Columns[i].Name;
+                    }
+                }
+                else
+                {
+                    throw new ArgumentException("ItemDisplayID did not exist!");
+                }
+            }
+            else
+            {
+                throw new ArgumentException("CharacterCustomization entry did not exist!");
+            }
+        }
+
+        public bool MatchesLabels(GameTableEntry e, uint label1, uint label2, uint labelValue1, uint labelValue2) {
+            uint el1 = e.Values[6].GetValue<uint>();
+            uint el2 = e.Values[7].GetValue<uint>();
+            uint ev1 = e.Values[8].GetValue<uint>();
+            uint ev2 = e.Values[9].GetValue<uint>();
+            if(!(el1 == label1 && ev1 == labelValue1) && !(el2 == label1 && ev2 == labelValue1))
+            {
+                return false; // no match on label 1
+            }
+            if(label2 <= 0)
+            {
+                return true; // no match needed on label 2
+            }
+            if(!(el1 == label2 && ev1 == labelValue2) && !(el2 == label2 && ev2 == labelValue2))
+            {
+                return false; // no match on label 2
+            }
+            return true;
         }
 
         private GameTableEntry MakeColourOption(Table itemDisplay, GameTableEntry entry, uint colourID, int offset, uint newLabelValue, uint displayID)
