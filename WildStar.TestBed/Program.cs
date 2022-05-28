@@ -1,6 +1,7 @@
 ﻿using NLog;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using WildStar.TestBed.GameTable;
@@ -2107,6 +2108,7 @@ namespace WildStar.TestBed
 
             uint push1 = 9106; // tracks itemDisplayIDs for push 1, do not use after push 1.
             uint push2 = 9805; // tracks itemDisplayIDs for push 2, do not use after push 2.
+            uint push3 = 10270;
 
             //Push 1 ****************************************************************************************************
             // aurin female
@@ -2244,6 +2246,32 @@ namespace WildStar.TestBed
             cch.AddColourOption(itemDisplay, 16, 0, 4, 94, 3, 28, push2 + 5, push2 + 10); // orange (mordesh orange eyes)
             cch.AddColourOption(itemDisplay, 16, 0, 4, 85, 2, 29, push2 + 10, push2 + 15); // swamp green (makes a grey-brown; mordesh swamp yellow skin)
             push2 = push2 + 5 * 3;
+
+            AddBodyTypes(push3, push3 + 28);
+        }
+
+        static void AddBodyTypes(uint startID, uint endID)
+        {
+            float[] values = { 0.5f, 1.5f, 2.0f, 2.5f, 3.0f };
+            uint[] anims = { 260, 261, 262, 263, 264, 265 };
+            uint labelValue = 101;
+            foreach (uint anim in anims)
+            {
+                foreach (float value in values)
+                {
+                    if(value.Equals(0.5f) && (anim == 260 || anim == 261))
+                    {
+                        continue;
+                    }
+                    cch.AddBodyType(itemDisplay, 7280, anim, value, 10, labelValue, startID);
+                    labelValue += 1;
+                    startID += 1;
+                }
+            }
+            if (startID != endID)
+            {
+                throw new ArgumentException("AddBodyTypes range did not match amount added.");
+            }
         }
 
         static uint AddWeaponItems(uint startID)

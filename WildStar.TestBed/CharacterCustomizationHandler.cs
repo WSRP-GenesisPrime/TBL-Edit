@@ -281,15 +281,100 @@ namespace WildStar.TestBed
             }
         }
 
-        private GameTableEntry MakeColourOption(Table itemDisplay, GameTableEntry entry, uint colourID, int offset, uint newLabelValue, uint displayID)
+        public void AddBodyType(Table itemDisplay, uint itemDisplayIDToCopy, uint modelPoseID, float modelPoseBlend, uint bodyTypeToCopy, uint newLabelValue = 0, uint newItemDisplayID = 0)
         {
-            uint itemDisplayID = entry.Values[4].GetValue<uint>();
+            GameTableEntry entryToCopy = itemDisplay.GetEntry(itemDisplayIDToCopy);
+            uint itemDisplayID = MakeBodyTypeItemDisplay(itemDisplay, entryToCopy, modelPoseID, modelPoseBlend, newItemDisplayID);
+            uint[] races = { 1, 3, 4, 5, 12, 13, 16 };
+            foreach (uint race in races)
+            {
+                for(uint gender = 0; gender < (race == 13? 1 : 2); gender ++)
+                {
+                    AddBodyType(race, gender, itemDisplayID, bodyTypeToCopy, newLabelValue);
+                }
+            }
+        }
+
+        public void AddBodyType(uint race, uint gender, uint itemDisplayID, uint bodyTypeToCopy, uint newLabelValue = 0)
+        {
+            const uint label = 25;
+            if (!customizationsByRaceGender.TryGetValue((race, gender), out var list))
+            {
+                return;
+            }
+            if (newLabelValue == 0)
+            {
+                newLabelValue = GetFreeLabelValue(race, gender, label);
+            }
+            else
+            {
+                if (!IsLabelValueFree(race, gender, label, newLabelValue))
+                {
+                    throw new ArgumentException("Label-value isn't free!");
+                }
+                AddSelectionEntry(label, newLabelValue);
+            }
+
+            for (int i = 0; i < list.Count; ++i)
+            {
+                var entry = list[i];
+                uint label1 = entry.Values[6].GetValue<uint>();
+                uint label2 = entry.Values[7].GetValue<uint>();
+                uint labelValue1 = entry.Values[8].GetValue<uint>();
+                uint labelValue2 = entry.Values[9].GetValue<uint>();
+                int offset = 0;
+                bool found = false;
+
+                if (label1 == label)
+                {
+                    if (labelValue1 == bodyTypeToCopy)
+                    {
+                        offset = 0;
+                        found = true;
+                    }
+                }
+                else if (label2 == label)
+                {
+                    if (labelValue2 == bodyTypeToCopy)
+                    {
+                        offset = 1;
+                        found = true;
+                    }
+                }
+
+                if (found)
+                {
+                    list.Add(MakeCustomizationOptionFromDisplayID(itemDisplayID, entry, offset, newLabelValue));
+                    return;
+                }
+            }
+        }
+
+        private GameTableEntry MakeColourOption(Table itemDisplay, GameTableEntry entryToCopy, uint colourID, int offset, uint newLabelValue, uint displayID)
+        {
+            uint itemDisplayID = entryToCopy.Values[4].GetValue<uint>();
             GameTableEntry ide = itemDisplay.CopyEntry(itemDisplayID);
             ide.Values[38].SetValue(colourID);
             ide.Values.RemoveAt(0);
             uint newDisplayID = itemDisplay.AddEntry(ide, displayID);
-            
-            GameTableEntry e = Table.CopyEntry(entry);
+
+            return MakeCustomizationOptionFromDisplayID(newDisplayID, entryToCopy, offset, newLabelValue);
+        }
+
+        private uint MakeBodyTypeItemDisplay(Table itemDisplay, GameTableEntry entryToCopy, uint modelPoseID, float modelPoseBlend, uint displayID)
+        {
+            GameTableEntry ide = Table.CopyEntry(entryToCopy);
+            ide.Values[40].SetValue(modelPoseID);
+            ide.Values[41].SetValue(modelPoseBlend);
+            ide.Values.RemoveAt(0);
+            uint newDisplayID = itemDisplay.AddEntry(ide, displayID);
+
+            return newDisplayID;
+        }
+
+        private GameTableEntry MakeCustomizationOptionFromDisplayID(uint newDisplayID, GameTableEntry entryToCopy, int offset, uint newLabelValue)
+        {
+            GameTableEntry e = Table.CopyEntry(entryToCopy);
             e.Values[8 + offset].SetValue(newLabelValue);
             e.Values[4].SetValue(newDisplayID);
             e.Values.RemoveAt(0);
