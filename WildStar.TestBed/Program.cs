@@ -2247,17 +2247,19 @@ namespace WildStar.TestBed
             cch.AddColourOption(itemDisplay, 16, 0, 4, 85, 2, 29, push2 + 10, push2 + 15); // swamp green (makes a grey-brown; mordesh swamp yellow skin)
             push2 = push2 + 5 * 3;
 
-            AddBodyTypes(push3, push3 + 28);
+            //AddBodyTypes(push3, push3 + 28);
+            AddBodyTypes(push3, push3 + 10);
         }
 
         static void AddBodyTypes(uint startID, uint endID)
         {
-            float[] values = { 0.5f, 1.5f, 2.0f, 2.5f, 3.0f };
+            //float[] values = { 0.5f, 1.5f, 2.0f, 2.5f, 3.0f };
+            float[] values = { 0.5f, 1.5f};
             uint[] anims = { 260, 261, 262, 263, 264, 265 };
             uint labelValue = 101;
-            foreach (uint anim in anims)
+            foreach (float value in values)
             {
-                foreach (float value in values)
+                foreach (uint anim in anims)
                 {
                     if(value.Equals(0.5f) && (anim == 260 || anim == 261))
                     {
@@ -2609,7 +2611,7 @@ namespace WildStar.TestBed
 
 
             // Create Spell4Base for summon spell
-            var entry_spell4Base_Summon = spell4Base.CopyEntry(copySpell4BaseId_Summon);
+            /*var entry_spell4Base_Summon = spell4Base.CopyEntry(copySpell4BaseId_Summon);
             entry_spell4Base_Summon.Values[1].SetValue(localizedTextIdName);
             entry_spell4Base_Summon.Values.RemoveAt(0);
             uint newSpell4BaseId_Summon = spell4Base.AddEntry(entry_spell4Base_Summon);
@@ -2621,7 +2623,7 @@ namespace WildStar.TestBed
             entry_spell4_Summon.Values[29].SetValue(localizedTextIdName); //localizedTextIdActionBarTooltip
             entry_spell4_Summon.Values[60].SetValue(localizedTextIdName); //localizedTextIdCasterIconSpellText
             entry_spell4_Summon.Values.RemoveAt(0);
-            uint newSpell4Id_Summon = spell4.AddEntry(entry_spell4_Summon);
+            uint newSpell4Id_Summon = spell4.AddEntry(entry_spell4_Summon);*/
 
 
             return startItem2Id;
