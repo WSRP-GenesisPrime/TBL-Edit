@@ -19,7 +19,7 @@ namespace WildStar.TestBed.GameTable
             Values.AddRange(values);
         }
 
-        public uint CalculateSize()
+        public uint CalculateSize(bool padEntries)
         {
             uint size = 0u;
             foreach (GameTableValue value in Values)
@@ -34,7 +34,7 @@ namespace WildStar.TestBed.GameTable
                 size += value.GetSize();
             }
 
-            if (size % 8 != 0)
+            if (padEntries && size % 8 != 0)
             {
                 size += size % 8;
             }

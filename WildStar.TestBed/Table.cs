@@ -3,7 +3,7 @@ using WildStar.TestBed.GameTable;
 
 namespace WildStar.TestBed
 {
-    class Table
+    public class Table
     {
         public GameTable.GameTable table;
         public string name;
