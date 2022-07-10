@@ -92,6 +92,14 @@ namespace WildStar.TestBed
             return CopyEntry(GetEntry(id));
         }
 
+        public GameTableEntry CopyEntryAndAdd(uint id)
+        {
+            GameTableEntry entry = CopyEntry(id);
+            entry.Values.RemoveAt(0);
+            AddEntry(entry);
+            return entry;
+        }
+
         public static GameTableEntry GetEntry(GameTable.GameTable table, uint id)
         {
             foreach (GameTableEntry entry in table.Entries)

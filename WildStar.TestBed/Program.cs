@@ -2149,6 +2149,8 @@ namespace WildStar.TestBed
             AddEmote(575, null, null, 470);
             AddEmote(7561, "hoverboard", null, 471);
 
+            AddMounts();
+
             startItem2Id = AddSFWItems(startItem2Id);
 
             SaveTables("../../../../TblNormal/");
@@ -2928,6 +2930,41 @@ namespace WildStar.TestBed
             return startItem2Id;
         }
 
+        static void AddMounts()
+        {
+            spell4Base.requireID = false; // Way too much of a hassle, we can check in other ways.
+            spell4.requireID = false;
+            spell4Effects.requireID = false;
+            item2.requireID = false;
+            itemSpecial.requireID = false;
+            unitVehicle.requireID = false;
+            spell4Base.beta = true;
+            spell4.beta = true;
+            spell4Effects.beta = true;
+            item2.beta = true;
+            itemSpecial.beta = true;
+            unitVehicle.beta = true;
+
+            var vehicle = unitVehicle.CopyEntryAndAdd(1);
+            vehicle.Values[1].SetValue(3u);
+            uint flyingVehicleID = vehicle.Values[0].GetValue<uint>();
+
+            // AddMount(26513, "Butterfly", flyingVehicleID); // example.
+
+            spell4Base.requireID = true;
+            spell4.requireID = true;
+            spell4Effects.requireID = true;
+            item2.requireID = true;
+            itemSpecial.requireID = true;
+            unitVehicle.requireID = true;
+            spell4Base.beta = false;
+            spell4.beta = false;
+            spell4Effects.beta = false;
+            item2.beta = false;
+            itemSpecial.beta = false;
+            unitVehicle.beta = false;
+        }
+
         
         static uint AddSpellsItemForMount(uint startItem2Id, uint creature2Id, string description, uint localizedTextIdName, uint copySpell4BaseId_Unlock, uint copySpell4BaseId_Summon, uint copySpell4Id_Unlock, uint copySpell4Id_Summon, uint copyItem2Id, uint copyItemSpecialId)
         {
@@ -2980,19 +3017,9 @@ namespace WildStar.TestBed
 
             return startItem2Id;
         }
-        
-
-        static void TestArchiveWriting()
-        {
-            AddAllTables("../../../../Tbl/");
-            LoadTables();
-            SaveTables("../../../../TblTest/");
-        }
 
         static bool betaMode = false;
 
-        static Table spell4Base = AddTable("Spell4Base");
-        static Table spell4 = AddTable("Spell4");
         static Table hookAssets = AddTable("HookAsset", true);
         static Table decorInfo = AddTable("HousingDecorInfo");
         static Table decorType = AddTable("HousingDecorType");
@@ -3013,8 +3040,13 @@ namespace WildStar.TestBed
         //static Table dyeColorRamp = AddTable("DyeColorRamp");
         static Table itemColorSet = AddTable("ItemColorSet");
         static Table itemDisplay = AddTable("ItemDisplay");
-        //static Table itemSpecial = AddTable("ItemSpecial");
+        static Table itemSpecial = AddTable("ItemSpecial");
         static Table item2 = AddTable("Item2");
+        static Table spell4Base = AddTable("Spell4Base");
+        static Table spell4 = AddTable("Spell4");
+        static Table spell4Effects = AddTable("Spell4Effects");
+        static Table unitVehicle = AddTable("UnitVehicle");
+
         static TextTable.TextTable language = null;
 
         public static Table AddTable(string name, bool requireID = false, bool doSave = true)
@@ -3060,38 +3092,6 @@ namespace WildStar.TestBed
                     File.Delete(newPath);
                 }
                 File.Copy(fileName, newPath);
-            }
-        }
-
-        public static void AddAllTables(string baseFolder)
-        {
-            List<string> names = new List<string>();
-            foreach (var name in Directory.GetFiles(baseFolder, "*.tbl", SearchOption.AllDirectories))
-            {
-                names.Add(Path.GetFileNameWithoutExtension(name));
-            }
-            List<string> tableNames = new List<string>();
-            foreach (var table in tables)
-            {
-                tableNames.Add(table.name);
-            }
-            names.RemoveAll(s => tableNames.Contains(s));
-
-            List<string> cantWrite = new List<string>
-            {
-                "ItemRuneSlotRandomization",
-                "MapZoneLevelBand",
-                "MatchingMapPrerequisite",
-                "PublicEventUnitPropertyModifier",
-                "SoundReplaceDescription",
-                "SoundReplace",
-                "WordFilterAlt",
-            };
-            names.RemoveAll(s => cantWrite.Contains(s));
-
-            foreach (var name in names)
-            {
-                AddTable(name);
             }
         }
 
@@ -3329,6 +3329,39 @@ namespace WildStar.TestBed
             entry.AddString("BasicSprites:Grey"); // preview swatch icon
 
             colorShift.AddEntry(entry, id);
+        }
+
+        static void AddMount(uint creature2ID, string name, uint unitVehicleID)
+        {
+            var mountSpellBase = spell4Base.CopyEntryAndAdd(57563);
+            mountSpellBase.Values[1].SetValue(language.AddEntry(name));
+
+            var mountSpell = spell4.CopyEntryAndAdd(82110);
+            mountSpell.Values[2].SetValue(mountSpellBase.Values[0].GetValue<uint>());
+
+            var mountSpellEffect = spell4Effects.CopyEntryAndAdd(215988);
+            mountSpellEffect.Values[1].SetValue(mountSpell.Values[0].GetValue<uint>());
+            mountSpellEffect.Values[9].SetValue(creature2ID);
+            mountSpellEffect.Values[10].SetValue(unitVehicleID);
+            // Values[13] for hoverboard itemDisplay
+
+            var learnSpellBase = spell4Base.CopyEntryAndAdd(57605);
+
+            var learnSpell = spell4.CopyEntryAndAdd(82110);
+            learnSpell.Values[2].SetValue(learnSpellBase.Values[0].GetValue<uint>());
+
+            var learnSpellEffect = spell4Effects.CopyEntryAndAdd(216037);
+            learnSpellEffect.Values[1].SetValue(learnSpell.Values[0].GetValue<uint>());
+            learnSpellEffect.Values[9].SetValue(mountSpell.Values[0].GetValue<uint>()); // spell4id of the mount spell
+
+            var special = itemSpecial.CopyEntryAndAdd(10186);
+            // special.Values[2].SetValue(language.AddEntry($"Turns you into a {name.ToLower()}!")); // seems to do nothing.
+            special.Values[4].SetValue(learnSpell.Values[0].GetValue<uint>()); // spell4id of the "learn this mount" spell.
+
+            var item = item2.CopyEntryAndAdd(92662);
+            item.Values[5].SetValue(special.Values[0].GetValue<uint>());
+            item.Values[44].SetValue(language.AddEntry(name)); // name
+            item.Values[45].SetValue(0u); // tooltip
         }
 
         static void AddEmote(uint animationID, string command, string command2 = null, uint? id = null)
