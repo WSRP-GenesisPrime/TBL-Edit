@@ -3556,9 +3556,9 @@ namespace WildStar.TestBed
             AddEmote(575, null, null, 470);
             AddEmote(7561, "hoverboard", null, 471);
 
-            AddMounts();
 
             startItem2Id = AddSFWItems(startItem2Id);
+            AddMounts();
 
             SaveTables("../../../../TblNormal/");
 
@@ -4635,8 +4635,33 @@ namespace WildStar.TestBed
             var vehicle = unitVehicle.CopyEntryAndAdd(1);
             vehicle.Values[1].SetValue(3u);
             uint flyingVehicleID = vehicle.Values[0].GetValue<uint>();
+            uint groundVehicleID = 1u;
 
-            // AddMount(26513, "Butterfly", flyingVehicleID); // example.
+            AddMount(26513, "Butterfly", flyingVehicleID); // example.
+            AddMount(76999, "Riding Pumera (Tawny)", groundVehicleID);
+            AddMount(77000, "Riding Pumera (Sienna)", groundVehicleID);
+            AddMount(77001, "Riding Pumera (Magenta)", groundVehicleID);
+            AddMount(77002, "Riding Pumera (Golden)", groundVehicleID);
+            AddMount(77003, "Riding Pumera (Maroon)", groundVehicleID);
+            AddMount(77004, "Riding Pumera (Snowy)", groundVehicleID);
+            AddMount(77005, "Riding Pumera (Snow Stripe)", groundVehicleID);
+            AddMount(77006, "Riding Pumera (Steely)", groundVehicleID);
+            AddMount(77007, "Riding Pumera (Whitevale)", groundVehicleID);
+            AddMount(77008, "Equirin (Blue)", groundVehicleID);
+            AddMount(77009, "Equirin (Verdant)", groundVehicleID);
+            AddMount(77010, "Equirin (Green)", groundVehicleID);
+            AddMount(77011, "Equirin (Purple)", groundVehicleID);
+            AddMount(77012, "Equirin (Obsidian)", groundVehicleID);
+            AddMount(77013, "Equirin (Luminous)", groundVehicleID);
+            AddMount(77014, "Trask (Blue)", groundVehicleID);
+            AddMount(77015, "Trask (Red)", groundVehicleID);
+            AddMount(77016, "Trask (Yellow)", groundVehicleID);
+            AddMount(77017, "Trask (Black)", groundVehicleID);
+            AddMount(77018, "Riding Girrok (Black)", groundVehicleID);
+            AddMount(77019, "Riding Girrok (White)", groundVehicleID);
+            AddMount(77020, "Riding Girrok (Purple)", groundVehicleID);
+            AddMount(77021, "Riding Girrok (Scarred)", groundVehicleID);
+            AddMount(77022, "Riding Girrok (Purple Stripe)", groundVehicleID);
 
             spell4Base.requireID = true;
             spell4.requireID = true;
