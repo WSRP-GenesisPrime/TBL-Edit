@@ -3874,6 +3874,7 @@ namespace WildStar.TestBed
 
             startItem2Id = AddSFWItems(startItem2Id);
             AddMounts();
+            AddSwimsuitOutfits();
 
             SaveTables("../../../../TblNormal/");
 
@@ -3888,8 +3889,6 @@ namespace WildStar.TestBed
             {
                 table.beta = true;
             }
-
-            AddSwimsuitOutfits();
 
             AddGenericDecor("Art\\Prop\\Constructed\\MISC\\Food\\PRP_SpaceTaco_Hologram_000.m3", 86, 0, 3992, "Hologram (Taco) - GLITCH CHECK ONLY", DecorCategory.Beta, false, 2);
             AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1610, "NSFWS Mordesh Male 1", "Mordesh Civilian", 26016, 13173, 0, 0, 1467, 1f, null, null), 6995, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Male, Style 1)", 15);
