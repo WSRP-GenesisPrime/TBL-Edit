@@ -3448,240 +3448,6 @@ namespace WildStar.TestBed
             AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1768, "Mordesh Female Taxisit 5", "Mordesh Civilian", 40919, 8757, 0, 0, 7592, 1f, null, null), 7153, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Mordesh Civilian, Taxi Sit (Female, Style 5)", 14);
             AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1769, "Mordesh Female Taxisit 6", "Mordesh Civilian", 36298, 10533, 0, 0, 7592, 1f, null, null), 7154, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Mordesh Civilian, Taxi Sit (Female, Style 6)", 14);
             AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1770, "Mordesh Female Taxisit 7", "Mordesh Civilian", 41153, 10667, 0, 0, 7592, 1f, null, null), 7155, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Mordesh Civilian, Taxi Sit (Female, Style 7)", 14);
-            AddWorldLayer(1288, "Fallow_Ground", 105, 3, 0, 0, 0, 4, "Art\\Terrain\\Plant\\Terrain_Plant_CropLeafy_Green_000_Color.tex", "Art\\Terrain\\Plant\\Terrain_Plant_CropLeafy_Green_000_Normal.tex", null, 8, 23, 0, 111, 112, 0, 0, 0, 0);
-            AddWorldLayer(1289, "Rocky_2_Secondary", 981, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-            AddWorldLayer(1290, null, 476, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-            AddWorldLayer(1291, null, 359, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-            AddWorldLayer(1292, "Alien_Flora", 658, 3, 0, -0.5f, 0, 16, "Art\\Terrain\\_HalonRing\\Terrain_Rock_MoonSlime_YellowGreen_000_Color.tex", "Art\\Terrain\\_HalonRing\\Terrain_Rock_MoonSlime_YellowGreen_000_Normal.tex", 2134927481, 1, 0, 313, 0, 0, 0, 4291676874, 0, 0);
-            AddWorldLayer(1293, "Alien_Flora2", 271, 3, 0, 0, 0, 8, "Art\\Terrain\\_HalonRing\\Terrain_Rock_MoonSlime_YellowGreen_001_Color.tex", "Art\\Terrain\\_HalonRing\\Terrain_Rock_MoonSlime_YellowGreen_000_Normal.tex", 2139378479, 1, 308, 306, 307, 0, 0, 0, 0, 0);
-            AddWorldLayer(1294, "Alien_Dust", 336, 2, 1, 0, 0, 32, "Art\\Terrain\\_HalonRing\\Terrain_Rock_AsteroidDust_BlueGrey_000_Color.tex", "Art\\Terrain\\_HalonRing\\Terrain_Rock_AsteroidDust_BlueGrey_000_Normal.tex", 2152557177, 10, 396, 0, 0, 0, 0, 0, 0, 0);
-            AddWorldLayer(1295, "Murkmire_Roots", 902, 3, 0, 0, 0, 8, "Art\\Terrain\\Roots\\Terrain_Roots_WitheredDirt_GreyBrown_000_Color.tex", "Art\\Terrain\\Roots\\Terrain_Roots_WitheredDirt_GreyBrown_000_Normal.tex", 2150968604, 7, 197, 0, 0, 0, 0, 0, 0, 0);
-            AddWorldLayer(1296, "Grimvault_Dunes", 902, 0.5f, 0.5f, 0, 0, 8, "Art\\Terrain\\_Grimvault\\terrain_sand_idealized_000_color.tex", "Art\\Terrain\\_Grimvault\\terrain_sand_idealized_000_normal.tex", 2138667619, 7, 189, 0, 179, 0, 0, 0, 0, 0);
-            AddWorldLayer(1297, "Murkmire_Dark_Mud", 186, 1, 0, -2, -1, 8, "Art\\Terrain\\Mud\\Terrain_Mud_NastyCracked_BrownDark_000_Color.tex", "Art\\Terrain\\Mud\\Terrain_Mud_NastyCracked_BrownDark_000_Normal.tex", 2151100444, 17, 0, 122, 0, 0, 0, 0, 0, 0);
-            AddWorldLayer(1298, "Murkmire_Swamp_Moss", 184, 3, 0, 0, 0, 4, "Art\\Terrain\\Plant\\Terrain_Plant_PodMushroomNasty_BrownOlive_000_Color.tex", "Art\\Terrain\\Plant\\Terrain_Plant_PodMushroomNasty_BrownOlive_000_Normal.tex", 2153073937, 8, 0, 40, 0, 0, 0, 0, 0, 0);
-            AddWorldLayer(1299, "Purple_Shroom_Moss", 296, 1, 0.2f, 0.3f, 0, 16, "Art\\Terrain\\_Dreadmoor\\Terrain_Moss_SmallPlants_Dreadmoor_000_Color.tex", "Art\\Terrain\\_Dreadmoor\\Terrain_Moss_LargeBubblySmallPlants_Green_000_Normal.tex", 1784169334, 5, 0, 305, 0, 0, 0, 0, 0, 0);
-            AddWorldLayer(1300, "Black_Organic_Shrooms", 666, 1, 0, 0, 0, 8, "Art\\Terrain\\_Grimvault\\Corrupted_BlackOrganic_001_color.tex", "Art\\Terrain\\_Grimvault\\corrupted_blackorganic_001_dxtnormal.tex", 2133270572, 5, 0, 323, 0, 0, 0, 0, 0, 0);
-            AddGroundOption("The Floor Is Lava", 579, 580, 286, 5);
-            AddGroundOption("Volcanic", 580, 579, 287, 5);
-            AddGroundOption("Arcterra", 991, 1159, 288, 5);
-            AddGroundOption("Ice Rubble", 1158, 458, 289, 5);
-            AddGroundOption("Ice Drift", 1257, 1256, 290, 5);
-            AddGroundOption("Desolation", 24, 260, 291, 5);
-            AddGroundOption("Galeras Meadow", 757, 544, 292, 5);
-            AddGroundOption("Paved", 1079, 1079, 293, 5);
-            AddGroundOption("Runed Temple Floor", 249, 250, 294, 5);
-            AddGroundOption("Overgrown Pavement", 1079, 422, 295, 5);
-            AddGroundOption("Sleeping Volcano", 580, 422, 296, 5);
-            AddGroundOption("Hot and Cold", 1257, 579, 297, 5);
-            AddGroundOption("Crystal Field (Yellow in Grass)", 105, 893, 298, 5);
-            AddGroundOption("Crystal Field (Blue in Dirt)", 894, 464, 299, 5);
-            AddGroundOption("Halon Ring", 336, 1172, 300, 5);
-            AddGroundOption("Tech", 299, 484, 301, 5);
-            AddGroundOption("Eldan Hexagons", 608, 608, 302, 5);
-            AddGroundOption("Eldan Hexagons (Corrupted)", 921, 921, 303, 5);
-            AddGroundOption("Metal Hexagons", 953, 953, 304, 5);
-            AddGroundOption("Scorched Rock", 580, 1250, 305, 5);
-            AddGroundOption("Verdant Rocks", 589, 422, 306, 6);
-            AddGroundOption("Wilderrun Cavern", 430, 422, 307, 6);
-            AddGroundOption("Galeras Valley", 82, 83, 308, 6);
-            AddGroundOption("Rocky", 589, 259, 309, 6);
-            AddGroundOption("Overgrown Temple", 249, 422, 310, 6);
-            AddGroundOption("Chrome", 855, 856, 311, 6);
-            AddGroundOption("Chronium Garden", 757, 856, 312, 6);
-            AddGroundOption("Desert Sigils", 347, 766, 313, 7);
-            AddGroundOption("Amethyst Meadow", 1034, 1290, 314, 7);
-            AddGroundOption("Galeras Prairie", 544, 757, 315, 7);
-            AddGroundOption("Galeras Field", 1233, 757, 316, 7);
-            AddGroundOption("Galeras Steppe", 757, 82, 317, 7);
-            AddGroundOption("Marble Barrens", 1289, 525, 318, 7);
-            AddGroundOption("Metal", 501, 572, 319, 7);
-            AddGroundOption("Gildgrass Moor", 711, 184, 320, 7);
-            AddGroundOption("Heath and Rime", 1172, 1256, 321, 8);
-            AddGroundOption("Chronium Heath", 1172, 856, 322, 8);
-            AddGroundOption("Borellian Flora", 1292, 1294, 323, 9);
-            AddGroundOption("Mycelium Meadow", 1293, 818, 324, 9);
-            AddGroundOption("Grimvault Scrub", 810, 809, 325, 9);
-            AddGroundOption("Grimvault Chaparral", 219, 810, 326, 9);
-            AddGroundOption("Grimvault Basin", 1296, 903, 327, 9);
-            AddGroundOption("Wild Wheat Country", 101, 195, 328, 9);
-            AddGroundOption("Obsidian Lowland", 195, 106, 329, 9);
-            AddGroundOption("Pine Barrens", 45, 514, 330, 9);
-            AddGroundOption("Dreadmoor Mudflat", 257, 251, 331, 9);
-            AddGroundOption("Dreadmoor Hammock", 261, 251, 332, 9);
-            AddGroundOption("Dreadmoor Pasture", 252, 253, 333, 9);
-            AddGroundOption("Murkmire Highland", 192, 1295, 334, 9);
-            AddGroundOption("Crimson Badlands", 621, 276, 335, 9);
-            AddGroundOption("Coralus Dunegrass", 748, 750, 336, 9);
-            AddGroundOption("Coralus Brush", 751, 752, 337, 9);
-            AddGroundOption("Coralus Jungle", 750, 751, 338, 9);
-            AddGroundOption("Blurple Wondershrooms", 1299, 1300, 339, 9);
-            AddGroundOption("Windswept Tundra", 991, 1172, 340, 9);
-            AddEmote(7834, "lounge1", "lounge", 433);
-            AddEmote(7835, "lounge2", null, 434);
-            AddEmote(6665, "coffin", null, 435);
-            AddEmote(2022, null, null, 436);
-            AddEmote(2023, null, null, 437);
-            AddEmote(2024, null, null, 438);
-            AddEmote(2025, null, null, 439);
-            AddEmote(2026, null, null, 440);
-            AddEmote(2027, null, null, 441);
-            AddEmote(2028, null, null, 442);
-            AddEmote(2029, null, null, 443);
-            AddEmote(2030, null, null, 444);
-            AddEmote(2031, null, null, 445);
-            AddEmote(2036, null, null, 446);
-            AddEmote(884, "channeling4", null, 447);
-            AddEmote(6690, null, null, 448);
-            AddEmote(5911, null, null, 449);
-            AddEmote(5683, "npcstance1", "npcstance", 450);
-            AddEmote(5686, "npcstance2", null, 451);
-            AddEmote(6221, null, null, 452);
-            AddEmote(6222, null, null, 453);
-            AddEmote(5548, null, null, 454);
-            AddEmote(7391, null, null, 455);
-            AddEmote(5513, null, null, 456);
-            AddEmote(1368, null, null, 457);
-            AddEmote(1370, null, null, 458);
-            AddEmote(5517, null, null, 459);
-            AddEmote(6762, "channeling8", null, 460);
-            AddEmote(4982, null, null, 461);
-            AddEmote(4983, null, null, 462);
-            AddEmote(5534, null, null, 463);
-            AddEmote(7525, null, null, 464);
-            AddEmote(1300, null, null, 465);
-            AddEmote(1301, null, null, 466);
-            AddEmote(1305, null, null, 467);
-            AddEmote(1306, null, null, 468);
-            AddEmote(889, "readycombat2", null, 469);
-            AddEmote(575, null, null, 470);
-            AddEmote(7561, "hoverboard", null, 471);
-
-
-            startItem2Id = AddSFWItems(startItem2Id);
-            AddMounts();
-
-            SaveTables("../../../../TblNormal/");
-
-            startItem2Id = DoNSFWSItemDisplays(startItem2Id);
-
-            SaveTables("../../../../TblNSFWS/");
-
-            // BETA YOLO MOOOODE
-            betaMode = true;
-
-            foreach (var table in tables)
-            {
-                table.beta = true;
-            }
-
-            AddSwimsuitOutfits();
-
-            AddGenericDecor("Art\\Prop\\Constructed\\MISC\\Food\\PRP_SpaceTaco_Hologram_000.m3", 86, 0, 3992, "Hologram (Taco) - GLITCH CHECK ONLY", DecorCategory.Beta, false, 2);
-            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1610, "NSFWS Mordesh Male 1", "Mordesh Civilian", 26016, 13173, 0, 0, 1467, 1f, null, null), 6995, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Male, Style 1)", 15);
-            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1611, "NSFWS Mordesh Male 2", "Mordesh Civilian", 28355, 13173, 0, 0, 7834, 1f, null, null), 6996, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Male, Style 2)", 15);
-            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1612, "NSFWS Mordesh Male 3", "Mordesh Civilian", 31867, 13173, 0, 0, 7835, 1f, null, null), 6997, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Male, Style 3)", 15);
-            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1613, "NSFWS Mordesh Male 4", "Mordesh Civilian", 39614, 13173, 0, 0, 7836, 1f, null, null), 6998, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Male, Style 4)", 15);
-            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1614, "NSFWS Mordesh Male 5", "Mordesh Civilian", 35001, 13173, 0, 0, 6663, 1f, null, null), 6999, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Male, Style 5)", 15);
-            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1615, "NSFWS Mordesh Male 6", "Mordesh Civilian", 35002, 13173, 0, 0, 1628, 1f, null, null), 7000, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Male, Style 6)", 15);
-            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1616, "NSFWS Mordesh Male 7", "Mordesh Civilian", 34899, 13173, 0, 0, 5439, 1f, null, null), 7001, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Male, Style 7)", 15);
-            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1617, "NSFWS Mordesh Female 1", "Mordesh Civilian", 41224, 13173, 0, 0, 1467, 1f, null, null), 7002, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Female, Style 1)", 15);
-            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1618, "NSFWS Mordesh Female 2", "Mordesh Civilian", 41142, 13173, 0, 0, 7834, 1f, null, null), 7003, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Female, Style 2)", 15);
-            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1619, "NSFWS Mordesh Female 3", "Mordesh Civilian", 33190, 13173, 0, 0, 7835, 1f, null, null), 7004, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Female, Style 3)", 15);
-            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1620, "NSFWS Mordesh Female 4", "Mordesh Civilian", 34816, 13173, 0, 0, 7836, 1f, null, null), 7005, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Female, Style 4)", 15);
-            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1621, "NSFWS Mordesh Female 5", "Mordesh Civilian", 40919, 13173, 0, 0, 6663, 1f, null, null), 7006, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Female, Style 5)", 15);
-            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1622, "NSFWS Mordesh Female 6", "Mordesh Civilian", 36298, 13173, 0, 0, 1628, 1f, null, null), 7007, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Female, Style 6)", 15);
-            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1623, "NSFWS Mordesh Female 7", "Mordesh Civilian", 41153, 13173, 0, 0, 5439, 1f, null, null), 7008, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Female, Style 7)", 15);
-            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1624, "NSFWS Granok Male 1", "Granok Civilian", 28351, 13173, 0, 0, 1467, 1f, null, null), 7009, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Male, Style 1)", 15);
-            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1625, "NSFWS Granok Male 2", "Granok Civilian", 26330, 13173, 0, 0, 7834, 1f, null, null), 7010, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Male, Style 2)", 15);
-            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1626, "NSFWS Granok Male 3", "Granok Civilian", 24358, 13173, 0, 0, 7835, 1f, null, null), 7011, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Male, Style 3)", 15);
-            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1627, "NSFWS Granok Male 4", "Granok Civilian", 25162, 13173, 0, 0, 7836, 1f, null, null), 7012, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Male, Style 4)", 15);
-            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1628, "NSFWS Granok Male 5", "Granok Civilian", 24081, 13173, 0, 0, 6663, 1f, null, null), 7013, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Male, Style 5)", 15);
-            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1629, "NSFWS Granok Male 6", "Granok Civilian", 24438, 13173, 0, 0, 1628, 1f, null, null), 7014, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Male, Style 6)", 15);
-            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1630, "NSFWS Granok Male 7", "Granok Civilian", 24715, 13173, 0, 0, 5439, 1f, null, null), 7015, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Male, Style 7)", 15);
-            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1631, "NSFWS Granok Female 1", "Granok Civilian", 34764, 13173, 0, 0, 1467, 1f, null, null), 7016, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Female, Style 1)", 15);
-            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1632, "NSFWS Granok Female 2", "Granok Civilian", 41222, 13173, 0, 0, 7834, 1f, null, null), 7017, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Female, Style 2)", 15);
-            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1633, "NSFWS Granok Female 3", "Granok Civilian", 39612, 13173, 0, 0, 7835, 1f, null, null), 7018, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Female, Style 3)", 15);
-            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1634, "NSFWS Granok Female 4", "Granok Civilian", 41303, 13173, 0, 0, 7836, 1f, null, null), 7019, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Female, Style 4)", 15);
-            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1635, "NSFWS Granok Female 5", "Granok Civilian", 28040, 13173, 0, 0, 6663, 1f, null, null), 7020, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Female, Style 5)", 15);
-            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1636, "NSFWS Granok Female 6", "Granok Civilian", 36055, 13173, 0, 0, 1628, 1f, null, null), 7021, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Female, Style 6)", 15);
-            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1637, "NSFWS Granok Female 7", "Granok Civilian", 34766, 13173, 0, 0, 5439, 1f, null, null), 7022, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Female, Style 7)", 15);
-            AddNPCDecor(2666, AddCreature(75544, startCreature2ID + 1638, "NSFWS Chua 1", "Chua Civilian", 38970, 13173, 0, 0, 1467, 1f, null, null), 7023, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Chua (Style 1)", 15);
-            AddNPCDecor(2666, AddCreature(75544, startCreature2ID + 1639, "NSFWS Chua 2", "Chua Civilian", 36026, 13173, 0, 0, 7834, 1f, null, null), 7024, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Chua (Style 2)", 15);
-            AddNPCDecor(2666, AddCreature(75544, startCreature2ID + 1640, "NSFWS Chua 3", "Chua Civilian", 36027, 13173, 0, 0, 7835, 1f, null, null), 7025, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Chua (Style 3)", 15);
-            AddNPCDecor(2666, AddCreature(75544, startCreature2ID + 1641, "NSFWS Chua 4", "Chua Civilian", 38819, 13173, 0, 0, 7836, 1f, null, null), 7026, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Chua (Style 4)", 15);
-            AddNPCDecor(2666, AddCreature(75544, startCreature2ID + 1642, "NSFWS Chua 5", "Chua Civilian", 30442, 13173, 0, 0, 6663, 1f, null, null), 7027, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Chua (Style 5)", 15);
-            AddNPCDecor(2666, AddCreature(75544, startCreature2ID + 1643, "NSFWS Chua 6", "Chua Civilian", 30344, 13173, 0, 0, 1628, 1f, null, null), 7028, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Chua (Style 6)", 15);
-            AddNPCDecor(2666, AddCreature(75544, startCreature2ID + 1644, "NSFWS Chua 7", "Chua Civilian", 30857, 13173, 0, 0, 5439, 1f, null, null), 7029, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Chua (Style 7)", 15);
-            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1645, "NSFWS Draken Male 1", "Draken Civilian", 39029, 13173, 0, 0, 1467, 1f, null, null), 7030, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Male, Style 1)", 15);
-            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1646, "NSFWS Draken Male 2", "Draken Civilian", 39046, 13173, 0, 0, 7834, 1f, null, null), 7031, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Male, Style 2)", 15);
-            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1647, "NSFWS Draken Male 3", "Draken Civilian", 28270, 13173, 0, 0, 7835, 1f, null, null), 7032, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Male, Style 3)", 15);
-            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1648, "NSFWS Draken Male 4", "Draken Civilian", 28325, 13173, 0, 0, 7836, 1f, null, null), 7033, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Male, Style 4)", 15);
-            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1649, "NSFWS Draken Male 5", "Draken Civilian", 28359, 13173, 0, 0, 6663, 1f, null, null), 7034, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Male, Style 5)", 15);
-            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1650, "NSFWS Draken Male 6", "Draken Civilian", 28295, 13173, 0, 0, 1628, 1f, null, null), 7035, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Male, Style 6)", 15);
-            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1651, "NSFWS Draken Male 7", "Draken Civilian", 36304, 13173, 0, 0, 5439, 1f, null, null), 7036, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Male, Style 7)", 15);
-            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1652, "NSFWS Draken Female 1", "Draken Civilian", 39025, 13173, 0, 0, 1467, 1f, null, null), 7037, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Female, Style 1)", 15);
-            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1653, "NSFWS Draken Female 2", "Draken Civilian", 39048, 13173, 0, 0, 7834, 1f, null, null), 7038, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Female, Style 2)", 15);
-            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1654, "NSFWS Draken Female 3", "Draken Civilian", 25335, 13173, 0, 0, 7835, 1f, null, null), 7039, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Female, Style 3)", 15);
-            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1655, "NSFWS Draken Female 4", "Draken Civilian", 39027, 13173, 0, 0, 7836, 1f, null, null), 7040, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Female, Style 4)", 15);
-            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1656, "NSFWS Draken Female 5", "Draken Civilian", 25363, 13173, 0, 0, 6663, 1f, null, null), 7041, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Female, Style 5)", 15);
-            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1657, "NSFWS Draken Female 6", "Draken Civilian", 26893, 13173, 0, 0, 1628, 1f, null, null), 7042, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Female, Style 6)", 15);
-            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1658, "NSFWS Draken Female 7", "Draken Civilian", 34446, 13173, 0, 0, 5439, 1f, null, null), 7043, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Female, Style 7)", 15);
-            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1659, "NSFWS Aurin Male 1", "Aurin Civilian", 39036, 13173, 0, 0, 1467, 1f, null, null), 7044, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Male, Style 1)", 15);
-            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1660, "NSFWS Aurin Male 2", "Aurin Civilian", 39609, 13173, 0, 0, 7834, 1f, null, null), 7045, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Male, Style 2)", 15);
-            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1661, "NSFWS Aurin Male 3", "Aurin Civilian", 41150, 13173, 0, 0, 7835, 1f, null, null), 7046, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Male, Style 3)", 15);
-            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1662, "NSFWS Aurin Male 4", "Aurin Civilian", 30179, 13173, 0, 0, 7836, 1f, null, null), 7047, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Male, Style 4)", 15);
-            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1663, "NSFWS Aurin Male 5", "Aurin Civilian", 34948, 13173, 0, 0, 6663, 1f, null, null), 7048, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Male, Style 5)", 15);
-            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1664, "NSFWS Aurin Male 6", "Aurin Civilian", 32751, 13173, 0, 0, 1628, 1f, null, null), 7049, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Male, Style 6)", 15);
-            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1665, "NSFWS Aurin Male 7", "Aurin Civilian", 28319, 13173, 0, 0, 5439, 1f, null, null), 7050, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Male, Style 7)", 15);
-            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1666, "NSFWS Aurin Female 1", "Aurin Civilian", 39037, 13173, 0, 0, 1467, 1f, null, null), 7051, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Female, Style 1)", 15);
-            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1667, "NSFWS Aurin Female 2", "Aurin Civilian", 39611, 13173, 0, 0, 7834, 1f, null, null), 7052, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Female, Style 2)", 15);
-            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1668, "NSFWS Aurin Female 3", "Aurin Civilian", 41213, 13173, 0, 0, 7835, 1f, null, null), 7053, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Female, Style 3)", 15);
-            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1669, "NSFWS Aurin Female 4", "Aurin Civilian", 34949, 13173, 0, 0, 7836, 1f, null, null), 7054, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Female, Style 4)", 15);
-            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1670, "NSFWS Aurin Female 5", "Aurin Civilian", 38231, 13173, 0, 0, 6663, 1f, null, null), 7055, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Female, Style 5)", 15);
-            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1671, "NSFWS Aurin Female 6", "Aurin Civilian", 36300, 13173, 0, 0, 1628, 1f, null, null), 7056, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Female, Style 6)", 15);
-            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1672, "NSFWS Aurin Female 7", "Aurin Civilian", 33161, 13173, 0, 0, 5439, 1f, null, null), 7057, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Female, Style 7)", 15);
-            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1673, "NSFWS Mechari Male 1", "Mechari Civilian", 41229, 13173, 0, 0, 1467, 1f, null, null), 7058, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Male, Style 1)", 15);
-            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1674, "NSFWS Mechari Male 2", "Mechari Civilian", 29552, 13173, 0, 0, 7834, 1f, null, null), 7059, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Male, Style 2)", 15);
-            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1675, "NSFWS Mechari Male 3", "Mechari Civilian", 28346, 13173, 0, 0, 7835, 1f, null, null), 7060, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Male, Style 3)", 15);
-            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1676, "NSFWS Mechari Male 4", "Mechari Civilian", 28827, 13173, 0, 0, 7836, 1f, null, null), 7061, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Male, Style 4)", 15);
-            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1677, "NSFWS Mechari Male 5", "Mechari Civilian", 28330, 13173, 0, 0, 6663, 1f, null, null), 7062, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Male, Style 5)", 15);
-            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1678, "NSFWS Mechari Male 6", "Mechari Civilian", 28312, 13173, 0, 0, 1628, 1f, null, null), 7063, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Male, Style 6)", 15);
-            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1679, "NSFWS Mechari Male 7", "Mechari Civilian", 38821, 13173, 0, 0, 5439, 1f, null, null), 7064, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Male, Style 7)", 15);
-            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1680, "NSFWS Mechari Female 1", "Mechari Civilian", 41230, 13173, 0, 0, 1467, 1f, null, null), 7065, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Female, Style 1)", 15);
-            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1681, "NSFWS Mechari Female 2", "Mechari Civilian", 31745, 13173, 0, 0, 7834, 1f, null, null), 7066, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Female, Style 2)", 15);
-            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1682, "NSFWS Mechari Female 3", "Mechari Civilian", 32482, 13173, 0, 0, 7835, 1f, null, null), 7067, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Female, Style 3)", 15);
-            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1683, "NSFWS Mechari Female 4", "Mechari Civilian", 28331, 13173, 0, 0, 7836, 1f, null, null), 7068, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Female, Style 4)", 15);
-            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1684, "NSFWS Mechari Female 5", "Mechari Civilian", 28313, 13173, 0, 0, 6663, 1f, null, null), 7069, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Female, Style 5)", 15);
-            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1685, "NSFWS Mechari Female 6", "Mechari Civilian", 34856, 13173, 0, 0, 1628, 1f, null, null), 7070, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Female, Style 6)", 15);
-            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1686, "NSFWS Mechari Female 7", "Mechari Civilian", 32971, 13173, 0, 0, 5439, 1f, null, null), 7071, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Female, Style 7)", 15);
-            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1687, "NSFWS Cassian Male 1", "Cassian Noble", 28323, 13173, 0, 0, 1467, 1f, null, null), 7072, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Male, Style 1)", 15);
-            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1688, "NSFWS Cassian Male 2", "Cassian Noble", 38818, 13173, 0, 0, 7834, 1f, null, null), 7073, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Male, Style 2)", 15);
-            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1689, "NSFWS Cassian Male 3", "Cassian Noble", 34859, 13173, 0, 0, 7835, 1f, null, null), 7074, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Male, Style 3)", 15);
-            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1690, "NSFWS Cassian Male 4", "Cassian Commoner", 25809, 13173, 0, 0, 7836, 1f, null, null), 7075, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Male, Style 4)", 15);
-            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1691, "NSFWS Cassian Male 5", "Cassian Commoner", 28260, 13173, 0, 0, 6663, 1f, null, null), 7076, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Male, Style 5)", 15);
-            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1692, "NSFWS Cassian Male 6", "Cassian Commoner", 30597, 13173, 0, 0, 1628, 1f, null, null), 7077, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Male, Style 6)", 15);
-            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1693, "NSFWS Cassian Male 7", "Cassian Commoner", 30897, 13173, 0, 0, 5439, 1f, null, null), 7078, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Male, Style 7)", 15);
-            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1694, "NSFWS Cassian Female 1", "Cassian Noble", 29475, 13173, 0, 0, 1467, 1f, null, null), 7079, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Female, Style 1)", 15);
-            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1695, "NSFWS Cassian Female 2", "Cassian Noble", 41300, 13173, 0, 0, 7834, 1f, null, null), 7080, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Female, Style 2)", 15);
-            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1696, "NSFWS Cassian Female 3", "Cassian Noble", 28324, 13173, 0, 0, 7835, 1f, null, null), 7081, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Female, Style 3)", 15);
-            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1697, "NSFWS Cassian Female 4", "Cassian Noble", 30599, 13173, 0, 0, 7836, 1f, null, null), 7082, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Female, Style 4)", 15);
-            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1698, "NSFWS Cassian Female 5", "Cassian Commoner", 34858, 13173, 0, 0, 6663, 1f, null, null), 7083, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Female, Style 5)", 15);
-            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1699, "NSFWS Cassian Female 6", "Cassian Commoner", 28301, 13173, 0, 0, 1628, 1f, null, null), 7084, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Female, Style 6)", 15);
-            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1700, "NSFWS Cassian Female 7", "Cassian Commoner", 30748, 13173, 0, 0, 5439, 1f, null, null), 7085, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Female, Style 7)", 15);
-            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1701, "NSFWS Human Male 1", "Human Civilian", 28308, 13173, 0, 0, 1467, 1f, null, null), 7086, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Male, Style 1)", 15);
-            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1702, "NSFWS Human Male 2", "Human Civilian", 28349, 13173, 0, 0, 7834, 1f, null, null), 7087, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Male, Style 2)", 15);
-            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1703, "NSFWS Human Male 3", "Human Civilian", 29477, 13173, 0, 0, 7835, 1f, null, null), 7088, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Male, Style 3)", 15);
-            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1704, "NSFWS Human Male 4", "Human Civilian", 28033, 13173, 0, 0, 7836, 1f, null, null), 7089, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Male, Style 4)", 15);
-            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1705, "NSFWS Human Male 5", "Human Civilian", 27346, 13173, 0, 0, 6663, 1f, null, null), 7090, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Male, Style 5)", 15);
-            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1706, "NSFWS Human Male 6", "Human Civilian", 32799, 13173, 0, 0, 1628, 1f, null, null), 7091, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Male, Style 6)", 15);
-            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1707, "NSFWS Human Male 7", "Human Civilian", 24796, 13173, 0, 0, 5439, 1f, null, null), 7092, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Male, Style 7)", 15);
-            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1708, "NSFWS Human Female 1", "Human Civilian", 28309, 13173, 0, 0, 1467, 1f, null, null), 7093, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Female, Style 1)", 15);
-            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1709, "NSFWS Human Female 2", "Human Civilian", 30112, 13173, 0, 0, 7834, 1f, null, null), 7094, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Female, Style 2)", 15);
-            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1710, "NSFWS Human Female 3", "Human Civilian", 25887, 13173, 0, 0, 7835, 1f, null, null), 7095, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Female, Style 3)", 15);
-            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1711, "NSFWS Human Female 4", "Human Civilian", 30194, 13173, 0, 0, 7836, 1f, null, null), 7096, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Female, Style 4)", 15);
-            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1712, "NSFWS Human Female 5", "Human Civilian", 30178, 13173, 0, 0, 6663, 1f, null, null), 7097, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Female, Style 5)", 15);
-            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1713, "NSFWS Human Female 6", "Human Civilian", 27562, 13173, 0, 0, 1628, 1f, null, null), 7098, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Female, Style 6)", 15);
-            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1714, "NSFWS Human Female 7", "Human Civilian", 25051, 13173, 0, 0, 5439, 1f, null, null), 7099, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Female, Style 7)", 15);
             AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1771, "Sunbathing Mordesh Male 1", "Sunbather", 26016, 13175, 0, 0, 0, 1f, null, null), 7156, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Mordesh Sunbather (Male, Style 1)", 15);
             AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1772, "Sunbathing Mordesh Male 2", "Sunbather", 28355, 13177, 0, 0, 0, 1f, null, null), 7157, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Mordesh Sunbather (Male, Style 2)", 15);
             AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1773, "Sunbathing Mordesh Male 3", "Sunbather", 31867, 13179, 0, 0, 0, 1f, null, null), 7158, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Mordesh Sunbather (Male, Style 3)", 15);
@@ -3997,6 +3763,240 @@ namespace WildStar.TestBed
             AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 2083, "Sunbathing Floating Human Female 5", "Sunbather", 30178, 13182, 0, 0, 163, 1f, null, null), 7468, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Human Sunbather, Floating (Female, Style 5)", 15);
             AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 2084, "Sunbathing Floating Human Female 6", "Sunbather", 27562, 13184, 0, 0, 163, 1f, null, null), 7469, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Human Sunbather, Floating (Female, Style 6)", 15);
             AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 2085, "Sunbathing Floating Human Female 7", "Sunbather", 25051, 13174, 0, 0, 163, 1f, null, null), 7470, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Human Sunbather, Floating (Female, Style 7)", 15);
+            AddWorldLayer(1288, "Fallow_Ground", 105, 3, 0, 0, 0, 4, "Art\\Terrain\\Plant\\Terrain_Plant_CropLeafy_Green_000_Color.tex", "Art\\Terrain\\Plant\\Terrain_Plant_CropLeafy_Green_000_Normal.tex", null, 8, 23, 0, 111, 112, 0, 0, 0, 0);
+            AddWorldLayer(1289, "Rocky_2_Secondary", 981, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+            AddWorldLayer(1290, null, 476, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+            AddWorldLayer(1291, null, 359, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+            AddWorldLayer(1292, "Alien_Flora", 658, 3, 0, -0.5f, 0, 16, "Art\\Terrain\\_HalonRing\\Terrain_Rock_MoonSlime_YellowGreen_000_Color.tex", "Art\\Terrain\\_HalonRing\\Terrain_Rock_MoonSlime_YellowGreen_000_Normal.tex", 2134927481, 1, 0, 313, 0, 0, 0, 4291676874, 0, 0);
+            AddWorldLayer(1293, "Alien_Flora2", 271, 3, 0, 0, 0, 8, "Art\\Terrain\\_HalonRing\\Terrain_Rock_MoonSlime_YellowGreen_001_Color.tex", "Art\\Terrain\\_HalonRing\\Terrain_Rock_MoonSlime_YellowGreen_000_Normal.tex", 2139378479, 1, 308, 306, 307, 0, 0, 0, 0, 0);
+            AddWorldLayer(1294, "Alien_Dust", 336, 2, 1, 0, 0, 32, "Art\\Terrain\\_HalonRing\\Terrain_Rock_AsteroidDust_BlueGrey_000_Color.tex", "Art\\Terrain\\_HalonRing\\Terrain_Rock_AsteroidDust_BlueGrey_000_Normal.tex", 2152557177, 10, 396, 0, 0, 0, 0, 0, 0, 0);
+            AddWorldLayer(1295, "Murkmire_Roots", 902, 3, 0, 0, 0, 8, "Art\\Terrain\\Roots\\Terrain_Roots_WitheredDirt_GreyBrown_000_Color.tex", "Art\\Terrain\\Roots\\Terrain_Roots_WitheredDirt_GreyBrown_000_Normal.tex", 2150968604, 7, 197, 0, 0, 0, 0, 0, 0, 0);
+            AddWorldLayer(1296, "Grimvault_Dunes", 902, 0.5f, 0.5f, 0, 0, 8, "Art\\Terrain\\_Grimvault\\terrain_sand_idealized_000_color.tex", "Art\\Terrain\\_Grimvault\\terrain_sand_idealized_000_normal.tex", 2138667619, 7, 189, 0, 179, 0, 0, 0, 0, 0);
+            AddWorldLayer(1297, "Murkmire_Dark_Mud", 186, 1, 0, -2, -1, 8, "Art\\Terrain\\Mud\\Terrain_Mud_NastyCracked_BrownDark_000_Color.tex", "Art\\Terrain\\Mud\\Terrain_Mud_NastyCracked_BrownDark_000_Normal.tex", 2151100444, 17, 0, 122, 0, 0, 0, 0, 0, 0);
+            AddWorldLayer(1298, "Murkmire_Swamp_Moss", 184, 3, 0, 0, 0, 4, "Art\\Terrain\\Plant\\Terrain_Plant_PodMushroomNasty_BrownOlive_000_Color.tex", "Art\\Terrain\\Plant\\Terrain_Plant_PodMushroomNasty_BrownOlive_000_Normal.tex", 2153073937, 8, 0, 40, 0, 0, 0, 0, 0, 0);
+            AddWorldLayer(1299, "Purple_Shroom_Moss", 296, 1, 0.2f, 0.3f, 0, 16, "Art\\Terrain\\_Dreadmoor\\Terrain_Moss_SmallPlants_Dreadmoor_000_Color.tex", "Art\\Terrain\\_Dreadmoor\\Terrain_Moss_LargeBubblySmallPlants_Green_000_Normal.tex", 1784169334, 5, 0, 305, 0, 0, 0, 0, 0, 0);
+            AddWorldLayer(1300, "Black_Organic_Shrooms", 666, 1, 0, 0, 0, 8, "Art\\Terrain\\_Grimvault\\Corrupted_BlackOrganic_001_color.tex", "Art\\Terrain\\_Grimvault\\corrupted_blackorganic_001_dxtnormal.tex", 2133270572, 5, 0, 323, 0, 0, 0, 0, 0, 0);
+            AddGroundOption("The Floor Is Lava", 579, 580, 286, 5);
+            AddGroundOption("Volcanic", 580, 579, 287, 5);
+            AddGroundOption("Arcterra", 991, 1159, 288, 5);
+            AddGroundOption("Ice Rubble", 1158, 458, 289, 5);
+            AddGroundOption("Ice Drift", 1257, 1256, 290, 5);
+            AddGroundOption("Desolation", 24, 260, 291, 5);
+            AddGroundOption("Galeras Meadow", 757, 544, 292, 5);
+            AddGroundOption("Paved", 1079, 1079, 293, 5);
+            AddGroundOption("Runed Temple Floor", 249, 250, 294, 5);
+            AddGroundOption("Overgrown Pavement", 1079, 422, 295, 5);
+            AddGroundOption("Sleeping Volcano", 580, 422, 296, 5);
+            AddGroundOption("Hot and Cold", 1257, 579, 297, 5);
+            AddGroundOption("Crystal Field (Yellow in Grass)", 105, 893, 298, 5);
+            AddGroundOption("Crystal Field (Blue in Dirt)", 894, 464, 299, 5);
+            AddGroundOption("Halon Ring", 336, 1172, 300, 5);
+            AddGroundOption("Tech", 299, 484, 301, 5);
+            AddGroundOption("Eldan Hexagons", 608, 608, 302, 5);
+            AddGroundOption("Eldan Hexagons (Corrupted)", 921, 921, 303, 5);
+            AddGroundOption("Metal Hexagons", 953, 953, 304, 5);
+            AddGroundOption("Scorched Rock", 580, 1250, 305, 5);
+            AddGroundOption("Verdant Rocks", 589, 422, 306, 6);
+            AddGroundOption("Wilderrun Cavern", 430, 422, 307, 6);
+            AddGroundOption("Galeras Valley", 82, 83, 308, 6);
+            AddGroundOption("Rocky", 589, 259, 309, 6);
+            AddGroundOption("Overgrown Temple", 249, 422, 310, 6);
+            AddGroundOption("Chrome", 855, 856, 311, 6);
+            AddGroundOption("Chronium Garden", 757, 856, 312, 6);
+            AddGroundOption("Desert Sigils", 347, 766, 313, 7);
+            AddGroundOption("Amethyst Meadow", 1034, 1290, 314, 7);
+            AddGroundOption("Galeras Prairie", 544, 757, 315, 7);
+            AddGroundOption("Galeras Field", 1233, 757, 316, 7);
+            AddGroundOption("Galeras Steppe", 757, 82, 317, 7);
+            AddGroundOption("Marble Barrens", 1289, 525, 318, 7);
+            AddGroundOption("Metal", 501, 572, 319, 7);
+            AddGroundOption("Gildgrass Moor", 711, 184, 320, 7);
+            AddGroundOption("Heath and Rime", 1172, 1256, 321, 8);
+            AddGroundOption("Chronium Heath", 1172, 856, 322, 8);
+            AddGroundOption("Borellian Flora", 1292, 1294, 323, 9);
+            AddGroundOption("Mycelium Meadow", 1293, 818, 324, 9);
+            AddGroundOption("Grimvault Scrub", 810, 809, 325, 9);
+            AddGroundOption("Grimvault Chaparral", 219, 810, 326, 9);
+            AddGroundOption("Grimvault Basin", 1296, 903, 327, 9);
+            AddGroundOption("Wild Wheat Country", 101, 195, 328, 9);
+            AddGroundOption("Obsidian Lowland", 195, 106, 329, 9);
+            AddGroundOption("Pine Barrens", 45, 514, 330, 9);
+            AddGroundOption("Dreadmoor Mudflat", 257, 251, 331, 9);
+            AddGroundOption("Dreadmoor Hammock", 261, 251, 332, 9);
+            AddGroundOption("Dreadmoor Pasture", 252, 253, 333, 9);
+            AddGroundOption("Murkmire Highland", 192, 1295, 334, 9);
+            AddGroundOption("Crimson Badlands", 621, 276, 335, 9);
+            AddGroundOption("Coralus Dunegrass", 748, 750, 336, 9);
+            AddGroundOption("Coralus Brush", 751, 752, 337, 9);
+            AddGroundOption("Coralus Jungle", 750, 751, 338, 9);
+            AddGroundOption("Blurple Wondershrooms", 1299, 1300, 339, 9);
+            AddGroundOption("Windswept Tundra", 991, 1172, 340, 9);
+            AddEmote(7834, "lounge1", "lounge", 433);
+            AddEmote(7835, "lounge2", null, 434);
+            AddEmote(6665, "coffin", null, 435);
+            AddEmote(2022, null, null, 436);
+            AddEmote(2023, null, null, 437);
+            AddEmote(2024, null, null, 438);
+            AddEmote(2025, null, null, 439);
+            AddEmote(2026, null, null, 440);
+            AddEmote(2027, null, null, 441);
+            AddEmote(2028, null, null, 442);
+            AddEmote(2029, null, null, 443);
+            AddEmote(2030, null, null, 444);
+            AddEmote(2031, null, null, 445);
+            AddEmote(2036, null, null, 446);
+            AddEmote(884, "channeling4", null, 447);
+            AddEmote(6690, null, null, 448);
+            AddEmote(5911, null, null, 449);
+            AddEmote(5683, "npcstance1", "npcstance", 450);
+            AddEmote(5686, "npcstance2", null, 451);
+            AddEmote(6221, null, null, 452);
+            AddEmote(6222, null, null, 453);
+            AddEmote(5548, null, null, 454);
+            AddEmote(7391, null, null, 455);
+            AddEmote(5513, null, null, 456);
+            AddEmote(1368, null, null, 457);
+            AddEmote(1370, null, null, 458);
+            AddEmote(5517, null, null, 459);
+            AddEmote(6762, "channeling8", null, 460);
+            AddEmote(4982, null, null, 461);
+            AddEmote(4983, null, null, 462);
+            AddEmote(5534, null, null, 463);
+            AddEmote(7525, null, null, 464);
+            AddEmote(1300, null, null, 465);
+            AddEmote(1301, null, null, 466);
+            AddEmote(1305, null, null, 467);
+            AddEmote(1306, null, null, 468);
+            AddEmote(889, "readycombat2", null, 469);
+            AddEmote(575, null, null, 470);
+            AddEmote(7561, "hoverboard", null, 471);
+
+
+            startItem2Id = AddSFWItems(startItem2Id);
+            AddMounts();
+
+            SaveTables("../../../../TblNormal/");
+
+            startItem2Id = DoNSFWSItemDisplays(startItem2Id);
+
+            SaveTables("../../../../TblNSFWS/");
+
+            // BETA YOLO MOOOODE
+            betaMode = true;
+
+            foreach (var table in tables)
+            {
+                table.beta = true;
+            }
+
+            AddSwimsuitOutfits();
+
+            AddGenericDecor("Art\\Prop\\Constructed\\MISC\\Food\\PRP_SpaceTaco_Hologram_000.m3", 86, 0, 3992, "Hologram (Taco) - GLITCH CHECK ONLY", DecorCategory.Beta, false, 2);
+            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1610, "NSFWS Mordesh Male 1", "Mordesh Civilian", 26016, 13173, 0, 0, 1467, 1f, null, null), 6995, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Male, Style 1)", 15);
+            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1611, "NSFWS Mordesh Male 2", "Mordesh Civilian", 28355, 13173, 0, 0, 7834, 1f, null, null), 6996, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Male, Style 2)", 15);
+            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1612, "NSFWS Mordesh Male 3", "Mordesh Civilian", 31867, 13173, 0, 0, 7835, 1f, null, null), 6997, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Male, Style 3)", 15);
+            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1613, "NSFWS Mordesh Male 4", "Mordesh Civilian", 39614, 13173, 0, 0, 7836, 1f, null, null), 6998, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Male, Style 4)", 15);
+            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1614, "NSFWS Mordesh Male 5", "Mordesh Civilian", 35001, 13173, 0, 0, 6663, 1f, null, null), 6999, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Male, Style 5)", 15);
+            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1615, "NSFWS Mordesh Male 6", "Mordesh Civilian", 35002, 13173, 0, 0, 1628, 1f, null, null), 7000, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Male, Style 6)", 15);
+            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1616, "NSFWS Mordesh Male 7", "Mordesh Civilian", 34899, 13173, 0, 0, 5439, 1f, null, null), 7001, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Male, Style 7)", 15);
+            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1617, "NSFWS Mordesh Female 1", "Mordesh Civilian", 41224, 13173, 0, 0, 1467, 1f, null, null), 7002, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Female, Style 1)", 15);
+            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1618, "NSFWS Mordesh Female 2", "Mordesh Civilian", 41142, 13173, 0, 0, 7834, 1f, null, null), 7003, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Female, Style 2)", 15);
+            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1619, "NSFWS Mordesh Female 3", "Mordesh Civilian", 33190, 13173, 0, 0, 7835, 1f, null, null), 7004, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Female, Style 3)", 15);
+            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1620, "NSFWS Mordesh Female 4", "Mordesh Civilian", 34816, 13173, 0, 0, 7836, 1f, null, null), 7005, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Female, Style 4)", 15);
+            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1621, "NSFWS Mordesh Female 5", "Mordesh Civilian", 40919, 13173, 0, 0, 6663, 1f, null, null), 7006, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Female, Style 5)", 15);
+            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1622, "NSFWS Mordesh Female 6", "Mordesh Civilian", 36298, 13173, 0, 0, 1628, 1f, null, null), 7007, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Female, Style 6)", 15);
+            AddNPCDecor(2666, AddCreature(75540, startCreature2ID + 1623, "NSFWS Mordesh Female 7", "Mordesh Civilian", 41153, 13173, 0, 0, 5439, 1f, null, null), 7008, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mordesh (Female, Style 7)", 15);
+            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1624, "NSFWS Granok Male 1", "Granok Civilian", 28351, 13173, 0, 0, 1467, 1f, null, null), 7009, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Male, Style 1)", 15);
+            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1625, "NSFWS Granok Male 2", "Granok Civilian", 26330, 13173, 0, 0, 7834, 1f, null, null), 7010, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Male, Style 2)", 15);
+            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1626, "NSFWS Granok Male 3", "Granok Civilian", 24358, 13173, 0, 0, 7835, 1f, null, null), 7011, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Male, Style 3)", 15);
+            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1627, "NSFWS Granok Male 4", "Granok Civilian", 25162, 13173, 0, 0, 7836, 1f, null, null), 7012, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Male, Style 4)", 15);
+            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1628, "NSFWS Granok Male 5", "Granok Civilian", 24081, 13173, 0, 0, 6663, 1f, null, null), 7013, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Male, Style 5)", 15);
+            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1629, "NSFWS Granok Male 6", "Granok Civilian", 24438, 13173, 0, 0, 1628, 1f, null, null), 7014, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Male, Style 6)", 15);
+            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1630, "NSFWS Granok Male 7", "Granok Civilian", 24715, 13173, 0, 0, 5439, 1f, null, null), 7015, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Male, Style 7)", 15);
+            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1631, "NSFWS Granok Female 1", "Granok Civilian", 34764, 13173, 0, 0, 1467, 1f, null, null), 7016, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Female, Style 1)", 15);
+            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1632, "NSFWS Granok Female 2", "Granok Civilian", 41222, 13173, 0, 0, 7834, 1f, null, null), 7017, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Female, Style 2)", 15);
+            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1633, "NSFWS Granok Female 3", "Granok Civilian", 39612, 13173, 0, 0, 7835, 1f, null, null), 7018, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Female, Style 3)", 15);
+            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1634, "NSFWS Granok Female 4", "Granok Civilian", 41303, 13173, 0, 0, 7836, 1f, null, null), 7019, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Female, Style 4)", 15);
+            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1635, "NSFWS Granok Female 5", "Granok Civilian", 28040, 13173, 0, 0, 6663, 1f, null, null), 7020, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Female, Style 5)", 15);
+            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1636, "NSFWS Granok Female 6", "Granok Civilian", 36055, 13173, 0, 0, 1628, 1f, null, null), 7021, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Female, Style 6)", 15);
+            AddNPCDecor(2666, AddCreature(75536, startCreature2ID + 1637, "NSFWS Granok Female 7", "Granok Civilian", 34766, 13173, 0, 0, 5439, 1f, null, null), 7022, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Granok (Female, Style 7)", 15);
+            AddNPCDecor(2666, AddCreature(75544, startCreature2ID + 1638, "NSFWS Chua 1", "Chua Civilian", 38970, 13173, 0, 0, 1467, 1f, null, null), 7023, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Chua (Style 1)", 15);
+            AddNPCDecor(2666, AddCreature(75544, startCreature2ID + 1639, "NSFWS Chua 2", "Chua Civilian", 36026, 13173, 0, 0, 7834, 1f, null, null), 7024, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Chua (Style 2)", 15);
+            AddNPCDecor(2666, AddCreature(75544, startCreature2ID + 1640, "NSFWS Chua 3", "Chua Civilian", 36027, 13173, 0, 0, 7835, 1f, null, null), 7025, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Chua (Style 3)", 15);
+            AddNPCDecor(2666, AddCreature(75544, startCreature2ID + 1641, "NSFWS Chua 4", "Chua Civilian", 38819, 13173, 0, 0, 7836, 1f, null, null), 7026, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Chua (Style 4)", 15);
+            AddNPCDecor(2666, AddCreature(75544, startCreature2ID + 1642, "NSFWS Chua 5", "Chua Civilian", 30442, 13173, 0, 0, 6663, 1f, null, null), 7027, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Chua (Style 5)", 15);
+            AddNPCDecor(2666, AddCreature(75544, startCreature2ID + 1643, "NSFWS Chua 6", "Chua Civilian", 30344, 13173, 0, 0, 1628, 1f, null, null), 7028, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Chua (Style 6)", 15);
+            AddNPCDecor(2666, AddCreature(75544, startCreature2ID + 1644, "NSFWS Chua 7", "Chua Civilian", 30857, 13173, 0, 0, 5439, 1f, null, null), 7029, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Chua (Style 7)", 15);
+            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1645, "NSFWS Draken Male 1", "Draken Civilian", 39029, 13173, 0, 0, 1467, 1f, null, null), 7030, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Male, Style 1)", 15);
+            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1646, "NSFWS Draken Male 2", "Draken Civilian", 39046, 13173, 0, 0, 7834, 1f, null, null), 7031, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Male, Style 2)", 15);
+            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1647, "NSFWS Draken Male 3", "Draken Civilian", 28270, 13173, 0, 0, 7835, 1f, null, null), 7032, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Male, Style 3)", 15);
+            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1648, "NSFWS Draken Male 4", "Draken Civilian", 28325, 13173, 0, 0, 7836, 1f, null, null), 7033, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Male, Style 4)", 15);
+            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1649, "NSFWS Draken Male 5", "Draken Civilian", 28359, 13173, 0, 0, 6663, 1f, null, null), 7034, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Male, Style 5)", 15);
+            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1650, "NSFWS Draken Male 6", "Draken Civilian", 28295, 13173, 0, 0, 1628, 1f, null, null), 7035, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Male, Style 6)", 15);
+            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1651, "NSFWS Draken Male 7", "Draken Civilian", 36304, 13173, 0, 0, 5439, 1f, null, null), 7036, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Male, Style 7)", 15);
+            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1652, "NSFWS Draken Female 1", "Draken Civilian", 39025, 13173, 0, 0, 1467, 1f, null, null), 7037, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Female, Style 1)", 15);
+            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1653, "NSFWS Draken Female 2", "Draken Civilian", 39048, 13173, 0, 0, 7834, 1f, null, null), 7038, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Female, Style 2)", 15);
+            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1654, "NSFWS Draken Female 3", "Draken Civilian", 25335, 13173, 0, 0, 7835, 1f, null, null), 7039, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Female, Style 3)", 15);
+            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1655, "NSFWS Draken Female 4", "Draken Civilian", 39027, 13173, 0, 0, 7836, 1f, null, null), 7040, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Female, Style 4)", 15);
+            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1656, "NSFWS Draken Female 5", "Draken Civilian", 25363, 13173, 0, 0, 6663, 1f, null, null), 7041, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Female, Style 5)", 15);
+            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1657, "NSFWS Draken Female 6", "Draken Civilian", 26893, 13173, 0, 0, 1628, 1f, null, null), 7042, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Female, Style 6)", 15);
+            AddNPCDecor(2666, AddCreature(75546, startCreature2ID + 1658, "NSFWS Draken Female 7", "Draken Civilian", 34446, 13173, 0, 0, 5439, 1f, null, null), 7043, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Draken (Female, Style 7)", 15);
+            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1659, "NSFWS Aurin Male 1", "Aurin Civilian", 39036, 13173, 0, 0, 1467, 1f, null, null), 7044, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Male, Style 1)", 15);
+            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1660, "NSFWS Aurin Male 2", "Aurin Civilian", 39609, 13173, 0, 0, 7834, 1f, null, null), 7045, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Male, Style 2)", 15);
+            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1661, "NSFWS Aurin Male 3", "Aurin Civilian", 41150, 13173, 0, 0, 7835, 1f, null, null), 7046, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Male, Style 3)", 15);
+            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1662, "NSFWS Aurin Male 4", "Aurin Civilian", 30179, 13173, 0, 0, 7836, 1f, null, null), 7047, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Male, Style 4)", 15);
+            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1663, "NSFWS Aurin Male 5", "Aurin Civilian", 34948, 13173, 0, 0, 6663, 1f, null, null), 7048, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Male, Style 5)", 15);
+            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1664, "NSFWS Aurin Male 6", "Aurin Civilian", 32751, 13173, 0, 0, 1628, 1f, null, null), 7049, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Male, Style 6)", 15);
+            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1665, "NSFWS Aurin Male 7", "Aurin Civilian", 28319, 13173, 0, 0, 5439, 1f, null, null), 7050, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Male, Style 7)", 15);
+            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1666, "NSFWS Aurin Female 1", "Aurin Civilian", 39037, 13173, 0, 0, 1467, 1f, null, null), 7051, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Female, Style 1)", 15);
+            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1667, "NSFWS Aurin Female 2", "Aurin Civilian", 39611, 13173, 0, 0, 7834, 1f, null, null), 7052, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Female, Style 2)", 15);
+            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1668, "NSFWS Aurin Female 3", "Aurin Civilian", 41213, 13173, 0, 0, 7835, 1f, null, null), 7053, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Female, Style 3)", 15);
+            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1669, "NSFWS Aurin Female 4", "Aurin Civilian", 34949, 13173, 0, 0, 7836, 1f, null, null), 7054, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Female, Style 4)", 15);
+            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1670, "NSFWS Aurin Female 5", "Aurin Civilian", 38231, 13173, 0, 0, 6663, 1f, null, null), 7055, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Female, Style 5)", 15);
+            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1671, "NSFWS Aurin Female 6", "Aurin Civilian", 36300, 13173, 0, 0, 1628, 1f, null, null), 7056, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Female, Style 6)", 15);
+            AddNPCDecor(2666, AddCreature(75538, startCreature2ID + 1672, "NSFWS Aurin Female 7", "Aurin Civilian", 33161, 13173, 0, 0, 5439, 1f, null, null), 7057, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Aurin (Female, Style 7)", 15);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1673, "NSFWS Mechari Male 1", "Mechari Civilian", 41229, 13173, 0, 0, 1467, 1f, null, null), 7058, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Male, Style 1)", 15);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1674, "NSFWS Mechari Male 2", "Mechari Civilian", 29552, 13173, 0, 0, 7834, 1f, null, null), 7059, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Male, Style 2)", 15);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1675, "NSFWS Mechari Male 3", "Mechari Civilian", 28346, 13173, 0, 0, 7835, 1f, null, null), 7060, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Male, Style 3)", 15);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1676, "NSFWS Mechari Male 4", "Mechari Civilian", 28827, 13173, 0, 0, 7836, 1f, null, null), 7061, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Male, Style 4)", 15);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1677, "NSFWS Mechari Male 5", "Mechari Civilian", 28330, 13173, 0, 0, 6663, 1f, null, null), 7062, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Male, Style 5)", 15);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1678, "NSFWS Mechari Male 6", "Mechari Civilian", 28312, 13173, 0, 0, 1628, 1f, null, null), 7063, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Male, Style 6)", 15);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1679, "NSFWS Mechari Male 7", "Mechari Civilian", 38821, 13173, 0, 0, 5439, 1f, null, null), 7064, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Male, Style 7)", 15);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1680, "NSFWS Mechari Female 1", "Mechari Civilian", 41230, 13173, 0, 0, 1467, 1f, null, null), 7065, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Female, Style 1)", 15);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1681, "NSFWS Mechari Female 2", "Mechari Civilian", 31745, 13173, 0, 0, 7834, 1f, null, null), 7066, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Female, Style 2)", 15);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1682, "NSFWS Mechari Female 3", "Mechari Civilian", 32482, 13173, 0, 0, 7835, 1f, null, null), 7067, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Female, Style 3)", 15);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1683, "NSFWS Mechari Female 4", "Mechari Civilian", 28331, 13173, 0, 0, 7836, 1f, null, null), 7068, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Female, Style 4)", 15);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1684, "NSFWS Mechari Female 5", "Mechari Civilian", 28313, 13173, 0, 0, 6663, 1f, null, null), 7069, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Female, Style 5)", 15);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1685, "NSFWS Mechari Female 6", "Mechari Civilian", 34856, 13173, 0, 0, 1628, 1f, null, null), 7070, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Female, Style 6)", 15);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 1686, "NSFWS Mechari Female 7", "Mechari Civilian", 32971, 13173, 0, 0, 5439, 1f, null, null), 7071, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Mechari (Female, Style 7)", 15);
+            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1687, "NSFWS Cassian Male 1", "Cassian Noble", 28323, 13173, 0, 0, 1467, 1f, null, null), 7072, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Male, Style 1)", 15);
+            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1688, "NSFWS Cassian Male 2", "Cassian Noble", 38818, 13173, 0, 0, 7834, 1f, null, null), 7073, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Male, Style 2)", 15);
+            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1689, "NSFWS Cassian Male 3", "Cassian Noble", 34859, 13173, 0, 0, 7835, 1f, null, null), 7074, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Male, Style 3)", 15);
+            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1690, "NSFWS Cassian Male 4", "Cassian Commoner", 25809, 13173, 0, 0, 7836, 1f, null, null), 7075, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Male, Style 4)", 15);
+            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1691, "NSFWS Cassian Male 5", "Cassian Commoner", 28260, 13173, 0, 0, 6663, 1f, null, null), 7076, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Male, Style 5)", 15);
+            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1692, "NSFWS Cassian Male 6", "Cassian Commoner", 30597, 13173, 0, 0, 1628, 1f, null, null), 7077, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Male, Style 6)", 15);
+            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1693, "NSFWS Cassian Male 7", "Cassian Commoner", 30897, 13173, 0, 0, 5439, 1f, null, null), 7078, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Male, Style 7)", 15);
+            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1694, "NSFWS Cassian Female 1", "Cassian Noble", 29475, 13173, 0, 0, 1467, 1f, null, null), 7079, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Female, Style 1)", 15);
+            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1695, "NSFWS Cassian Female 2", "Cassian Noble", 41300, 13173, 0, 0, 7834, 1f, null, null), 7080, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Female, Style 2)", 15);
+            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1696, "NSFWS Cassian Female 3", "Cassian Noble", 28324, 13173, 0, 0, 7835, 1f, null, null), 7081, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Female, Style 3)", 15);
+            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1697, "NSFWS Cassian Female 4", "Cassian Noble", 30599, 13173, 0, 0, 7836, 1f, null, null), 7082, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Female, Style 4)", 15);
+            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1698, "NSFWS Cassian Female 5", "Cassian Commoner", 34858, 13173, 0, 0, 6663, 1f, null, null), 7083, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Female, Style 5)", 15);
+            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1699, "NSFWS Cassian Female 6", "Cassian Commoner", 28301, 13173, 0, 0, 1628, 1f, null, null), 7084, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Female, Style 6)", 15);
+            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1700, "NSFWS Cassian Female 7", "Cassian Commoner", 30748, 13173, 0, 0, 5439, 1f, null, null), 7085, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Cassian (Female, Style 7)", 15);
+            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1701, "NSFWS Human Male 1", "Human Civilian", 28308, 13173, 0, 0, 1467, 1f, null, null), 7086, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Male, Style 1)", 15);
+            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1702, "NSFWS Human Male 2", "Human Civilian", 28349, 13173, 0, 0, 7834, 1f, null, null), 7087, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Male, Style 2)", 15);
+            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1703, "NSFWS Human Male 3", "Human Civilian", 29477, 13173, 0, 0, 7835, 1f, null, null), 7088, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Male, Style 3)", 15);
+            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1704, "NSFWS Human Male 4", "Human Civilian", 28033, 13173, 0, 0, 7836, 1f, null, null), 7089, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Male, Style 4)", 15);
+            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1705, "NSFWS Human Male 5", "Human Civilian", 27346, 13173, 0, 0, 6663, 1f, null, null), 7090, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Male, Style 5)", 15);
+            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1706, "NSFWS Human Male 6", "Human Civilian", 32799, 13173, 0, 0, 1628, 1f, null, null), 7091, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Male, Style 6)", 15);
+            AddNPCDecor(2666, AddCreature(75669, startCreature2ID + 1707, "NSFWS Human Male 7", "Human Civilian", 24796, 13173, 0, 0, 5439, 1f, null, null), 7092, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Male, Style 7)", 15);
+            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1708, "NSFWS Human Female 1", "Human Civilian", 28309, 13173, 0, 0, 1467, 1f, null, null), 7093, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Female, Style 1)", 15);
+            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1709, "NSFWS Human Female 2", "Human Civilian", 30112, 13173, 0, 0, 7834, 1f, null, null), 7094, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Female, Style 2)", 15);
+            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1710, "NSFWS Human Female 3", "Human Civilian", 25887, 13173, 0, 0, 7835, 1f, null, null), 7095, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Female, Style 3)", 15);
+            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1711, "NSFWS Human Female 4", "Human Civilian", 30194, 13173, 0, 0, 7836, 1f, null, null), 7096, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Female, Style 4)", 15);
+            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1712, "NSFWS Human Female 5", "Human Civilian", 30178, 13173, 0, 0, 6663, 1f, null, null), 7097, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Female, Style 5)", 15);
+            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1713, "NSFWS Human Female 6", "Human Civilian", 27562, 13173, 0, 0, 1628, 1f, null, null), 7098, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Female, Style 6)", 15);
+            AddNPCDecor(2666, AddCreature(75670, startCreature2ID + 1714, "NSFWS Human Female 7", "Human Civilian", 25051, 13173, 0, 0, 5439, 1f, null, null), 7099, "Art\\Prop\\Constructed\\Sign\\Marauder\\PRP_Sign_MarauderDrakkenBar_000.m3", "!NEW! (NSFWS) Canoodling Human (Female, Style 7)", 15);
             AddGroundOption("Icescape", 1256, 1257, null, 1);
             AddGroundOption("Celestion Moss 1", 137, 138, null, 1);
             AddGroundOption("Celestion Moss 2", 137, 193, null, 1);
@@ -4435,8 +4435,9 @@ namespace WildStar.TestBed
             //AddBodyTypes(push3, push3 + 28);
             AddBodyTypes(push3, push3 + 10);
 
-            //Push 4 - Drem Dyes
+            //Push 4 - Drem Dyes******************************************************************************************
             uint startDyeColorRampId = dyeColorRamp.GetMaxID();
+            uint startItemColorSetId = itemColorSet.GetMaxID();
             List<(uint, uint, string)> newDyeColorRamps = new List<(uint, uint, string)>
             {
                 //Generic Hair Color
@@ -4485,22 +4486,108 @@ namespace WildStar.TestBed
             foreach (var row in newDyeColorRamps)
             {
                 uint newColorId = AddDyeColorRamp(row.Item1, 2, row.Item3, row.Item2, 1f, 0, 0);
-                Console.WriteLine(row.Item3 + " newColorId = " + newColorId);
+                startItemColorSetId += 1;
+                uint newItemColorSetId = AddItemColorSet(startItemColorSetId, newColorId);
+                Console.WriteLine(row.Item3 + " newDyeRampColorId = " + newColorId + " newItemColorSetId = " + newItemColorSetId);
             }
             startDyeColorRampId += 35;
 
+            uint labelStart = 30;
             //Mordesh female
             //hair
-            uint labelStart = 30;
-            cch.AddColourOption(itemDisplay, 16, 1, 4, 511, 3, labelStart, push4 + 0, push4 + 10); // Generic Hair Color 1
-            cch.AddColourOption(itemDisplay, 16, 1, 4, 512, 3, labelStart+1, push4 + 10, push4 + 20); // Generic Hair Color 2
-            cch.AddColourOption(itemDisplay, 16, 1, 4, 513, 3, labelStart+2, push4 + 20, push4 + 30); // Generic Hair Color 3
-            cch.AddColourOption(itemDisplay, 16, 1, 4, 514, 3, labelStart+3, push4 + 30, push4 + 40); // Generic Hair Color 4
-            cch.AddColourOption(itemDisplay, 16, 1, 4, 515, 3, labelStart+4, push4 + 40, push4 + 50); // Generic Hair Color 5
-            cch.AddColourOption(itemDisplay, 16, 1, 4, 516, 3, labelStart+5, push4 + 50, push4 + 60); // Generic Hair Color 6
-            cch.AddColourOption(itemDisplay, 16, 1, 4, 517, 3, labelStart+6, push4 + 60, push4 + 70); // Generic Hair Color 7
-            cch.AddColourOption(itemDisplay, 16, 1, 4, 518, 3, labelStart+7, push4 + 70, push4 + 80); // Generic Hair Color 8
-            push4 += 80;
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 453, 2, labelStart, push4 + 0, push4 + 10); // Generic Hair Color 1
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 454, 2, labelStart+1, push4 + 10, push4 + 20); // Generic Hair Color 2
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 455, 2, labelStart+2, push4 + 20, push4 + 30); // Generic Hair Color 3
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 456, 2, labelStart+3, push4 + 30, push4 + 40); // Generic Hair Color 4
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 457, 2, labelStart+4, push4 + 40, push4 + 50); // Generic Hair Color 5
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 458, 2, labelStart+5, push4 + 50, push4 + 60); // Generic Hair Color 6
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 459, 2, labelStart+6, push4 + 60, push4 + 70); // Generic Hair Color 7
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 460, 2, labelStart+7, push4 + 70, push4 + 80); // Generic Hair Color 8
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 486, 2, labelStart+8, push4 + 80, push4 + 90); // Generic Hair Color 9
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 487, 2, labelStart+9, push4 + 90, push4 + 100); // Generic Hair Color 10
+            push4 += 100;
+            labelStart += 10;
+            //skin
+            cch.AddColourOption(itemDisplay, 16, 1, 2, 478, 3, labelStart, push4 + 0, push4 + 9); // Mordesh MF Body Color 1
+            cch.AddColourOption(itemDisplay, 16, 1, 2, 479, 3, labelStart+1, push4 + 9, push4 + 18); // Mordesh MF Body Color 2
+            cch.AddColourOption(itemDisplay, 16, 1, 2, 480, 3, labelStart+2, push4 + 18, push4 + 27); // Mordesh MF Body Color 3
+            cch.AddColourOption(itemDisplay, 16, 1, 2, 481, 3, labelStart+3, push4 + 27, push4 + 36); // Mordesh MF Body Color 4
+            push4 += 36;
+            labelStart += 4;
+            //vitalus
+            /*cch.AddColourOption(itemDisplay, 16, 1, 7, 466, 3, labelStart, push4 + 0, push4 + 7); // Mordesh MF Vitalus Color 1
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 467, 3, labelStart+1, push4 + 7, push4 + 14); // Mordesh MF Vitalus Color 2
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 468, 3, labelStart+2, push4 + 14, push4 + 21); // Mordesh MF Vitalus Color 3
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 469, 3, labelStart+3, push4 + 21, push4 + 28); // Mordesh MF Vitalus Color 4
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 470, 3, labelStart+4, push4 + 35, push4 + 42); // Mordesh MF Vitalus Color 5
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 471, 3, labelStart+5, push4 + 49, push4 + 56); // Mordesh MF Vitalus Color 6
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 472, 3, labelStart+6, push4 + 63, push4 + 70); // Mordesh MF Vitalus Color 7
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 473, 3, labelStart+7, push4 + 77, push4 + 84); // Mordesh MF Vitalus Color 8
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 474, 3, labelStart+8, push4 + 91, push4 + 98); // Mordesh MF Vitalus Color 9
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 475, 3, labelStart+9, push4 + 105, push4 + 112); // Mordesh MF Vitalus Color 10
+            push4 += 112;
+            labelStart += 10;*/
+            
+            //Mordesh male
+            //hair
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 453, 2, labelStart, push4 + 0, push4 + 5); // Generic Hair Color 1
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 454, 2, labelStart + 1, push4 + 5, push4 + 10); // Generic Hair Color 2
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 455, 2, labelStart + 2, push4 + 10, push4 + 15); // Generic Hair Color 3
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 456, 2, labelStart + 3, push4 + 15, push4 + 20); // Generic Hair Color 4
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 457, 2, labelStart + 4, push4 + 20, push4 + 25); // Generic Hair Color 5
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 458, 2, labelStart + 5, push4 + 25, push4 + 30); // Generic Hair Color 6
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 459, 2, labelStart + 6, push4 + 30, push4 + 35); // Generic Hair Color 7
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 460, 2, labelStart + 7, push4 + 35, push4 + 40); // Generic Hair Color 8
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 486, 2, labelStart + 8, push4 + 40, push4 + 45); // Generic Hair Color 9
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 487, 2, labelStart + 9, push4 + 45, push4 + 50); // Generic Hair Color 10
+            push4 += 100;
+            labelStart += 10;
+            //skin
+            cch.AddColourOption(itemDisplay, 16, 0, 2, 478, 3, labelStart, push4 + 0, push4 + 9); // Mordesh MF Body Color 1
+            cch.AddColourOption(itemDisplay, 16, 0, 2, 479, 3, labelStart + 1, push4 + 9, push4 + 18); // Mordesh MF Body Color 2
+            cch.AddColourOption(itemDisplay, 16, 0, 2, 480, 3, labelStart + 2, push4 + 18, push4 + 27); // Mordesh MF Body Color 3
+            cch.AddColourOption(itemDisplay, 16, 0, 2, 481, 3, labelStart + 3, push4 + 27, push4 + 36); // Mordesh MF Body Color 4
+            push4 += 36;
+            labelStart += 4;
+
+
+            //Draken female
+            //hair
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 453, 2, labelStart, push4 + 0, push4 + 6); // Generic Hair Color 1
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 454, 2, labelStart + 1, push4 + 6, push4 + 12); // Generic Hair Color 2
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 455, 2, labelStart + 2, push4 + 12, push4 + 18); // Generic Hair Color 3
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 456, 2, labelStart + 3, push4 + 18, push4 + 24); // Generic Hair Color 4
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 457, 2, labelStart + 4, push4 + 24, push4 + 30); // Generic Hair Color 5
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 458, 2, labelStart + 5, push4 + 30, push4 + 36); // Generic Hair Color 6
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 459, 2, labelStart + 6, push4 + 36, push4 + 42); // Generic Hair Color 7
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 460, 2, labelStart + 7, push4 + 42, push4 + 48); // Generic Hair Color 8
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 486, 2, labelStart + 8, push4 + 48, push4 + 54); // Generic Hair Color 9
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 487, 2, labelStart + 9, push4 + 54, push4 + 60); // Generic Hair Color 10
+            push4 += 60;
+            labelStart += 10;
+
+            //Aurin female
+            //hair
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 453, 2, labelStart, push4 + 0, push4 + 17); // Generic Hair Color 1
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 454, 2, labelStart + 1, push4 + 17, push4 + 34); // Generic Hair Color 2
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 455, 2, labelStart + 2, push4 + 34, push4 + 51); // Generic Hair Color 3
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 456, 2, labelStart + 3, push4 + 51, push4 + 68); // Generic Hair Color 4
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 457, 2, labelStart + 4, push4 + 68, push4 + 85); // Generic Hair Color 5
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 458, 2, labelStart + 5, push4 + 85, push4 + 102); // Generic Hair Color 6
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 459, 2, labelStart + 6, push4 + 102, push4 + 119); // Generic Hair Color 7
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 460, 2, labelStart + 7, push4 + 119, push4 + 136); // Generic Hair Color 8
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 486, 2, labelStart + 8, push4 + 136, push4 + 153); // Generic Hair Color 9
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 487, 2, labelStart + 9, push4 + 153, push4 + 170); // Generic Hair Color 10
+            push4 += 170;
+            labelStart += 10;
+            //skin
+            cch.AddColourOption(itemDisplay, 4, 1, 2, 482, 3, labelStart, push4 + 0, push4 + 8); // Aurin F Body Color 1
+            cch.AddColourOption(itemDisplay, 4, 1, 2, 483, 3, labelStart+1, push4 + 8, push4 + 16); // Aurin F Body Color 2
+            cch.AddColourOption(itemDisplay, 4, 1, 2, 484, 3, labelStart+2, push4 + 16, push4 + 24); // Aurin F Body Color 3
+            cch.AddColourOption(itemDisplay, 4, 1, 2, 485, 3, labelStart+3, push4 + 24, push4 + 32); // Aurin F Body Color 4
+            push4 += 32;
+            labelStart += 4;
+            //end Push 4******************************
 
         }
 
@@ -5278,6 +5365,19 @@ namespace WildStar.TestBed
             
             entry.Values.RemoveAt(0);
             return dyeColorRamp.AddEntry(entry, id);
+        }
+
+        static uint AddItemColorSet(uint id, uint dyeColorRampId00, uint? dyeColorRampId01 = null, uint? dyeColorRampId02 = null)
+        {
+            var entry = itemColorSet.CopyEntry(84);
+            entry.Values[1].SetValue(dyeColorRampId00); //dyeColorRampId00
+            if (dyeColorRampId01 != null)
+                entry.Values[2].SetValue(dyeColorRampId01); //dyeColorRampId01
+            if (dyeColorRampId02 != null)
+                entry.Values[3].SetValue(dyeColorRampId02); //dyeColorRampId02
+
+            entry.Values.RemoveAt(0);
+            return itemColorSet.AddEntry(entry, id);
         }
 
         static uint GetColorSet(uint col1, uint col2 = 0, uint col3 = 0)
