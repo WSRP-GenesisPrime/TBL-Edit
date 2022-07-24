@@ -4293,6 +4293,7 @@ namespace WildStar.TestBed
             uint push2 = 9805; // tracks itemDisplayIDs for push 2, do not use after push 2.
             uint push3 = 10270;
             uint push4 = 10280;
+            uint push5 = 10815;
 
             //Push 1 ****************************************************************************************************
             // aurin female
@@ -4481,6 +4482,10 @@ namespace WildStar.TestBed
                 //Generic Hair Color
                 (startDyeColorRampId+34, 143, "Generic Hair Color 9"),
                 (startDyeColorRampId+35, 144, "Generic Hair Color 10"),
+                //Mordesh MF Vitalus Color
+                (startDyeColorRampId+36, 145, "Mordesh MF Vitalus Color 11"),
+                //Aurin F Body Color
+                (startDyeColorRampId+37, 146, "Aurin F Body Color 5"),
             };
             foreach (var row in newDyeColorRamps)
             {
@@ -4513,19 +4518,6 @@ namespace WildStar.TestBed
             cch.AddColourOption(itemDisplay, 16, 1, 2, 481, 3, labelStart+3, push4 + 27, push4 + 36); // Mordesh MF Body Color 4
             push4 += 36;
             labelStart += 4;
-            //vitalus
-            /*cch.AddColourOption(itemDisplay, 16, 1, 7, 466, 3, labelStart, push4 + 0, push4 + 7); // Mordesh MF Vitalus Color 1
-            cch.AddColourOption(itemDisplay, 16, 1, 7, 467, 3, labelStart+1, push4 + 7, push4 + 14); // Mordesh MF Vitalus Color 2
-            cch.AddColourOption(itemDisplay, 16, 1, 7, 468, 3, labelStart+2, push4 + 14, push4 + 21); // Mordesh MF Vitalus Color 3
-            cch.AddColourOption(itemDisplay, 16, 1, 7, 469, 3, labelStart+3, push4 + 21, push4 + 28); // Mordesh MF Vitalus Color 4
-            cch.AddColourOption(itemDisplay, 16, 1, 7, 470, 3, labelStart+4, push4 + 35, push4 + 42); // Mordesh MF Vitalus Color 5
-            cch.AddColourOption(itemDisplay, 16, 1, 7, 471, 3, labelStart+5, push4 + 49, push4 + 56); // Mordesh MF Vitalus Color 6
-            cch.AddColourOption(itemDisplay, 16, 1, 7, 472, 3, labelStart+6, push4 + 63, push4 + 70); // Mordesh MF Vitalus Color 7
-            cch.AddColourOption(itemDisplay, 16, 1, 7, 473, 3, labelStart+7, push4 + 77, push4 + 84); // Mordesh MF Vitalus Color 8
-            cch.AddColourOption(itemDisplay, 16, 1, 7, 474, 3, labelStart+8, push4 + 91, push4 + 98); // Mordesh MF Vitalus Color 9
-            cch.AddColourOption(itemDisplay, 16, 1, 7, 475, 3, labelStart+9, push4 + 105, push4 + 112); // Mordesh MF Vitalus Color 10
-            push4 += 112;
-            labelStart += 10;*/
             
             //Mordesh male
             //hair
@@ -4588,6 +4580,86 @@ namespace WildStar.TestBed
             labelStart += 4;
             //end Push 4******************************
 
+            //Push 5 - Drem Dyes pt 2******************************************************************************************
+            //Mordesh female
+            //hair
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 467, 2, labelStart, push5 + 0, push5 + 10); // Mordesh MF Vitalus Color 2
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 470, 2, labelStart + 1, push5 + 10, push5 + 20); // Mordesh MF Vitalus Color 5
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 474, 2, labelStart + 2, push5 + 20, push5 + 30); // Mordesh MF Vitalus Color 9
+            push5 += 30;
+            labelStart += 3;
+            //vitalus
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 466, 3, labelStart, push5 + 0, push5 + 16); // Mordesh MF Vitalus Color 1
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 467, 3, labelStart+1, push5 + 16, push5 + 32); // Mordesh MF Vitalus Color 2
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 468, 3, labelStart+2, push5 + 32, push5 + 48); // Mordesh MF Vitalus Color 3
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 469, 3, labelStart+3, push5 + 48, push5 + 64); // Mordesh MF Vitalus Color 4
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 470, 3, labelStart+4, push5 + 64, push5 + 80); // Mordesh MF Vitalus Color 5
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 471, 3, labelStart+5, push5 + 80, push5 + 96); // Mordesh MF Vitalus Color 6
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 472, 3, labelStart+6, push5 + 96, push5 + 112); // Mordesh MF Vitalus Color 7
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 473, 3, labelStart+7, push5 + 112, push5 + 128); // Mordesh MF Vitalus Color 8
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 474, 3, labelStart+8, push5 + 128, push5 + 144); // Mordesh MF Vitalus Color 9
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 475, 3, labelStart+9, push5 + 144, push5 + 160); // Mordesh MF Vitalus Color 10
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 488, 3, labelStart+10, push5 + 160, push5 + 176); // Mordesh MF Vitalus Color 11
+            push5 += 176;
+            labelStart += 11;
+
+            //Mordesh male
+            //hair
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 467, 2, labelStart, push5 + 0, push5 + 5); // Mordesh MF Vitalus Color 2
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 470, 2, labelStart + 1, push5 + 5, push5 + 10); // Mordesh MF Vitalus Color 5
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 474, 2, labelStart + 2, push5 + 10, push5 + 15); // Mordesh MF Vitalus Color 9
+            push5 += 15;
+            labelStart += 3;
+            //vitalus
+            cch.AddColourOption(itemDisplay, 16, 0, 7, 466, 3, labelStart, push5 + 0, push5 + 21); // Mordesh MF Vitalus Color 1
+            cch.AddColourOption(itemDisplay, 16, 0, 7, 467, 3, labelStart + 1, push5 + 21, push5 + 42); // Mordesh MF Vitalus Color 2
+            cch.AddColourOption(itemDisplay, 16, 0, 7, 468, 3, labelStart + 2, push5 + 42, push5 + 63); // Mordesh MF Vitalus Color 3
+            cch.AddColourOption(itemDisplay, 16, 0, 7, 469, 3, labelStart + 3, push5 + 63, push5 + 84); // Mordesh MF Vitalus Color 4
+            cch.AddColourOption(itemDisplay, 16, 0, 7, 470, 3, labelStart + 4, push5 + 84, push5 + 105); // Mordesh MF Vitalus Color 5
+            cch.AddColourOption(itemDisplay, 16, 0, 7, 471, 3, labelStart + 5, push5 + 105, push5 + 126); // Mordesh MF Vitalus Color 6
+            cch.AddColourOption(itemDisplay, 16, 0, 7, 472, 3, labelStart + 6, push5 + 126, push5 + 147); // Mordesh MF Vitalus Color 7
+            cch.AddColourOption(itemDisplay, 16, 0, 7, 473, 3, labelStart + 7, push5 + 147, push5 + 168); // Mordesh MF Vitalus Color 8
+            cch.AddColourOption(itemDisplay, 16, 0, 7, 474, 3, labelStart + 8, push5 + 168, push5 + 189); // Mordesh MF Vitalus Color 9
+            cch.AddColourOption(itemDisplay, 16, 0, 7, 475, 3, labelStart + 9, push5 + 189, push5 + 210); // Mordesh MF Vitalus Color 10
+            cch.AddColourOption(itemDisplay, 16, 0, 7, 488, 3, labelStart + 10, push5 + 210, push5 + 231); // Mordesh MF Vitalus Color 11
+            push5 += 231;
+            labelStart += 11;
+
+            //Draken female
+            //hair
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 467, 2, labelStart, push5 + 0, push5 + 6); // Mordesh MF Vitalus Color 2
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 470, 2, labelStart + 1, push5 + 6, push5 + 12); // Mordesh MF Vitalus Color 5
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 474, 2, labelStart + 2, push5 + 12, push5 + 18); // Mordesh MF Vitalus Color 9
+            push5 += 18;
+            labelStart += 3;
+
+            //Aurin female
+            //hair
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 467, 2, labelStart, push5 + 0, push5 + 17); // Mordesh MF Vitalus Color 2
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 470, 2, labelStart + 1, push5 + 17, push5 + 34); // Mordesh MF Vitalus Color 5
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 474, 2, labelStart + 2, push5 + 34, push5 + 51); // Mordesh MF Vitalus Color 9
+            push5 += 51;
+            labelStart += 3;
+            //skin
+            cch.AddColourOption(itemDisplay, 4, 1, 2, 489, 3, labelStart, push5 + 0, push5 + 8); // Aurin F Body Color 5
+            push5 += 8;
+            labelStart += 1;
+
+            //Mechari female
+            //skin
+            cch.AddColourOption(itemDisplay, 12, 1, 2, 461, 3, labelStart, push5 + 0, push5 + 15); // Mechari F Body Color 1
+            cch.AddColourOption(itemDisplay, 12, 1, 2, 462, 3, labelStart+1, push5 + 15, push5 + 30); // Mechari F Body Color 2
+            cch.AddColourOption(itemDisplay, 12, 1, 2, 463, 3, labelStart+2, push5 + 30, push5 + 45); // Mechari F Body Color 3
+            cch.AddColourOption(itemDisplay, 12, 1, 2, 464, 3, labelStart+3, push5 + 45, push5 + 60); // Mechari F Body Color 4
+            cch.AddColourOption(itemDisplay, 12, 1, 2, 465, 3, labelStart+4, push5 + 60, push5 + 75); // Mechari F Body Color 5
+            push5 += 75;
+            labelStart += 5;
+            //hair
+            cch.AddColourOption(itemDisplay, 12, 1, 14, 476, 2, labelStart, push5 + 0, push5 + 21); // Mechari F Crystal Color 1
+            cch.AddColourOption(itemDisplay, 12, 1, 14, 477, 2, labelStart+1, push5 + 21, push5 + 42); // Mechari F Crystal Color 2
+            push5 += 42;
+            labelStart += 2;
+            //end Push 5******************************
         }
 
         static void AddBodyTypes(uint startID, uint endID)
@@ -5133,6 +5205,16 @@ namespace WildStar.TestBed
             AddMount(77095, "Falkrin Witch (Grey)", flyingVehicleID, "ClientSprites:Icon_ItemMisc_Feather");
             AddMount(77096, "Falkrin Female (Brown)", flyingVehicleID, "ClientSprites:Icon_ItemMisc_Feather");
             AddMount(77097, "Falkrin Witch (Brown)", flyingVehicleID, "ClientSprites:Icon_ItemMisc_Feather");
+            AddMount(70019, "Snarfelynx (Flying)", flyingVehicleID, "IconSprites:Icon_ItemMount_Icon_Mount_SummerSnarfelynx");
+            AddMount(72088, "Strain Snarfelynx (Flying)", flyingVehicleID, "IconSprites:Icon_ItemMount_Icon_Mount_SummerSnarfelynx");
+            AddMount(75136, "Panda Snarfelynx (Flying)", flyingVehicleID, "IconSprites:Icon_ItemMount_Panda_Cat");
+            AddMount(75141, "Summer Snarfelynx (Flying)", flyingVehicleID, "IconSprites:Icon_ItemMount_Icon_Mount_SummerSnarfelynx");
+            AddMount(75562, "Bingberry Gummilynx (Flying)", flyingVehicleID, "IconSprites:Icon_ItemMount_Snarfelynx_Gummy_RedYellow");
+            AddMount(75563, "Concord Gummilynx (Flying)", flyingVehicleID, "IconSprites:Icon_ItemMount_Snarfelynx_Gummy_RedPurple");
+            AddMount(75564, "Nonana Gummilynx (Flying)", flyingVehicleID, "IconSprites:Icon_ItemMount_Snarfelynx_Gummy_YellowWhite");
+            AddMount(75565, "Rapple Gummilynx (Flying)", flyingVehicleID, "IconSprites:Icon_ItemMount_Snarfelynx_Gummy_GreenBlue");
+            AddMount(75566, "Loppfruit Gummilynx (Flying)", flyingVehicleID, "IconSprites:Icon_ItemMount_Snarfelynx_Gummy_GreenYellow");
+            AddMount(73638, "Kroggenbull (Flying)", flyingVehicleID, "IconSprites:Icon_ItemMount_Icon_itemmount_krogglepuss");
 
             spell4Base.requireID = true;
             spell4.requireID = true;
