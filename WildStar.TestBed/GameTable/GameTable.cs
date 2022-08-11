@@ -4,10 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
-using WildStar.TestBed.GameTable.IO;
-using WildStar.TestBed.GameTable.Static;
+using WildStar.GameTable.IO;
+using WildStar.GameTable.Static;
 
-namespace WildStar.TestBed.GameTable
+namespace WildStar.GameTable
 {
     public class GameTable
     {

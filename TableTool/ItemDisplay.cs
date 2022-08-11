@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WildStar.TestBed
+﻿namespace WildStar.TableTool
 {
     class ItemDisplay
     {

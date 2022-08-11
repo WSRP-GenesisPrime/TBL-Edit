@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using System.Runtime.InteropServices;
-using WildStar.TestBed.GameTable.Static;
+using WildStar.GameTable.Static;
 
-namespace WildStar.TestBed.GameTable.IO
+namespace WildStar.GameTable.IO
 {
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct TblColumn

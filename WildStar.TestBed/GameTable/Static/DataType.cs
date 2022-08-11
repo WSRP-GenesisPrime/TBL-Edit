@@ -1,4 +1,4 @@
-﻿namespace WildStar.TestBed.GameTable.Static
+﻿namespace WildStar.GameTable.Static
 {
     public enum DataType : ushort
     {

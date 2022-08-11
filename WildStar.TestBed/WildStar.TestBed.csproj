@@ -1,19 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
+    <AssemblyName>WildStar.GameTable</AssemblyName>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="nlog.config" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="nlog.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="NLog" Version="4.7.11" />

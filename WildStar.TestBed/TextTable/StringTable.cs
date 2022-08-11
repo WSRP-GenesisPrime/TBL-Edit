@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using WildStar.GameTable;
 
-namespace WildStar.TestBed.TextTable
+namespace WildStar.TextTable
 {
     public class StringTable
     {

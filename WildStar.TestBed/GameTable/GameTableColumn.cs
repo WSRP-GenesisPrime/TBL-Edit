@@ -1,7 +1,7 @@
-﻿using WildStar.TestBed.GameTable.IO;
-using WildStar.TestBed.GameTable.Static;
+﻿using WildStar.GameTable.IO;
+using WildStar.GameTable.Static;
 
-namespace WildStar.TestBed.GameTable
+namespace WildStar.GameTable
 {
     public class GameTableColumn
     {

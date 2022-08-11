@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace WildStar.TestBed.GameTable.IO
+namespace WildStar.GameTable.IO
 {
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct Header

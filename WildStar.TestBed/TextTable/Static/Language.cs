@@ -1,4 +1,4 @@
-﻿namespace WildStar.TestBed.TextTable.Static
+﻿namespace WildStar.TextTable.Static
 {
     public enum Language
     {

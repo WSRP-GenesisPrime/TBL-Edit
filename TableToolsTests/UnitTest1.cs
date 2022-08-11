@@ -2,8 +2,8 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using WildStar.TestBed;
-using WildStar.TestBed.GameTable.IO;
+using WildStar.GameTable;
+using WildStar.GameTable.IO;
 
 namespace TableToolsTests
 {
@@ -70,9 +70,9 @@ namespace TableToolsTests
 
         public void TestSpecificFile(string tablename, string basepath = "../../../../")
         {
-            Table table = new Table(tablename, true, false);
-            table.Load(basepath + "Tbl/");
-            table.Save(basepath + "TblTest/");
+            GameTable table = new GameTable();
+            table.Load(basepath + tablename + ".tbl");
+            table.Save(basepath + tablename + ".tbl");
             FileStream original = new FileStream(basepath + "Tbl/" + tablename + ".tbl", FileMode.Open);
             FileStream written = new FileStream(basepath + "TblTest/" + tablename + ".tbl", FileMode.Open);
             areStreamsEqual(original, written);

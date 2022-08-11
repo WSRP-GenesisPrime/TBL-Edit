@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using WildStar.TestBed.GameTable;
+using WildStar.GameTable;
 
-namespace WildStar.TestBed
+namespace WildStar.TableTool
 {
     class CharacterCustomizationHandler
     {

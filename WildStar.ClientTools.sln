@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29001.49
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WildStar.TestBed", "WildStar.TestBed\WildStar.TestBed.csproj", "{42DB0504-2DB6-480D-9B83-AA62AF8914DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableToolsTests", "TableToolsTests\TableToolsTests.csproj", "{29453DEA-8F21-4F39-966A-CEB187C3E0B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TableToolsTests", "TableToolsTests\TableToolsTests.csproj", "{29453DEA-8F21-4F39-966A-CEB187C3E0B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableTool", "TableTool\TableTool.csproj", "{A7E2707A-60CA-400C-AE90-AD2A713178D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{29453DEA-8F21-4F39-966A-CEB187C3E0B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29453DEA-8F21-4F39-966A-CEB187C3E0B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29453DEA-8F21-4F39-966A-CEB187C3E0B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7E2707A-60CA-400C-AE90-AD2A713178D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7E2707A-60CA-400C-AE90-AD2A713178D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7E2707A-60CA-400C-AE90-AD2A713178D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7E2707A-60CA-400C-AE90-AD2A713178D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

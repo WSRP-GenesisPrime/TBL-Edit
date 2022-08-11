@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices;
-using WildStar.TestBed.TextTable.Static;
+using WildStar.TextTable.Static;
 
-namespace WildStar.TestBed.TextTable.IO
+namespace WildStar.TextTable.IO
 {
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct Header

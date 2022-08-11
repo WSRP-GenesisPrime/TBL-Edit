@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WildStar.TestBed.TextTable
+namespace WildStar.TextTable
 {
     public class TextTableEntry
     {

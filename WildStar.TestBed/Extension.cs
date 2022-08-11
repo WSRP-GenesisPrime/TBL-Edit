@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace WildStar.TestBed
+namespace WildStar.GameTable
 {
     public static class Extension
     {

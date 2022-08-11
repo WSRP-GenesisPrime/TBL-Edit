@@ -3,10 +3,11 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
-using WildStar.TestBed.TextTable.IO;
-using WildStar.TestBed.TextTable.Static;
+using WildStar.GameTable;
+using WildStar.TextTable.IO;
+using WildStar.TextTable.Static;
 
-namespace WildStar.TestBed.TextTable
+namespace WildStar.TextTable
 {
     public class TextTable
     {

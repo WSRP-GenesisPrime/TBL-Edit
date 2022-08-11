@@ -1,7 +1,7 @@
 ﻿using System;
-using WildStar.TestBed.GameTable;
+using WildStar.GameTable;
 
-namespace WildStar.TestBed
+namespace WildStar.TableTool
 {
     public class Table
     {

@@ -1,6 +1,6 @@
-﻿using WildStar.TestBed.GameTable.Static;
+﻿using WildStar.GameTable.Static;
 
-namespace WildStar.TestBed.GameTable
+namespace WildStar.GameTable
 {
     public class GameTableValue
     {
