@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using WildStar.GameTable;
 
 namespace WildStar.TableTool
@@ -4026,11 +4027,14 @@ namespace WildStar.TableTool
             CopyTables("../../../../TblBeta/", "../../../../TblServer/");
 
             List<string> file = new List<string>();
+
+            file.Add("ID,Text");
+
             foreach (var entry in language.Entries)
             {
-                file.Add($"{entry.Id}: {entry.Text}");
+                file.Add($"\"{entry.Id}\",\"{entry.Text.Replace("\"", "\"\"")}\"");
             }
-            File.WriteAllLines("../../../../Strings.txt", file);
+            File.WriteAllLines("../../../../Strings.csv", file);
         }
 
         static void AddTestGroundOptions()
@@ -5243,24 +5247,34 @@ namespace WildStar.TableTool
 
         public static void LoadTables()
         {
+            Stopwatch sw = Stopwatch.StartNew();
+            List<Task> tasks = new List<Task>();
             foreach (var table in tables)
             {
-                table.Load("../../../../Tbl/");
+                tasks.Add(table.LoadAsync("../../../../Tbl/"));
             }
             language = new TextTable.TextTable();
-            language.Load("../../../../Tbl/en-US.bin");
+            tasks.Add(Task.Run(() => language.Load("../../../../Tbl/en-US.bin")));
+            Task.WhenAll(tasks).Wait();
             cch.Load(characterCustomization, characterCustomizationLabel, characterCustomizationSelection);
+            TimeSpan ts = sw.Elapsed;
+            log.Info($"Loading took {ts.TotalSeconds} seconds.");
         }
 
         public static void SaveTables(string baseFolder)
         {
+            Stopwatch sw = Stopwatch.StartNew();
             Directory.CreateDirectory(baseFolder + "DB");
+            List<Task> tasks = new List<Task>();
             foreach (var table in tables)
             {
-                table.Save(baseFolder + "DB/");
+                tasks.Add(table.SaveAsync(baseFolder + "DB/"));
             }
+            tasks.Add(Task.Run(() => language.Save(baseFolder + "en-US.bin")));
+            Task.WhenAll(tasks).Wait();
 
-            language.Save(baseFolder + "en-US.bin");
+            TimeSpan ts = sw.Elapsed;
+            log.Info($"Saving took {ts.TotalSeconds} seconds.");
         }
 
         public static void CopyTables(string baseFolder, string destFolder)
