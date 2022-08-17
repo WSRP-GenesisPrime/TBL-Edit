@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using WildStar.GameTable;
 
 namespace WildStar.TableTool
@@ -26,12 +27,22 @@ namespace WildStar.TableTool
             nextEntry = GetMaxID() + 1;
         }
 
+        public async Task LoadAsync(string path)
+        {
+            await Task.Run(() => Load(path));
+        }
+
         public void Save(string path)
         {
             if (doSave)
             {
                 table.Save(path + name + ".tbl");
             }
+        }
+
+        public async Task SaveAsync(string path)
+        {
+            await Task.Run(() => Save(path));
         }
 
         public uint GetMaxID()
