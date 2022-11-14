@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 using WildStar.GameTable;
+using WildStar.TextTable;
 
 namespace EldanToolkit
 {
     public partial class GameTableView : UserControl
     {
-        GameTable? table;
+        DataTable? table = null;
+        bool isTextTable = false;
+        public string path = "C:\\";
+        public bool HasFile { get { return table != null; } }
 
         public GameTableView()
         {
@@ -21,13 +17,13 @@ namespace EldanToolkit
             SetTable(null);
         }
 
-        public GameTableView(GameTable? table)
+        public GameTableView(DataTable? table)
         {
             InitializeComponent();
             SetTable(table);
         }
 
-        public void SetTable(GameTable? table)
+        public void SetTable(DataTable? table)
         {
             this.table = table;
             SetupTableView();
@@ -41,18 +37,64 @@ namespace EldanToolkit
             }
             else
             {
-                view.DataSource = table.table;
+                view.DataSource = table;
                 view.AutoResizeColumns();
             }
         }
 
-        public void Save(string path)
+        public void LoadTable(string path)
+        {
+            string ext = Path.GetExtension(path);
+            if (ext.Equals(".bin", StringComparison.OrdinalIgnoreCase))
+            {
+                TextTable table = new TextTable();
+                table.Load(path);
+                this.path = path;
+                SetTable(table);
+            }
+            else if (ext.Equals(".tbl", StringComparison.OrdinalIgnoreCase))
+            {
+                GameTable table = new GameTable();
+                table.Load(path);
+                this.path = path;
+                SetTable(table);
+            }
+        }
+
+        public void SaveTable(string path)
         {
             if (table == null)
             {
                 return;
             }
-            table.Save(path);
+            if (table is TextTable)
+            {
+                ((TextTable)table).Save(path);
+                this.path = path;
+            }
+            else if (table is GameTable)
+            {
+                ((GameTable)table).Save(path);
+                this.path = path;
+            }
+        }
+
+        public string GetLoadFilter()
+        {
+            return "table files (*.tbl;*.bin)|*.tbl;*.bin";
+        }
+
+        public string GetSaveFilter()
+        {
+            if (table is TextTable)
+            {
+                return "Text table (*.bin)|*.bin";
+            }
+            else if (table is GameTable)
+            {
+                return "Table Files (*.tbl)|*.tbl";
+            }
+            return "";
         }
     }
 }

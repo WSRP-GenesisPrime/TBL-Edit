@@ -5,7 +5,7 @@ namespace EldanToolkit
     public partial class TableEdit : Form
     {
         GameTableView tableView;
-        string path = "C:\\";
+
         public TableEdit()
         {
             InitializeComponent();
@@ -18,29 +18,30 @@ namespace EldanToolkit
         {
             using (OpenFileDialog loadFile = new OpenFileDialog())
             {
-                loadFile.FileName = path;
-                loadFile.Filter = "table files (*.tbl)|*.tbl";
+                loadFile.FileName = tableView.path;
+                loadFile.Filter = tableView.GetLoadFilter();
                 loadFile.RestoreDirectory = true;
                 if (loadFile.ShowDialog() == DialogResult.OK)
                 {
-                    GameTable table = new GameTable();
-                    table.Load(loadFile.FileName);
-                    tableView.SetTable(table);
-                    path = loadFile.FileName;
+                    tableView.LoadTable(loadFile.FileName);
                 }
             }
         }
 
         public void OnSave()
         {
+            if(!tableView.HasFile)
+            {
+                return;
+            }
             using (SaveFileDialog saveFile = new SaveFileDialog())
             {
-                saveFile.FileName = path;
-                saveFile.Filter = "table files (*.tbl)|*.tbl";
+                saveFile.FileName = tableView.path;
+                saveFile.Filter = tableView.GetSaveFilter();
+                saveFile.RestoreDirectory = true;
                 if (saveFile.ShowDialog() == DialogResult.OK)
                 {
-                    tableView.Save(saveFile.FileName);
-                    path = saveFile.FileName;
+                    tableView.SaveTable(saveFile.FileName);
                 }
             }
         }

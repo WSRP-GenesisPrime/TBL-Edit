@@ -1,21 +1,53 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using WildStar.GameTable;
+using WildStar.TestBed;
 using WildStar.TextTable.IO;
 using WildStar.TextTable.Static;
 
 namespace WildStar.TextTable
 {
-    public class TextTable
+    public class TextTable : DataTable
     {
-        public string Name { get; private set; }
-        public string Code { get; private set; }
-        public string Description { get; private set; }
-        public List<TextTableEntry> Entries { get; } = new List<TextTableEntry>();
+        public string Name
+        {
+            get
+            {
+                return TableName;
+            }
+            private set
+            {
+                TableName = value;
+            }
+        }
 
+        public string Code
+        {
+            get
+            {
+                return (string)ExtendedProperties[UserDataKey.TextTableCode];
+            }
+            private set
+            {
+                ExtendedProperties[UserDataKey.TextTableCode] = value;
+            }
+        }
+
+        public string Description
+        {
+            get
+            {
+                return (string)ExtendedProperties[UserDataKey.TextTableDescription];
+            }
+            private set
+            {
+                ExtendedProperties[UserDataKey.TextTableDescription] = value;
+            }
+        }
 
         private uint nextId;
 
@@ -24,36 +56,27 @@ namespace WildStar.TextTable
         /// </summary>
         public bool HasEntry(uint id)
         {
-            return Entries.Any(e => e.Id == id);
+            return (from DataRow myRow in Rows
+                    where (uint)myRow[0] == id
+                    select myRow).Count() > 0;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public void RemoveEntry(uint id)
+        public uint MaxID()
         {
-            Entries.RemoveAll(e => e.Id == id);
-            nextId = Entries.Max(e => e.Id) + 1;
+            return (from DataRow myRow in Rows
+                    select (uint)myRow[0]).Max();
         }
-
 
         /// <summary>
         /// 
         /// </summary>
         public uint AddEntry(string data)
         {
-            var entry = new TextTableEntry(nextId++, data);
-            Entries.Add(entry);
-            return entry.Id;
+            DataRow row = NewRow();
+            row["ID"] = nextId++;
+            row["Text"] = data;
+            return (uint)row["ID"];
         }
-
-
-
-
-
-
-
-
 
 
         /// <summary>
@@ -61,6 +84,18 @@ namespace WildStar.TextTable
         /// </summary>
         public void Load(string path)
         {
+            Rows.Clear();
+            Columns.Clear();
+
+            DataColumn col = new DataColumn("ID");
+            col.DataType = typeof(uint);
+            Columns.Add(col);
+
+            col = new DataColumn("Text");
+            Columns.Add(col);
+            col.DataType = typeof(string);
+
+
             using (FileStream stream = File.OpenRead(path))
             using (var reader = new BinaryReader(stream, Encoding.Unicode))
             {
@@ -89,13 +124,15 @@ namespace WildStar.TextTable
                 stream.Position = headerSize + header.RecordOffset;
                 for (int i = 0; i < header.RecordCount; i++)
                 {
-
                     uint id = reader.ReadUInt32();
                     uint bla = reader.ReadUInt32() * 2;
-                    Entries.Add(new TextTableEntry(id, stringTable.GetString(bla)));
+                    DataRow row = NewRow();
+                    row["ID"] = id;
+                    row["Text"] = stringTable.GetString(bla);
+                    Rows.Add(row);
                 }
 
-                nextId = Entries.Max(e => e.Id) + 1;
+                nextId = MaxID() + 1;
             }
         }
 
@@ -132,7 +169,7 @@ namespace WildStar.TextTable
                 writer.WriteWideStringPad(Description, 16);
 
                 // entries
-                header.RecordCount = Entries.Count;
+                header.RecordCount = Rows.Count;
                 header.RecordOffset = stream.Position - headerSize;
                 header.StringTableOffset = header.RecordOffset + 8 * header.RecordCount;
                 int ss = WriteEntries(writer);
@@ -153,12 +190,12 @@ namespace WildStar.TextTable
             using (var stringTableStream = new MemoryStream())
             using (var stringTableWriter = new BinaryWriter(stringTableStream))
             {
-                foreach (TextTableEntry entry in Entries)
+                foreach (DataRow row in Rows)
                 {
-                    writer.Write(entry.Id);
+                    writer.Write((uint) row["ID"]);
                     writer.Write((uint)(stringTableStream.Position / 2));
 
-                    stringTableWriter.WriteWideString(entry.Text);
+                    stringTableWriter.WriteWideString((string) row["Text"]);
                 }
 
                 byte[] ss = stringTableStream.ToArray();
