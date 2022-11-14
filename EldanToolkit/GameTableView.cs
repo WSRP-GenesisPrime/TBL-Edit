@@ -44,6 +44,7 @@ namespace EldanToolkit
         protected void SetBusy(bool loading)
         {
             UseWaitCursor = loading;
+            Application.UseWaitCursor = loading;
             Enabled = !loading;
             Application.DoEvents();
         }
@@ -77,27 +78,32 @@ namespace EldanToolkit
             });
         }
 
-        public void SaveTable(string path)
+        public async void SaveTable(string path)
         {
-            UseWaitCursor = true;
-            Enabled = false;
-            Application.DoEvents();
-            if (table == null)
+            SetBusy(true);
+            await Task.Run(() =>
             {
-                return;
-            }
-            if (table is TextTable)
-            {
-                ((TextTable)table).Save(path);
-                this.path = path;
-            }
-            else if (table is GameTable)
-            {
-                ((GameTable)table).Save(path);
-                this.path = path;
-            }
-            UseWaitCursor = false;
-            Enabled = true;
+                if (table == null)
+                {
+                    return;
+                }
+                if (table is TextTable)
+                {
+                    ((TextTable)table).Save(path);
+                    this.path = path;
+                }
+                else if (table is GameTable)
+                {
+                    ((GameTable)table).Save(path);
+                    this.path = path;
+                }
+
+                Invoke(delegate
+                {
+                    SetTable(table);
+                    SetBusy(false);
+                });
+            });
         }
 
         public string GetLoadFilter()
