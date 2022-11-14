@@ -35,35 +35,14 @@ namespace EldanToolkit
 
         public void SetupTableView()
         {
-            view.Rows.Clear();
-            view.Columns.Clear();
-
-            if(table == null)
+            if (table == null)
             {
-                return;
+                view.DataSource = null;
             }
-
-            foreach (var wtcolumn in table.Columns)
+            else
             {
-                DataGridViewColumn dgcolumn = new DataGridViewColumn();
-                dgcolumn.Name = wtcolumn.Name;
-                dgcolumn.ValueType = wtcolumn.GetDataType();
-                dgcolumn.CellTemplate = new DataGridViewTextBoxCell();
-                view.Columns.Add(dgcolumn);
-            }
-
-            foreach (var wtrow in table.Entries)
-            {
-                DataGridViewRow dgrow = new DataGridViewRow();
-                dgrow.CreateCells(view);
-                int i = 0;
-                foreach (var val in wtrow.Values)
-                {
-                    var cell = dgrow.Cells[i];
-                    cell.Value = val.Value;
-                    i += 1;
-                }
-                view.Rows.Add(dgrow);
+                view.DataSource = table.table;
+                view.AutoResizeColumns();
             }
         }
 
@@ -72,26 +51,6 @@ namespace EldanToolkit
             if (table == null)
             {
                 return;
-            }
-            table.Entries.Clear();
-            foreach(DataGridViewRow row in view.Rows)
-            {
-                GameTableEntry entry = new GameTableEntry();
-                bool allNull = true;
-                for(int i = 0; i < table.Columns.Count; ++i)
-                {
-                    GameTableValue val = new GameTableValue(table.Columns[i].Type);
-                    val.SetValue(row.Cells[i].Value);
-                    entry.Values.Add(val);
-                    if (val.Value != null)
-                    {
-                        allNull = false;
-                    }
-                }
-                if (!allNull)
-                {
-                    table.Entries.Add(entry);
-                }
             }
             table.Save(path);
         }

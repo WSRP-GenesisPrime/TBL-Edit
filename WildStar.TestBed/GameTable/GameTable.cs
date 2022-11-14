@@ -1,57 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using WildStar.GameTable.IO;
 using WildStar.GameTable.Static;
+using WildStar.TestBed.GameTable;
 
 namespace WildStar.GameTable
 {
     public class GameTable
     {
-        public string Name { get; set; }
-        public List<GameTableColumn> Columns { get; } = new List<GameTableColumn>();
-        public List<GameTableEntry> Entries { get; } = new List<GameTableEntry>();
+        public DataTable table = new DataTable();
 
         public long recordSize = 0;
         public bool padEntries = false;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public void AddColumn(string name)
-        {
-
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public void RemoveColumn(string name)
-        {
-
-        }
-
         public bool HasEntry(uint id)
         {
-            return Entries.Any(e => (uint)e.Values[0].Value == id);
+            return (from DataRow myRow in table.Rows
+                    where (uint)myRow[0] == id
+                    select myRow).Count() > 0;
+        }
+
+        public uint MaxID()
+        {
+            return (from DataRow myRow in table.Rows
+                    select (uint)myRow[0]).Max();
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public void AddEntry(GameTableEntry entry)
+        /*public void AddEntry(GameTableEntry entry, uint id)
         {
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public void AddEntry(GameTableEntry entry, uint id)
-        {
-            if (Entries.Any(e => (uint)e.Values[0].Value == id))
+            if (HasEntry(id))
                 return;
 
             entry.AddInteger(id, 0);
@@ -64,6 +49,39 @@ namespace WildStar.GameTable
         public void RemoveEntry(uint id)
         {
             Entries.RemoveAll(e => (uint) e.Values[0].Value == id);
+        }*/
+
+        public uint CalculateSize(DataColumnCollection columns, bool padEntries)
+        {
+            uint size = 0u;
+            foreach (DataColumn column in columns)
+            {
+                switch (GetDataType(column.DataType))
+                {
+                    case DataType.Integer:
+                    case DataType.Single:
+                    case DataType.Boolean:
+                        size += 4;
+                        break;
+                    case DataType.Long:
+                        size += 8;
+                        break;
+                    case DataType.String:
+                        if (size % 8 != 0)
+                        {
+                            size += 4;
+                        }
+                        size += 8;
+                        break;
+                }
+            }
+
+            if (padEntries && size % 8 != 0)
+            {
+                size += size % 8;
+            }
+
+            return size;
         }
 
 
@@ -90,25 +108,25 @@ namespace WildStar.GameTable
                 writer.Write(new byte[Marshal.SizeOf<Header>()]);
 
                 // name
-                header.NameLength = Name.Length + 1;
-                writer.WriteWideStringPad(Name, 16);
+                header.NameLength = table.TableName.Length + 1;
+                writer.WriteWideStringPad(table.TableName, 16);
 
                 // columns
-                header.ColumnCount  = Columns.Count;
+                header.ColumnCount = table.Columns.Count;
                 header.ColumnOffset = stream.Position - headerSize;
                 WriteColumns(writer);
 
                 // entries
-                header.RecordCount = Entries.Count;
+                header.RecordCount = table.Rows.Count;
                 header.RecordOffset = stream.Position - headerSize;
 
                 if (header.RecordCount > 0)
                 {
-                    header.RecordSize = Entries[0].CalculateSize(padEntries);
+                    header.RecordSize = CalculateSize(table.Columns, padEntries);
                     if(header.RecordSize != recordSize)
                     {
                         padEntries = true;
-                        header.RecordSize = Entries[0].CalculateSize(padEntries);
+                        header.RecordSize = CalculateSize(table.Columns, padEntries);
                     }
                 }
 
@@ -118,16 +136,16 @@ namespace WildStar.GameTable
                 PadTo16(writer);
 
                 // build lookup table
-                header.MaxId = Entries.Max(e => (uint)e.Values[0].Value) + 1;
+                header.MaxId = MaxID() + 1;
                 header.LookupOffset = stream.Position - headerSize;
 
                 var lookup = new int[header.MaxId];
                 for (int i = 0; i < header.MaxId; i++)
                     lookup[i] = -1;
 
-                for (var i = 0; i < Entries.Count; i++)
+                for (var i = 0; i < table.Rows.Count; i++)
                 {
-                    int lol = (int)(uint)Entries[i].Values[0].Value;
+                    int lol = (int)(uint)table.Rows[i][0];
                     lookup[lol] = i;
                 }
 
@@ -159,17 +177,17 @@ namespace WildStar.GameTable
             using (var stringTableStream = new MemoryStream())
             using (var stringTableWriter = new BinaryWriter(stringTableStream))
             {
-                var columns = new TblColumn[Columns.Count];
-                for (var i = 0; i < Columns.Count; i++)
+                var columns = new TblColumn[table.Columns.Count];
+                for (var i = 0; i < table.Columns.Count; i++)
                 {
-                    columns[i].Type = Columns[i].Type;
-                    columns[i].Unknown2 = Columns[i].Unknown2;
-                    columns[i].Unknown3 = Columns[i].Unknown3;
+                    columns[i].Type = GetDataType(table.Columns[i].DataType);
+                    columns[i].Unknown2 = (ushort) table.Columns[i].ExtendedProperties[UserDataKey.ColumnUnknown2];
+                    columns[i].Unknown3 = (uint) table.Columns[i].ExtendedProperties[UserDataKey.ColumnUnknown3];
 
 
                     columns[i].NameOffset = stringTableStream.Position;
-                    stringTableWriter.WriteWideStringPad(Columns[i].Name, 16);
-                    columns[i].NameLength = Columns[i].Name.Length + 1;
+                    stringTableWriter.WriteWideStringPad(table.Columns[i].ColumnName, 16);
+                    columns[i].NameLength = table.Columns[i].ColumnName.Length + 1;
 
 
                     columns[i].Write(writer);
@@ -185,32 +203,33 @@ namespace WildStar.GameTable
 
         private void WriteEntries(BinaryWriter writer)
         {
-            uint entrySize = Entries[0].CalculateSize(padEntries);
-            var stringTableOffset = entrySize * Entries.Count;
+            uint entrySize = CalculateSize(table.Columns, padEntries);
+            var stringTableOffset = entrySize * table.Rows.Count;
 
             Dictionary<string, uint> stringLookup = new Dictionary<string, uint>();
 
             using (var stringTableStream = new MemoryStream())
             using (var stringTableWriter = new BinaryWriter(stringTableStream))
             {
-                foreach (GameTableEntry entry in Entries)
+                foreach (DataRow row in table.Rows)
                 {
                     long start = writer.BaseStream.Position;
-                    foreach (GameTableValue value in entry.Values)
+                    foreach (DataColumn column in table.Columns)
                     {
-                        switch (value.Type)
+                        var cell = row[column];
+                        switch (GetDataType(column.DataType))
                         {
                             case DataType.Integer:
-                                writer.Write((uint)value.Value);
+                                writer.Write((uint)cell);
                                 break;
                             case DataType.Single:
-                                writer.Write((float)value.Value);
+                                writer.Write((float)cell);
                                 break;
                             case DataType.Boolean:
-                                writer.Write(Convert.ToUInt32((bool)value.Value));
+                                writer.Write(Convert.ToUInt32((bool)cell));
                                 break;
                             case DataType.Long:
-                                writer.Write((ulong)value.Value);
+                                writer.Write((ulong)cell);
                                 break;
                             case DataType.String:
                                 long a = (writer.BaseStream.Position - start) % 8;
@@ -219,16 +238,16 @@ namespace WildStar.GameTable
                                     writer.Write((uint)0);
                                 }
                                 uint stringPosition = 0;
-                                if (stringLookup.TryGetValue((string)value.Value, out uint position))
+                                if (stringLookup.TryGetValue((string)cell, out uint position))
                                 {
                                     stringPosition = position;
                                 }
                                 else
                                 {
                                     stringPosition = (uint)stringTableOffset + (uint)stringTableStream.Position;
-                                    stringLookup.Add((string)value.Value, stringPosition);
+                                    stringLookup.Add((string)cell, stringPosition);
 
-                                    stringTableWriter.WriteWideString((string)value.Value);
+                                    stringTableWriter.WriteWideString((string)cell);
                                 }
                                 writer.Write(stringPosition);
                                 writer.Write((uint)0);
@@ -251,9 +270,48 @@ namespace WildStar.GameTable
             }
         }
 
-        private void WriteLookupTable()
+        public static Type GetDataType(DataType type)
         {
+            switch (type)
+            {
+                case DataType.Boolean:
+                    return typeof(bool);
+                case DataType.Integer:
+                    return typeof(uint);
+                case DataType.Single:
+                    return typeof(float);
+                case DataType.Long:
+                    return typeof(ulong);
+                case DataType.String:
+                    return typeof(string);
+                default:
+                    return typeof(void);
+            }
+        }
 
+        public static DataType GetDataType(Type type)
+        {
+            if (type == typeof(bool))
+            {
+                return DataType.Boolean;
+            }
+            if (type == typeof(uint))
+            {
+                return DataType.Integer;
+            }
+            if (type == typeof(float))
+            {
+                return DataType.Single;
+            }
+            if (type == typeof(ulong))
+            {
+                return DataType.Long;
+            }
+            if (type == typeof(string))
+            {
+                return DataType.String;
+            }
+            return DataType.Long;
         }
 
 
@@ -274,7 +332,7 @@ namespace WildStar.GameTable
 
                 // name
                 var nameLength = reader.ReadBytes(((int)header.NameLength - 1) * 2);
-                Name = Encoding.Unicode.GetString(nameLength);
+                table.TableName = Encoding.Unicode.GetString(nameLength);
 
 
 
@@ -302,8 +360,11 @@ namespace WildStar.GameTable
                     var columnNameBytes = reader.ReadBytes(((int)column.NameLength - 1) * 2);
                     string columnName = Encoding.Unicode.GetString(columnNameBytes);
 
-                    // bla
-                    Columns.Add(new GameTableColumn(columnName, column));
+                    DataColumn c = new DataColumn(columnName);
+                    c.DataType = GetDataType(column.Type);
+                    c.ExtendedProperties.Add(UserDataKey.ColumnUnknown2, column.Unknown2);
+                    c.ExtendedProperties.Add(UserDataKey.ColumnUnknown3, column.Unknown3);
+                    table.Columns.Add(c);
                 }
 
 
@@ -314,26 +375,26 @@ namespace WildStar.GameTable
                 {
                     stream.Position = recordDataOffset + header.RecordSize * i;
 
-                    
-
-                    var values = new List<GameTableValue>();
-                    foreach (GameTableColumn column in Columns)
+                    DataRow row = table.NewRow();
+                    foreach (DataColumn column in table.Columns)
                     {
-                        var value = new GameTableValue(column.Type);
-
-                        switch (column.Type)
+                        switch (GetDataType(column.DataType))
                         {
                             case DataType.Integer:
-                                value.SetValue(reader.ReadUInt32());
+                                uint intVal = reader.ReadUInt32();
+                                row[column.ColumnName] = intVal;
                                 break;
                             case DataType.Single:
-                                value.SetValue(reader.ReadSingle());
+                                float floatVal = reader.ReadSingle();
+                                row[column.ColumnName] = floatVal;
                                 break;
                             case DataType.Boolean:
-                                value.SetValue(Convert.ToBoolean(reader.ReadUInt32()));
+                                bool boolVal = Convert.ToBoolean(reader.ReadUInt32());
+                                row[column.ColumnName] = boolVal;
                                 break;
                             case DataType.Long:
-                                value.SetValue(reader.ReadUInt64());
+                                ulong longVal = reader.ReadUInt64();
+                                row[column.ColumnName] = longVal;
                                 break;
                             case DataType.String:
                             {
@@ -346,11 +407,10 @@ namespace WildStar.GameTable
 
                                 // read string
                                 long position = reader.BaseStream.Position;
-                                reader.BaseStream.Position =
-                                    headerSize + header.RecordOffset + offset3;
+                                reader.BaseStream.Position = headerSize + header.RecordOffset + offset3;
 
-
-                                value.SetValue(reader.ReadWideString());
+                                string stringVal = reader.ReadWideString();
+                                row[column.ColumnName] = stringVal;
 
                                 reader.BaseStream.Position = position;
 
@@ -358,16 +418,9 @@ namespace WildStar.GameTable
                                 break;
                             }
                         }
-
-                        values.Add(value);
                     }
 
-
-
-                    var lol = new GameTableEntry(values);
-                    Entries.Add(lol);
-
-                    
+                    table.Rows.Add(row);
                 }
 
                 // ignore lookup table
