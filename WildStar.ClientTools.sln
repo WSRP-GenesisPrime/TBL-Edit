@@ -7,9 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WildStar.TestBed", "WildSta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TableToolsTests", "TableToolsTests\TableToolsTests.csproj", "{29453DEA-8F21-4F39-966A-CEB187C3E0B1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TableTool", "TableTool\TableTool.csproj", "{A7E2707A-60CA-400C-AE90-AD2A713178D1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EldanToolkit", "EldanToolkit\EldanToolkit.csproj", "{BA6FBD59-AEC5-4CEC-BC41-03B4397C6FE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EldanToolkit", "EldanToolkit\EldanToolkit.csproj", "{BA6FBD59-AEC5-4CEC-BC41-03B4397C6FE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{29453DEA-8F21-4F39-966A-CEB187C3E0B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29453DEA-8F21-4F39-966A-CEB187C3E0B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29453DEA-8F21-4F39-966A-CEB187C3E0B1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A7E2707A-60CA-400C-AE90-AD2A713178D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A7E2707A-60CA-400C-AE90-AD2A713178D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A7E2707A-60CA-400C-AE90-AD2A713178D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A7E2707A-60CA-400C-AE90-AD2A713178D1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA6FBD59-AEC5-4CEC-BC41-03B4397C6FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA6FBD59-AEC5-4CEC-BC41-03B4397C6FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA6FBD59-AEC5-4CEC-BC41-03B4397C6FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU

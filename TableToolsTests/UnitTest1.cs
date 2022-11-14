@@ -27,6 +27,9 @@ namespace TableToolsTests
 
         public static List<string> knownBad = new List<string>()
         {
+            "TelegraphDamage", // Dunno?
+            "VisualEffect",
+            "WorldLocation2",
             "ItemRuneSlotRandomization", // These contain no entries
             "MapZoneLevelBand",
             "MatchingMapPrerequisite",
@@ -71,8 +74,8 @@ namespace TableToolsTests
         public void TestSpecificFile(string tablename, string basepath = "../../../../")
         {
             GameTable table = new GameTable();
-            table.Load(basepath + tablename + ".tbl");
-            table.Save(basepath + tablename + ".tbl");
+            table.Load(basepath + "Tbl/" + tablename + ".tbl");
+            table.Save(basepath + "TblTest/" + tablename + ".tbl");
             FileStream original = new FileStream(basepath + "Tbl/" + tablename + ".tbl", FileMode.Open);
             FileStream written = new FileStream(basepath + "TblTest/" + tablename + ".tbl", FileMode.Open);
             areStreamsEqual(original, written);
