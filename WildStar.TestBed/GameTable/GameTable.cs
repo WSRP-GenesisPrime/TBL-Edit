@@ -11,7 +11,7 @@ using WildStar.TestBed;
 
 namespace WildStar.GameTable
 {
-    public class GameTable : DataTable
+    public class GameTable : WSTable
     {
         public string Name
         {
@@ -101,7 +101,7 @@ namespace WildStar.GameTable
         /// <summary>
         /// 
         /// </summary>
-        public void Save(string path)
+        public override void Save(string path)
         {
             using (FileStream stream = File.OpenWrite(path))
             using (var writer = new BinaryWriter(stream))
@@ -329,7 +329,7 @@ namespace WildStar.GameTable
         /// <summary>
         /// 
         /// </summary>
-        public void Load(string path)
+        public override void Load(string path)
         {
             Rows.Clear();
             Columns.Clear();

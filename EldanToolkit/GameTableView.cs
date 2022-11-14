@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using WildStar.GameTable;
+using WildStar.TestBed;
 using WildStar.TextTable;
 
 namespace EldanToolkit
@@ -7,7 +8,6 @@ namespace EldanToolkit
     public partial class GameTableView : UserControl
     {
         DataTable? table = null;
-        bool isTextTable = false;
         public string path = "C:\\";
         public bool HasFile { get { return table != null; } }
 
@@ -38,31 +38,50 @@ namespace EldanToolkit
             else
             {
                 view.DataSource = table;
-                view.AutoResizeColumns();
             }
         }
 
-        public void LoadTable(string path)
+        protected void SetBusy(bool loading)
         {
-            string ext = Path.GetExtension(path);
-            if (ext.Equals(".bin", StringComparison.OrdinalIgnoreCase))
+            UseWaitCursor = loading;
+            Enabled = !loading;
+            Application.DoEvents();
+        }
+
+        public async void LoadTable(string path)
+        {
+            SetBusy(true);
+            await Task.Run(() =>
             {
-                TextTable table = new TextTable();
-                table.Load(path);
+                string ext = Path.GetExtension(path);
+                WSTable table;
+                if (ext.Equals(".bin", StringComparison.OrdinalIgnoreCase))
+                {
+                    table = new TextTable();
+                    table.Load(path);
+                }
+                else if (ext.Equals(".tbl", StringComparison.OrdinalIgnoreCase))
+                {
+                    table = new GameTable();
+                    table.Load(path);
+                } else
+                {
+                    return;
+                }
                 this.path = path;
-                SetTable(table);
-            }
-            else if (ext.Equals(".tbl", StringComparison.OrdinalIgnoreCase))
-            {
-                GameTable table = new GameTable();
-                table.Load(path);
-                this.path = path;
-                SetTable(table);
-            }
+                Invoke(delegate
+                {
+                    SetTable(table);
+                    SetBusy(false);
+                });
+            });
         }
 
         public void SaveTable(string path)
         {
+            UseWaitCursor = true;
+            Enabled = false;
+            Application.DoEvents();
             if (table == null)
             {
                 return;
@@ -77,6 +96,8 @@ namespace EldanToolkit
                 ((GameTable)table).Save(path);
                 this.path = path;
             }
+            UseWaitCursor = false;
+            Enabled = true;
         }
 
         public string GetLoadFilter()

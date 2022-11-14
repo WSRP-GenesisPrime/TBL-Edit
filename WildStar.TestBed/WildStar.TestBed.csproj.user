@@ -8,5 +8,8 @@
     <Compile Update="TextTable\TextTable.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="WSTable.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

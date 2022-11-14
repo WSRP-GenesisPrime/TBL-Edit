@@ -28,23 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TableView = new System.Windows.Forms.DataGridView();
             this.view = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.TableView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.view)).BeginInit();
             this.SuspendLayout();
-            // 
-            // TableView
-            // 
-            this.TableView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TableView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TableView.Location = new System.Drawing.Point(3, 3);
-            this.TableView.Name = "TableView";
-            this.TableView.RowTemplate.Height = 25;
-            this.TableView.Size = new System.Drawing.Size(394, 394);
-            this.TableView.TabIndex = 0;
             // 
             // view
             // 
@@ -63,18 +49,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.view);
-            this.Controls.Add(this.TableView);
             this.Name = "GameTableView";
             this.Size = new System.Drawing.Size(400, 400);
-            ((System.ComponentModel.ISupportInitialize)(this.TableView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.view)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DataGridView TableView;
         private DataGridView view;
     }
 }

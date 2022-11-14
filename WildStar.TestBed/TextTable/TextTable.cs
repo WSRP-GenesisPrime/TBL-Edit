@@ -11,7 +11,7 @@ using WildStar.TextTable.Static;
 
 namespace WildStar.TextTable
 {
-    public class TextTable : DataTable
+    public class TextTable : WSTable
     {
         public string Name
         {
@@ -82,7 +82,7 @@ namespace WildStar.TextTable
         /// <summary>
         /// 
         /// </summary>
-        public void Load(string path)
+        public override void Load(string path)
         {
             Rows.Clear();
             Columns.Clear();
@@ -139,7 +139,7 @@ namespace WildStar.TextTable
         /// <summary>
         /// 
         /// </summary>
-        public void Save(string path)
+        public override void Save(string path)
         {
             using (FileStream stream = File.OpenWrite(path))
             using (var writer = new BinaryWriter(stream))
