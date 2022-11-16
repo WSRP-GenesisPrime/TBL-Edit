@@ -7,6 +7,12 @@
   </PropertyGroup>
   <ItemGroup />
   <ItemGroup>
+    <Compile Update="ProjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ProjectSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="TableEdit.cs">
       <SubType>Form</SubType>
     </Compile>
