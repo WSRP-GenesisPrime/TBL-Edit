@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace EldanToolkit
+namespace EldanToolkit.Logic
 {
     public class WSProject
     {
@@ -52,7 +52,7 @@ namespace EldanToolkit
 
         public void Load()
         {
-            if(!File.Exists(ProjectFilePath))
+            if (!File.Exists(ProjectFilePath))
                 return;
 
             XmlDocument doc = new XmlDocument();
@@ -61,7 +61,7 @@ namespace EldanToolkit
             XmlNode? patchPathNode = doc.SelectSingleNode("/Settings/PatchPath");
             patchPath = patchPathNode?.InnerText ?? null;
 
-            ProgramSettings.NoteProjectLoaded(ProjectFilePath);
+            ProgramSettings.NoteProjectLoaded(ProjectPath);
         }
     }
 }

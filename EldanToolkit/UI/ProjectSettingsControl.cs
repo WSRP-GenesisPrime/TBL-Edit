@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EldanToolkit.Logic;
 
-namespace EldanToolkit
+namespace EldanToolkit.UI
 {
     public partial class ProjectSettingsControl : UserControl
     {

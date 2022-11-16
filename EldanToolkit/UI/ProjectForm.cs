@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EldanToolkit.ETEvents;
+using EldanToolkit.Logic;
 
-namespace EldanToolkit
+namespace EldanToolkit.UI
 {
     public partial class ProjectForm : Form
     {
@@ -21,9 +23,9 @@ namespace EldanToolkit
         {
             InitializeComponent();
 
-            projectNode = ProjectTree.Nodes.Add("Project Settings");
-            filesNode = ProjectTree.Nodes.Add("Files");
             updateRecentProjects();
+            ResetTreeView();
+            ETEvents.Events.eProjectLoaded += (o, e) => { ResetTreeView(); };
         }
 
         public void updateRecentProjects()
@@ -33,9 +35,20 @@ namespace EldanToolkit
             {
                 ToolStripMenuItem item = new ToolStripMenuItem();
                 item.Text = path;
-                item.Click += (s, e) => { Program.Project = new WSProject(path); };
+                item.Click += (s, e) => { Program.LoadProject(path); };
                 RecentProjectsMenuItem.DropDownItems.Add(item);
             }
+        }
+
+        public void ResetTreeView()
+        {
+            ContentPanel.Controls.Clear();
+            panels.Clear();
+            ProjectTree.Nodes.Clear();
+            projectNode = ProjectTree.Nodes.Add("Project Settings");
+            filesNode = ProjectTree.Nodes.Add("Files");
+
+            ProjectTree.Enabled = (Program.Project != null);
         }
 
         private void ProjectTree_AfterSelect(object sender, TreeViewEventArgs e)
@@ -83,8 +96,8 @@ namespace EldanToolkit
                 fb.InitialDirectory = "C:\\";
                 if (fb.ShowDialog() == DialogResult.OK && Directory.Exists(fb.SelectedPath))
                 {
-                    Program.Project = new WSProject(fb.SelectedPath);
-                    Program.Project.Save();
+                    Program.LoadProject(fb.SelectedPath);
+                    Program.Project?.Save();
                 }
             }
         }
@@ -96,7 +109,7 @@ namespace EldanToolkit
                 fb.InitialDirectory = "C:\\";
                 if (fb.ShowDialog() == DialogResult.OK && Directory.Exists(fb.SelectedPath))
                 {
-                    Program.Project = new WSProject(fb.SelectedPath);
+                    Program.LoadProject(fb.SelectedPath);
                 }
             }
         }

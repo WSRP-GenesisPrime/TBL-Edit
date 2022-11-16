@@ -1,6 +1,6 @@
 using WildStar.GameTable;
 
-namespace EldanToolkit
+namespace EldanToolkit.UI
 {
     public partial class TableEdit : Form
     {

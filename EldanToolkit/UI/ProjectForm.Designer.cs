@@ -1,4 +1,4 @@
-﻿namespace EldanToolkit
+﻿namespace EldanToolkit.UI
 {
     partial class ProjectForm
     {

@@ -3,7 +3,7 @@ using WildStar.GameTable;
 using WildStar.TestBed;
 using WildStar.TextTable;
 
-namespace EldanToolkit
+namespace EldanToolkit.UI
 {
     public partial class GameTableView : UserControl
     {

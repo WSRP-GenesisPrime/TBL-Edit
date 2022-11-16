@@ -7,16 +7,16 @@
   </PropertyGroup>
   <ItemGroup />
   <ItemGroup>
-    <Compile Update="ProjectForm.cs">
+    <Compile Update="UI\ProjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ProjectSettingsControl.cs">
+    <Compile Update="UI\ProjectSettingsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="TableEdit.cs">
+    <Compile Update="UI\TableEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GameTableView.cs">
+    <Compile Update="UI\GameTableView.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

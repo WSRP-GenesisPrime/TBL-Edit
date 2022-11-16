@@ -1,22 +1,15 @@
-namespace EldanToolkit
+using EldanToolkit.UI;
+
+namespace EldanToolkit.Logic
 {
     internal static class Program
     {
-        private static WSProject? project = null;
-        public static WSProject Project
+        public static WSProject? Project { get; set; }
+        public static void LoadProject(string path)
         {
-            get
-            {
-                if(project == null)
-                {
-                    throw new InvalidOperationException("Archive manager not ready!");
-                }
-                return project;
-            }
-            set
-            {
-                project = value;
-            }
+            Project = new WSProject(path);
+
+            ETEvents.Events.ProjectLoaded();
         }
 
         /// <summary>

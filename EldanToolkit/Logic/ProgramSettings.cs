@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace EldanToolkit
+namespace EldanToolkit.Logic
 {
     public static class ProgramSettings
     {
@@ -14,7 +14,7 @@ namespace EldanToolkit
         {
             lastProjects.Remove(path);
             lastProjects.Insert(0, path);
-            if(lastProjects.Count > 10)
+            if (lastProjects.Count > 10)
             {
                 lastProjects.Remove(lastProjects.Last());
             }
@@ -31,7 +31,7 @@ namespace EldanToolkit
 
         public static void Save()
         {
-            if(!Directory.Exists(appDataPath))
+            if (!Directory.Exists(appDataPath))
                 Directory.CreateDirectory(appDataPath);
 
             XmlDocument doc = new XmlDocument();
@@ -61,10 +61,10 @@ namespace EldanToolkit
             doc.Load(appSettingsPath);
 
             XmlNode? lpn = doc.SelectSingleNode("/ProgramSettings/LastProjects");
-            if(lpn != null)
+            if (lpn != null)
             {
                 lastProjects.Clear();
-                foreach(XmlNode p in lpn.ChildNodes)
+                foreach (XmlNode p in lpn.ChildNodes)
                 {
                     lastProjects.Add(p.InnerText);
                 }
