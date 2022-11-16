@@ -60,6 +60,8 @@ namespace EldanToolkit
 
             XmlNode? patchPathNode = doc.SelectSingleNode("/Settings/PatchPath");
             patchPath = patchPathNode?.InnerText ?? null;
+
+            ProgramSettings.NoteProjectLoaded(ProjectFilePath);
         }
     }
 }

@@ -23,6 +23,19 @@ namespace EldanToolkit
 
             projectNode = ProjectTree.Nodes.Add("Project Settings");
             filesNode = ProjectTree.Nodes.Add("Files");
+            updateRecentProjects();
+        }
+
+        public void updateRecentProjects()
+        {
+            RecentProjectsMenuItem.DropDownItems.Clear();
+            foreach (string path in ProgramSettings.getLastProjects())
+            {
+                ToolStripMenuItem item = new ToolStripMenuItem();
+                item.Text = path;
+                item.Click += (s, e) => { Program.Project = new WSProject(path); };
+                RecentProjectsMenuItem.DropDownItems.Add(item);
+            }
         }
 
         private void ProjectTree_AfterSelect(object sender, TreeViewEventArgs e)
