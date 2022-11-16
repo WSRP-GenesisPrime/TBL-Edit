@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EldanToolkit.ETEvents;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace EldanToolkit.Logic
                 lastProjects.Remove(lastProjects.Last());
             }
             Save();
+            Events.RecentProjectsUpdated();
         }
 
         public static IReadOnlyList<string> getLastProjects()

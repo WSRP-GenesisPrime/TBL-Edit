@@ -26,6 +26,7 @@ namespace EldanToolkit.UI
             updateRecentProjects();
             ResetTreeView();
             ETEvents.Events.eProjectLoaded += (o, e) => { ResetTreeView(); };
+            ETEvents.Events.eRecentProjectsUpdated += (o, e) => { updateRecentProjects(); };
         }
 
         public void updateRecentProjects()

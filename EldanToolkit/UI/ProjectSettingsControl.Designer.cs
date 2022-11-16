@@ -42,29 +42,31 @@
             this.ArchivePath.Location = new System.Drawing.Point(3, 3);
             this.ArchivePath.Name = "ArchivePath";
             this.ArchivePath.PlaceholderText = "WS Patch Folder";
-            this.ArchivePath.Size = new System.Drawing.Size(100, 23);
+            this.ArchivePath.Size = new System.Drawing.Size(300, 23);
             this.ArchivePath.TabIndex = 0;
             this.ArchivePath.TextChanged += new System.EventHandler(this.ArchivePath_TextChanged);
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.Controls.Add(this.ArchivePath);
             this.flowLayoutPanel1.Controls.Add(this.ArchivePathBrowse);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(300, 50);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(357, 29);
             this.flowLayoutPanel1.TabIndex = 2;
             this.flowLayoutPanel1.WrapContents = false;
             // 
             // ArchivePathBrowse
             // 
             this.ArchivePathBrowse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ArchivePathBrowse.Location = new System.Drawing.Point(109, 3);
-            this.ArchivePathBrowse.MinimumSize = new System.Drawing.Size(65, 20);
+            this.ArchivePathBrowse.Location = new System.Drawing.Point(309, 3);
+            this.ArchivePathBrowse.MinimumSize = new System.Drawing.Size(45, 20);
             this.ArchivePathBrowse.Name = "ArchivePathBrowse";
-            this.ArchivePathBrowse.Size = new System.Drawing.Size(75, 23);
+            this.ArchivePathBrowse.Size = new System.Drawing.Size(45, 23);
             this.ArchivePathBrowse.TabIndex = 1;
-            this.ArchivePathBrowse.Text = "button1";
+            this.ArchivePathBrowse.Text = "Pick";
             this.ArchivePathBrowse.UseVisualStyleBackColor = true;
             this.ArchivePathBrowse.Click += new System.EventHandler(this.ArchivePathBrowse_Click);
             // 
@@ -88,6 +90,7 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }

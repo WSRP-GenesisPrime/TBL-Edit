@@ -16,11 +16,12 @@ namespace EldanToolkit.UI
         public ProjectSettingsControl()
         {
             InitializeComponent();
+            ArchivePath.Text = Program.Project?.PatchPath ?? "";
         }
 
         private void ArchivePath_TextChanged(object sender, EventArgs e)
         {
-            Program.Project.PatchPath = ArchivePath.Text;
+            Program.Project!.PatchPath = ArchivePath.Text;
             ArchivePath.Text = Program.Project.PatchPath ?? ""; // Will have changed if the path is valid.
         }
 
