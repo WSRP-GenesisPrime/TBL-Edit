@@ -46,10 +46,32 @@ namespace EldanToolkit.UI
             ContentPanel.Controls.Clear();
             panels.Clear();
             ProjectTree.Nodes.Clear();
-            projectNode = ProjectTree.Nodes.Add("Project Settings");
-            filesNode = ProjectTree.Nodes.Add("Files");
 
             ProjectTree.Enabled = (Program.Project != null);
+
+            if (Program.Project != null)
+            {
+                projectNode = ProjectTree.Nodes.Add("Project Settings");
+                filesNode = ProjectTree.Nodes.Add("Files");
+
+                FillFilesNode(".", filesNode);
+            }
+        }
+
+        public void FillFilesNode(string path, TreeNode node)
+        {
+            foreach (string dir in Program.Project!.DirsInDirectory(path))
+            {
+                TreeNode tn = node.Nodes.Add(Path.GetFileName(dir));
+                tn.Tag = dir;
+                tn.ForeColor = Color.DarkGoldenrod;
+                FillFilesNode(dir, tn);
+            }
+            foreach (string file in Program.Project!.FilesInDirectory(path))
+            {
+                TreeNode tn = node.Nodes.Add(Path.GetFileName(file));
+                tn.Tag = file;
+            }
         }
 
         private void ProjectTree_AfterSelect(object sender, TreeViewEventArgs e)

@@ -21,17 +21,48 @@ namespace EldanToolkit.Logic
                 }
             }
         }
-        private string ProjectPath;
+        public string ProjectPath
+        {
+            get; private set;
+        }
 
-        private string ProjectFilePath
+        public string ProjectFilePath
         {
             get => Path.Join(ProjectPath, "Project.xml");
+        }
+
+        public string ProjectWorkingPath
+        {
+            get => Path.Join(ProjectPath, "WorkingFiles");
+        }
+
+        public string ProjectArchivePath
+        {
+            get => Path.Join(ProjectPath, "Archive");
         }
 
         public WSProject(string path)
         {
             ProjectPath = path;
             Load(); // try to load any data in that folder.
+        }
+
+        public IEnumerable<string> FilesInDirectory(string path)
+        {
+            string dir = Path.Join(ProjectWorkingPath, path);
+            if (Directory.Exists(dir))
+                return Directory.EnumerateFiles(dir);
+            else
+                return Enumerable.Empty<string>();
+        }
+
+        public IEnumerable<string> DirsInDirectory(string path)
+        {
+            string dir = Path.Join(ProjectWorkingPath, path);
+            if (Directory.Exists(dir))
+                return Directory.EnumerateDirectories(dir);
+            else
+                return Enumerable.Empty<string>();
         }
 
         public void Save()
