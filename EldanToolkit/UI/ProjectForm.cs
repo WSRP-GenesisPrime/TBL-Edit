@@ -54,7 +54,7 @@ namespace EldanToolkit.UI
                 projectNode = ProjectTree.Nodes.Add("Project Settings");
                 filesNode = ProjectTree.Nodes.Add("Files");
 
-                FillFilesNode(".", filesNode);
+                FillFilesNode("", filesNode);
             }
         }
 
@@ -66,11 +66,6 @@ namespace EldanToolkit.UI
                 tn.Tag = dir;
                 tn.ForeColor = Color.DarkGoldenrod;
                 FillFilesNode(dir, tn);
-            }
-            foreach (string file in Program.Project!.FilesInDirectory(path))
-            {
-                TreeNode tn = node.Nodes.Add(Path.GetFileName(file));
-                tn.Tag = file;
             }
         }
 
