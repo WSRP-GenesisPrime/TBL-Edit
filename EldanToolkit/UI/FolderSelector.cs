@@ -21,7 +21,22 @@ namespace EldanToolkit.UI
             OnSelectionChanged?.Invoke(this, EventArgs.Empty);
         }
 
+        TreeNode? projectNode;
+        TreeNode? filesNode;
+
         public string? selectedFolder
+        {
+            get; private set;
+        }
+
+        public enum SelectionType
+        {
+            Folder,
+            ProjectSettings,
+            None
+        }
+
+        public SelectionType selectionType
         {
             get; private set;
         }
@@ -40,16 +55,31 @@ namespace EldanToolkit.UI
             Nodes.Clear();
 
             Enabled = (Program.Project != null);
+            projectNode = Nodes.Add("Project Settings");
+            filesNode = Nodes.Add("Files");
 
             if (Program.Project != null)
             {
-                FillFilesNode("", Nodes);
+                FillFilesNode("", filesNode.Nodes);
             }
         }
 
         private void ProjectTree_AfterSelect(object? sender, TreeViewEventArgs e)
         {
             selectedFolder = (string?) e.Node?.Tag;
+            selectionType = SelectionType.None;
+            if(e.Node == projectNode)
+            {
+                selectionType = SelectionType.ProjectSettings;
+            }
+            if(e.Node == filesNode)
+            {
+                selectionType = SelectionType.None;
+            }
+            if(selectedFolder != null)
+            {
+                selectionType = SelectionType.Folder;
+            }
             SelectionChanged();
         }
 

@@ -14,19 +14,21 @@ namespace EldanToolkit.UI
 {
     public partial class ProjectForm : Form
     {
-        TreeNode? projectNode;
-        TreeNode? filesNode;
-
-        Dictionary<TreeNode, Control> panels = new Dictionary<TreeNode, Control>();
+        FolderSelector folderSelector;
 
         public ProjectForm()
         {
             InitializeComponent();
 
             updateRecentProjects();
-            ResetTreeView();
             ETEvents.Events.eProjectLoaded += (o, e) => { ResetTreeView(); };
             ETEvents.Events.eRecentProjectsUpdated += (o, e) => { updateRecentProjects(); };
+
+            folderSelector = new FolderSelector();
+            SplitContainer.Panel1.Controls.Add(folderSelector);
+            folderSelector.OnSelectionChanged += SelectionChanged;
+            folderSelector.Dock = DockStyle.Fill;
+            ResetTreeView();
         }
 
         public void updateRecentProjects()
@@ -44,70 +46,29 @@ namespace EldanToolkit.UI
         public void ResetTreeView()
         {
             ContentPanel.Controls.Clear();
-            panels.Clear();
-            ProjectTree.Nodes.Clear();
-
-            ProjectTree.Enabled = (Program.Project != null);
-
-            if (Program.Project != null)
-            {
-                projectNode = ProjectTree.Nodes.Add("Project Settings");
-                filesNode = ProjectTree.Nodes.Add("Files");
-
-                FillFilesNode("", filesNode);
-            }
+            folderSelector.ResetTreeView();
         }
 
-        public void FillFilesNode(string path, TreeNode node)
+        private void SelectionChanged(object? sender, EventArgs e)
         {
-            foreach (string dir in Program.Project!.DirsInDirectory(path))
-            {
-                TreeNode tn = node.Nodes.Add(Path.GetFileName(dir));
-                tn.Tag = dir;
-                tn.ForeColor = Color.DarkGoldenrod;
-                FillFilesNode(dir, tn);
-            }
+            ContentPanel.Controls.Clear();
+
+            Control? newControl = MakeControl();
+            ContentPanel.Controls.Add(newControl);
         }
 
-        private void ProjectTree_AfterSelect(object sender, TreeViewEventArgs e)
+        private Control? MakeControl()
         {
-            Control? enabledControl = null;
-            if (e.Node != null)
+            switch (folderSelector.selectionType)
             {
-                panels.TryGetValue(e.Node, out enabledControl);
-            }
-
-            foreach(Control control in panels.Values)
-            {
-                control.Visible = (control == enabledControl);
-            }
-
-            if(e.Node != null && enabledControl == null)
-            {
-                Control? newControl = MakeControl(e.Node);
-                if(newControl != null)
-                {
-                    panels.Add(e.Node, newControl);
-                    ContentPanel.Controls.Add(newControl);
-                    newControl.Visible = true;
-                }
+                case FolderSelector.SelectionType.ProjectSettings:
+                    return new ProjectSettingsControl();
+                default:
+                    return null;
             }
         }
 
-        private Control? MakeControl(TreeNode node)
-        {
-            if(node == projectNode)
-            {
-                return new ProjectSettingsControl();
-            }
-            if(node == filesNode)
-            {
-                return null;
-            }
-            return null;
-        }
-
-        private void newProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        private void newProjectToolStripMenuItem_Click(object? sender, EventArgs e)
         {
             using (FolderBrowserDialog fb = new FolderBrowserDialog())
             {
@@ -120,7 +81,7 @@ namespace EldanToolkit.UI
             }
         }
 
-        private void openProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openProjectToolStripMenuItem_Click(object? sender, EventArgs e)
         {
             using (FolderBrowserDialog fb = new FolderBrowserDialog())
             {
@@ -132,7 +93,7 @@ namespace EldanToolkit.UI
             }
         }
 
-        private void saveProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        private void saveProjectToolStripMenuItem_Click(object? sender, EventArgs e)
         {
             Program.Project?.Save();
         }
