@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WildStar.TestBed\WildStar.TestBed.csproj" />
+    <ProjectReference Include="..\WildStar.TestBed\Wildstar.Table.csproj" />
   </ItemGroup>
 
 </Project>

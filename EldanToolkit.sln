@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WildStar.TestBed", "WildStar.TestBed\WildStar.TestBed.csproj", "{42DB0504-2DB6-480D-9B83-AA62AF8914DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wildstar.Table", "WildStar.TestBed\Wildstar.Table.csproj", "{42DB0504-2DB6-480D-9B83-AA62AF8914DB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TableToolsTests", "TableToolsTests\TableToolsTests.csproj", "{29453DEA-8F21-4F39-966A-CEB187C3E0B1}"
 EndProject

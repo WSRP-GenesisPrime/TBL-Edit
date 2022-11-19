@@ -7,6 +7,9 @@
   </PropertyGroup>
   <ItemGroup />
   <ItemGroup>
+    <Compile Update="UI\FolderSelector.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="UI\ProjectForm.cs">
       <SubType>Form</SubType>
     </Compile>

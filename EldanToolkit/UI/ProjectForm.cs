@@ -14,8 +14,8 @@ namespace EldanToolkit.UI
 {
     public partial class ProjectForm : Form
     {
-        TreeNode projectNode;
-        TreeNode filesNode;
+        TreeNode? projectNode;
+        TreeNode? filesNode;
 
         Dictionary<TreeNode, Control> panels = new Dictionary<TreeNode, Control>();
 
