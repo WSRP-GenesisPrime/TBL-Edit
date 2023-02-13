@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TableToolsTests", "TableToo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EldanToolkit", "EldanToolkit\EldanToolkit.csproj", "{BA6FBD59-AEC5-4CEC-BC41-03B4397C6FE4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TableTool", "TableTool\TableTool.csproj", "{4DC608E2-3F7C-4BF4-97AE-F4AE2D15E3C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{BA6FBD59-AEC5-4CEC-BC41-03B4397C6FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA6FBD59-AEC5-4CEC-BC41-03B4397C6FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA6FBD59-AEC5-4CEC-BC41-03B4397C6FE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DC608E2-3F7C-4BF4-97AE-F4AE2D15E3C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DC608E2-3F7C-4BF4-97AE-F4AE2D15E3C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DC608E2-3F7C-4BF4-97AE-F4AE2D15E3C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DC608E2-3F7C-4BF4-97AE-F4AE2D15E3C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

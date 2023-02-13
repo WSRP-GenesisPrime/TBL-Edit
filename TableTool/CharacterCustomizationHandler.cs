@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using WildStar.GameTable;
 
@@ -11,8 +12,8 @@ namespace WildStar.TableTool
         protected Table characterCustomizationLabelTable = null;
         protected Table characterCustomizationSelectionTable = null;
 
-        protected Dictionary<(uint, uint), GameTableEntry> selectionMap = null;
-        protected Dictionary<(uint, uint), List<GameTableEntry>> customizationsByRaceGender = null;
+        protected Dictionary<(uint, uint), DataRow> selectionMap = null;
+        protected Dictionary<(uint, uint), List<DataRow>> customizationsByRaceGender = null;
 
         public void Load(Table characterCustomizationTable, Table characterCustomizationLabelTable, Table characterCustomizationSelectionTable)
         {
@@ -27,25 +28,25 @@ namespace WildStar.TableTool
 
         public void buildSelectionMap()
         {
-            selectionMap = new Dictionary<(uint, uint), GameTableEntry>();
-            foreach (var entry in characterCustomizationSelectionTable.table.Entries)
+            selectionMap = new Dictionary<(uint, uint), DataRow>();
+            foreach (DataRow entry in characterCustomizationSelectionTable.table.Rows)
             {
-                uint label = entry.Values[1].GetValue<uint>();
-                uint value = entry.Values[2].GetValue<uint>();
+                uint label = (uint)entry[1];
+                uint value = (uint)entry[2];
                 selectionMap.TryAdd((label, value), entry);
             }
         }
 
         public void buildCustomizationsByRaceGenderMap()
         {
-            customizationsByRaceGender = new Dictionary<(uint, uint), List<GameTableEntry>>();
-            foreach (var entry in characterCustomizationTable.table.Entries)
+            customizationsByRaceGender = new Dictionary<(uint, uint), List<DataRow>>();
+            foreach (DataRow entry in characterCustomizationTable.table.Rows)
             {
-                uint race = entry.Values[1].GetValue<uint>();
-                uint gender = entry.Values[2].GetValue<uint>();
-                if (!customizationsByRaceGender.TryGetValue((race, gender), out List<GameTableEntry> entries))
+                uint race = (uint)entry[1];
+                uint gender = (uint)entry[2];
+                if (!customizationsByRaceGender.TryGetValue((race, gender), out List<DataRow> entries))
                 {
-                    entries = new List<GameTableEntry>();
+                    entries = new List<DataRow>();
                     customizationsByRaceGender.Add((race, gender), entries);
                 }
                 entries.Add(entry);
@@ -56,12 +57,10 @@ namespace WildStar.TableTool
         {
             if (!selectionMap.ContainsKey((label, value)))
             {
-                GameTableEntry entry = new GameTableEntry();
-                entry.AddInteger(label);
-                entry.AddInteger(value);
-                entry.Values.Add(new GameTableValue(GameTable.Static.DataType.Long));
-                entry.Values[2].SetValue(644245094400000ul);
-                characterCustomizationSelectionTable.AddEntry(entry, characterCustomizationSelectionTable.nextEntry);
+                DataRow entry = characterCustomizationSelectionTable.NewEntry(characterCustomizationSelectionTable.nextEntry);
+                entry[1] = label;
+                entry[2] = value;
+                entry[3] = 644245094400000ul;
                 selectionMap.Add((label, value), entry);
             }
         }
@@ -74,7 +73,7 @@ namespace WildStar.TableTool
             }
         }
 
-        public void MoveEntriesToLabel(IEnumerable<GameTableEntry> list, uint oldLabel, uint newLabel)
+        public void MoveEntriesToLabel(IEnumerable<DataRow> list, uint oldLabel, uint newLabel)
         {
             bool found = true;
             while (found)
@@ -85,10 +84,10 @@ namespace WildStar.TableTool
 
                 foreach (var entry in list)
                 {
-                    uint label1 = entry.Values[6].GetValue<uint>();
-                    uint label2 = entry.Values[7].GetValue<uint>();
-                    uint labelValue1 = entry.Values[8].GetValue<uint>();
-                    uint labelValue2 = entry.Values[9].GetValue<uint>();
+                    uint label1 = (uint)entry[6];
+                    uint label2 = (uint)entry[7];
+                    uint labelValue1 = (uint)entry[8];
+                    uint labelValue2 = (uint)entry[9];
 
                     if (label1 == oldLabel)
                     {
@@ -115,19 +114,19 @@ namespace WildStar.TableTool
             }
         }
 
-        private void MoveEntriesToLabel(IEnumerable<GameTableEntry> list, uint matchedLabel, uint matchedLabelValue, uint newLabel)
+        private void MoveEntriesToLabel(IEnumerable<DataRow> list, uint matchedLabel, uint matchedLabelValue, uint newLabel)
         {
             // Find free labelValue
             HashSet<uint> usedValues = new HashSet<uint>();
             foreach (var entry in list)
             {
-                if (entry.Values[6].GetValue<uint>() == newLabel)
+                if ((uint)entry[6] == newLabel)
                 {
-                    usedValues.Add(entry.Values[8].GetValue<uint>());
+                    usedValues.Add((uint)entry[8]);
                 }
-                if (entry.Values[7].GetValue<uint>() == newLabel)
+                if ((uint)entry[7] == newLabel)
                 {
-                    usedValues.Add(entry.Values[9].GetValue<uint>());
+                    usedValues.Add((uint)entry[9]);
                 }
             }
             uint newValue = 0;
@@ -139,25 +138,25 @@ namespace WildStar.TableTool
 
             foreach (var entry in list)
             {
-                uint label1 = entry.Values[6].GetValue<uint>();
-                uint label2 = entry.Values[7].GetValue<uint>();
-                uint labelValue1 = entry.Values[8].GetValue<uint>();
-                uint labelValue2 = entry.Values[9].GetValue<uint>();
+                uint label1 = (uint)entry[6];
+                uint label2 = (uint)entry[7];
+                uint labelValue1 = (uint)entry[8];
+                uint labelValue2 = (uint)entry[9];
 
                 if (label1 == matchedLabel)
                 {
                     if (labelValue1 == matchedLabelValue)
                     {
-                        entry.Values[6].SetValue(newLabel);
-                        entry.Values[8].SetValue(newValue);
+                        entry[6] = newLabel;
+                        entry[8] = newValue;
                     }
                 }
                 else if (label2 == matchedLabel)
                 {
                     if (labelValue2 == matchedLabelValue)
                     {
-                        entry.Values[7].SetValue(newLabel);
-                        entry.Values[9].SetValue(newValue);
+                        entry[7] = newLabel;
+                        entry[9] = newValue;
                     }
                 }
                 else
@@ -177,13 +176,13 @@ namespace WildStar.TableTool
             HashSet<uint> usedValues = new HashSet<uint>();
             foreach (var entry in list)
             {
-                if (entry.Values[6].GetValue<uint>() == label)
+                if ((uint)entry[6] == label)
                 {
-                    usedValues.Add(entry.Values[8].GetValue<uint>());
+                    usedValues.Add((uint)entry[8]);
                 }
-                if (entry.Values[7].GetValue<uint>() == label)
+                if ((uint)entry[7] == label)
                 {
-                    usedValues.Add(entry.Values[9].GetValue<uint>());
+                    usedValues.Add((uint)entry[9]);
                 }
             }
             uint newValue = 1;
@@ -203,13 +202,13 @@ namespace WildStar.TableTool
             }
             foreach (var entry in list)
             {
-                if (entry.Values[6].GetValue<uint>() == label)
+                if ((uint)entry[6] == label)
                 {
-                    if (entry.Values[8].GetValue<uint>() == labelValue) return false;
+                    if ((uint)entry[8] == labelValue) return false;
                 }
-                if (entry.Values[7].GetValue<uint>() == label)
+                if ((uint)entry[7] == label)
                 {
-                    if (entry.Values[9].GetValue<uint>() == labelValue) return false;
+                    if ((uint)entry[9] == labelValue) return false;
                 }
             }
             return true;
@@ -241,10 +240,10 @@ namespace WildStar.TableTool
             for(int i = 0; i < list.Count; ++i)
             {
                 var entry = list[i];
-                uint label1 = entry.Values[6].GetValue<uint>();
-                uint label2 = entry.Values[7].GetValue<uint>();
-                uint labelValue1 = entry.Values[8].GetValue<uint>();
-                uint labelValue2 = entry.Values[9].GetValue<uint>();
+                uint label1 = (uint)entry[6];
+                uint label2 = (uint)entry[7];
+                uint labelValue1 = (uint)entry[8];
+                uint labelValue2 = (uint)entry[9];
                 int offset = 0;
                 bool found = false;
 
@@ -283,7 +282,7 @@ namespace WildStar.TableTool
 
         public void AddBodyType(Table itemDisplay, uint itemDisplayIDToCopy, uint modelPoseID, float modelPoseBlend, uint bodyTypeToCopy, uint newLabelValue = 0, uint newItemDisplayID = 0)
         {
-            GameTableEntry entryToCopy = itemDisplay.GetEntry(itemDisplayIDToCopy);
+            DataRow entryToCopy = itemDisplay.GetEntry(itemDisplayIDToCopy);
             uint itemDisplayID = MakeBodyTypeItemDisplay(itemDisplay, entryToCopy, modelPoseID, modelPoseBlend, newItemDisplayID);
             uint[] races = { 1, 3, 4, 5, 12, 13, 16 };
             foreach (uint race in races)
@@ -318,10 +317,10 @@ namespace WildStar.TableTool
             for (int i = 0; i < list.Count; ++i)
             {
                 var entry = list[i];
-                uint label1 = entry.Values[6].GetValue<uint>();
-                uint label2 = entry.Values[7].GetValue<uint>();
-                uint labelValue1 = entry.Values[8].GetValue<uint>();
-                uint labelValue2 = entry.Values[9].GetValue<uint>();
+                uint label1 = (uint)entry[6];
+                uint label2 = (uint)entry[7];
+                uint labelValue1 = (uint)entry[8];
+                uint labelValue2 = (uint)entry[9];
                 int offset = 0;
                 bool found = false;
 
@@ -350,35 +349,29 @@ namespace WildStar.TableTool
             }
         }
 
-        private GameTableEntry MakeColourOption(Table itemDisplay, GameTableEntry entryToCopy, uint colourID, int offset, uint newLabelValue, uint displayID)
+        private DataRow MakeColourOption(Table itemDisplay, DataRow entryToCopy, uint colourID, int offset, uint newLabelValue, uint displayID)
         {
-            uint itemDisplayID = entryToCopy.Values[4].GetValue<uint>();
-            GameTableEntry ide = itemDisplay.CopyEntry(itemDisplayID);
-            ide.Values[38].SetValue(colourID);
-            ide.Values.RemoveAt(0);
-            uint newDisplayID = itemDisplay.AddEntry(ide, displayID);
+            uint copyID = (uint)entryToCopy[4];
+            DataRow ide = itemDisplay.CopyEntry(copyID, displayID);
+            ide[38] = colourID;
 
-            return MakeCustomizationOptionFromDisplayID(newDisplayID, entryToCopy, offset, newLabelValue);
+            return MakeCustomizationOptionFromDisplayID(displayID, entryToCopy, offset, newLabelValue);
         }
 
-        private uint MakeBodyTypeItemDisplay(Table itemDisplay, GameTableEntry entryToCopy, uint modelPoseID, float modelPoseBlend, uint displayID)
+        private uint MakeBodyTypeItemDisplay(Table itemDisplay, DataRow entryToCopy, uint modelPoseID, float modelPoseBlend, uint displayID)
         {
-            GameTableEntry ide = Table.CopyEntry(entryToCopy);
-            ide.Values[40].SetValue(modelPoseID);
-            ide.Values[41].SetValue(modelPoseBlend);
-            ide.Values.RemoveAt(0);
-            uint newDisplayID = itemDisplay.AddEntry(ide, displayID);
+            DataRow ide = itemDisplay.CopyEntry(entryToCopy, displayID);
+            ide[40] = modelPoseID;
+            ide[41] = modelPoseBlend;
 
-            return newDisplayID;
+            return displayID;
         }
 
-        private GameTableEntry MakeCustomizationOptionFromDisplayID(uint newDisplayID, GameTableEntry entryToCopy, int offset, uint newLabelValue)
+        private DataRow MakeCustomizationOptionFromDisplayID(uint newDisplayID, DataRow entryToCopy, int offset, uint newLabelValue)
         {
-            GameTableEntry e = Table.CopyEntry(entryToCopy);
-            e.Values[8 + offset].SetValue(newLabelValue);
-            e.Values[4].SetValue(newDisplayID);
-            e.Values.RemoveAt(0);
-            characterCustomizationTable.AddEntry(e, characterCustomizationTable.nextEntry);
+            DataRow e = characterCustomizationTable.CopyEntry(entryToCopy, characterCustomizationTable.nextEntry);
+            e[8 + offset] = newLabelValue;
+            e[4] = newDisplayID;
             return e;
         }
     }

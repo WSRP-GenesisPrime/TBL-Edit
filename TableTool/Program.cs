@@ -1,6 +1,7 @@
 ﻿using NLog;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -78,10 +79,10 @@ namespace WildStar.TableTool
 
             // Unlock all skies/grounds/musics.
 
-            foreach (var entry in wallpaperInfo.table.Entries)
+            foreach (DataRow entry in wallpaperInfo.table.Rows)
             {
-                entry.Values[7].SetValue(0u);
-                entry.Values[8].SetValue(0u);
+                entry[7] = 0u;
+                entry[8] = 0u;
             }
 
             // Update existing NPC decor with gizmo
@@ -92,7 +93,7 @@ namespace WildStar.TableTool
             foreach (uint decorInfoId in vanillaNPCDecor)
             {
                 var entry = decorInfo.GetEntry(decorInfoId);
-                entry.Values[13].SetValue("Art\\FX\\Housing\\Decor_FXPlacer\\Decor_FXPlacer_000.m3"); // altEditAsset
+                entry[13] = "Art\\FX\\Housing\\Decor_FXPlacer\\Decor_FXPlacer_000.m3"; // altEditAsset
             }
 
             foreach (var table in tables)
@@ -6977,9 +6978,9 @@ namespace WildStar.TableTool
 
             file.Add("ID,Text");
 
-            foreach (var entry in language.Entries)
+            foreach (DataRow entry in language.Rows)
             {
-                file.Add($"\"{entry.Id}\",\"{entry.Text.Replace("\"", "\"\"")}\"");
+                file.Add($"\"{(uint)entry[0]}\",\"{((string)entry[1]).Replace("\"", "\"\"")}\"");
             }
             File.WriteAllLines("../../../../Strings.csv", file);
         }
@@ -7056,33 +7057,29 @@ namespace WildStar.TableTool
             uint itemDisplayStartId = itemDisplay.GetMaxID();
 
             // Create chest entry
-            var  itemDisplayEntry_Top = itemDisplay.CopyEntry(8669); // copy swimsuit top display
-            itemDisplayEntry_Top.Values.RemoveAt(0);
-            uint itemDisplayEntryId_Top = itemDisplay.AddEntry(itemDisplayEntry_Top, itemDisplayStartId+1);
+            uint itemDisplayEntryId_Top = itemDisplayStartId + 1;
+            var  itemDisplayEntry_Top = itemDisplay.CopyEntry(8669, itemDisplayEntryId_Top); // copy swimsuit top display
             itemDisplayStartId++;
 
-            var item2Entry_Top = item2.CopyEntry(44791); // copy arcane chest item
-            item2Entry_Top.Values[10].SetValue(itemDisplayEntryId_Top);
-            item2Entry_Top.Values[44].SetValue(language.AddEntry("(NSFWS) Emperor's Shirt"));
-            item2Entry_Top.Values.RemoveAt(0);
-            uint item2EntryId_Top = item2.AddEntry(item2Entry_Top, startItem2Id + 1);
+            uint item2EntryId_Top = startItem2Id + 1;
+            var item2Entry_Top = item2.CopyEntry(44791, item2EntryId_Top); // copy arcane chest item
+            item2Entry_Top[10] = itemDisplayEntryId_Top;
+            item2Entry_Top[44] = language.AddEntry("(NSFWS) Emperor's Shirt");
             startItem2Id++;
 
             NsfwsItemId_Top = item2EntryId_Top;
             NsfwsItemDisplayId_Top = itemDisplayEntryId_Top;
-            
+
 
             // Create pants entry
-            var itemDisplayEntry_Bottom = itemDisplay.CopyEntry(8663); // copy swimsuit bottom display
-            itemDisplayEntry_Bottom.Values.RemoveAt(0);
-            uint itemDisplayEntryId_Bottom = itemDisplay.AddEntry(itemDisplayEntry_Bottom, itemDisplayStartId+1);
+            uint itemDisplayEntryId_Bottom = itemDisplayStartId + 1;
+            var itemDisplayEntry_Bottom = itemDisplay.CopyEntry(8663, itemDisplayEntryId_Bottom); // copy swimsuit bottom display
             itemDisplayStartId++;
 
-            var item2Entry_Bottom = item2.CopyEntry(44792); // copy arcane pants item
-            item2Entry_Bottom.Values[10].SetValue(itemDisplayEntryId_Bottom);
-            item2Entry_Bottom.Values[44].SetValue(language.AddEntry("(NSFWS) Emperor's Pants"));
-            item2Entry_Bottom.Values.RemoveAt(0);
-            uint item2EntryId_Bottom = item2.AddEntry(item2Entry_Bottom, startItem2Id + 1);
+            uint item2EntryId_Bottom = startItem2Id + 1;
+            var item2Entry_Bottom = item2.CopyEntry(44792, item2EntryId_Bottom); // copy arcane pants item
+            item2Entry_Bottom[10] = itemDisplayEntryId_Bottom;
+            item2Entry_Bottom[44] = language.AddEntry("(NSFWS) Emperor's Pants");
             startItem2Id++;
 
             NsfwsItemId_Bottom = item2EntryId_Bottom;
@@ -7092,20 +7089,18 @@ namespace WildStar.TableTool
 
             //Create OutfitInfo Entry
             uint startCreature2OutfitInfoId = creature2OutfitInfo.GetMaxID();
-            var outfitInfoEntry = creature2OutfitInfo.CopyEntry(8572);
-            outfitInfoEntry.Values[1].SetValue(NsfwsItemDisplayId_Top);
-            outfitInfoEntry.Values[2].SetValue(NsfwsItemDisplayId_Bottom);
-            outfitInfoEntry.Values.RemoveAt(0);
-            uint NsfwsOutfitInfoId = creature2OutfitInfo.AddEntry(outfitInfoEntry, startCreature2OutfitInfoId + 1);
+            uint NsfwsOutfitInfoId = startCreature2OutfitInfoId + 1;
+            var outfitInfoEntry = creature2OutfitInfo.CopyEntry(8572, NsfwsOutfitInfoId);
+            outfitInfoEntry[1] = NsfwsItemDisplayId_Top;
+            outfitInfoEntry[2] = NsfwsItemDisplayId_Bottom;
             startCreature2OutfitInfoId++;
 
             //Create OutfitGroup entry
             uint startOutfitGroupId = creature2OutfitGroupEntry.GetMaxID();
-            var outfitGroupEntry = creature2OutfitGroupEntry.CopyEntry(9267);
-            outfitGroupEntry.Values[1].SetValue(startOutfitGroupId + 1);
-            outfitGroupEntry.Values[2].SetValue(NsfwsOutfitInfoId);
-            outfitGroupEntry.Values.RemoveAt(0);
-            uint NsfwsOutfitGroupId = creature2OutfitGroupEntry.AddEntry(outfitGroupEntry, startOutfitGroupId + 1);
+            uint NsfwsOutfitGroupId = startOutfitGroupId + 1;
+            var outfitGroupEntry = creature2OutfitGroupEntry.CopyEntry(9267, NsfwsOutfitGroupId);
+            outfitGroupEntry[1] = startOutfitGroupId + 1;
+            outfitGroupEntry[2] = NsfwsOutfitInfoId;
             startOutfitGroupId++;
 
             Console.WriteLine("NsfwsOutfitInfoId = " + NsfwsOutfitInfoId + "  NsfwsOutfitGroupId = " + NsfwsOutfitGroupId);
@@ -7116,23 +7111,23 @@ namespace WildStar.TableTool
         {
             // change chest display entry
             var itemDisplayEntry_Top = itemDisplay.GetEntry(NsfwsItemDisplayId_Top);
-            itemDisplayEntry_Top.Values[14].SetValue(0u);
-            itemDisplayEntry_Top.Values[16].SetValue(0u);
-            itemDisplayEntry_Top.Values[19].SetValue(0u);
-            itemDisplayEntry_Top.Values[20].SetValue(0u);
-            itemDisplayEntry_Top.Values[23].SetValue("");
-            itemDisplayEntry_Top.Values[24].SetValue("");
-            itemDisplayEntry_Top.Values[42].SetValue(0u);
+            itemDisplayEntry_Top[14] = 0u;
+            itemDisplayEntry_Top[16] = 0u;
+            itemDisplayEntry_Top[19] = 0u;
+            itemDisplayEntry_Top[20] = 0u;
+            itemDisplayEntry_Top[23] = "";
+            itemDisplayEntry_Top[24] = "";
+            itemDisplayEntry_Top[42] = 0u;
 
             // change pants display entry
             var itemDisplayEntry_Bottom = itemDisplay.GetEntry(NsfwsItemDisplayId_Bottom);
-            itemDisplayEntry_Bottom.Values[14].SetValue(0u);
-            itemDisplayEntry_Bottom.Values[16].SetValue(0u);
-            itemDisplayEntry_Bottom.Values[19].SetValue(0u);
-            itemDisplayEntry_Bottom.Values[20].SetValue(0u);
-            itemDisplayEntry_Bottom.Values[23].SetValue("");
-            itemDisplayEntry_Bottom.Values[24].SetValue("");
-            itemDisplayEntry_Bottom.Values[42].SetValue(0u);
+            itemDisplayEntry_Bottom[14] = 0u;
+            itemDisplayEntry_Bottom[16] = 0u;
+            itemDisplayEntry_Bottom[19] = 0u;
+            itemDisplayEntry_Bottom[20] = 0u;
+            itemDisplayEntry_Bottom[23] = "";
+            itemDisplayEntry_Bottom[24] = "";
+            itemDisplayEntry_Bottom[42] = 0u;
 
             return startItem2Id;
         }
@@ -7193,34 +7188,34 @@ namespace WildStar.TableTool
                 { 101, ("wounded4", null) }
             };
 
-            foreach (var entry in emotes.table.Entries)
+            foreach (DataRow entry in emotes.table.Rows)
             {
-                uint id = (uint)entry.Values[0].Value;
+                uint id = (uint)entry[0];
                 if (EmoteLibrary.TryGetValue(id, out var tuple))
                 {
-                    entry.Values[24].SetValue(tuple.Item1 ?? "");
-                    entry.Values[25].SetValue(tuple.Item2 ?? "");
+                    entry[24] = tuple.Item1 ?? "";
+                    entry[25] = tuple.Item2 ?? "";
                 }
             }
         }
 
         static void HousingPlugUnlocks()
         {
-            foreach (var entry in housingPlugItem.table.Entries)
+            foreach (DataRow entry in housingPlugItem.table.Rows)
             {
-                uint id = (uint)entry.Values[0].Value;
+                uint id = (uint)entry[0];
                 /*if(id == 557)
                 {*/
-                entry.Values[14].SetValue((uint)0);
-                entry.Values[15].SetValue((uint)0);
-                entry.Values[16].SetValue((uint)0);
+                entry[14] = (uint)0;
+                entry[15] = (uint)0;
+                entry[16] = (uint)0;
 
-                entry.Values[23].SetValue((uint)0);
+                entry[23] = (uint)0;
 
-                entry.Values[27].SetValue((uint)0);
-                entry.Values[28].SetValue((uint)0);
-                entry.Values[29].SetValue((uint)0);
-                entry.Values[30].SetValue((uint)0);
+                entry[27] = (uint)0;
+                entry[28] = (uint)0;
+                entry[29] = (uint)0;
+                entry[30] = (uint)0;
                 // flags is 8
                 //}
             }
@@ -7240,7 +7235,7 @@ namespace WildStar.TableTool
             cch.MoveEntriesToLabel(1, -1, 19, 5);
 
             cch.MoveEntriesToLabel(1, -1, 16, 15);
-            characterCustomizationLabel.GetEntry(15).Values[2].SetValue(0u);
+            characterCustomizationLabel.GetEntry(15)[2] = 0u;
         }
 
         static void CharacterCustomizationChanges()
@@ -7451,10 +7446,10 @@ namespace WildStar.TableTool
             };
             foreach (var row in newDyeColorRamps)
             {
-                uint newColorId = AddDyeColorRamp(row.Item1, 2, row.Item3, row.Item2, 1f, 0, 0);
+                AddDyeColorRamp(row.Item1, 2, row.Item3, row.Item2, 1f, 0, 0);
                 startItemColorSetId += 1;
-                uint newItemColorSetId = AddItemColorSet(startItemColorSetId, newColorId);
-                Console.WriteLine(row.Item3 + " newDyeRampColorId = " + newColorId + " newItemColorSetId = " + newItemColorSetId);
+                uint newItemColorSetId = AddItemColorSet(startItemColorSetId, row.Item1);
+                Console.WriteLine(row.Item3 + " newDyeRampColorId = " + row.Item1 + " newItemColorSetId = " + newItemColorSetId);
             }
             startDyeColorRampId += 35;
 
@@ -7741,12 +7736,10 @@ namespace WildStar.TableTool
             };
             foreach (var id in list)
             {
-                var entry = item2.CopyEntry(74762);
-                entry.Values[12].SetValue(0u);
-                entry.Values[10].SetValue(id.Item1);
-                entry.Values[44].SetValue(language.AddEntry(id.Item3));
-                entry.Values.RemoveAt(0);
-                item2.AddEntry(entry, id.Item2);
+                var entry = item2.CopyEntry(74762, id.Item2);
+                entry[12] = 0u;
+                entry[10] = id.Item1;
+                entry[44] = language.AddEntry(id.Item3);
             }
             return startID;
         }
@@ -7775,28 +7768,22 @@ namespace WildStar.TableTool
             };
             foreach (var row in ridingPumera) {
                 // Create Display Info
-                var displayInfoEntry = creature2DisplayInfo.CopyEntry(38342); // Copy generic Grey Pumera mount display info
-                displayInfoEntry.Values[3].SetValue(row.Item1); //switch assetTexture00 to the given texture path
-                displayInfoEntry.Values.RemoveAt(0);
-                creature2DisplayInfo.AddEntry(displayInfoEntry, row.Item6);
+                var displayInfoEntry = creature2DisplayInfo.CopyEntry(38342, row.Item6); // Copy generic Grey Pumera mount display info
+                displayInfoEntry[3] = row.Item1; //switch assetTexture00 to the given texture path
 
 
                 // Create Display Group Entry
-                var displayGroupEntry = creature2DisplayGroupEntry.CopyEntry(44325); // Copy generic Grey Pumera mount display group entry
-                displayGroupEntry.Values[1].SetValue(row.Item4); //creature2DisplayGroupId
-                displayGroupEntry.Values[2].SetValue(row.Item6); //creature2DisplayInfoId
-                displayGroupEntry.Values.RemoveAt(0);
-                creature2DisplayGroupEntry.AddEntry(displayGroupEntry, row.Item5);
+                var displayGroupEntry = creature2DisplayGroupEntry.CopyEntry(44325, row.Item5); // Copy generic Grey Pumera mount display group entry
+                displayGroupEntry[1] = row.Item4; //creature2DisplayGroupId
+                displayGroupEntry[2] = row.Item6; //creature2DisplayInfoId=
 
 
                 // Create Creature2
-                var entry = creature2.CopyEntry(73213); // Copy generic Grey Pumera mount
-                entry.Values[2].SetValue(row.Item2); //description
+                var entry = creature2.CopyEntry(73213, row.Item3); // Copy generic Grey Pumera mount
+                entry[2] = row.Item2; //description
                 uint localizedTextIdName = language.AddEntry(row.Item2);
-                entry.Values[3].SetValue(localizedTextIdName); //localizedTextIdName
-                entry.Values[10].SetValue(row.Item4); //creature2DisplayGroupId
-                entry.Values.RemoveAt(0);
-                creature2.AddEntry(entry, row.Item3);
+                entry[3] = localizedTextIdName; //localizedTextIdName
+                entry[10] = row.Item4; //creature2DisplayGroupId
 
                 // Do Item/Spell stuff for the mount unlock
 
@@ -7829,30 +7816,24 @@ namespace WildStar.TableTool
             foreach (var row in equirin)
             {
                 // Create Display Info
-                var displayInfoEntry = creature2DisplayInfo.CopyEntry(37424); // Copy generic Horned Equivar display info
-                displayInfoEntry.Values[3].SetValue(row.Item1); //switch assetTexture00 to the given texture path
-                displayInfoEntry.Values[4].SetValue(row.Item7); //switch assetTexture01 to the given normal path
-                displayInfoEntry.Values[9].SetValue(1u); //modelTextureId00
-                displayInfoEntry.Values[10].SetValue(2u); //modelTextureId01
-                displayInfoEntry.Values.RemoveAt(0);
-                creature2DisplayInfo.AddEntry(displayInfoEntry, row.Item6);
+                var displayInfoEntry = creature2DisplayInfo.CopyEntry(37424, row.Item6); // Copy generic Horned Equivar display info
+                displayInfoEntry[3] = row.Item1; //switch assetTexture00 to the given texture path
+                displayInfoEntry[4] = row.Item7; //switch assetTexture01 to the given normal path
+                displayInfoEntry[9] = 1u; //modelTextureId00
+                displayInfoEntry[10] = 2u; //modelTextureId01
 
 
                 // Create Display Group Entry
-                var displayGroupEntry = creature2DisplayGroupEntry.CopyEntry(43267); // Copy generic Horned Equivar mount display group entry
-                displayGroupEntry.Values[1].SetValue(row.Item4); //creature2DisplayGroupId
-                displayGroupEntry.Values[2].SetValue(row.Item6); //creature2DisplayInfoId
-                displayGroupEntry.Values.RemoveAt(0);
-                creature2DisplayGroupEntry.AddEntry(displayGroupEntry, row.Item5);
+                var displayGroupEntry = creature2DisplayGroupEntry.CopyEntry(43267, row.Item5); // Copy generic Horned Equivar mount display group entry
+                displayGroupEntry[1] = row.Item4; //creature2DisplayGroupId
+                displayGroupEntry[2] = row.Item6; //creature2DisplayInfoId
 
 
                 // Create Creature2
-                var entry = creature2.CopyEntry(71476); // Copy generic Horned Equivar mount
-                entry.Values[2].SetValue(row.Item2); //description
-                entry.Values[3].SetValue(language.AddEntry(row.Item2)); //localizedTextIdName
-                entry.Values[10].SetValue(row.Item4); //creature2DisplayGroupId
-                entry.Values.RemoveAt(0);
-                creature2.AddEntry(entry, row.Item3);
+                var entry = creature2.CopyEntry(71476, row.Item3); // Copy generic Horned Equivar mount
+                entry[2] = row.Item2; //description
+                entry[3] = language.AddEntry(row.Item2); //localizedTextIdName
+                entry[10] = row.Item4; //creature2DisplayGroupId
             }
             startCreature2ID += 6;
             startCreature2DisplayGroupID += 6;
@@ -7872,27 +7853,21 @@ namespace WildStar.TableTool
             foreach (var row in trask)
             {
                 // Create Display Info
-                var displayInfoEntry = creature2DisplayInfo.CopyEntry(21981); // Copy generic Trask display info
-                displayInfoEntry.Values[3].SetValue(row.Item1); //switch assetTexture00 to the given texture path
-                displayInfoEntry.Values.RemoveAt(0);
-                creature2DisplayInfo.AddEntry(displayInfoEntry, row.Item6);
+                var displayInfoEntry = creature2DisplayInfo.CopyEntry(21981, row.Item6); // Copy generic Trask display info
+                displayInfoEntry[3] = row.Item1; //switch assetTexture00 to the given texture path
 
 
                 // Create Display Group Entry
-                var displayGroupEntry = creature2DisplayGroupEntry.CopyEntry(21994); // Copy generic Trask display group entry
-                displayGroupEntry.Values[1].SetValue(row.Item4); //creature2DisplayGroupId
-                displayGroupEntry.Values[2].SetValue(row.Item6); //creature2DisplayInfoId
-                displayGroupEntry.Values.RemoveAt(0);
-                creature2DisplayGroupEntry.AddEntry(displayGroupEntry, row.Item5);
+                var displayGroupEntry = creature2DisplayGroupEntry.CopyEntry(21994, row.Item5); // Copy generic Trask display group entry
+                displayGroupEntry[1] = row.Item4; //creature2DisplayGroupId
+                displayGroupEntry[2] = row.Item6; //creature2DisplayInfoId
 
 
                 // Create Creature2
-                var entry = creature2.CopyEntry(5212); // Copy generic Trask
-                entry.Values[2].SetValue(row.Item2); //description
-                entry.Values[3].SetValue(language.AddEntry(row.Item2)); //localizedTextIdName
-                entry.Values[10].SetValue(row.Item4); //creature2DisplayGroupId
-                entry.Values.RemoveAt(0);
-                creature2.AddEntry(entry, row.Item3);
+                var entry = creature2.CopyEntry(5212, row.Item3); // Copy generic Trask
+                entry[2] = row.Item2; //description
+                entry[3] = language.AddEntry(row.Item2); //localizedTextIdName
+                entry[10] = row.Item4; //creature2DisplayGroupId
             }
             startCreature2ID += 4;
             startCreature2DisplayGroupID += 4;
@@ -7913,30 +7888,24 @@ namespace WildStar.TableTool
             foreach (var row in ridingGirrok)
             {
                 // Create Display Info
-                var displayInfoEntry = creature2DisplayInfo.CopyEntry(38343); // Copy generic Girrok mount display info
-                displayInfoEntry.Values[3].SetValue(row.Item1); //switch assetTexture00 to the given texture path
-                displayInfoEntry.Values[4].SetValue(row.Item7); //switch assetTexture01 to the given normal path
-                displayInfoEntry.Values[9].SetValue(1u); //modelTextureId00
-                displayInfoEntry.Values[10].SetValue(2u); //modelTextureId01
-                displayInfoEntry.Values.RemoveAt(0);
-                creature2DisplayInfo.AddEntry(displayInfoEntry, row.Item6);
+                var displayInfoEntry = creature2DisplayInfo.CopyEntry(38343, row.Item6); // Copy generic Girrok mount display info
+                displayInfoEntry[3] = row.Item1; //switch assetTexture00 to the given texture path
+                displayInfoEntry[4] = row.Item7; //switch assetTexture01 to the given normal path
+                displayInfoEntry[9] = 1u; //modelTextureId00
+                displayInfoEntry[10] = 2u; //modelTextureId01
 
 
                 // Create Display Group Entry
-                var displayGroupEntry = creature2DisplayGroupEntry.CopyEntry(44326); // Copy generic Girrok mount display group entry
-                displayGroupEntry.Values[1].SetValue(row.Item4); //creature2DisplayGroupId
-                displayGroupEntry.Values[2].SetValue(row.Item6); //creature2DisplayInfoId
-                displayGroupEntry.Values.RemoveAt(0);
-                creature2DisplayGroupEntry.AddEntry(displayGroupEntry, row.Item5);
+                var displayGroupEntry = creature2DisplayGroupEntry.CopyEntry(44326, row.Item5); // Copy generic Girrok mount display group entry
+                displayGroupEntry[1] = row.Item4; //creature2DisplayGroupId
+                displayGroupEntry[2] = row.Item6; //creature2DisplayInfoId
 
 
                 // Create Creature2
-                var entry = creature2.CopyEntry(73222); // Copy generic Girrok mount
-                entry.Values[2].SetValue(row.Item2); //description
-                entry.Values[3].SetValue(language.AddEntry(row.Item2)); //localizedTextIdName
-                entry.Values[10].SetValue(row.Item4); //creature2DisplayGroupId
-                entry.Values.RemoveAt(0);
-                creature2.AddEntry(entry, row.Item3);
+                var entry = creature2.CopyEntry(73222, row.Item3); // Copy generic Girrok mount
+                entry[2] = row.Item2; //description
+                entry[3] = language.AddEntry(row.Item2); //localizedTextIdName
+                entry[10] = row.Item4; //creature2DisplayGroupId
             }
             startCreature2ID += 5;
             startCreature2DisplayGroupID += 5;
@@ -8148,28 +8117,22 @@ namespace WildStar.TableTool
             foreach (var row in ridingPumera2)
             {
                 // Create Display Info
-                var displayInfoEntry = creature2DisplayInfo.CopyEntry(38342); // Copy generic Grey Pumera mount display info
-                displayInfoEntry.Values[3].SetValue(row.Item1); //switch assetTexture00 to the given texture path
-                displayInfoEntry.Values.RemoveAt(0);
-                creature2DisplayInfo.AddEntry(displayInfoEntry, row.Item6);
+                var displayInfoEntry = creature2DisplayInfo.CopyEntry(38342, row.Item6); // Copy generic Grey Pumera mount display info
+                displayInfoEntry[3] = row.Item1; //switch assetTexture00 to the given texture path
 
 
                 // Create Display Group Entry
-                var displayGroupEntry = creature2DisplayGroupEntry.CopyEntry(44325); // Copy generic Grey Pumera mount display group entry
-                displayGroupEntry.Values[1].SetValue(row.Item4); //creature2DisplayGroupId
-                displayGroupEntry.Values[2].SetValue(row.Item6); //creature2DisplayInfoId
-                displayGroupEntry.Values.RemoveAt(0);
-                creature2DisplayGroupEntry.AddEntry(displayGroupEntry, row.Item5);
+                var displayGroupEntry = creature2DisplayGroupEntry.CopyEntry(44325, row.Item5); // Copy generic Grey Pumera mount display group entry
+                displayGroupEntry[1] = row.Item4; //creature2DisplayGroupId
+                displayGroupEntry[2] = row.Item6; //creature2DisplayInfoId
 
 
                 // Create Creature2
-                var entry = creature2.CopyEntry(73213); // Copy generic Grey Pumera mount
-                entry.Values[2].SetValue(row.Item2); //description
+                var entry = creature2.CopyEntry(73213, row.Item3); // Copy generic Grey Pumera mount
+                entry[2] = row.Item2; //description
                 uint localizedTextIdName = language.AddEntry(row.Item2);
-                entry.Values[3].SetValue(localizedTextIdName); //localizedTextIdName
-                entry.Values[10].SetValue(row.Item4); //creature2DisplayGroupId
-                entry.Values.RemoveAt(0);
-                creature2.AddEntry(entry, row.Item3);
+                entry[3] = localizedTextIdName; //localizedTextIdName
+                entry[10] = row.Item4; //creature2DisplayGroupId
                 Console.WriteLine(row.Item2 + " creature2Id = " + row.Item3);
 
             }
@@ -8196,8 +8159,8 @@ namespace WildStar.TableTool
             unitVehicle.beta = true;
 
             var vehicle = unitVehicle.CopyEntryAndAdd(1);
-            vehicle.Values[1].SetValue(3u);
-            uint flyingVehicleID = vehicle.Values[0].GetValue<uint>();
+            vehicle[1] = 3u;
+            uint flyingVehicleID = (uint)vehicle[0];
             uint groundVehicleID = 1u;
 
             AddMount(26513, "Butterfly", flyingVehicleID, "IconSprites:Icon_ItemMisc_Hot_Wings"); // example.
@@ -8325,28 +8288,28 @@ namespace WildStar.TableTool
             /*
             // Create Spell4Base for unlock spell
             var entry_spell4Base_Unlock = spell4Base.CopyEntry(copySpell4BaseId_Unlock);
-            entry_spell4Base_Unlock.Values[1].SetValue(localizedTextIdName);
+            entry_spell4Base_Unlock[1] = localizedTextIdName);
             entry_spell4Base_Unlock.Values.RemoveAt(0);
             uint newSpell4BaseId_Unlock = spell4Base.AddEntry(entry_spell4Base_Unlock);
 
             // Create Spell4 for unlock spell
             var entry_spell4_Unlock = spell4.CopyEntry(copySpell4Id_Unlock);
-            entry_spell4_Unlock.Values[1].SetValue("Unlock Spell - " + description);
-            entry_spell4_Unlock.Values[2].SetValue(newSpell4BaseId_Unlock);
-            entry_spell4_Unlock.Values[29].SetValue(localizedTextIdName); //localizedTextIdActionBarTooltip
+            entry_spell4_Unlock[1] = "Unlock Spell - " + description);
+            entry_spell4_Unlock[2] = newSpell4BaseId_Unlock);
+            entry_spell4_Unlock[29] = localizedTextIdName); //localizedTextIdActionBarTooltip
             entry_spell4_Unlock.Values.RemoveAt(0);
             uint newSpell4Id_Unlock = spell4.AddEntry(entry_spell4_Unlock);
 
             // Create ItemSpecial for unlock
             var entry_itemSpecial_Unlock = itemSpecial.CopyEntry(copyItemSpecialId);
-            entry_itemSpecial_Unlock.Values[4].SetValue(newSpell4Id_Unlock); //spell4IdOnActivate
+            entry_itemSpecial_Unlock[4] = newSpell4Id_Unlock); //spell4IdOnActivate
             entry_itemSpecial_Unlock.Values.RemoveAt(0);
             uint newItemSpecialId_Unlock = itemSpecial.AddEntry(entry_itemSpecial_Unlock);
 
             // Create Item2 for unlock
             var entry_item2_Unlock = item2.CopyEntry(copyItem2Id);
-            entry_item2_Unlock.Values[5].SetValue(newItemSpecialId_Unlock);
-            entry_item2_Unlock.Values[44].SetValue(localizedTextIdName);
+            entry_item2_Unlock[5] = newItemSpecialId_Unlock);
+            entry_item2_Unlock[44] = localizedTextIdName);
             entry_item2_Unlock.Values.RemoveAt(0);
             startItem2Id++;
             item2.AddEntry(entry_item2_Unlock, startItem2Id);
@@ -8355,16 +8318,16 @@ namespace WildStar.TableTool
 
             // Create Spell4Base for summon spell
             /*var entry_spell4Base_Summon = spell4Base.CopyEntry(copySpell4BaseId_Summon);
-            entry_spell4Base_Summon.Values[1].SetValue(localizedTextIdName);
+            entry_spell4Base_Summon[1] = localizedTextIdName);
             entry_spell4Base_Summon.Values.RemoveAt(0);
             uint newSpell4BaseId_Summon = spell4Base.AddEntry(entry_spell4Base_Summon);
 
             // Create Spell4 for summon spell
             var entry_spell4_Summon = spell4.CopyEntry(copySpell4Id_Summon);
-            entry_spell4_Summon.Values[1].SetValue("Summon Spell - " + description);
-            entry_spell4_Summon.Values[2].SetValue(newSpell4BaseId_Summon);
-            entry_spell4_Summon.Values[29].SetValue(localizedTextIdName); //localizedTextIdActionBarTooltip
-            entry_spell4_Summon.Values[60].SetValue(localizedTextIdName); //localizedTextIdCasterIconSpellText
+            entry_spell4_Summon[1] = "Summon Spell - " + description);
+            entry_spell4_Summon[2] = newSpell4BaseId_Summon);
+            entry_spell4_Summon[29] = localizedTextIdName); //localizedTextIdActionBarTooltip
+            entry_spell4_Summon[60] = localizedTextIdName); //localizedTextIdCasterIconSpellText
             entry_spell4_Summon.Values.RemoveAt(0);
             uint newSpell4Id_Summon = spell4.AddEntry(entry_spell4_Summon);*/
 
@@ -8518,74 +8481,64 @@ namespace WildStar.TableTool
 
         static uint AddHookAsset(string asset)
         {
-            var entry = new GameTableEntry();
-            entry.AddString(asset);
-            entry.AddSingle(1); // scale
-            entry.AddSingle(0); // offset X
-            entry.AddSingle(0); // offset Y
-            entry.AddSingle(0); // offset Z
-            entry.AddSingle(0); // rotation X
-            entry.AddSingle(0); // rotation Y
-            entry.AddSingle(0); // rotation Z
-
             uint id = hookAssets.nextEntry;
-            hookAssets.AddEntry(entry, id);
+
+            var entry = hookAssets.CopyEntry(3, id);
+            entry[1] = asset;
+            entry[2] = 1f; // scale
+            entry[3] = 0f; // offset X
+            entry[4] = 0f; // offset Y
+            entry[5] = 0f; // offset Z
+            entry[6] = 0f; // rotation X
+            entry[7] = 0f; // rotation Y
+            entry[8] = 0f; // rotation Z
             return id;
         }
 
-        static uint AddDyeColorRamp(uint id, uint flags, string name, uint rampIndex, float costMultiplier, uint componentMapEnum, uint prerequisiteId)
+        static void AddDyeColorRamp(uint id, uint flags, string name, uint rampIndex, float costMultiplier, uint componentMapEnum, uint prerequisiteId)
         {
-            var entry = dyeColorRamp.CopyEntry(84);
-            entry.Values[1].SetValue(flags); //flags
-            entry.Values[2].SetValue(language.AddEntry(name)); //localizedTextIdName
-            entry.Values[3].SetValue(rampIndex); //rampIndex
-            entry.Values[4].SetValue(costMultiplier); //costMultiplier
-            entry.Values[5].SetValue(componentMapEnum); //componentMapEnum
-            entry.Values[6].SetValue(prerequisiteId); //prerequisiteId
-            
-            entry.Values.RemoveAt(0);
-            return dyeColorRamp.AddEntry(entry, id);
+            var entry = dyeColorRamp.CopyEntry(84, id);
+            entry[1] = flags; //flags
+            entry[2] = language.AddEntry(name); //localizedTextIdName
+            entry[3] = rampIndex; //rampIndex
+            entry[4] = costMultiplier; //costMultiplier
+            entry[5] = componentMapEnum; //componentMapEnum
+            entry[6] = prerequisiteId; //prerequisiteId
         }
 
         static uint AddItemColorSet(uint id, uint dyeColorRampId00, uint? dyeColorRampId01 = null, uint? dyeColorRampId02 = null)
         {
-            var entry = itemColorSet.CopyEntry(84);
-            entry.Values[1].SetValue(dyeColorRampId00); //dyeColorRampId00
+            var entry = itemColorSet.CopyEntry(84, id);
+            entry[1] = dyeColorRampId00; //dyeColorRampId00
             if (dyeColorRampId01 != null)
-                entry.Values[2].SetValue(dyeColorRampId01); //dyeColorRampId01
+                entry[2] = dyeColorRampId01; //dyeColorRampId01
             if (dyeColorRampId02 != null)
-                entry.Values[3].SetValue(dyeColorRampId02); //dyeColorRampId02
+                entry[3] = dyeColorRampId02; //dyeColorRampId02
 
-            entry.Values.RemoveAt(0);
-            return itemColorSet.AddEntry(entry, id);
+            return id;
         }
 
         static uint GetColorSet(uint col1, uint col2 = 0, uint col3 = 0)
         {
-            GameTableEntry entry = itemColorSet.table.Entries.Where(e =>
-                e.Values[1].GetValue<uint>() == col1 &&
-                e.Values[2].GetValue<uint>() == col2 &&
-                e.Values[3].GetValue<uint>() == col3
-            ).FirstOrDefault();
+            DataRow entry = (from DataRow myRow in itemColorSet.table.Rows
+             where (uint)myRow[1] == col1 && (uint)myRow[2] == col2 && (uint)myRow[3] == col3
+             select myRow).FirstOrDefault();
+
             if (entry == null)
             {
-                entry = Table.CopyEntry(itemColorSet.table.Entries[0]);
-                entry.Values[1].SetValue(col1);
-                entry.Values[2].SetValue(col2);
-                entry.Values[3].SetValue(col3);
-                entry.Values.RemoveAt(0);
-                return itemColorSet.AddEntry(entry, itemColorSet.nextEntry);
+                entry = itemColorSet.CopyEntry(itemColorSet.table.Rows[0], itemColorSet.nextEntry);
+                entry[1] = col1;
+                entry[2] = col2;
+                entry[3] = col3;
             }
-            return entry.Values[0].GetValue<uint>();
+            return (uint)entry[0];
         }
 
         static void AddDecorType(DecorCategory id, string name, string luaString)
         {
-            var entry = new GameTableEntry();
-            entry.AddInteger(language.AddEntry(name));
-            entry.AddString(luaString);
-
-            decorType.AddEntry(entry, (uint)id);
+            DataRow entry = decorType.NewEntry((uint)id);
+            entry[1] = language.AddEntry(name);
+            entry[2] = luaString;
         }
 
         static void AddGenericDecor(string hookAsset, uint copiedID, uint? creature2ID = null, uint? id = null, string name = null, DecorCategory? category = null, bool particleAlt = false, uint week = 0)
@@ -8595,12 +8548,12 @@ namespace WildStar.TableTool
                 category = DecorCategory.Beta;
                 name = "(BETA) " + name;
             }
-            var entry = Table.CopyEntry(decorInfo.GetEntry(copiedID));
+            var entry = decorInfo.CopyEntry(copiedID, id);
             if (category != null)
-                entry.Values[1].SetValue((uint)category); // housingDecorTypeId
+                entry[1] = (uint)category; // housingDecorTypeId
 
-            entry.Values[3].SetValue(language.AddEntry(name ?? hookAsset)); // localizedTextIdName
-            entry.Values[5].SetValue(AddHookAsset(hookAsset)); // hookAssetId
+            entry[3] = language.AddEntry(name ?? hookAsset); // localizedTextIdName
+            entry[5] = AddHookAsset(hookAsset); // hookAssetId
             if (week == 0)
             {
                 week = 99;
@@ -8609,26 +8562,22 @@ namespace WildStar.TableTool
             {
                 week += 1; // skip the 1 silver, when we get there.
             }
-            entry.Values[6].SetValue(week); // cost
-            entry.Values[7].SetValue(1u); // costCurrencyTypeId
+            entry[6] = week; // cost
+            entry[7] = 1u; // costCurrencyTypeId
             if (creature2ID != null)
-                entry.Values[8].SetValue(creature2ID); // creature2IdActiveProp
-            entry.Values[9].SetValue(0u); // prerequisiteIdUnlock
-            entry.Values[12].SetValue(""); // altPreviewAsset
+                entry[8] = creature2ID; // creature2IdActiveProp
+            entry[9] = 0u; // prerequisiteIdUnlock
+            entry[12] = ""; // altPreviewAsset
             if (particleAlt)
             {
-                entry.Values[13].SetValue("Art\\FX\\Housing\\Decor_FXPlacer\\Decor_FXPlacer_000.m3"); // altEditAsset
+                entry[13] = "Art\\FX\\Housing\\Decor_FXPlacer\\Decor_FXPlacer_000.m3"; // altEditAsset
             }
             else
             {
-                entry.Values[13].SetValue("");
+                entry[13] = "";
             }
-            entry.Values[14].SetValue(0.2f); // min scale
-            entry.Values[15].SetValue(8f); // max scale
-
-            entry.Values.RemoveAt(0); // ID gets re-added
-
-            decorInfo.AddEntry(entry, id);
+            entry[14] = 0.2f; // min scale
+            entry[15] = 8f; // max scale
         }
 
         static void AddNPCDecor(uint copiedID, uint? creature2ID = null,  uint? id = null, string altPreviewAsset = null, string name = null, uint week = 0, uint? flags = 0u)
@@ -8644,13 +8593,13 @@ namespace WildStar.TableTool
                 category = DecorCategory.CharactersCreatures; // always use for NPC decor
             }
 
-            var entry = Table.CopyEntry(decorInfo.GetEntry(copiedID));
-            entry.Values[3].SetValue(language.AddEntry(name)); // localizedTextIdName
-            entry.Values[1].SetValue((uint)category); // housingDecorTypeId
-            entry.Values[4].SetValue(flags); // flags
+            var entry = decorInfo.CopyEntry(copiedID, id);
+            entry[3] = language.AddEntry(name); // localizedTextIdName
+            entry[1] = (uint)category; // housingDecorTypeId
+            entry[4] = flags; // flags
 
             uint hookAsset = 2152; // seems to be the same for all NPC decor
-            entry.Values[5].SetValue(hookAsset); // hookAssetId
+            entry[5] = hookAsset; // hookAssetId
             if (week == 0)
             {
                 week = 99;
@@ -8659,26 +8608,22 @@ namespace WildStar.TableTool
             {
                 week += 1; // skip the 1 silver, when we get there.
             }
-            entry.Values[6].SetValue(week); // cost
-            entry.Values[7].SetValue(1u); // costCurrencyTypeId
+            entry[6] = week; // cost
+            entry[7] = 1u; // costCurrencyTypeId
             if (creature2ID != null)
             {
-                entry.Values[8].SetValue(creature2ID); // creature2IdActiveProp
+                entry[8] = creature2ID; // creature2IdActiveProp
             } 
             else
             {
                 throw new ArgumentException("Creature2 ID must not be null!");
             }
                 
-            entry.Values[9].SetValue(0u); // prerequisiteIdUnlock
-            entry.Values[12].SetValue(altPreviewAsset); // altPreviewAsset
-            entry.Values[13].SetValue("Art\\FX\\Housing\\Decor_FXPlacer\\Decor_FXPlacer_000.m3"); // altEditAsset - always use for NPC decor
-            entry.Values[14].SetValue(0.2f); // min scale
-            entry.Values[15].SetValue(8f); // max scale
-
-            entry.Values.RemoveAt(0); // ID gets re-added
-
-            decorInfo.AddEntry(entry, id);
+            entry[9] = 0u; // prerequisiteIdUnlock
+            entry[12] = altPreviewAsset; // altPreviewAsset
+            entry[13] = "Art\\FX\\Housing\\Decor_FXPlacer\\Decor_FXPlacer_000.m3"; // altEditAsset - always use for NPC decor
+            entry[14] = 0.2f; // min scale
+            entry[15] = 8f; // max scale
         }
 
         static uint AddDisplayInfoEntry(uint copiedID, uint id, string modelAssetPath, string textureAssetPath1, string normalAssetPath1, 
@@ -8686,223 +8631,211 @@ namespace WildStar.TableTool
             uint? raceId = null, uint? sex = null, uint? itemDisplayId00 = null, uint? itemDisplayId01 = null, uint? itemDisplayId02 = null, 
             uint? itemDisplayId03 = null, uint? itemDisplayId04 = null, uint? itemDisplayId05 = null, uint? itemDisplayId06 = null, uint? itemDisplayId07 = null)
         {
-            var entry = Table.CopyEntry(creature2DisplayInfo.GetEntry(copiedID));
+            var entry = creature2DisplayInfo.CopyEntry(copiedID, id);
 
-            entry.Values[2].SetValue(modelAssetPath); // assetPath
-            entry.Values[3].SetValue(textureAssetPath1); // assetTexture00
-            entry.Values[4].SetValue(normalAssetPath1); // assetTexture01
+            entry[2] = modelAssetPath; // assetPath
+            entry[3] = textureAssetPath1; // assetTexture00
+            entry[4] = normalAssetPath1; // assetTexture01
             if (textureAssetPath2 != null)
-                entry.Values[5].SetValue(textureAssetPath2); // assetTexture02
+                entry[5] = textureAssetPath2; // assetTexture02
             if (normalAssetPath2 != null)
-                entry.Values[6].SetValue(normalAssetPath2); // assetTexture03
+                entry[6] = normalAssetPath2; // assetTexture03
             if (textureAssetPath3 != null)
-                entry.Values[7].SetValue(textureAssetPath3); // assetTexture04
+                entry[7] = textureAssetPath3; // assetTexture04
             if (normalAssetPath3 != null)
-                entry.Values[8].SetValue(normalAssetPath3); // assetTexture05
+                entry[8] = normalAssetPath3; // assetTexture05
             if (raceId != null)
-                entry.Values[38].SetValue(raceId); // raceId
+                entry[38] = raceId; // raceId
             if (sex != null)
-                entry.Values[39].SetValue(sex); // sex
+                entry[39] = sex; // sex
             if (itemDisplayId00 != null)
-                entry.Values[40].SetValue(itemDisplayId00); // itemDisplayId00
+                entry[40] = itemDisplayId00; // itemDisplayId00
             if (itemDisplayId01 != null)
-                entry.Values[41].SetValue(itemDisplayId01); // itemDisplayId01
+                entry[41] = itemDisplayId01; // itemDisplayId01
             if (itemDisplayId02 != null)
-                entry.Values[42].SetValue(itemDisplayId02); // itemDisplayId02
+                entry[42] = itemDisplayId02; // itemDisplayId02
             if (itemDisplayId03 != null)
-                entry.Values[43].SetValue(itemDisplayId03); // itemDisplayId03
+                entry[43] = itemDisplayId03; // itemDisplayId03
             if (itemDisplayId04 != null)
-                entry.Values[44].SetValue(itemDisplayId04); // itemDisplayId04
+                entry[44] = itemDisplayId04; // itemDisplayId04
             if (itemDisplayId05 != null)
-                entry.Values[45].SetValue(itemDisplayId05); // itemDisplayId05
+                entry[45] = itemDisplayId05; // itemDisplayId05
             if (itemDisplayId06 != null)
-                entry.Values[46].SetValue(itemDisplayId06); // itemDisplayId06
+                entry[46] = itemDisplayId06; // itemDisplayId06
             if (itemDisplayId07 != null)
-                entry.Values[47].SetValue(itemDisplayId07); // itemDisplayId07
-
-            entry.Values.RemoveAt(0); // ID gets re-added
-            return creature2DisplayInfo.AddEntry(entry, id);
+                entry[47] = itemDisplayId07; // itemDisplayId07
+            return id;
         }
         static uint AddDisplayGroupEntry(uint copiedID, uint id, uint displayGroupId, uint displayInfoId, uint? weight = null)
         {
-            var entry = Table.CopyEntry(creature2DisplayGroupEntry.GetEntry(copiedID));
+            var entry = creature2DisplayGroupEntry.CopyEntry(copiedID, id);
 
-            entry.Values[1].SetValue(displayGroupId); // creature2DisplayGroupId
-            entry.Values[2].SetValue(displayInfoId); // creature2DisplayInfoId
+            entry[1] = displayGroupId; // creature2DisplayGroupId
+            entry[2] = displayInfoId; // creature2DisplayInfoId
             if (weight != null)
-                entry.Values[3].SetValue(weight); // weight
+                entry[3] = weight; // weight
 
-            entry.Values.RemoveAt(0); // ID gets re-added
-            return creature2DisplayGroupEntry.AddEntry(entry, id);
+            return id;
         }
         static uint AddCreature(uint copiedID, uint id, string description = null, string name = null, uint? displayGroupId = null, uint? outfitGroupId = null, 
             uint? equipItemDisplayId = null, uint? spellVisualId = null, uint? animationId = null, float? modelScale = null, uint? flags = null, uint? factionId = null)
         {
-            var entry = Table.CopyEntry(creature2.GetEntry(copiedID));
+            var entry = creature2.CopyEntry(copiedID, id);
 
             if (name != null)
-                entry.Values[3].SetValue(language.AddEntry(name)); // localizedTextIdName
+                entry[3] = language.AddEntry(name); // localizedTextIdName
             if (description != null)
-                entry.Values[2].SetValue(description); // description
+                entry[2] = description; // description
             if (displayGroupId != null)
-                entry.Values[10].SetValue(displayGroupId); // displayGroupId
+                entry[10] = displayGroupId; // displayGroupId
             if (outfitGroupId != null)
-                entry.Values[11].SetValue(outfitGroupId); // outfitGroupId
+                entry[11] = outfitGroupId; // outfitGroupId
             if (equipItemDisplayId != null)
-                entry.Values[105].SetValue(equipItemDisplayId); // itemIdDisplayItemRight
+                entry[105] = equipItemDisplayId; // itemIdDisplayItemRight
             if (spellVisualId != null)
-                entry.Values[150].SetValue(spellVisualId); // spell4VisualGroupIdAttached
+                entry[150] = spellVisualId; // spell4VisualGroupIdAttached
             if (animationId != null)
-                entry.Values[156].SetValue(animationId); // modelSequenceIdAnimationPriority00
+                entry[156] = animationId; // modelSequenceIdAnimationPriority00
             if (modelScale != null)
-                entry.Values[13].SetValue(modelScale); // modelScale
+                entry[13] = modelScale; // modelScale
             if (flags != null)
-                entry.Values[83].SetValue(flags); // flags
+                entry[83] = flags; // flags
             if (factionId != null)
-                entry.Values[99].SetValue(factionId); // factionId
+                entry[99] = factionId; // factionId
 
-            entry.Values.RemoveAt(0); // ID gets re-added
-            return creature2.AddEntry(entry, id);
+            return id;
         }
         static uint AddCreatureOutfitInfo(uint copiedID, uint id, uint? itemDisplayId00 = null, uint? itemDisplayId01 = null, uint? itemDisplayId02 = null, uint? itemDisplayId03 = null,
             uint? itemDisplayId04 = null, uint? itemDisplayId05 = null, uint? itemColorSetId00 = null, uint? itemColorSetId01 = null, uint? itemColorSetId02 = null,
             uint? itemColorSetId03 = null, uint? itemColorSetId04 = null, uint? itemColorSetId05 = null)
         {
-            var entry = Table.CopyEntry(creature2OutfitInfo.GetEntry(copiedID));
+            var entry = creature2OutfitInfo.CopyEntry(copiedID, id);
 
             if (itemDisplayId00 != null)
-                entry.Values[1].SetValue(itemDisplayId00); // itemDisplayId00
+                entry[1] = itemDisplayId00; // itemDisplayId00
             if (itemDisplayId01 != null)
-                entry.Values[2].SetValue(itemDisplayId01); // itemDisplayId01
+                entry[2] = itemDisplayId01; // itemDisplayId01
             if (itemDisplayId02 != null)
-                entry.Values[3].SetValue(itemDisplayId02); // itemDisplayId02
+                entry[3] = itemDisplayId02; // itemDisplayId02
             if (itemDisplayId03 != null)
-                entry.Values[4].SetValue(itemDisplayId03); // itemDisplayId03
+                entry[4] = itemDisplayId03; // itemDisplayId03
             if (itemDisplayId04 != null)
-                entry.Values[5].SetValue(itemDisplayId04); // itemDisplayId04
+                entry[5] = itemDisplayId04; // itemDisplayId04
             if (itemDisplayId05 != null)
-                entry.Values[6].SetValue(itemDisplayId05); // itemDisplayId05
+                entry[6] = itemDisplayId05; // itemDisplayId05
             if (itemColorSetId00 != null)
-                entry.Values[7].SetValue(itemColorSetId00); // itemColorSetId00
+                entry[7] = itemColorSetId00; // itemColorSetId00
             if (itemColorSetId01 != null)
-                entry.Values[8].SetValue(itemColorSetId01); // itemColorSetId01
+                entry[8] = itemColorSetId01; // itemColorSetId01
             if (itemColorSetId02 != null)
-                entry.Values[9].SetValue(itemColorSetId02); // itemColorSetId02
+                entry[9] = itemColorSetId02; // itemColorSetId02
             if (itemColorSetId03 != null)
-                entry.Values[10].SetValue(itemColorSetId03); // itemColorSetId03
+                entry[10] = itemColorSetId03; // itemColorSetId03
             if (itemColorSetId04 != null)
-                entry.Values[11].SetValue(itemColorSetId04); // itemColorSetId04
+                entry[11] = itemColorSetId04; // itemColorSetId04
             if (itemColorSetId05 != null)
-                entry.Values[12].SetValue(itemColorSetId05); // itemColorSetId05
-
-            entry.Values.RemoveAt(0); // ID gets re-added
-            return creature2OutfitInfo.AddEntry(entry, id);
+                entry[12] = itemColorSetId05; // itemColorSetId05
+            return id;
         }
         static uint AddCreatureOutfitGroupEntry(uint copiedID, uint id, uint? creature2OutfitGroupId = null, uint? creature2OutfitInfoId = null, uint? weight = null)
         {
-            var entry = Table.CopyEntry(creature2OutfitGroupEntry.GetEntry(copiedID));
+            var entry = creature2OutfitGroupEntry.CopyEntry(copiedID, id);
 
             if (creature2OutfitGroupId != null)
-                entry.Values[1].SetValue(creature2OutfitGroupId); // creature2OutfitGroupId
+                entry[1] = creature2OutfitGroupId; // creature2OutfitGroupId
             if (creature2OutfitInfoId != null)
-                entry.Values[2].SetValue(creature2OutfitInfoId); // creature2OutfitInfoId
+                entry[2] = creature2OutfitInfoId; // creature2OutfitInfoId
             if (weight != null)
-                entry.Values[3].SetValue(weight); // weight
-
-            entry.Values.RemoveAt(0); // ID gets re-added
-            return creature2OutfitGroupEntry.AddEntry(entry, id);
+                entry[3] = weight; // weight
+            return id;
         }
 
         static void AddColorShift(string colorShiftAsset, uint? id, string name = null)
         {
-            var entry = new GameTableEntry();
-            entry.AddString(colorShiftAsset); // Asset path
+            var entry = colorShift.NewEntry(id);
+            entry[1] = colorShiftAsset; // Asset path
             if (name != null)
             {
-                entry.AddInteger(language.AddEntry(name)); // localizedtextid
+                entry[2] = language.AddEntry(name); // localizedtextid
             }
             else
             {
-                entry.AddInteger(language.AddEntry(colorShiftAsset)); // localizedtextid
+                entry[2] = language.AddEntry(colorShiftAsset); // localizedtextid
             }
-            entry.AddString("BasicSprites:Grey"); // preview swatch icon
-
-            colorShift.AddEntry(entry, id);
+            entry[3] = "BasicSprites:Grey"; // preview swatch icon
         }
 
         static void AddMount(uint creature2ID, string name, uint unitVehicleID, string icon)
         {
             uint localizedTextIdName = language.AddEntry(name);
             
-            var mountSpellBase = spell4Base.CopyEntryAndAdd(57563);
-            mountSpellBase.Values[1].SetValue(localizedTextIdName);
-            mountSpellBase.Values[17].SetValue(icon);
+            var mountSpellBase = spell4Base.CopyEntry(57563);
+            mountSpellBase[1] = localizedTextIdName;
+            mountSpellBase[17] = icon;
 
-            var mountSpell = spell4.CopyEntryAndAdd(82110);
-            mountSpell.Values[2].SetValue(mountSpellBase.Values[0].GetValue<uint>());
-            mountSpell.Values[29].SetValue(localizedTextIdName); //localizedTextIdActionBarTooltip
-            mountSpell.Values[60].SetValue(localizedTextIdName); //localizedTextIdCasterIconSpellText
+            var mountSpell = spell4.CopyEntry(82110);
+            mountSpell[2] = (uint)mountSpellBase[0];
+            mountSpell[29] = localizedTextIdName; //localizedTextIdActionBarTooltip
+            mountSpell[60] = localizedTextIdName; //localizedTextIdCasterIconSpellText
 
-            var mountSpellEffect = spell4Effects.CopyEntryAndAdd(215988);
-            mountSpellEffect.Values[1].SetValue(mountSpell.Values[0].GetValue<uint>());
-            mountSpellEffect.Values[9].SetValue(creature2ID);
-            mountSpellEffect.Values[10].SetValue(unitVehicleID);
+            var mountSpellEffect = spell4Effects.CopyEntry(215988);
+            mountSpellEffect[1] = (uint)mountSpell[0];
+            mountSpellEffect[9] = creature2ID;
+            mountSpellEffect[10] = unitVehicleID;
             // Values[13] for hoverboard itemDisplay
 
-            var learnSpellBase = spell4Base.CopyEntryAndAdd(57605);
-            mountSpellBase.Values[1].SetValue(localizedTextIdName);
-            mountSpellBase.Values[17].SetValue(icon);
+            var learnSpellBase = spell4Base.CopyEntry(57605);
+            mountSpellBase[1] = localizedTextIdName;
+            mountSpellBase[17] = icon;
 
-            var learnSpell = spell4.CopyEntryAndAdd(82110);
-            learnSpell.Values[2].SetValue(learnSpellBase.Values[0].GetValue<uint>());
-            learnSpell.Values[29].SetValue(localizedTextIdName); //localizedTextIdActionBarTooltip
-            learnSpell.Values[60].SetValue(localizedTextIdName); //localizedTextIdCasterIconSpellText
+            var learnSpell = spell4.CopyEntry(82110);
+            learnSpell[2] = (uint)learnSpellBase[0];
+            learnSpell[29] = localizedTextIdName; //localizedTextIdActionBarTooltip
+            learnSpell[60] = localizedTextIdName; //localizedTextIdCasterIconSpellText
 
-            var learnSpellEffect = spell4Effects.CopyEntryAndAdd(216037);
-            learnSpellEffect.Values[1].SetValue(learnSpell.Values[0].GetValue<uint>());
-            learnSpellEffect.Values[9].SetValue(mountSpell.Values[0].GetValue<uint>()); // spell4id of the mount spell
+            var learnSpellEffect = spell4Effects.CopyEntry(216037);
+            learnSpellEffect[1] = (uint)learnSpell[0];
+            learnSpellEffect[9] = (uint)mountSpell[0]; // spell4id of the mount spell
 
-            var special = itemSpecial.CopyEntryAndAdd(10186);
-            // special.Values[2].SetValue(language.AddEntry($"Turns you into a {name.ToLower()}!")); // seems to do nothing.
-            special.Values[4].SetValue(learnSpell.Values[0].GetValue<uint>()); // spell4id of the "learn this mount" spell.
+            var special = itemSpecial.CopyEntry(10186);
+            // special[2] = language.AddEntry($"Turns you into a {name.ToLower()}!")); // seems to do nothing.
+            special[4] = (uint)learnSpell[0]; // spell4id of the "learn this mount" spell.
 
-            var item = item2.CopyEntryAndAdd(92662);
-            item.Values[5].SetValue(special.Values[0].GetValue<uint>());
-            item.Values[44].SetValue(localizedTextIdName); // name
-            item.Values[45].SetValue(0u); // tooltip
-            item.Values[47].SetValue(icon); // icon
+            var item = item2.CopyEntry(92662);
+            item[5] = (uint)special[0];
+            item[44] = localizedTextIdName; // name
+            item[45] = 0u; // tooltip
+            item[47] = icon; // icon
         }
 
         static void AddEmote(uint animationID, string command, string command2 = null, uint? id = null)
         {
-            var entry = new GameTableEntry();
-            entry.AddInteger(0); // localizedTextIdNoArgToAll
-            entry.AddInteger(0); // localizedTextIdNoArgToSelf
-            entry.AddInteger(animationID); // NoArgAnim
-            entry.AddInteger(0); // localizedTextIdArgToAll
-            entry.AddInteger(0); // localizedTextIdArgToArg
-            entry.AddInteger(0); // localizedTextIdArgToSelf
-            entry.AddInteger(animationID); // ArgAnim
-            entry.AddInteger(0); // localizedTextIdSelfToAll
-            entry.AddInteger(0); // localizedTextIdSelfToSelf
-            entry.AddInteger(animationID); // SelfAnim
-            entry.AddBool(true); // SheathWeapons
-            entry.AddBool(true); // TurnToFace (to match camera angle?)
-            entry.AddBool(false); // TextReplaceable
-            entry.AddBool(true); // ChangesStandState
-            entry.AddInteger(7); // StandState
-            entry.AddInteger(0); // localizedTextIdCommand
-            entry.AddInteger(0); // localizedTextIdNotFoundToAll
-            entry.AddInteger(0); // localizedTextIdNotFoundToSelf
-            entry.AddInteger(animationID); // NotFoundAnim
-            entry.AddInteger(animationID); // TextReplaceAnim
-            entry.AddInteger(animationID); // modelSequenceIdStandState (Is animation ID for lounge)
-            entry.AddInteger(0); // visualEffectId
-            entry.AddInteger(0); // flags
-            entry.AddString(command ?? ""); // universalCommand00
-            entry.AddString(command2 ?? ""); // universalCommand01
-
-            emotes.AddEntry(entry, id);
+            var entry = emotes.NewEntry(id);
+            entry[1] = 0; // localizedTextIdNoArgToAll
+            entry[2] = 0; // localizedTextIdNoArgToSelf
+            entry[3] = animationID; // NoArgAnim
+            entry[4] = 0; // localizedTextIdArgToAll
+            entry[5] = 0; // localizedTextIdArgToArg
+            entry[6] = 0; // localizedTextIdArgToSelf
+            entry[7] = animationID; // ArgAnim
+            entry[8] = 0; // localizedTextIdSelfToAll
+            entry[9] = 0; // localizedTextIdSelfToSelf
+            entry[10] = animationID; // SelfAnim
+            entry[11] = true; // SheathWeapons
+            entry[12] = true; // TurnToFace (to match camera angle?)
+            entry[13] = false; // TextReplaceable
+            entry[14] = true; // ChangesStandState
+            entry[15] = 7; // StandState
+            entry[16] = 0; // localizedTextIdCommand
+            entry[17] = 0; // localizedTextIdNotFoundToAll
+            entry[18] = 0; // localizedTextIdNotFoundToSelf
+            entry[19] = animationID; // NotFoundAnim
+            entry[20] = animationID; // TextReplaceAnim
+            entry[21] = animationID; // modelSequenceIdStandState (Is animation ID for lounge)
+            entry[22] = 0; // visualEffectId
+            entry[23] = 0; // flags
+            entry[24] = command ?? ""; // universalCommand00
+            entry[25] = command2 ?? ""; // universalCommand01
         }
 
         static void AddWallpaper(uint? id, string name, uint? cost, uint flags, uint unlockIndex, uint worldSkyID, uint soundZoneKitID, uint worldLayerID1, uint worldLayerID2)
@@ -8911,29 +8844,27 @@ namespace WildStar.TableTool
             {
                 name = "(BETA) " + name;
             }
-            var entry = new GameTableEntry();
-            entry.AddInteger(language.AddEntry(name)); // localizedTextID
-            entry.AddInteger(cost ?? 99); // cost
-            entry.AddInteger(1); // costCurrencyID
-            entry.AddInteger(0); // replaceableMaterialInfoID, for walls/ceilings/floors
-            entry.AddInteger(worldSkyID); // worldSkyID
-            entry.AddInteger(flags); // flags, can be 1, 4, 2, 8, 16
-            entry.AddInteger(0); // prerequisiteIdUnlock
-            entry.AddInteger(0); // prerequisiteIdUse
-            entry.AddInteger(unlockIndex); // unlockIndex
-            entry.AddInteger(soundZoneKitID); // soundZoneKitId
-            entry.AddInteger(0); // worldLayerId00
-            entry.AddInteger(worldLayerID1); // worldLayerId01
-            entry.AddInteger(worldLayerID2); // worldLayerId02
-            entry.AddInteger(0); // worldLayerId03
-            entry.AddInteger(0); // accountItemIdUpsell
-
-            wallpaperInfo.AddEntry(entry, id);
+            var entry = wallpaperInfo.CopyEntry(1, id);
+            entry[1] = language.AddEntry(name); // localizedTextID
+            entry[2] = cost ?? 99; // cost
+            entry[3] = 1; // costCurrencyID
+            entry[4] = 0; // replaceableMaterialInfoID, for walls/ceilings/floors
+            entry[5] = worldSkyID; // worldSkyID
+            entry[6] = flags; // flags, can be 1, 4, 2, 8, 16
+            entry[7] = 0; // prerequisiteIdUnlock
+            entry[8] = 0; // prerequisiteIdUse
+            entry[9] = unlockIndex; // unlockIndex
+            entry[10] = soundZoneKitID; // soundZoneKitId
+            entry[11] = 0; // worldLayerId00
+            entry[12] = worldLayerID1; // worldLayerId01
+            entry[13] = worldLayerID2; // worldLayerId02
+            entry[14] = 0; // worldLayerId03
+            entry[15] = 0; // accountItemIdUpsell
         }
 
         static void AddGroundOption(string name, uint worldLayerPrimary, uint worldLayerSecondary, uint? id = null, uint? cost = null)
         {
-            GameTableEntry layer = worldLayer.GetEntry(worldLayerPrimary);
+            DataRow layer = worldLayer.GetEntry(worldLayerPrimary);
             if (layer == null)
             {
                 throw new ArgumentException("Worldlayer does not exist in table yet!");
@@ -8956,73 +8887,56 @@ namespace WildStar.TableTool
             AddWallpaper(id, name, cost, 64, 270, worldSkyId, 0, 0, 0); // flags can be 64 or 32. Day/night cycle on/off?
         }
 
-        static void Overwrite(GameTableValue val, object overwrite)
-        {
-            if (overwrite != null)
-            {
-                val.SetValue(overwrite);
-            }
-        }
-
         static void AddWorldLayer(uint id, string name, uint copiedID, float? heightScale, float? heightOffset, float? parallaxScale, float? parallaxOffset, float? metersPerTile, string colorTexture, string normalTexture, uint? averageColor, uint? materialType, uint? worldClutterID0, uint? worldClutterID1, uint? worldClutterID2, uint? worldClutterID3, float? specularPower, uint? emissiveGlow, float? scrollSpeed0, float? scrollSpeed1)
         {
-            var copied = worldLayer.GetEntry(copiedID);
-            var entry = Table.CopyEntry(copied);
-            Overwrite(entry.Values[1], name);
-            Overwrite(entry.Values[2], heightScale);
-            Overwrite(entry.Values[3], heightOffset);
-            Overwrite(entry.Values[4], parallaxScale);
-            Overwrite(entry.Values[5], parallaxOffset);
-            Overwrite(entry.Values[6], metersPerTile);
-            Overwrite(entry.Values[7], colorTexture);
-            Overwrite(entry.Values[8], normalTexture);
-            Overwrite(entry.Values[9], averageColor);
-            Overwrite(entry.Values[10], 0u); // Projection
-            Overwrite(entry.Values[11], materialType);
-            Overwrite(entry.Values[12], worldClutterID0);
-            Overwrite(entry.Values[13], worldClutterID1);
-            Overwrite(entry.Values[14], worldClutterID2);
-            Overwrite(entry.Values[15], worldClutterID3);
-            Overwrite(entry.Values[16], specularPower);
-            Overwrite(entry.Values[17], emissiveGlow);
-            Overwrite(entry.Values[18], scrollSpeed0);
-            Overwrite(entry.Values[19], scrollSpeed1);
-
-            entry.Values.RemoveAt(0);
-
-            worldLayer.AddEntry(entry, id);
+            var entry = worldLayer.CopyEntry(copiedID, id);
+            entry[1] = name ?? entry[1];
+            entry[2] = heightScale ?? entry[2];
+            entry[3] = heightOffset ?? entry[3];
+            entry[4] = parallaxScale ?? entry[4];
+            entry[5] = parallaxOffset ?? entry[5];
+            entry[6] = metersPerTile ?? entry[6];
+            entry[7] = colorTexture ?? entry[7];
+            entry[8] = normalTexture ?? entry[8];
+            entry[9] = averageColor ?? entry[9];
+            entry[10] = 0u; // Projection
+            entry[11] = materialType ?? entry[11];
+            entry[12] = worldClutterID0 ?? entry[12];
+            entry[13] = worldClutterID1 ?? entry[13];
+            entry[14] = worldClutterID2 ?? entry[14];
+            entry[15] = worldClutterID3 ?? entry[15];
+            entry[16] = specularPower ?? entry[16];
+            entry[17] = emissiveGlow ?? entry[17];
+            entry[18] = scrollSpeed0 ?? entry[18];
+            entry[19] = scrollSpeed1 ?? entry[19];
         }
 
         static void AddCustomizationParameter(uint? id, string name, float sclX, float sclY, float sclZ, float rotX, float rotY, float rotZ, float posX, float posY, float posZ)
         {
-            var entry = new GameTableEntry();
+            var entry = customizationParameter.CopyEntry(1, id);
 
-            entry.AddInteger(language.AddEntry(name));
-            entry.AddSingle(sclX);
-            entry.AddSingle(sclY);
-            entry.AddSingle(sclZ);
-            entry.AddSingle(rotX);
-            entry.AddSingle(rotY);
-            entry.AddSingle(rotZ);
-            entry.AddSingle(posX);
-            entry.AddSingle(posY);
-            entry.AddSingle(posZ);
-
-            customizationParameter.AddEntry(entry, id);
+            entry[1] = language.AddEntry(name);
+            entry[2] = sclX;
+            entry[3] = sclY;
+            entry[4] = sclZ;
+            entry[5] = rotX;
+            entry[6] = rotY;
+            entry[7] = rotZ;
+            entry[8] = posX;
+            entry[9] = posY;
+            entry[10] = posZ;
         }
 
         static void AddCustomizationParameterMap(uint? id, uint raceID, uint genderEnum, uint modelBoneID, uint customizationParameterID, uint dataOrder, uint flags)
         {
-            var entry = new GameTableEntry();
+            var entry = customizationParameterMap.CopyEntry(201, id);
 
-            entry.AddInteger(raceID);
-            entry.AddInteger(genderEnum);
-            entry.AddInteger(modelBoneID);
-            entry.AddInteger(customizationParameterID);
-            entry.AddInteger(dataOrder);
-            entry.AddInteger(flags);
-
-            customizationParameterMap.AddEntry(entry, id);
+            entry[1] = raceID;
+            entry[2] = genderEnum;
+            entry[3] = modelBoneID;
+            entry[4] = customizationParameterID;
+            entry[5] = dataOrder;
+            entry[6] = flags;
         }
 
         /*
@@ -9041,8 +8955,8 @@ namespace WildStar.TableTool
                 newId = id;
             }
 
-            e.Values[1].SetValue(flags);
-            e.Values[3].SetValue(rampIndex);
+            e[1] = flags);
+            e[3] = rampIndex);
             e.Values.RemoveAt(0);
             dyeColorRamp.AddEntry(e, newId);
 
@@ -9064,7 +8978,7 @@ namespace WildStar.TableTool
                 newId = id;
             }
 
-            e.Values[1].SetValue(dyeColorRampId);
+            e[1] = dyeColorRampId);
             e.Values.RemoveAt(0);
             dyeColorRamp.AddEntry(e, newId);
 

@@ -174,7 +174,7 @@ namespace WildStar.GameTable
 
         private void PadTo16(BinaryWriter writer)
         {
-            long padding = 16 - writer.BaseStream.Position % 16l;
+            long padding = 16 - writer.BaseStream.Position % 16L;
             if (padding == 16)
                 padding = 0;
 

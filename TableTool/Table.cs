@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Threading.Tasks;
 using WildStar.GameTable;
 
@@ -48,9 +49,9 @@ namespace WildStar.TableTool
         public uint GetMaxID()
         {
             uint maxVal = 0;
-            foreach (var entry in table.Entries)
+            foreach (DataRow entry in table.Rows)
             {
-                uint id = (uint)entry.Values[0].Value;
+                uint id = (uint)entry[0];
                 if (id > maxVal)
                 {
                     maxVal = id;
@@ -59,9 +60,9 @@ namespace WildStar.TableTool
             return maxVal;
         }
 
-        public uint AddEntry(GameTableEntry entry, uint? id = null)
+        public DataRow NewEntry(uint? id = null)
         {
-            if((requireID || !beta) && id == null)
+            if ((requireID || !beta) && id == null)
             {
                 throw new ArgumentException("ID is null when requireID is true!");
             }
@@ -78,44 +79,45 @@ namespace WildStar.TableTool
             {
                 throw new ArgumentException("Given ID already exists in table!");
             }
-            table.AddEntry(entry, _id);
-            return _id;
+
+            DataRow newEntry = table.NewRow();
+            newEntry[0] = _id;
+            table.Rows.Add(newEntry);
+            
+            return newEntry;
         }
 
-        public static GameTableEntry CopyEntry(GameTableEntry copied)
+        public DataRow CopyEntry(DataRow copied, uint? newID = null)
         {
-            if(copied == null)
+            if (copied == null || copied.Table != table)
             {
                 return null;
             }
-            GameTableEntry newEntry = new GameTableEntry();
-            foreach (var val in copied.Values)
+            DataRow newEntry = NewEntry(newID);
+            for (int i = 1; i < copied.ItemArray.Length; ++i)
             {
-                GameTableValue copy = new GameTableValue(val.Type);
-                copy.SetValue(val.Value);
-                newEntry.Values.Add(copy);
+                newEntry[i] = copied[i];
             }
             return newEntry;
         }
 
-        public GameTableEntry CopyEntry(uint id)
+        public DataRow CopyEntry(uint copiedID, uint? newID = null)
         {
-            return CopyEntry(GetEntry(id));
+            return CopyEntry(GetEntry(copiedID), newID);
         }
 
-        public GameTableEntry CopyEntryAndAdd(uint id)
+        public DataRow CopyEntryAndAdd(uint id)
         {
-            GameTableEntry entry = CopyEntry(id);
-            entry.Values.RemoveAt(0);
-            AddEntry(entry);
+            DataRow entry = CopyEntry(id);
+            entry[0] = id;
             return entry;
         }
 
-        public static GameTableEntry GetEntry(GameTable.GameTable table, uint id)
+        public static DataRow GetEntry(GameTable.GameTable table, uint id)
         {
-            foreach (GameTableEntry entry in table.Entries)
+            foreach (DataRow entry in table.Rows)
             {
-                if ((uint)entry.Values[0].Value == id)
+                if ((uint)entry[0] == id)
                 {
                     return entry;
                 }
@@ -123,7 +125,7 @@ namespace WildStar.TableTool
             return null;
         }
 
-        public GameTableEntry GetEntry(uint id)
+        public DataRow GetEntry(uint id)
         {
             return GetEntry(table, id);
         }

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
   </PropertyGroup>
@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WildStar.TestBed\WildStar.TestBed.csproj" />
+    <ProjectReference Include="..\WildStar.TestBed\Wildstar.Table.csproj" />
   </ItemGroup>
 
 </Project>

@@ -75,6 +75,7 @@ namespace WildStar.TextTable
             DataRow row = NewRow();
             row["ID"] = nextId++;
             row["Text"] = data;
+            Rows.Add(row);
             return (uint)row["ID"];
         }
 
