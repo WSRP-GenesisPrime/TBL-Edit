@@ -4494,6 +4494,7 @@ namespace WildStar.TestBed
             AddEmote(575, null, null, 470);
             AddEmote(7561, "hoverboard", null, 471);
             AddSkyOption("!NEW! Pastel", 11, 64, 2000, 28);
+            AddSkyOption("!NEW! Polluted", 68, 32, 2027, 28);
             AddSkyOption("!NEW! Red Sun", 113, 64, 2001, 28);
             AddSkyOption("!NEW! Impending Doom", 123, 64, 2002, 28);
             AddSkyOption("!NEW! Northern Sky", 134, 64, 2003, 28);
@@ -4523,6 +4524,8 @@ namespace WildStar.TestBed
             AddMusicOption("!NEW! What You Think You Know", 58, 1000, 28);
             AddMusicOption("!NEW! Beneath the Earth", 107, 1001, 28);
             AddMusicOption("!NEW! Stone Hard", 174, 1002, 28);
+            AddMusicOption("!NEW! Under a Swaying Tree", 236, 1025, 28);
+            AddMusicOption("!NEW! Momentum", 239, 1026, 28);
             AddMusicOption("!NEW! The Draken", 251, 1003, 28);
             AddMusicOption("!NEW! Grog And Scurvy Aliens", 258, 1004, 28);
             AddMusicOption("!NEW! The Weave", 266, 1005, 28);
@@ -4531,7 +4534,11 @@ namespace WildStar.TestBed
             AddMusicOption("!NEW! We Were Exiled Together", 301, 1008, 28);
             AddMusicOption("!NEW! Terminites and Buzzbings", 370, 1009, 28);
             AddMusicOption("!NEW! This Is Our Song", 375, 1010, 28);
+            AddMusicOption("!NEW! The Trees Whisper", 388, 1027, 28);
             AddMusicOption("!NEW! A Farmer's Life", 474, 1011, 28);
+            AddMusicOption("!NEW! Whimsy", 500, 1028, 28);
+            AddMusicOption("!NEW! Deconstructing Beauty", 516, 1029, 28);
+            AddMusicOption("!NEW! BEER!", 795, 1030, 28);
             AddMusicOption("!NEW! Exiled", 805, 1012, 28);
             AddMusicOption("!NEW! Dead Silence", 1030, 1013, 28);
             AddMusicOption("!NEW! A Harsh Wind", 1082, 1014, 28);
@@ -4543,6 +4550,7 @@ namespace WildStar.TestBed
             AddMusicOption("!NEW! Drifting", 1272, 1020, 28);
             AddMusicOption("!NEW! Initialization Core Y-83", 1273, 1021, 28);
             AddMusicOption("!NEW! Caretaker's Beats", 1280, 1022, 28);
+            AddMusicOption("!NEW! The Madame's Crystal Ball", 1282, 1031, 28);
             AddMusicOption("!NEW! Mordechai's Terror", 1461, 1023, 28);
             AddMusicOption("!NEW! Pegleg On The Dancefloor", 1466, 1024, 28);
 
