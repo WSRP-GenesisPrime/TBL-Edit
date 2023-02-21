@@ -41,6 +41,8 @@ namespace WildStar.TestBed
 
             CharacterCustomizationChanges();
 
+            RemoveItemFactionRestrictions();
+
             uint startItem2Id = 92834;
             startItem2Id = AddWeaponItems(startItem2Id);
 
@@ -7141,6 +7143,17 @@ namespace WildStar.TestBed
             Console.WriteLine("swimsuitOutfitId00F_F = " + swimsuitOutfitId00F_F);
             uint swimsuitOutfitId00F_M = AddCreatureOutfitGroupEntry(8170, startOutfitGroupId + 12, startOutfitGroupId + 12, AddCreatureOutfitInfo(10232, startCreature2OutfitInfoId + 12, 8668), 1);
             Console.WriteLine("swimsuitOutfitId00F_M = " + swimsuitOutfitId00F_M);
+        }
+
+        static void RemoveItemFactionRestrictions()
+        {
+            foreach(var entry in item2.table.Entries)
+            {
+                if (entry.Values[14].GetValue<uint>() != 0)
+                {
+                    entry.Values[14].SetValue(0u);
+                }
+            }
         }
         
 
