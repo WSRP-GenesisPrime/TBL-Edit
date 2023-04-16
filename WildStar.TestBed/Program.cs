@@ -4650,11 +4650,11 @@ namespace WildStar.TestBed
             AddSwimsuitOutfits();
             AddSpacerOutfits();
 
-            SaveTables("../../../../TblNormal/");
+            SaveTables("../../../../tblNormal/");
 
             startItem2Id = DoNSFWSItemDisplays(startItem2Id);
 
-            SaveTables("../../../../TblNSFWS/");
+            SaveTables("../../../../tblNSFWS/");
 
             // BETA YOLO MOOOODE
             betaMode = true;
@@ -7156,8 +7156,8 @@ namespace WildStar.TestBed
 
 
 
-            SaveTables("../../../../TblBeta/");
-            CopyTables("../../../../TblBeta/", "../../../../TblServer/");
+            SaveTables("../../../../tblBeta/");
+            CopyTables("../../../../tblBeta/", "../../../../tblServer/");
 
             List<string> file = new List<string>();
             foreach (var entry in language.Entries)
@@ -8610,10 +8610,10 @@ namespace WildStar.TestBed
         {
             foreach (var table in tables)
             {
-                table.Load("../../../../Tbl/");
+                table.Load("../../../../tbl/");
             }
             language = new TextTable.TextTable();
-            language.Load("../../../../Tbl/en-US.bin");
+            language.Load("../../../../tbl/en-US.bin");
             cch.Load(characterCustomization, characterCustomizationLabel, characterCustomizationSelection);
         }
 
