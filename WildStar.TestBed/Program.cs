@@ -4647,6 +4647,7 @@ namespace WildStar.TestBed
 
             startItem2Id = AddSFWItems(startItem2Id);
             AddMounts();
+            FixMounts();
             AddSwimsuitOutfits();
             AddSpacerOutfits();
 
@@ -9014,6 +9015,21 @@ namespace WildStar.TestBed
             colorShift.AddEntry(entry, id);
         }
 
+        static void FixMounts()
+        {
+            uint groundVehicleID = 1u;
+
+            //fix the unitVehicleIds of ground mounts that can't double jump
+            List<uint> noDoubleJumpMounts = new List<uint>
+            {
+                51385,183535,215654,216019,216020,216021,216022,220634,224717,228234,228818,228834
+            };
+            foreach (uint id in noDoubleJumpMounts)
+            {
+                var mountSpellEffect = spell4Effects.GetEntry(id);
+                mountSpellEffect.Values[10].SetValue(groundVehicleID);
+            }
+        }
         static void AddMount(uint creature2ID, string name, uint unitVehicleID, string icon)
         {
             uint localizedTextIdName = language.AddEntry(name);
