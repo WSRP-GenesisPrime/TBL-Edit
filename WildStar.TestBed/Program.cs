@@ -4369,6 +4369,91 @@ namespace WildStar.TestBed
             AddNPCDecor(2666, AddCreature(73085, startCreature2ID + 2590, "Torine Sister 2", "Torine Sister", null, 9838, 0, null, 1628, 1.3f, 0, null), 7976, "Art\\Prop\\Constructed\\Banner\\Torine\\PRP_Banner_Torine_000.m3", "Torine Sister, Kneeling (Style 2)", 27, 0);
             AddNPCDecor(2666, AddCreature(73085, startCreature2ID + 2591, "Torine Sister 3", "Torine Sister", null, 9839, 0, null, 1628, 1.3f, 0, null), 7977, "Art\\Prop\\Constructed\\Banner\\Torine\\PRP_Banner_Torine_000.m3", "Torine Sister, Kneeling (Style 3)", 27, 0);
             AddNPCDecor(2666, AddCreature(73085, startCreature2ID + 2592, "Torine Sister 4", "Torine Sister", null, 10777, 0, null, 1628, 1.3f, 0, null), 7978, "Art\\Prop\\Constructed\\Banner\\Torine\\PRP_Banner_Torine_000.m3", "Torine Sister, Kneeling (Style 4)", 27, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2593, "Cassian Male ICI Agent", "ICI Agent", 34859, 9708, 0, 0, 0, 1f, 0, null), 7979, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Agent (Cassian, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2594, "Cassian Female ICI Agent", "ICI Agent", 34858, 9708, 0, 0, 0, 1f, 0, null), 7980, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Agent (Cassian, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2595, "Mechari Male ICI Agent", "ICI Agent", 38821, 9708, 0, 0, 0, 1f, 0, null), 7981, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Agent (Mechari, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2596, "Mechari Female ICI Agent", "ICI Agent", 41230, 9708, 0, 0, 0, 1f, 0, null), 7982, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Agent (Mechari, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2597, "Draken Male ICI Agent", "ICI Agent", 39029, 9708, 0, 0, 0, 1f, 0, null), 7983, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Agent (Draken, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2598, "Draken Female ICI Agent", "ICI Agent", 39027, 9708, 0, 0, 0, 1f, 0, null), 7984, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Agent (Draken, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2599, "Chua ICI Agent", "ICI Agent", 30344, 9708, 0, 0, 0, 1f, 0, null), 7985, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Agent (Chua)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2600, "Cassian Male ICI Guard", "ICI Guard", 34859, 9707, 149, 0, 0, 1f, 0, null), 7986, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Guard (Cassian, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2601, "Cassian Female ICI Guard", "ICI Guard", 34858, 9707, 149, 0, 0, 1f, 0, null), 7987, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Guard (Cassian, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2602, "Mechari Male ICI Guard", "ICI Guard", 38821, 9707, 149, 0, 0, 1f, 0, null), 7988, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Guard (Mechari, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2603, "Mechari Female ICI Guard", "ICI Guard", 41230, 9707, 149, 0, 0, 1f, 0, null), 7989, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Guard (Mechari, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2604, "Draken Male ICI Guard", "ICI Guard", 39046, 9707, 149, 0, 0, 1f, 0, null), 7990, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Guard (Draken, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2605, "Draken Female ICI Guard", "ICI Guard", 39048, 9707, 149, 0, 0, 1f, 0, null), 7991, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Guard (Draken, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2606, "Chua ICI Guard", "ICI Guard", 38819, 9707, 149, 0, 0, 1f, 0, null), 7992, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Guard (Chua)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2607, "Cassian Male ICI Assassin", "ICI Assassin", 34859, 9707, 3381, 0, 0, 1f, 0, null), 7993, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Assassin (Cassian, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2608, "Cassian Female ICI Assassin", "ICI Assassin", 34858, 9707, 3381, 0, 0, 1f, 0, null), 7994, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Assassin (Cassian, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2609, "Mechari Male ICI Assassin", "ICI Assassin", 38821, 9707, 3381, 0, 0, 1f, 0, null), 7995, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Assassin (Mechari, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2610, "Mechari Female ICI Assassin", "ICI Assassin", 41230, 9707, 3381, 0, 0, 1f, 0, null), 7996, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Assassin (Mechari, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2611, "Draken Male ICI Assassin", "ICI Assassin", 28270, 9707, 3381, 0, 0, 1f, 0, null), 7997, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Assassin (Draken, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2612, "Draken Female ICI Assassin", "ICI Assassin", 25335, 9707, 3381, 0, 0, 1f, 0, null), 7998, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Assassin (Draken, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2613, "Chua ICI Assassin", "ICI Assassin", 36027, 9707, 3381, 0, 0, 1f, 0, null), 7999, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Assassin (Chua)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2614, "Human M BH Agent", "Black Hoods Agent", 34859, 9689, 0, 0, 0, 1f, 0, null), 8000, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Agent (Human, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2615, "Human F BH Agent", "Black Hoods Agent", 34858, 9689, 0, 0, 0, 1f, 0, null), 8001, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Agent (Human, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2616, "Mordesh M BH Agent", "Black Hoods Agent", 26016, 9689, 0, 0, 0, 1f, 0, null), 8002, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Agent (Mordesh, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2617, "Mordesh F BH Agent", "Black Hoods Agent", 41224, 9689, 0, 0, 0, 1f, 0, null), 8003, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Agent (Mordesh, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2618, "Granok M BH Agent", "Black Hoods Agent", 28351, 9689, 0, 0, 0, 1f, 0, null), 8004, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Agent (Granok, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2619, "Granok F BH Agent", "Black Hoods Agent", 34764, 9689, 0, 0, 0, 1f, 0, null), 8005, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Agent (Granok, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2620, "Aurin M BH Agent", "Black Hoods Agent", 39036, 9689, 0, 0, 0, 1f, 0, null), 8006, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Agent (Aurin, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2621, "Aurin F BH Agent", "Black Hoods Agent", 38231, 9689, 0, 0, 0, 1f, 0, null), 8007, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Agent (Aurin, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2622, "Human M BH Enforcer", "Black Hoods Enforcer", 34859, 9689, 594, 0, 0, 1f, 0, null), 8008, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Enforcer (Human, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2623, "Human F BH Enforcer", "Black Hoods Enforcer", 34858, 9689, 594, 0, 0, 1f, 0, null), 8009, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Enforcer (Human, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2624, "Mordesh M BH Enforcer", "Black Hoods Enforcer", 26016, 9689, 594, 0, 0, 1f, 0, null), 8010, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Enforcer (Mordesh, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2625, "Mordesh F BH Enforcer", "Black Hoods Enforcer", 41224, 9689, 594, 0, 0, 1f, 0, null), 8011, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Enforcer (Mordesh, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2626, "Granok M BH Enforcer", "Black Hoods Enforcer", 28351, 9689, 594, 0, 0, 1f, 0, null), 8012, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Enforcer (Granok, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2627, "Granok F BH Enforcer", "Black Hoods Enforcer", 34764, 9689, 594, 0, 0, 1f, 0, null), 8013, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Enforcer (Granok, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2628, "Aurin M BH Enforcer", "Black Hoods Enforcer", 39609, 9689, 594, 0, 0, 1f, 0, null), 8014, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Enforcer (Aurin, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2629, "Aurin F BH Enforcer", "Black Hoods Enforcer", 39037, 9689, 594, 0, 0, 1f, 0, null), 8015, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Enforcer (Aurin, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2630, "Human M BH Prowler", "Black Hoods Prowler", 34859, 9689, 3380, 0, 0, 1f, 0, null), 8016, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Prowler (Human, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2631, "Human F BH Prowler", "Black Hoods Prowler", 34858, 9689, 3380, 0, 0, 1f, 0, null), 8017, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Prowler (Human, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2632, "Mordesh M BH Prowler", "Black Hoods Prowler", 26016, 9689, 3380, 0, 0, 1f, 0, null), 8018, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Prowler (Mordesh, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2633, "Mordesh F BH Prowler", "Black Hoods Prowler", 41224, 9689, 3380, 0, 0, 1f, 0, null), 8019, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Prowler (Mordesh, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2634, "Aurin M BH Prowler", "Black Hoods Prowler", 39609, 9689, 3380, 0, 0, 1f, 0, null), 8020, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Prowler (Aurin, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2635, "Aurin F BH Prowler", "Black Hoods Prowler", 39037, 9689, 3380, 0, 0, 1f, 0, null), 8021, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Prowler (Aurin, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2636, "Cassian Male ICI Agent Use", "ICI Agent", 34859, 9708, 0, 0, 475, 1f, 0, null), 8022, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Agent, Use (Cassian, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2637, "Cassian Female ICI Agent Use", "ICI Agent", 34858, 9708, 0, 0, 475, 1f, 0, null), 8023, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Agent, Use (Cassian, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2638, "Mechari Male ICI Agent Use", "ICI Agent", 38821, 9708, 0, 0, 475, 1f, 0, null), 8024, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Agent, Use (Mechari, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2639, "Mechari Female ICI Agent Use", "ICI Agent", 41230, 9708, 0, 0, 475, 1f, 0, null), 8025, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Agent, Use (Mechari, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2640, "Draken Male ICI Agent Use", "ICI Agent", 39029, 9708, 0, 0, 475, 1f, 0, null), 8026, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Agent, Use (Draken, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2641, "Draken Female ICI Agent Use", "ICI Agent", 39027, 9708, 0, 0, 475, 1f, 0, null), 8027, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Agent, Use (Draken, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2642, "Chua ICI Agent Use", "ICI Agent", 30344, 9708, 0, 0, 475, 1f, 0, null), 8028, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Agent, Use (Chua)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2643, "Human M BH Agent Use", "Black Hoods Agent", 34859, 9689, 0, 0, 475, 1f, 0, null), 8029, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Agent, Use (Human, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2644, "Human F BH Agent Use", "Black Hoods Agent", 34858, 9689, 0, 0, 475, 1f, 0, null), 8030, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Agent, Use (Human, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2645, "Mordesh M BH Agent Use", "Black Hoods Agent", 26016, 9689, 0, 0, 475, 1f, 0, null), 8031, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Agent, Use (Mordesh, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2646, "Mordesh F BH Agent Use", "Black Hoods Agent", 41224, 9689, 0, 0, 475, 1f, 0, null), 8032, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Agent, Use (Mordesh, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2647, "Granok M BH Agent Use", "Black Hoods Agent", 28351, 9689, 0, 0, 475, 1f, 0, null), 8033, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Agent, Use (Granok, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2648, "Granok F BH Agent Use", "Black Hoods Agent", 34764, 9689, 0, 0, 475, 1f, 0, null), 8034, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Agent, Use (Granok, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2649, "Aurin M BH Agent Use", "Black Hoods Agent", 39036, 9689, 0, 0, 475, 1f, 0, null), 8035, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Agent, Use (Aurin, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2650, "Aurin F BH Agent Use", "Black Hoods Agent", 38231, 9689, 0, 0, 475, 1f, 0, null), 8036, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Agent, Use (Aurin, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2651, "Cassian Male ICI Guard Alert", "ICI Guard", 34859, 9707, 149, 0, 708, 1f, 0, null), 8037, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Guard, Alert (Cassian, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2652, "Cassian Female ICI Guard Alert", "ICI Guard", 34858, 9707, 149, 0, 708, 1f, 0, null), 8038, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Guard, Alert (Cassian, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2653, "Mechari Male ICI Guard Alert", "ICI Guard", 38821, 9707, 149, 0, 708, 1f, 0, null), 8039, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Guard, Alert (Mechari, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2654, "Mechari Female ICI Guard Alert", "ICI Guard", 41230, 9707, 149, 0, 708, 1f, 0, null), 8040, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Guard, Alert (Mechari, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2655, "Draken Male ICI Guard Alert", "ICI Guard", 39046, 9707, 149, 0, 708, 1f, 0, null), 8041, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Guard, Alert (Draken, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2656, "Draken Female ICI Guard Alert", "ICI Guard", 39048, 9707, 149, 0, 708, 1f, 0, null), 8042, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Guard, Alert (Draken, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2657, "Chua ICI Guard Alert", "ICI Guard", 38819, 9707, 149, 0, 708, 1f, 0, null), 8043, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Guard, Alert (Chua)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2658, "Human M BH Enforcer Alert", "Black Hoods Enforcer", 34859, 9689, 594, 0, 708, 1f, 0, null), 8044, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Enforcer, Alert (Human, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2659, "Human F BH Enforcer Alert", "Black Hoods Enforcer", 34858, 9689, 594, 0, 708, 1f, 0, null), 8045, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Enforcer, Alert (Human, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2660, "Mordesh M BH Enforcer Alert", "Black Hoods Enforcer", 26016, 9689, 594, 0, 708, 1f, 0, null), 8046, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Enforcer, Alert (Mordesh, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2661, "Mordesh F BH Enforcer Alert", "Black Hoods Enforcer", 41224, 9689, 594, 0, 708, 1f, 0, null), 8047, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Enforcer, Alert (Mordesh, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2662, "Granok M BH Enforcer Alert", "Black Hoods Enforcer", 28351, 9689, 594, 0, 708, 1f, 0, null), 8048, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Enforcer, Alert (Granok, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2663, "Granok F BH Enforcer Alert", "Black Hoods Enforcer", 34764, 9689, 594, 0, 708, 1f, 0, null), 8049, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Enforcer, Alert (Granok, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2664, "Aurin M BH Enforcer Alert", "Black Hoods Enforcer", 39609, 9689, 594, 0, 708, 1f, 0, null), 8050, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Enforcer, Alert (Aurin, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2665, "Aurin F BH Enforcer Alert", "Black Hoods Enforcer", 39037, 9689, 594, 0, 708, 1f, 0, null), 8051, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Enforcer, Alert (Aurin, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2666, "Cassian Male ICI Assassin Stealth", "ICI Assassin", 34859, 9707, 3381, 0, 5642, 1f, 0, null), 8052, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Assassin, Stealth (Cassian, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2667, "Cassian Female ICI Assassin Stealth", "ICI Assassin", 34858, 9707, 3381, 0, 5642, 1f, 0, null), 8053, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Assassin, Stealth (Cassian, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2668, "Mechari Male ICI Assassin Stealth", "ICI Assassin", 38821, 9707, 3381, 0, 5642, 1f, 0, null), 8054, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Assassin, Stealth (Mechari, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2669, "Mechari Female ICI Assassin Stealth", "ICI Assassin", 41230, 9707, 3381, 0, 5642, 1f, 0, null), 8055, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Assassin, Stealth (Mechari, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2670, "Draken Male ICI Assassin Stealth", "ICI Assassin", 28270, 9707, 3381, 0, 5642, 1f, 0, null), 8056, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Assassin, Stealth (Draken, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2671, "Draken Female ICI Assassin Stealth", "ICI Assassin", 25335, 9707, 3381, 0, 5642, 1f, 0, null), 8057, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "!NEW! ICI Assassin, Stealth (Draken, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2672, "Human M BH Prowler Stealth", "Black Hoods Prowler", 34859, 9689, 3380, 0, 5642, 1f, 0, null), 8058, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Prowler, Stealth (Human, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2673, "Human F BH Prowler Stealth", "Black Hoods Prowler", 34858, 9689, 3380, 0, 5642, 1f, 0, null), 8059, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Prowler, Stealth (Human, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2674, "Mordesh M BH Prowler Stealth", "Black Hoods Prowler", 26016, 9689, 3380, 0, 5642, 1f, 0, null), 8060, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Prowler, Stealth (Mordesh, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2675, "Mordesh F BH Prowler Stealth", "Black Hoods Prowler", 41224, 9689, 3380, 0, 5642, 1f, 0, null), 8061, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Prowler, Stealth (Mordesh, Female)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2676, "Aurin M BH Prowler Stealth", "Black Hoods Prowler", 39609, 9689, 3380, 0, 5642, 1f, 0, null), 8062, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Prowler, Stealth (Aurin, Male)", 33, 0);
+            AddNPCDecor(2666, AddCreature(75885, startCreature2ID + 2677, "Aurin F BH Prowler Stealth", "Black Hoods Prowler", 39037, 9689, 3380, 0, 5642, 1f, 0, null), 8063, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "!NEW! Black Hoods Prowler, Stealth (Aurin, Female)", 33, 0);
             AddWorldLayer(1288, "Fallow_Ground", 105, 3f, 0f, 0f, 0f, 4f, "Art\\Terrain\\Plant\\Terrain_Plant_CropLeafy_Green_000_Color.tex", "Art\\Terrain\\Plant\\Terrain_Plant_CropLeafy_Green_000_Normal.tex", null, 8, 23, 0, 111, 112, 0f, 0, 0f, 0f);
             AddWorldLayer(1289, "Rocky_2_Secondary", 981, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
             AddWorldLayer(1290, null, 476, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
@@ -4573,31 +4658,31 @@ namespace WildStar.TestBed
             AddSkyOption("Cloudbreak", 365, 64, 2075, 30);
             AddSkyOption("Jungle Glowflies", 369, 64, 2076, 30);
             AddSkyOption("Exanite Dust", 377, 64, 2077, 30);
-            AddSkyOption("!NEW! Dark Orbit", 392, 64, 2078, 31);
-            AddSkyOption("!NEW! The Void", 394, 64, 2079, 31);
-            AddSkyOption("!NEW! Spaceflight Nebulae", 398, 64, 2080, 31);
-            AddSkyOption("!NEW! Cirrus Flurries", 412, 64, 2081, 31);
-            AddSkyOption("!NEW! Burning Smoke", 416, 64, 2082, 31);
-            AddSkyOption("!NEW! Storm On The Horizon", 453, 64, 2083, 31);
-            AddSkyOption("!NEW! Limbo", 493, 64, 2084, 31);
-            AddSkyOption("!NEW! Suns Over Mountains", 497, 64, 2085, 31);
-            AddSkyOption("!NEW! Whiteout", 499, 64, 2086, 31);
-            AddSkyOption("!NEW! Water Versus Fire", 508, 64, 2087, 31);
-            AddSkyOption("!NEW! Purple Nova", 510, 64, 2088, 31);
-            AddSkyOption("!NEW! Water-Air Vortex", 511, 64, 2089, 31);
-            AddSkyOption("!NEW! Water-Fire Vortex", 512, 64, 2090, 31);
-            AddSkyOption("!NEW! Water-Logic Vortex", 513, 64, 2091, 31);
-            AddSkyOption("!NEW! Earth-Air Vortex", 514, 64, 2092, 31);
-            AddSkyOption("!NEW! Earth-Fire Vortex", 515, 64, 2093, 31);
-            AddSkyOption("!NEW! Earth-Logic Vortex", 516, 64, 2094, 31);
-            AddSkyOption("!NEW! Life-Air Vortex", 517, 64, 2095, 31);
-            AddSkyOption("!NEW! Life-Fire Vortex", 518, 64, 2096, 31);
-            AddSkyOption("!NEW! Life-Logic Vortex", 519, 64, 2097, 31);
-            AddSkyOption("!NEW! Purple-Green Nova", 521, 64, 2098, 31);
-            AddSkyOption("!NEW! Green Nova", 522, 64, 2099, 31);
-            AddSkyOption("!NEW! Planetary Collision Course", 532, 64, 2100, 31);
-            AddSkyOption("!NEW! Falling Into Nexus", 533, 64, 2101, 31);
-            AddSkyOption("!NEW! Near-Lightspeed", 565, 64, 2102, 31);
+            AddSkyOption("Dark Orbit", 392, 64, 2078, 31);
+            AddSkyOption("The Void", 394, 64, 2079, 31);
+            AddSkyOption("Spaceflight Nebulae", 398, 64, 2080, 31);
+            AddSkyOption("Cirrus Flurries", 412, 64, 2081, 31);
+            AddSkyOption("Burning Smoke", 416, 64, 2082, 31);
+            AddSkyOption("Storm On The Horizon", 453, 64, 2083, 31);
+            AddSkyOption("Limbo", 493, 64, 2084, 31);
+            AddSkyOption("Suns Over Mountains", 497, 64, 2085, 31);
+            AddSkyOption("Whiteout", 499, 64, 2086, 31);
+            AddSkyOption("Water Versus Fire", 508, 64, 2087, 31);
+            AddSkyOption("Purple Nova", 510, 64, 2088, 31);
+            AddSkyOption("Water-Air Vortex", 511, 64, 2089, 31);
+            AddSkyOption("Water-Fire Vortex", 512, 64, 2090, 31);
+            AddSkyOption("Water-Logic Vortex", 513, 64, 2091, 31);
+            AddSkyOption("Earth-Air Vortex", 514, 64, 2092, 31);
+            AddSkyOption("Earth-Fire Vortex", 515, 64, 2093, 31);
+            AddSkyOption("Earth-Logic Vortex", 516, 64, 2094, 31);
+            AddSkyOption("Life-Air Vortex", 517, 64, 2095, 31);
+            AddSkyOption("Life-Fire Vortex", 518, 64, 2096, 31);
+            AddSkyOption("Life-Logic Vortex", 519, 64, 2097, 31);
+            AddSkyOption("Purple-Green Nova", 521, 64, 2098, 31);
+            AddSkyOption("Green Nova", 522, 64, 2099, 31);
+            AddSkyOption("Planetary Collision Course", 532, 64, 2100, 31);
+            AddSkyOption("Falling Into Nexus", 533, 64, 2101, 31);
+            AddSkyOption("Near-Lightspeed", 565, 64, 2102, 31);
             AddSkyOption("!NEW! Heavenly Glow", 571, 64, 2103, 32);
             AddSkyOption("!NEW! Corruption's Maw", 581, 64, 2104, 32);
             AddSkyOption("!NEW! Drusera's Light", 591, 64, 2105, 32);
@@ -4794,26 +4879,26 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Dungeon\\Exolabs\\GreenTube_Long\\PRP_Exolabs_Greentube_Long", 86, 0, null, "Exolabs_Greentube_Long", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Dungeon\\Exolabs\\GreenTube_Medium\\PRP_Exolabs_Greentube_Medium", 86, 0, null, "Exolabs_Greentube_Medium", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Dungeon\\Exolabs\\GreenTube_Small\\PRP_Exolabs_Greentube_Small", 86, 0, null, "Exolabs_Greentube_Small", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_AttachmentScene_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_AttachmentScene_000", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_Card_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_Card_000", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_ClickVolume_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_ClickVolume_000", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_CrystalBall_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_CrystalBall_000", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_CurtainBG_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_CurtainBG_000", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_CurtainFG_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_CurtainFG_000", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_RuneProgression_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_RuneProgression_000", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_Shiny_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_Shiny_000", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_Table_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_Table_000", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_Tutorial_Arrow_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_Tutorial_Arrow_000", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Pop\\Constructed\\Walls\\Generic\\PRP_Platform_RetainingWall_000", 86, 0, null, "Art\\Pop\\Constructed\\Walls\\Generic\\PRP_Platform_RetainingWall_000", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Pop\\Constructed\\Walls\\Generic\\PRP_Walls_Generic_Barrier_Corrugated_000", 86, 0, null, "Art\\Pop\\Constructed\\Walls\\Generic\\PRP_Walls_Generic_Barrier_Corrugated_000", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Pop\\Constructed\\Walls\\PRP_Walls_WarplotsOsun_Blasted_000", 86, 0, null, "Art\\Pop\\Constructed\\Walls\\PRP_Walls_WarplotsOsun_Blasted_000", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Pop\\Constructed\\Walls\\PRP_Walls_WarplotsOsun_Blasted_001", 86, 0, null, "Art\\Pop\\Constructed\\Walls\\PRP_Walls_WarplotsOsun_Blasted_001", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Bridge\\Spirit\\PRP_Bridge_Spirit_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Bridge\\Spirit\\PRP_Bridge_Spirit_000.m3", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Bridge\\Eldan\\PRP_Bridge_Eldan_LaserBridge_000", 86, 0, null, "Art\\Prop\\Constructed\\Bridge\\Eldan\\PRP_Bridge_Eldan_LaserBridge_000", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Bridge\\Eldan\\PRP_Bridge_Eldan_LaserBridge_002", 86, 0, null, "Art\\Prop\\Constructed\\Bridge\\Eldan\\PRP_Bridge_Eldan_LaserBridge_002", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Bridge\\Eldan\\PRP_Bridge_Eldan_LaserBridge_003", 86, 0, null, "Art\\Prop\\Constructed\\Bridge\\Eldan\\PRP_Bridge_Eldan_LaserBridge_003", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Bridge\\Eldan\\PRP_Bridge_Eldan_LaserBridge_004", 86, 0, null, "Art\\Prop\\Constructed\\Bridge\\Eldan\\PRP_Bridge_Eldan_LaserBridge_004", DecorCategory.Unknown, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Bridge\\Osun\\PRP_Bridge_Osun_Snow_000", 86, 0, null, "Art\\Prop\\Constructed\\Bridge\\Osun\\PRP_Bridge_Osun_Snow_000", DecorCategory.Unknown, false, 0);
+            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_AttachmentScene_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_AttachmentScene_000", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_Card_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_Card_000", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_ClickVolume_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_ClickVolume_000", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_CrystalBall_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_CrystalBall_000", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_CurtainBG_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_CurtainBG_000", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_CurtainFG_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_CurtainFG_000", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_RuneProgression_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_RuneProgression_000", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_Shiny_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_Shiny_000", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_Table_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_Table_000", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\MFFortunes\\PRP_MFFortunes_Tutorial_Arrow_000", 86, 0, null, "Art\\Prop\\MFFortunes\\PRP_MFFortunes_Tutorial_Arrow_000", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Pop\\Constructed\\Walls\\Generic\\PRP_Platform_RetainingWall_000", 86, 0, null, "Art\\Pop\\Constructed\\Walls\\Generic\\PRP_Platform_RetainingWall_000", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Pop\\Constructed\\Walls\\Generic\\PRP_Walls_Generic_Barrier_Corrugated_000", 86, 0, null, "Art\\Pop\\Constructed\\Walls\\Generic\\PRP_Walls_Generic_Barrier_Corrugated_000", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Pop\\Constructed\\Walls\\PRP_Walls_WarplotsOsun_Blasted_000", 86, 0, null, "Art\\Pop\\Constructed\\Walls\\PRP_Walls_WarplotsOsun_Blasted_000", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Pop\\Constructed\\Walls\\PRP_Walls_WarplotsOsun_Blasted_001", 86, 0, null, "Art\\Pop\\Constructed\\Walls\\PRP_Walls_WarplotsOsun_Blasted_001", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Bridge\\Spirit\\PRP_Bridge_Spirit_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Bridge\\Spirit\\PRP_Bridge_Spirit_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Bridge\\Eldan\\PRP_Bridge_Eldan_LaserBridge_000", 86, 0, null, "Art\\Prop\\Constructed\\Bridge\\Eldan\\PRP_Bridge_Eldan_LaserBridge_000", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Bridge\\Eldan\\PRP_Bridge_Eldan_LaserBridge_002", 86, 0, null, "Art\\Prop\\Constructed\\Bridge\\Eldan\\PRP_Bridge_Eldan_LaserBridge_002", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Bridge\\Eldan\\PRP_Bridge_Eldan_LaserBridge_003", 86, 0, null, "Art\\Prop\\Constructed\\Bridge\\Eldan\\PRP_Bridge_Eldan_LaserBridge_003", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Bridge\\Eldan\\PRP_Bridge_Eldan_LaserBridge_004", 86, 0, null, "Art\\Prop\\Constructed\\Bridge\\Eldan\\PRP_Bridge_Eldan_LaserBridge_004", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Bridge\\Osun\\PRP_Bridge_Osun_Snow_000", 86, 0, null, "Art\\Prop\\Constructed\\Bridge\\Osun\\PRP_Bridge_Osun_Snow_000", DecorCategory.Beta, false, 0);
             AddGroundOption("Icescape", 1256, 1257, null, 1);
             AddGroundOption("Celestion Moss 1", 137, 138, null, 1);
             AddGroundOption("Celestion Moss 2", 137, 193, null, 1);
@@ -4878,7 +4963,7 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 55", 55);
             AddMusicOption("Big Dig: 56", 56);
             AddMusicOption("Big Dig: 57", 57);
-            AddMusicOption("Big Dig: 58", 58);
+            //AddMusicOption("Big Dig: 58", 58); - What You Think You Know
             AddMusicOption("Big Dig: 59", 59);
             AddMusicOption("Big Dig: 60", 60);
             AddMusicOption("Big Dig: 61", 61);
@@ -4918,7 +5003,7 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 100", 100);
             AddMusicOption("Big Dig: 102", 102);
             AddMusicOption("Big Dig: 103", 103);
-            AddMusicOption("Big Dig: 107", 107);
+            //AddMusicOption("Big Dig: 107", 107); - Beneath The Earth
             AddMusicOption("Big Dig: 108", 108);
             AddMusicOption("Big Dig: 110", 110);
             AddMusicOption("Big Dig: 111", 111);
@@ -4975,7 +5060,7 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 171", 171);
             AddMusicOption("Big Dig: 172", 172);
             AddMusicOption("Big Dig: 173", 173);
-            AddMusicOption("Big Dig: 174", 174);
+            //AddMusicOption("Big Dig: 174", 174); - Stone Hard
             AddMusicOption("Big Dig: 175", 175);
             AddMusicOption("Big Dig: 176", 176);
             AddMusicOption("Big Dig: 177", 177);
@@ -5037,10 +5122,10 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 233", 233);
             AddMusicOption("Big Dig: 234", 234);
             AddMusicOption("Big Dig: 235", 235);
-            AddMusicOption("Big Dig: 236", 236);
+            //AddMusicOption("Big Dig: 236", 236); - Under A Swaying Tree
             AddMusicOption("Big Dig: 237", 237);
             AddMusicOption("Big Dig: 238", 238);
-            AddMusicOption("Big Dig: 239", 239);
+            //AddMusicOption("Big Dig: 239", 239); - Momentum
             AddMusicOption("Big Dig: 240", 240);
             AddMusicOption("Big Dig: 241", 241);
             AddMusicOption("Big Dig: 242", 242);
@@ -5052,14 +5137,14 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 248", 248);
             AddMusicOption("Big Dig: 249", 249);
             AddMusicOption("Big Dig: 250", 250);
-            AddMusicOption("Big Dig: 251", 251);
+            //AddMusicOption("Big Dig: 251", 251); - The Draken
             AddMusicOption("Big Dig: 252", 252);
             AddMusicOption("Big Dig: 253", 253);
             AddMusicOption("Big Dig: 254", 254);
             AddMusicOption("Big Dig: 255", 255);
             AddMusicOption("Big Dig: 256", 256);
             AddMusicOption("Big Dig: 257", 257);
-            AddMusicOption("Big Dig: 258", 258);
+            //AddMusicOption("Big Dig: 258", 258); - Grog And Scurvy Aliens
             AddMusicOption("Big Dig: 259", 259);
             AddMusicOption("Big Dig: 260", 260);
             AddMusicOption("Big Dig: 261", 261);
@@ -5067,7 +5152,7 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 263", 263);
             AddMusicOption("Big Dig: 264", 264);
             AddMusicOption("Big Dig: 265", 265);
-            AddMusicOption("Big Dig: 266", 266);
+            //AddMusicOption("Big Dig: 266", 266); - The Weave
             AddMusicOption("Big Dig: 267", 267);
             AddMusicOption("Big Dig: 268", 268);
             AddMusicOption("Big Dig: 269", 269);
@@ -5079,11 +5164,11 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 275", 275);
             AddMusicOption("Big Dig: 276", 276);
             AddMusicOption("Big Dig: 277", 277);
-            AddMusicOption("Big Dig: 278", 278);
+            //AddMusicOption("Big Dig: 278", 278); - Busy Dominion Hangar
             AddMusicOption("Big Dig: 279", 279);
             AddMusicOption("Big Dig: 280", 280);
             AddMusicOption("Big Dig: 281", 281);
-            AddMusicOption("Big Dig: 282", 282);
+            //AddMusicOption("Big Dig: 282", 282); - Stop Me If You've Heard This One
             AddMusicOption("Big Dig: 283", 283);
             AddMusicOption("Big Dig: 284", 284);
             AddMusicOption("Big Dig: 285", 285);
@@ -5102,7 +5187,7 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 298", 298);
             AddMusicOption("Big Dig: 299", 299);
             AddMusicOption("Big Dig: 300", 300);
-            AddMusicOption("Big Dig: 301", 301);
+            //AddMusicOption("Big Dig: 301", 301); - We Were Exiled Together
             AddMusicOption("Big Dig: 302", 302);
             AddMusicOption("Big Dig: 303", 303);
             AddMusicOption("Big Dig: 304", 304);
@@ -5171,12 +5256,12 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 367", 367);
             AddMusicOption("Big Dig: 368", 368);
             AddMusicOption("Big Dig: 369", 369);
-            AddMusicOption("Big Dig: 370", 370);
+            //AddMusicOption("Big Dig: 370", 370); - Terminites And Buzzbings
             AddMusicOption("Big Dig: 371", 371);
             AddMusicOption("Big Dig: 372", 372);
             AddMusicOption("Big Dig: 373", 373);
             AddMusicOption("Big Dig: 374", 374);
-            AddMusicOption("Big Dig: 375", 375);
+            //AddMusicOption("Big Dig: 375", 375); - This Is Our Song
             AddMusicOption("Big Dig: 376", 376);
             AddMusicOption("Big Dig: 377", 377);
             AddMusicOption("Big Dig: 378", 378);
@@ -5189,7 +5274,7 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 385", 385);
             AddMusicOption("Big Dig: 386", 386);
             AddMusicOption("Big Dig: 387", 387);
-            AddMusicOption("Big Dig: 388", 388);
+            //AddMusicOption("Big Dig: 388", 388); - The Trees Whisper
             AddMusicOption("Big Dig: 389", 389);
             AddMusicOption("Big Dig: 390", 390);
             AddMusicOption("Big Dig: 391", 391);
@@ -5275,7 +5360,7 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 471", 471);
             AddMusicOption("Big Dig: 472", 472);
             AddMusicOption("Big Dig: 473", 473);
-            AddMusicOption("Big Dig: 474", 474);
+            //AddMusicOption("Big Dig: 474", 474); - A Farmer's Life
             AddMusicOption("Big Dig: 475", 475);
             AddMusicOption("Big Dig: 476", 476);
             AddMusicOption("Big Dig: 477", 477);
@@ -5301,7 +5386,7 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 497", 497);
             AddMusicOption("Big Dig: 498", 498);
             AddMusicOption("Big Dig: 499", 499);
-            AddMusicOption("Big Dig: 500", 500);
+            //AddMusicOption("Big Dig: 500", 500); - Whimsy
             AddMusicOption("Big Dig: 501", 501);
             AddMusicOption("Big Dig: 502", 502);
             AddMusicOption("Big Dig: 503", 503);
@@ -5317,7 +5402,7 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 513", 513);
             AddMusicOption("Big Dig: 514", 514);
             AddMusicOption("Big Dig: 515", 515);
-            AddMusicOption("Big Dig: 516", 516);
+            //AddMusicOption("Big Dig: 516", 516); - Deconstructing Beauty
             AddMusicOption("Big Dig: 517", 517);
             AddMusicOption("Big Dig: 518", 518);
             AddMusicOption("Big Dig: 519", 519);
@@ -5596,7 +5681,7 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 792", 792);
             AddMusicOption("Big Dig: 793", 793);
             AddMusicOption("Big Dig: 794", 794);
-            AddMusicOption("Big Dig: 795", 795);
+            //AddMusicOption("Big Dig: 795", 795); - BEER!
             AddMusicOption("Big Dig: 796", 796);
             AddMusicOption("Big Dig: 797", 797);
             AddMusicOption("Big Dig: 798", 798);
@@ -5606,7 +5691,7 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 802", 802);
             AddMusicOption("Big Dig: 803", 803);
             AddMusicOption("Big Dig: 804", 804);
-            AddMusicOption("Big Dig: 805", 805);
+            //AddMusicOption("Big Dig: 805", 805); - Exiled
             AddMusicOption("Big Dig: 806", 806);
             AddMusicOption("Big Dig: 807", 807);
             AddMusicOption("Big Dig: 808", 808);
@@ -5830,7 +5915,7 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 1027", 1027);
             AddMusicOption("Big Dig: 1028", 1028);
             AddMusicOption("Big Dig: 1029", 1029);
-            AddMusicOption("Big Dig: 1030", 1030);
+            //AddMusicOption("Big Dig: 1030", 1030); - Dead Silence
             AddMusicOption("Big Dig: 1031", 1031);
             AddMusicOption("Big Dig: 1032", 1032);
             AddMusicOption("Big Dig: 1033", 1033);
@@ -5877,12 +5962,12 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 1079", 1079);
             AddMusicOption("Big Dig: 1080", 1080);
             AddMusicOption("Big Dig: 1081", 1081);
-            AddMusicOption("Big Dig: 1082", 1082);
+            //AddMusicOption("Big Dig: 1082", 1082); - A Harsh Wind
             AddMusicOption("Big Dig: 1083", 1083);
             AddMusicOption("Big Dig: 1084", 1084);
             AddMusicOption("Big Dig: 1085", 1085);
             AddMusicOption("Big Dig: 1086", 1086);
-            AddMusicOption("Big Dig: 1087", 1087);
+            //AddMusicOption("Big Dig: 1087", 1087); - Protectors Of Mysteries
             AddMusicOption("Big Dig: 1088", 1088);
             AddMusicOption("Big Dig: 1089", 1089);
             AddMusicOption("Big Dig: 1090", 1090);
@@ -5890,7 +5975,7 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 1092", 1092);
             AddMusicOption("Big Dig: 1093", 1093);
             AddMusicOption("Big Dig: 1094", 1094);
-            AddMusicOption("Big Dig: 1095", 1095);
+            //AddMusicOption("Big Dig: 1095", 1095); - The Cortex
             AddMusicOption("Big Dig: 1096", 1096);
             AddMusicOption("Big Dig: 1097", 1097);
             AddMusicOption("Big Dig: 1098", 1098);
@@ -5909,7 +5994,7 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 1111", 1111);
             AddMusicOption("Big Dig: 1112", 1112);
             AddMusicOption("Big Dig: 1113", 1113);
-            AddMusicOption("Big Dig: 1114", 1114);
+            //AddMusicOption("Big Dig: 1114", 1114); - Rambunctious Antics
             AddMusicOption("Big Dig: 1115", 1115);
             AddMusicOption("Big Dig: 1116", 1116);
             AddMusicOption("Big Dig: 1117", 1117);
@@ -6040,7 +6125,7 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 1245", 1245);
             AddMusicOption("Big Dig: 1246", 1246);
             AddMusicOption("Big Dig: 1247", 1247);
-            AddMusicOption("Big Dig: 1248", 1248);
+            //AddMusicOption("Big Dig: 1248", 1248); - ProtoJams
             AddMusicOption("Big Dig: 1249", 1249);
             AddMusicOption("Big Dig: 1250", 1250);
             AddMusicOption("Big Dig: 1251", 1251);
@@ -6049,7 +6134,7 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 1254", 1254);
             AddMusicOption("Big Dig: 1255", 1255);
             AddMusicOption("Big Dig: 1256", 1256);
-            AddMusicOption("Big Dig: 1257", 1257);
+            //AddMusicOption("Big Dig: 1257", 1257); - The Games
             AddMusicOption("Big Dig: 1258", 1258);
             AddMusicOption("Big Dig: 1259", 1259);
             AddMusicOption("Big Dig: 1260", 1260);
@@ -6064,14 +6149,14 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 1269", 1269);
             AddMusicOption("Big Dig: 1270", 1270);
             AddMusicOption("Big Dig: 1271", 1271);
-            AddMusicOption("Big Dig: 1272", 1272);
-            AddMusicOption("Big Dig: 1273", 1273);
+            //AddMusicOption("Big Dig: 1272", 1272); - Drifting
+            //AddMusicOption("Big Dig: 1273", 1273); - Initialization Core Y-83
             AddMusicOption("Big Dig: 1274", 1274);
             AddMusicOption("Big Dig: 1276", 1276);
             AddMusicOption("Big Dig: 1277", 1277);
             AddMusicOption("Big Dig: 1278", 1278);
-            AddMusicOption("Big Dig: 1280", 1280);
-            AddMusicOption("Big Dig: 1282", 1282);
+            //AddMusicOption("Big Dig: 1280", 1280); - Caretaker's Beats
+            //AddMusicOption("Big Dig: 1282", 1282); - The Madame's Crystal Ball
             AddMusicOption("Big Dig: 1283", 1283);
             AddMusicOption("Big Dig: 1284", 1284);
             AddMusicOption("Big Dig: 1285", 1285);
@@ -6249,11 +6334,11 @@ namespace WildStar.TestBed
             AddMusicOption("Big Dig: 1458", 1458);
             AddMusicOption("Big Dig: 1459", 1459);
             AddMusicOption("Big Dig: 1460", 1460);
-            AddMusicOption("Big Dig: 1461", 1461);
+            //AddMusicOption("Big Dig: 1461", 1461); - Mordecai's Terror
             AddMusicOption("Big Dig: 1462", 1462);
             AddMusicOption("Big Dig: 1463", 1463);
             AddMusicOption("Big Dig: 1464", 1464);
-            AddMusicOption("Big Dig: 1466", 1466);
+            //AddMusicOption("Big Dig: 1466", 1466); - Pegleg On The Dancefloor
             AddMusicOption("Big Dig: 1467", 1467);
             AddMusicOption("Big Dig: 1468", 1468);
             AddMusicOption("Big Dig: 1469", 1469);
