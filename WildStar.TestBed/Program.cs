@@ -83,6 +83,24 @@ namespace WildStar.TestBed
             AddColorShift("Art\\FX\\LutMaps\\Blue_000_LUT.tex", 36, "Blue");
             AddColorShift("Art\\FX\\LutMaps\\Gold_000_LUT.tex", 37, "Gold");
             AddColorShift("Art\\FX\\LutMaps\\White_000_LUT.tex", 38, "White");
+            AddColorShift("Art\\FX\\LutMaps\\GradientMap_Sepia_000_LUT.tex", 39, "Sepia");
+            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Lavaka_CustomDeath.tex", 40, "Ghost Grey (NAME?)");
+            AddColorShift("Art\\Sky\\Lut\\NPE\\NPE_GC294_Cinematic_Ext.tex", 41, "Turquoise/Holo-Blue (NAME?)");
+            AddColorShift("Art\\Item\\Armor\\Arcane\\Arcane_003\\AMR_Arcane_003_Green_lut.tex", 42, "Neon Shift (NAME?)");
+            AddColorShift("Art\\Sky\\Lut\\LevianBay\\LUT_LevianBay_Sunset.tex", 43, "Dark - LUT_LevianBay_Sunset (NAME?)"); // dark
+            AddColorShift("Art\\Sky\\Lut\\NPE\\NPE_IcyPeak_Boss.tex", 44, "Light - NPE_IcyPeak_Boss (NAME?)"); // light
+            AddColorShift("Art\\Sky\\Lut\\Arcterra\\Arcterra_ice_001.tex", 45, "Red - Arcterra_ice_001 (NAME?)"); // red hues
+            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Kino_Cave.tex", 46, "Red - LUT_RMT_Kino_Cave (NAME?)");
+            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Bridge.tex", 47, "Red - LUT_RMT_Bridge (NAME?)");
+            AddColorShift("Art\\Sky\\Lut\\Retro\\LUT_Retro_Sky.tex", 48, "Red - LUT_Retro_Sky (NAME?)");
+            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Greasy_Galley.tex", 49, "Red - LUT_RMT_Greasy_Galley (NAME?)");
+            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Airlock_MainBoss.tex", 50, "Bright Reddish - LUT_RMT_Airlock_MainBoss (NAME?)"); // brighter, vaguely red
+            AddColorShift("Art\\Sky\\Lut\\NorthernWilds\\LUT_NW_Exterior_Imperium.tex", 51, "Bright Reddish - LUT_NW_Exterior_Imperium (NAME?)");
+            AddColorShift("Art\\Sky\\Lut\\NorthernWilds\\LUT_NW_Interior_Crashed_Ship.tex", 52, "Green - LUT_NW_Interior_Crashed_Ship (NAME?)"); // greenish
+            AddColorShift("Art\\Sky\\Lut\\Arcterra\\Arcterra_Main_001.tex", 53, "Green - Arcterra_Main_001 (NAME?)");
+            AddColorShift("Art\\Sky\\Lut\\LevianBay\\LUT_LevianBay_Eldan.tex", 54, "Green - LUT_LevianBay_Eldan (NAME?)");
+            AddColorShift("Art\\Sky\\Lut\\NorthernWilds\\LUT_NW_Interior_Exolab_10.tex", 55, "Green - LUT_NW_Interior_Exolab_10 (NAME?)");
+            AddColorShift("Art\\Sky\\Lut\\NorthernWilds\\LUT_NW_Skeetch_Cave.tex", 56, "Blue - LUT_NW_Skeetch_Cave (NAME?)"); // blue
 
 
 
@@ -4804,54 +4822,36 @@ namespace WildStar.TestBed
                 table.beta = true;
             }
 
-            AddColorShift("Art\\FX\\LutMaps\\GradientMap_Sepia_000_LUT.tex", 39, "Sepia");
-            AddColorShift("Art\\Item\\Armor\\Arcane\\Arcane_003\\AMR_Arcane_003_Green_lut.tex", 40, "Arcane Green");
-            AddColorShift("Art\\Sky\\Lut\\Arcterra\\Arcterra_Bone_001.tex", 41, "Arcterra_Bone_001");
-            AddColorShift("Art\\Sky\\Lut\\Arcterra\\Arcterra_Forest_001.tex", 42, "Arcterra_Forest_001");
-            AddColorShift("Art\\Sky\\Lut\\Arcterra\\Arcterra_ice_001.tex", 43, "Arcterra_ice_001");
-            AddColorShift("Art\\Sky\\Lut\\Arcterra\\Arcterra_Main_001.tex", 44, "Arcterra_Main_001");
-            AddColorShift("Art\\Sky\\Lut\\Arcterra\\Arcterra_osun_001.tex", 45, "Arcterra_osun_001");
-            AddColorShift("Art\\Sky\\Lut\\BattleChase\\LUT_BattleChase_Dominion.tex", 46, "LUT_BattleChase_Dominion");
-            AddColorShift("Art\\Sky\\Lut\\BattleChase\\LUT_BattleChase_Exile.tex", 47, "LUT_BattleChase_Exile");
-            AddColorShift("Art\\Sky\\Lut\\CrimsonIsle\\LUT_CrimsonIsle_Exterior_DefianceCamp.tex", 48, "LUT_CrimsonIsle_Exterior_DefianceCamp");
-            AddColorShift("Art\\Sky\\Lut\\CrimsonIsle\\LUT_CrimsonIsle_Exterior_Main.tex", 49, "LUT_CrimsonIsle_Exterior_Main");
-            AddColorShift("Art\\Sky\\Lut\\Fortune\\Fortune_Spooky_Sky.tex", 50, "Fortune_Spooky_Sky");
-            AddColorShift("Art\\Sky\\Lut\\LevianBay\\Fortune_Spooky_Sky.tex", 51, "Fortune_Spooky_Sky");
-            AddColorShift("Art\\Sky\\Lut\\LevianBay\\LUT_LevianBay_Eldan.tex", 52, "LUT_LevianBay_Eldan");
-            AddColorShift("Art\\Sky\\Lut\\LevianBay\\LUT_LevianBay_Foggy.tex", 53, "LUT_LevianBay_Foggy");
-            AddColorShift("Art\\Sky\\Lut\\LevianBay\\LUT_LevianBay_Interior_Cave.tex", 54, "LUT_LevianBay_Interior_Cave");
-            AddColorShift("Art\\Sky\\Lut\\LevianBay\\LUT_LevianBay_Interior_Mine.tex", 55, "LUT_LevianBay_Interior_Mine");
-            AddColorShift("Art\\Sky\\Lut\\LevianBay\\LUT_LevianBay_Main.tex", 56, "LUT_LevianBay_Main");
-            AddColorShift("Art\\Sky\\Lut\\LevianBay\\LUT_LevianBay_Sunset.tex", 57, "LUT_LevianBay_Sunset");
-            AddColorShift("Art\\Sky\\Lut\\NorthernWilds\\LUT_NW_Exterior_Imperium.tex", 58, "LUT_NW_Exterior_Imperium");
-            AddColorShift("Art\\Sky\\Lut\\NorthernWilds\\LUT_NW_Exterior_Main.tex", 59, "LUT_NW_Exterior_Main");
-            AddColorShift("Art\\Sky\\Lut\\NorthernWilds\\LUT_NW_Exterior_Skeetch.tex", 60, "LUT_NW_Exterior_Skeetch");
-            AddColorShift("Art\\Sky\\Lut\\NorthernWilds\\LUT_NW_Interior_Crashed_Ship.tex", 61, "LUT_NW_Interior_Crashed_Ship");
-            AddColorShift("Art\\Sky\\Lut\\NorthernWilds\\LUT_NW_Interior_EldanTower_Exolab.tex", 62, "LUT_NW_Interior_EldanTower_Exolab");
-            AddColorShift("Art\\Sky\\Lut\\NorthernWilds\\LUT_NW_Interior_Exolab_10.tex", 63, "LUT_NW_Interior_Exolab_10");
-            AddColorShift("Art\\Sky\\Lut\\NorthernWilds\\LUT_NW_Skeetch_Cave.tex", 64, "LUT_NW_Skeetch_Cave");
-            AddColorShift("Art\\Sky\\Lut\\NPE\\NPE_Beach_Main.tex", 65, "NPE_Beach_Main");
-            AddColorShift("Art\\Sky\\Lut\\NPE\\NPE_Combat_Main.tex", 66, "NPE_Combat_Main");
-            AddColorShift("Art\\Sky\\Lut\\NPE\\NPE_GC294_Cinematic_Ext.tex", 67, "NPE_GC294_Cinematic_Ext");
-            AddColorShift("Art\\Sky\\Lut\\NPE\\NPE_IcyPeak_Boss.tex", 68, "NPE_IcyPeak_Boss");
-            AddColorShift("Art\\Sky\\Lut\\NPE\\NPE_IcyPeak_Normal.tex", 69, "NPE_IcyPeak_Normal");
-            AddColorShift("Art\\Sky\\Lut\\NPE\\NPE_Night_Stars.tex", 70, "NPE_Night_Stars");
-            AddColorShift("Art\\Sky\\Lut\\Retro\\LUT_Housing_Exotic.tex", 71, "LUT_Housing_Exotic");
-            AddColorShift("Art\\Sky\\Lut\\Retro\\LUT_Retro_Sky.tex", 72, "LUT_Retro_Sky");
-            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Airlock_MainBoss.tex", 73, "LUT_RMT_Airlock_MainBoss");
-            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Airlock_PreBoss.tex", 74, "LUT_RMT_Airlock_PreBoss");
-            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Atrium.tex", 75, "LUT_RMT_Atrium");
-            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Bridge.tex", 76, "LUT_RMT_Bridge");
-            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Brig_Main.tex", 77, "LUT_RMT_Brig_Main");
-            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_CaptainCoffer.tex", 78, "LUT_RMT_CaptainCoffer");
-            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Elevator.tex", 79, "LUT_RMT_Elevator");
-            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Engine_Start.tex", 80, "LUT_RMT_Engine_Start");
-            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Greasy_Galley.tex", 81, "LUT_RMT_Greasy_Galley");
-            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_GreenHouse.tex", 82, "LUT_RMT_GreenHouse");
-            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Intro_Landing.tex", 83, "LUT_RMT_Intro_Landing");
-            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Kino_Cave.tex", 84, "LUT_RMT_Kino_Cave");
-            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Lavaka.tex", 85, "LUT_RMT_Lavaka");
-            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Lavaka_CustomDeath.tex", 86, "LUT_RMT_Lavaka_CustomDeath");
+            AddColorShift("Art\\Sky\\Lut\\Arcterra\\Arcterra_Bone_001.tex", 57, "Arcterra_Bone_001");
+            AddColorShift("Art\\Sky\\Lut\\Arcterra\\Arcterra_Forest_001.tex", 58, "Arcterra_Forest_001");
+            AddColorShift("Art\\Sky\\Lut\\Arcterra\\Arcterra_osun_001.tex", 59, "Arcterra_osun_001");
+            AddColorShift("Art\\Sky\\Lut\\BattleChase\\LUT_BattleChase_Dominion.tex", 60, "LUT_BattleChase_Dominion");
+            AddColorShift("Art\\Sky\\Lut\\BattleChase\\LUT_BattleChase_Exile.tex", 61, "LUT_BattleChase_Exile");
+            AddColorShift("Art\\Sky\\Lut\\CrimsonIsle\\LUT_CrimsonIsle_Exterior_DefianceCamp.tex", 62, "LUT_CrimsonIsle_Exterior_DefianceCamp");
+            AddColorShift("Art\\Sky\\Lut\\CrimsonIsle\\LUT_CrimsonIsle_Exterior_Main.tex", 63, "LUT_CrimsonIsle_Exterior_Main");
+            AddColorShift("Art\\Sky\\Lut\\Fortune\\Fortune_Spooky_Sky.tex", 64, "Fortune_Spooky_Sky");
+            AddColorShift("Art\\Sky\\Lut\\LevianBay\\Fortune_Spooky_Sky.tex", 65, "Fortune_Spooky_Sky");
+            AddColorShift("Art\\Sky\\Lut\\LevianBay\\LUT_LevianBay_Foggy.tex", 66, "LUT_LevianBay_Foggy");
+            AddColorShift("Art\\Sky\\Lut\\LevianBay\\LUT_LevianBay_Interior_Cave.tex", 67, "LUT_LevianBay_Interior_Cave");
+            AddColorShift("Art\\Sky\\Lut\\LevianBay\\LUT_LevianBay_Interior_Mine.tex", 68, "LUT_LevianBay_Interior_Mine");
+            AddColorShift("Art\\Sky\\Lut\\LevianBay\\LUT_LevianBay_Main.tex", 69, "LUT_LevianBay_Main");
+            AddColorShift("Art\\Sky\\Lut\\NorthernWilds\\LUT_NW_Exterior_Main.tex", 70, "LUT_NW_Exterior_Main");
+            AddColorShift("Art\\Sky\\Lut\\NorthernWilds\\LUT_NW_Exterior_Skeetch.tex", 71, "LUT_NW_Exterior_Skeetch");
+            AddColorShift("Art\\Sky\\Lut\\NorthernWilds\\LUT_NW_Interior_EldanTower_Exolab.tex", 72, "LUT_NW_Interior_EldanTower_Exolab");
+            AddColorShift("Art\\Sky\\Lut\\NPE\\NPE_Beach_Main.tex", 73, "NPE_Beach_Main");
+            AddColorShift("Art\\Sky\\Lut\\NPE\\NPE_Combat_Main.tex", 74, "NPE_Combat_Main");
+            AddColorShift("Art\\Sky\\Lut\\NPE\\NPE_IcyPeak_Normal.tex", 75, "NPE_IcyPeak_Normal");
+            AddColorShift("Art\\Sky\\Lut\\NPE\\NPE_Night_Stars.tex", 76, "NPE_Night_Stars");
+            AddColorShift("Art\\Sky\\Lut\\Retro\\LUT_Housing_Exotic.tex", 77, "LUT_Housing_Exotic");
+            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Airlock_PreBoss.tex", 78, "LUT_RMT_Airlock_PreBoss");
+            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Atrium.tex", 79, "LUT_RMT_Atrium");
+            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Brig_Main.tex", 80, "LUT_RMT_Brig_Main");
+            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_CaptainCoffer.tex", 81, "LUT_RMT_CaptainCoffer");
+            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Elevator.tex", 82, "LUT_RMT_Elevator");
+            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Engine_Start.tex", 83, "LUT_RMT_Engine_Start");
+            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_GreenHouse.tex", 84, "LUT_RMT_GreenHouse");
+            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Intro_Landing.tex", 85, "LUT_RMT_Intro_Landing");
+            AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Lavaka.tex", 86, "LUT_RMT_Lavaka");
             AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_MapRoom.tex", 87, "LUT_RMT_MapRoom");
             AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Morgue.tex", 88, "LUT_RMT_Morgue");
             AddColorShift("Art\\Sky\\Lut\\RMT\\LUT_RMT_Rebomination.tex", 89, "LUT_RMT_Rebomination");
@@ -9203,6 +9203,10 @@ namespace WildStar.TestBed
         {
             var entry = new GameTableEntry();
             entry.AddString(colorShiftAsset); // Asset path
+            if (betaMode)
+            {
+                name = name + " (BETA!)";
+            }
             if (name != null)
             {
                 entry.AddInteger(language.AddEntry(name)); // localizedtextid
