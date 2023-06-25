@@ -9164,6 +9164,7 @@ namespace WildStar.TestBed
             var entry = Table.CopyEntry(decorInfo.GetEntry(copiedID));
             entry.Values[3].SetValue(language.AddEntry(name)); // localizedTextIdName
             entry.Values[1].SetValue((uint)category); // housingDecorTypeId
+            flags |= 4u; // scale with decor size
             entry.Values[4].SetValue(flags); // flags
 
             uint hookAsset = 2152; // seems to be the same for all NPC decor
