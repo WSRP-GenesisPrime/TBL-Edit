@@ -251,7 +251,7 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeam_MineModularBroken_Brown_000.m3", 1192, 0, 3816, "Wooden Beam (Broken)", DecorCategory.BuildingBlocks, false, 2);
             AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeam_MineModularTFrame_Brown_000.m3", 1192, 0, 3817, "Wooden Beam Pillar", DecorCategory.BuildingBlocks, false, 2);
             AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeamConnector_MineModularMetal_Grey_001.m3", 1192, 0, 3818, "Metal Beam Connector", DecorCategory.BuildingBlocks, false, 2);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeamConnector_MineModularMetal_Grey_002.m3", 1192, 0, 3819, "Metal Beam Connector (2)", DecorCategory.BuildingBlocks, false, 2);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeamConnector_MineModularMetal_Grey_002.m3", 1192, 0, 3819, "Metal Beam Connector (Three-Pronged)", DecorCategory.BuildingBlocks, false, 2);
             AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeamWire_MineModularHanging_Grey_000.m3", 1192, 0, 3820, "Hanging Wire (Double)", DecorCategory.Accents, false, 2);
             AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeamWire_MineModularHanging_Grey_001.m3", 1192, 0, 3821, "Hanging Wire (Spiraling)", DecorCategory.Accents, false, 2);
             AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeamWire_MineModularHanging_Grey_002.m3", 1192, 0, 3822, "Hanging Wire (Coiled)", DecorCategory.Accents, false, 2);
@@ -1989,9 +1989,9 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Constructed\\Barrel\\Marauder\\PRP_Marauder_SurgeBarrel_000.m3", 86, 0, 8561, "Toxic Barrel (Marauder)", DecorCategory.Containers, false, 45);
             AddGenericDecor("Art\\Prop\\Constructed\\Tank\\Imperium\\PRP_Tank_Imperium_000.m3", 86, 0, 8562, "Tank (Dominion, Cannon)", DecorCategory.Vehicles, false, 45);
             AddGenericDecor("Art\\Prop\\Constructed\\Tank\\Defiance\\PRP_Tank_Defiance_000.m3", 86, 0, 8563, "Tank (Exile, Cannon)", DecorCategory.Vehicles, false, 45);
-            AddGenericDecor("Art\\Prop\\Constructed\\Tank\\Defiance\\PRP_Tank_Defiance_Destroyed_Blue_000.m3", 86, 0, 8564, "Tank (Destroyed, Blue)", DecorCategory.Vehicles, false, 45);
-            AddGenericDecor("Art\\Prop\\Constructed\\Tank\\Defiance\\PRP_Tank_Defiance_Destroyed_Yellow_000.m3", 86, 0, 8565, "Tank (Destroyed, Yellow)", DecorCategory.Vehicles, false, 45);
-            AddGenericDecor("Art\\Prop\\Constructed\\Tank\\Defiance\\PRP_Tank_Defiance_Destroyed_Red_000.m3", 86, 0, 8566, "Tank (Destroyed, Red)", DecorCategory.Vehicles, false, 45);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tank\\Defiance\\PRP_Tank_Defiance_Destroyed_Blue_000.m3", 86, 0, 8564, "Tank (Blue)", DecorCategory.Vehicles, false, 45);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tank\\Defiance\\PRP_Tank_Defiance_Destroyed_Yellow_000.m3", 86, 0, 8565, "Tank (Yellow)", DecorCategory.Vehicles, false, 45);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tank\\Defiance\\PRP_Tank_Defiance_Destroyed_Red_000.m3", 86, 0, 8566, "Tank (Red)", DecorCategory.Vehicles, false, 45);
             AddGenericDecor("Art\\Prop\\Constructed\\Tank\\Defiance\\PRP_Tank_Defiance_LiquidMetal_000.m3", 86, 0, 8567, "Tank (Liquid Metal)", DecorCategory.Vehicles, false, 45);
             AddGenericDecor("Art\\Prop\\Constructed\\Tank\\Chua\\PRP_Tank_Chua_SocialBldgTank_001.m3", 86, 0, 8568, "Fluid Container (Chua)", DecorCategory.Containers, false, 45);
             AddGenericDecor("Art\\Prop\\Constructed\\Tank\\Chua\\PRP_Tank_Chua_SocialBldgTank_Magma_001.m3", 86, 0, 8569, "Fluid Container (Magma)", DecorCategory.Containers, false, 45);
@@ -2117,6 +2117,40 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Act3\\Vine\\PRP_RMT_Vine_LongThinLoose_000.m3", 86, 0, 8689, "Jungle Vine (Long, Extended)", DecorCategory.BushesShrubbery, false, 45);
             AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Act3\\Vine\\PRP_RMT_Vine_LongThinTight_000.m3", 86, 0, 8690, "Jungle Vine (Long, Bare)", DecorCategory.BushesShrubbery, false, 45);
             AddGenericDecor("Art\\Prop\\Dungeon\\RedMoonTerror\\Act3\\Vine\\PRP_RMT_Vine_LongWideTight_000.m3", 86, 0, 8691, "Jungle Vine (Long, Sprawling, Extended)", DecorCategory.BushesShrubbery, false, 45);
+            AddGenericDecor("Art\\Prop\\Constructed\\ControlPanel\\Shiphand\\PRP_ControlPanel_ShipHand_MedicalScreen_001.m3", 1192, 0, 8716, "!NEW! Standing Viewscreen Display (Shattered)", DecorCategory.Electronics, false, 49);
+            AddGenericDecor("Art\\Prop\\Constructed\\ControlPanel\\Shiphand\\PRP_ControlPanel_ShipHand_MedicalScreen_003.m3", 1192, 0, 8717, "!NEW! Standing Viewscreen Display (Cracked)", DecorCategory.Electronics, false, 49);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Ruins_LargeCracks\\PRP_Rock_Ruins_LargeCracks_Gray_000.m3", 1192, 0, 8718, "!NEW! Gray Rock Formation (Ruins)", DecorCategory.Rocks, false, 49);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Ruins_LargeCracks\\PRP_Rock_Ruins_LargeCracks_Gray_001.m3", 1192, 0, 8719, "!NEW! Gray Rock Formation (Triple)", DecorCategory.Rocks, false, 49);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Ruins_LargeCracks\\PRP_Rock_Ruins_LargeCracks_Gray_002.m3", 1192, 0, 8720, "!NEW! Gray Rock Formation (Spread)", DecorCategory.Rocks, false, 49);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Ruins_LargeCracks\\PRP_Rock_Ruins_LargeCracks_Gray_003.m3", 1192, 0, 8721, "!NEW! Gray Rock Formation (Tall)", DecorCategory.Rocks, false, 49);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Ruins_LargeCracks\\PRP_Rock_Ruins_LargeCracks_Gray_004.m3", 1192, 0, 8722, "!NEW! Gray Rock Formation (Large)", DecorCategory.Rocks, false, 49);
+            AddGenericDecor("Art\\Prop\\Natural\\WorldRuins\\RuinedTemple\\PRP_WorldRuins_RuinedTemplePieces_000.m3", 1192, 0, 8723, "!NEW! Temple Remains (Arch)", DecorCategory.StatuesSculptures, false, 49);
+            AddGenericDecor("Art\\Prop\\Natural\\WorldRuins\\RuinedTemple\\PRP_WorldRuins_RuinedTemplePieces_001.m3", 1192, 0, 8724, "!NEW! Temple Remains (Stairs)", DecorCategory.StatuesSculptures, false, 49);
+            AddGenericDecor("Art\\Prop\\Natural\\WorldRuins\\RuinedTemple\\PRP_WorldRuins_RuinedTemplePieces_002.m3", 1192, 0, 8725, "!NEW! Temple Remains (Pillar)", DecorCategory.StatuesSculptures, false, 49);
+            AddGenericDecor("Art\\Prop\\Natural\\WorldRuins\\RuinedTemple\\PRP_WorldRuins_RuinedTemplePieces_004.m3", 1192, 0, 8726, "!NEW! Temple Remains (Pillar, Short)", DecorCategory.StatuesSculptures, false, 49);
+            AddGenericDecor("Art\\Prop\\Natural\\WorldRuins\\RuinedTemple\\PRP_WorldRuins_RuinedTemplePieces_005.m3", 1192, 0, 8727, "!NEW! Temple Remains (Debris)", DecorCategory.StatuesSculptures, false, 49);
+            AddGenericDecor("Art\\Prop\\Natural\\WorldRuins\\RuinedTemple\\PRP_WorldRuins_RuinedTemplePieces_006.m3", 1192, 0, 8728, "!NEW! Temple Remains (Debris, Small)", DecorCategory.StatuesSculptures, false, 49);
+            AddGenericDecor("Art\\Prop\\Natural\\WorldRuins\\RuinedTemple\\PRP_WorldRuins_RuinedTemplePieces_007.m3", 1192, 0, 8729, "!NEW! Temple Remains (Stone, Flat)", DecorCategory.StatuesSculptures, false, 49);
+            AddGenericDecor("Art\\Prop\\Natural\\WorldRuins\\SummoningStone\\PRP_WorldRuins_AncientSummoningStone_000.m3", 1192, 0, 8730, "!NEW! Summoning Stone", DecorCategory.StatuesSculptures, false, 49);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Cracked_CirclePillars\\PRP_Cracked_CirclePillars_LargeThick_Purple_000.m3", 1192, 0, 8763, "!NEW! Cracked Rock Pillar (Large, Thick)", DecorCategory.Rocks, false, 50);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Cracked_CirclePillars\\PRP_Cracked_CirclePillars_PointyMedium_Purple_000.m3", 1192, 0, 8764, "!NEW! Cracked Rock Pillar (Pointy, Medium)", DecorCategory.Rocks, false, 50);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Cracked_CirclePillars\\PRP_Cracked_CirclePillars_ShortMedium_Purple_000.m3", 1192, 0, 8765, "!NEW! Cracked Rock Pillar (Short, Blunt)", DecorCategory.Rocks, false, 50);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Cracked_CirclePillars\\PRP_Cracked_CirclePillars_ShortMedium_Purple_001.m3", 1192, 0, 8766, "!NEW! Cracked Rock Pillar (Short, Shard)", DecorCategory.Rocks, false, 50);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Cracked_CirclePillars\\PRP_Cracked_CirclePillars_ShortMedium_Purple_002.m3", 1192, 0, 8767, "!NEW! Cracked Rock Pillar (Short, Fragment)", DecorCategory.Rocks, false, 50);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Cracked_CirclePillars\\PRP_Cracked_CirclePillars_ShortMedium_Purple_003.m3", 1192, 0, 8768, "!NEW! Cracked Rock Pillar (Short, Medium)", DecorCategory.Rocks, false, 50);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Cracked_CirclePillars\\PRP_Cracked_CirclePillars_Small_Purple_000.m3", 1192, 0, 8769, "!NEW! Cracked Rock Pillar (Small, Shard)", DecorCategory.Rocks, false, 50);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Cracked_CirclePillars\\PRP_Cracked_CirclePillars_Small_Purple_001.m3", 1192, 0, 8770, "!NEW! Cracked Rock PIllar (Small, Pointed)", DecorCategory.Rocks, false, 50);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Cracked_CirclePillars\\PRP_Cracked_CirclePillars_Small_Purple_002.m3", 1192, 0, 8771, "!NEW! Cracked Rock Pillar (Small, Fragment)", DecorCategory.Rocks, false, 50);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Cracked_CirclePillars\\PRP_Cracked_CirclePillars_Small_Purple_003.m3", 1192, 0, 8772, "!NEW! Cracked Rock Pillar (Small, Tall)", DecorCategory.Rocks, false, 50);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Cracked_CirclePillars\\PRP_Cracked_CirclePillars_TallFormation_Purple_000.m3", 1192, 0, 8773, "!NEW! Cracked Rock Pillar (Tall, Wall)", DecorCategory.Rocks, false, 50);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Cracked_CirclePillars\\PRP_Cracked_CirclePillars_TallMedium_Purple_000.m3", 1192, 0, 8774, "!NEW! Cracked Rock Pillar (Tall, Single)", DecorCategory.Rocks, false, 50);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Cracked_CirclePillars\\PRP_Cracked_CirclePillars_TallThin_Purple_000.m3", 1192, 0, 8775, "!NEW! Cracked Rock Pillar (Thin, Medium)", DecorCategory.Rocks, false, 50);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Cracked_CirclePillars\\PRP_Cracked_CirclePillars_TallThin_Purple_001.m3", 1192, 0, 8776, "!NEW! Cracked Rock Pillar (Tall, Wide)", DecorCategory.Rocks, false, 50);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Cracked_CirclePillars\\PRP_Cracked_CirclePillars_TallThin_Purple_002.m3", 1192, 0, 8777, "!NEW! Cracked Rock Pillar (Thin, Tall)", DecorCategory.Rocks, false, 50);
+            AddGenericDecor("Art\\Prop\\Constructed\\Floors\\Eldan\\PRP_Floor_Pod_Spawner_Technophage_000.m3", 1192, 0, 8778, "!NEW! Spawner (Technophage)", DecorCategory.Electronics, false, 50);
+            AddGenericDecor("Art\\Prop\\Constructed\\Floors\\Eldan\\PRP_Floor_Pod_PowerSource_Technophage_000.m3", 1192, 0, 8779, "!NEW! Power Source (Technophage)", DecorCategory.Electronics, false, 50);
+            AddGenericDecor("Art\\Prop\\Dungeon\\Datascape\\Window\\PRP_Datascape_Main_WindowArch_001.m3", 1192, 0, 8780, "!NEW! Datascape Window Frame", DecorCategory.Windows, false, 50);
+            AddGenericDecor("Art\\Prop\\Dungeon\\Datascape\\Window\\InnerCore_Window\\PRP_Datascape_InnerCoreWindow.m3", 1192, 0, 8781, "!NEW! Datascape Window (Inner Core)", DecorCategory.Windows, false, 50);
             AddNPCDecor(2606, DecorCategory.CharactersNexian, AddCreature(73085, startCreature2ID + 1, "Torine Sister 1", "Torine Sister", null, 9740, 0, null, 0, 1.3f, 4, null), 5380, "Art\\Prop\\Constructed\\Banner\\Torine\\PRP_Banner_Torine_000.m3", "Torine Sister (Style 1)", 10, 4);
             AddNPCDecor(2606, DecorCategory.CharactersNexian, AddCreature(73085, startCreature2ID + 2, "Torine Sister 2", "Torine Sister", null, 9838, 0, null, 0, 1.3f, 4, null), 5381, "Art\\Prop\\Constructed\\Banner\\Torine\\PRP_Banner_Torine_000.m3", "Torine Sister (Style 2)", 10, 4);
             AddNPCDecor(2606, DecorCategory.CharactersNexian, AddCreature(73085, startCreature2ID + 3, "Torine Sister 3", "Torine Sister", null, 9839, 0, null, 0, 1.3f, 4, null), 5382, "Art\\Prop\\Constructed\\Banner\\Torine\\PRP_Banner_Torine_000.m3", "Torine Sister (Style 3)", 10, 4);
@@ -5108,14 +5142,62 @@ namespace WildStar.TestBed
             AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3004, "Mordesh Wounded Female 1", "Wounded Mordesh Civilian", 41224, 10351, 0, 0, 1209, 1f, 4, null), 8384, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "Mordesh Civilian, Wounded (Female, Style 1)", 44, 4);
             AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3005, "Mordesh Wounded Female 2", "Wounded Mordesh Civilian", 41142, 10384, 0, 0, 1210, 1f, 4, null), 8385, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "Mordesh Civilian, Wounded (Female, Style 2)", 44, 4);
             AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3006, "Mordesh Wounded Female 3", "Wounded Mordesh Civilian", 33190, 10345, 0, 0, 1211, 1f, 4, null), 8386, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "Mordesh Civilian, Wounded (Female, Style 3)", 44, 4);
-            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3007, "FCON Corporal Aurin M", "FCON Corporal", 39609, 10467, 3684, 0, 0, 1f, 4, null), 8692, "", "!NEW! FCON Corporal (Aurin, Male)", 47, 4);
-            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3008, "FCON Corporal Aurin F", "FCON Corporal", 39611, 10467, 3684, 0, 0, 1f, 4, null), 8693, "", "!NEW! FCON Corporal (Aurin, Female)", 47, 4);
-            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3009, "FCON Corporal Human M", "FCON Corporal", 28349, 10467, 3684, 0, 0, 1f, 4, null), 8694, "", "!NEW! FCON Corporal (Human, Male)", 47, 4);
-            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3010, "FCON Corporal Human F", "FCON Corporal", 30112, 10467, 3684, 0, 0, 1f, 4, null), 8695, "", "!NEW! FCON Corporal (Human, Female)", 47, 4);
-            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3011, "FCON Corporal Granok M", "FCON Corporal", 26330, 10467, 3684, 0, 0, 1f, 4, null), 8696, "", "!NEW! FCON Corporal (Granok, Male)", 47, 4);
-            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3012, "FCON Corporal Granok F", "FCON Corporal", 41222, 10467, 3684, 0, 0, 1f, 4, null), 8697, "", "!NEW! FCON Corporal (Granok, Female)", 47, 4);
-            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3013, "FCON Corporal Mordesh M", "FCON Corporal", 28355, 10467, 3684, 0, 0, 1f, 4, null), 8698, "", "!NEW! FCON Corporal (Mordesh, Male)", 47, 4);
-            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3014, "FCON Corporal Mordesh F", "FCON Corporal", 41142, 10467, 3684, 0, 0, 1f, 4, null), 8699, "", "!NEW! FCON Corporal (Mordesh, Female)", 47, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3007, "FCON Corporal Aurin M", "FCON Corporal", 39609, 10467, 3684, 0, 0, 1f, 4, null), 8692, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "FCON Corporal (Aurin, Male)", 47, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3008, "FCON Corporal Aurin F", "FCON Corporal", 39611, 10467, 3684, 0, 0, 1f, 4, null), 8693, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "FCON Corporal (Aurin, Female)", 47, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3009, "FCON Corporal Human M", "FCON Corporal", 28349, 10467, 3684, 0, 0, 1f, 4, null), 8694, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "FCON Corporal (Human, Male)", 47, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3010, "FCON Corporal Human F", "FCON Corporal", 30112, 10467, 3684, 0, 0, 1f, 4, null), 8695, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "FCON Corporal (Human, Female)", 47, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3011, "FCON Corporal Granok M", "FCON Corporal", 26330, 10467, 3684, 0, 0, 1f, 4, null), 8696, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "FCON Corporal (Granok, Male)", 47, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3012, "FCON Corporal Granok F", "FCON Corporal", 41222, 10467, 3684, 0, 0, 1f, 4, null), 8697, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "FCON Corporal (Granok, Female)", 47, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3013, "FCON Corporal Mordesh M", "FCON Corporal", 28355, 10467, 3684, 0, 0, 1f, 4, null), 8698, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "FCON Corporal (Mordesh, Male)", 47, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3014, "FCON Corporal Mordesh F", "FCON Corporal", 41142, 10467, 3684, 0, 0, 1f, 4, null), 8699, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "FCON Corporal (Mordesh, Female)", 47, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3015, "XAS Scientist Human M", "XAS Scientist", 28300, 9442, null, null, 0, 1f, 4, null), 8700, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "XAS Scientist (Human, Male)", 48, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3016, "XAS Scientist Human F", "XAS Scientist", 28301, 8918, null, null, 0, 1f, 4, null), 8701, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "XAS Scientist (Human, Female)", 48, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3017, "XAS Scientist Granok M", "XAS Scientist", 28302, 9849, null, null, 0, 1f, 4, null), 8702, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "XAS Scientist (Granok, Male)", 48, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3018, "XAS Scientist Granok F", "XAS Scientist", 41222, 9787, null, null, 0, 1f, 4, null), 8703, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "XAS Scientist (Granok, Female)", 48, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3019, "XAS Scientist Aurin M", "XAS Scientist", 28304, 9877, null, null, 0, 1f, 4, null), 8704, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "XAS Scientist (Aurin, Male)", 48, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3020, "XAS Scientist Aurin F", "XAS Scientist", 28290, 9442, null, null, 0, 1f, 4, null), 8705, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "XAS Scientist (Aurin, Female)", 48, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3021, "XAS Scientist Mordesh M", "XAS Scientist", 29367, 9877, null, null, 0, 1f, 4, null), 8706, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "XAS Scientist (Mordesh, Male)", 48, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersExile, AddCreature(75540, startCreature2ID + 3022, "XAS Scientist Mordesh F", "XAS Scientist", 41142, 9787, null, null, 0, 1f, 4, null), 8707, "Art\\Prop\\Icons\\Faction_Icons\\Exile\\PRP_Icon_Faction_exile_000.m3", "XAS Scientist (Mordesh, Female)", 48, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersDominion, AddCreature(75540, startCreature2ID + 3023, "Collegium Scientist Cassian M", "Collegium Researcher ", 34861, 9753, null, null, 0, 1f, 4, null), 8708, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "Collegium Researcher (Cassian, Male)", 48, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersDominion, AddCreature(75540, startCreature2ID + 3024, "Collegium Scientist Cassian F", "Collegium Researcher ", 34862, 9753, null, null, 0, 1f, 4, null), 8709, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "Collegium Researcher (Cassian, Female)", 48, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersDominion, AddCreature(75540, startCreature2ID + 3025, "Collegium Scientist Draken M", "Collegium Researcher ", 28344, 9753, null, null, 0, 1f, 4, null), 8710, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "Collegium Researcher (Draken, Male)", 48, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersDominion, AddCreature(75540, startCreature2ID + 3026, "Collegium Scientist Draken F", "Collegium Researcher ", 25335, 9753, null, null, 0, 1f, 4, null), 8711, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "Collegium Researcher (Draken, Female)", 48, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersDominion, AddCreature(75540, startCreature2ID + 3027, "Collegium Scientist Chua 1", "Collegium Researcher ", 28314, 10356, null, null, 0, 1f, 4, null), 8712, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "Collegium Researcher (Chua, Style 1)", 48, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersDominion, AddCreature(75540, startCreature2ID + 3028, "Collegium Scientist Chua 2", "Collegium Researcher ", 28332, 10356, null, null, 0, 1f, 4, null), 8713, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "Collegium Researcher (Chua, Style 2)", 48, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersDominion, AddCreature(75540, startCreature2ID + 3029, "Collegium Scientist Mechari M", "Collegium Researcher ", 28346, 10356, null, null, 0, 1f, 4, null), 8714, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "Collegium Researcher (Mechari, Male)", 48, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersDominion, AddCreature(75540, startCreature2ID + 3030, "Collegium Scientist Mechari F", "Collegium Researcher ", 28313, 10356, null, null, 0, 1f, 4, null), 8715, "Art\\Prop\\Icons\\Faction_Icons\\Dominion\\PRP_Icon_Faction_dominion_000.m3", "Collegium Researcher (Mechari, Female)", 48, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3031, "COGS Scientist Human M", "C.o.G.S. Researcher", 28315, 10260, null, null, 0, 1f, 4, null), 8731, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Researcher (Human, Male)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3032, "COGS Scientist Human F", "C.o.G.S. Researcher", 32064, 10263, null, null, 0, 1f, 4, null), 8732, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Researcher (Human, Female)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3033, "COGS Scientist Aurin M", "C.o.G.S. Researcher", 28319, 10263, null, null, 0, 1f, 4, null), 8733, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Researcher (Aurin, Male)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3034, "COGS Scientist Aurin F", "C.o.G.S. Researcher", 36300, 10260, null, null, 0, 1f, 4, null), 8734, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Researcher (Aurin, Female)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3035, "COGS Scientist Mordesh M", "C.o.G.S. Researcher", 38449, 10263, null, null, 0, 1f, 4, null), 8735, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Researcher (Mordesh, Male)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3036, "COGS Scientist Mordesh F", "C.o.G.S. Researcher", 28322, 10263, null, null, 0, 1f, 4, null), 8736, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Researcher (Mordesh, Female)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3037, "COGS Scientist Granok M", "C.o.G.S. Researcher", 38450, 10260, null, null, 0, 1f, 4, null), 8737, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Researcher (Granok, Male)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3038, "COGS Scientist Granok F", "C.o.G.S. Researcher", 34766, 10263, null, null, 0, 1f, 4, null), 8738, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Researcher (Granok, Female)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3039, "COGS Scientist Cassian M", "C.o.G.S. Researcher", 32084, 13188, null, null, 0, 1f, 4, null), 8739, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Researcher (Cassian, Male)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3040, "COGS Scientist Cassian F", "C.o.G.S. Researcher", 28316, 13189, null, null, 0, 1f, 4, null), 8740, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Researcher (Cassian, Female)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3041, "COGS Scientist Draken M", "C.o.G.S. Researcher", 28270, 13189, null, null, 0, 1f, 4, null), 8741, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Researcher (Draken, Male)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3042, "COGS Scientist Draken F", "C.o.G.S. Researcher", 39048, 13188, null, null, 0, 1f, 4, null), 8742, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Researcher (Draken, Female)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3043, "COGS Scientist Chua 1", "C.o.G.S. Researcher", 28332, 13189, null, null, 0, 1f, 4, null), 8743, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Researcher (Chua, Style 1)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3044, "COGS Scientist Chua 2", "C.o.G.S. Researcher", 29415, 13189, null, null, 0, 1f, 4, null), 8744, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Researcher (Chua, Style 2)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3045, "COGS Scientist Mechari M", "C.o.G.S. Researcher", 28312, 13188, null, null, 0, 1f, 4, null), 8745, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Researcher (Mechari, Male)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3046, "COGS Scientist Mechari F", "C.o.G.S. Researcher", 34856, 13189, null, null, 0, 1f, 4, null), 8746, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Researcher (Mechari, Female)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3047, "COGS Security Human M", "C.o.G.S. Security Officer", 29542, 13191, 6588, null, 0, 1f, 4, null), 8747, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Security (Human, Male)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3048, "COGS Security Human F", "C.o.G.S. Security Officer", 34959, 13191, 6588, null, 0, 1f, 4, null), 8748, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Security (Human, Female)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3049, "COGS Security Aurin M", "C.o.G.S. Security Officer", 28337, 13191, 6588, null, 0, 1f, 4, null), 8749, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Security (Aurin, Male)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3050, "COGS Security Aurin F", "C.o.G.S. Security Officer", 24696, 13191, 6588, null, 0, 1f, 4, null), 8750, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Security (Aurin, Female)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3051, "COGS Security Mordesh M", "C.o.G.S. Security Officer", 28339, 13191, 6588, null, 0, 1f, 4, null), 8751, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Security (Mordesh, Male)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3052, "COGS Security Mordesh F", "C.o.G.S. Security Officer", 28340, 13191, 6588, null, 0, 1f, 4, null), 8752, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Security (Mordesh, Female)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3053, "COGS Security Granok M", "C.o.G.S. Security Officer", 28287, 13191, 6588, null, 0, 1f, 4, null), 8753, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Security (Granok, Male)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3054, "COGS Security Granok F", "C.o.G.S. Security Officer", 30199, 13191, 6588, null, 0, 1f, 4, null), 8754, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Security (Granok, Female)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3055, "COGS Security Cassian M", "C.o.G.S. Security Officer", 23930, 13190, 6588, null, 0, 1f, 4, null), 8755, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Security (Cassian, Male)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3056, "COGS Security Cassian F", "C.o.G.S. Security Officer", 28343, 13190, 6588, null, 0, 1f, 4, null), 8756, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Security (Cassian, Female)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3057, "COGS Security Draken M", "C.o.G.S. Security Officer", 28359, 13190, 6588, null, 0, 1f, 4, null), 8757, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Security (Draken, Male)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3058, "COGS Security Draken F", "C.o.G.S. Security Officer", 28800, 13190, 6588, null, 0, 1f, 4, null), 8758, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Security (Draken, Female)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3059, "COGS Security Chua 1", "C.o.G.S. Security Officer", 28348, 13190, 6588, null, 0, 1f, 4, null), 8759, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Security (Chua, Style 1)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3060, "COGS Security Chua 2", "C.o.G.S. Security Officer", 27042, 13190, 6588, null, 0, 1f, 4, null), 8760, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Security (Chua, Style 2)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3061, "COGS Security Mechari M", "C.o.G.S. Security Officer", 29552, 13190, 6588, null, 0, 1f, 4, null), 8761, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Security (Mechari, Male)", 49, 4);
+            AddNPCDecor(2666, DecorCategory.CharactersNeutral, AddCreature(75540, startCreature2ID + 3062, "COGS Security Mechari F", "C.o.G.S. Security Officer", 24283, 13190, 6588, null, 0, 1f, 4, null), 8762, "Art\\Prop\\Constructed\\ScienceInstruments\\General\\PRP_General_LargeMicroscope_000.m3", "!NEW! CoGS Security (Mechari, Female)", 49, 4);
             AddWorldLayer(1288, "Fallow_Ground", 105, 3f, 0f, 0f, 0f, 4f, "Art\\Terrain\\Plant\\Terrain_Plant_CropLeafy_Green_000_Color.tex", "Art\\Terrain\\Plant\\Terrain_Plant_CropLeafy_Green_000_Normal.tex", null, 8, 23, 0, 111, 112, 0f, 0, 0f, 0f);
             AddWorldLayer(1289, "Rocky_2_Secondary", 981, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
             AddWorldLayer(1290, null, 476, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
@@ -5204,10 +5286,10 @@ namespace WildStar.TestBed
             AddGroundOption("Algoroc Prairie", 366, 51, 356, 26);
             AddGroundOption("Algoroc Badlands", 51, 45, 357, 26);
             AddGroundOption("Larallen Highlands", 305, 305, 358, 35);
-            AddGroundOption("!NEW! Cobbled Stones", 1075, 1075, 359, 46);
-            AddGroundOption("!NEW! Broken Silt", 740, 742, 360, 46);
-            AddGroundOption("!NEW! Softsnow Tundra", 1134, 538, 361, 46);
-            AddGroundOption("!NEW! Calmwater Lakefront", 538, 740, 362, 46);
+            AddGroundOption("Cobbled Stones", 1075, 1075, 359, 46);
+            AddGroundOption("Broken Silt", 740, 742, 360, 46);
+            AddGroundOption("Softsnow Tundra", 1134, 538, 361, 46);
+            AddGroundOption("Calmwater Lakefront", 538, 740, 362, 46);
             AddEmote(7834, "lounge1", "lounge", 433);
             AddEmote(7835, "lounge2", null, 434);
             AddEmote(6665, "coffin", null, 435);
@@ -5404,6 +5486,7 @@ namespace WildStar.TestBed
             AddSwimsuitOutfits();
             AddSpacerOutfits();
             startItem2Id = AddExileCostumeItems(startItem2Id);
+            AddCOGSOutfits();
 
             SaveTables("../../../../tblNormal/");
 
@@ -5461,54 +5544,54 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Constructed\\MISC\\Food\\PRP_SpaceTaco_Hologram_000.m3", 86, 0, 3992, "Hologram (Taco) - GLITCH CHECK ONLY", DecorCategory.Beta, false, 2);
             AddGenericDecor("Art\\Prop\\Natural\\Vine\\VineKit\\PRP_Vine_VinekitGroud_Segmented_Long_001.m3", 86, 0, 8444, "Hanging Rope (Green, Drooping, Short)", DecorCategory.Accents, false, 0);
             AddGenericDecor("Art\\Prop\\Dungeon\\WorldStory\\WorldStory01\\PRP_WorldStory01_MemoryCore_Floor_RED_000.m3", 86, 0, null, "MemoryCore_Floor_RED", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_001.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_002.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_002.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_002A.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_002A.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_003.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_003.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_003A.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_003A.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_003B.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_003B.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_004.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_004.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_004A.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_004A.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_004B.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_004B.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_005.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_005.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_005A.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_005A.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_005B.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_005B.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_005C.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_005C.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_006.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_006.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_006A.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_006A.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_006B.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_006B.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_006C.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_006C.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_007.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_007.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_Mound_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_Mound_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_Mound_001.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_Mound_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Medium\\PRP_Coral_Med_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Medium\\PRP_Coral_Med_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Medium\\PRP_Coral_Med_001.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Medium\\PRP_Coral_Med_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Small\\PRP_Coral_Small_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Small\\PRP_Coral_Small_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Small\\PRP_Coral_Small_Coral_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Small\\PRP_Coral_Small_Coral_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Small\\PRP_Coral_Small_Rock_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Coral\\Small\\PRP_Coral_Small_Rock_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\Nuketown\\STR_Building_NukeTown_Wax_Human_M_001.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\Nuketown\\STR_Building_NukeTown_Wax_Human_M_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\Nuketown\\STR_Building_NukeTown_Wax_Human_M_002.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\Nuketown\\STR_Building_NukeTown_Wax_Human_M_002.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\Nuketown\\STR_Building_NukeTown_Wax_Human_M_003.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\Nuketown\\STR_Building_NukeTown_Wax_Human_M_003.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\Nuketown\\STR_Building_NukeTown_WreckedHome_001.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\Nuketown\\STR_Building_NukeTown_WreckedHome_001.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_000.m3", 86, 0, null, "Venus Sea Fan", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_001.m3", 86, 0, null, "Venus Sea Fan (Large)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_002.m3", 86, 0, null, "Pillar Coral (Purple, Stubby)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_002A.m3", 86, 0, null, "Pillar Coral (Purple, Long)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_003.m3", 86, 0, null, "PIllar Coral (Red)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_003A.m3", 86, 0, null, "Pillar Coral (Red, Pointed Base)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_003B.m3", 86, 0, null, "Pillar Coral (Red, Triple)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_004.m3", 86, 0, null, "Pillar Coral (Orange, Branching)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_004A.m3", 86, 0, null, "Pillar Coral (Orange, Double)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_004B.m3", 86, 0, null, "Pillar Coral (Orange, Bulbous)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_005.m3", 86, 0, null, "Red Mantipora (Large)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_005A.m3", 86, 0, null, "Red Mantipora Plate", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_005B.m3", 86, 0, null, "Red Mantipora (Small)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_005C.m3", 86, 0, null, "Red Mantipora (Massive)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_006.m3", 86, 0, null, "Coral Blade (Large)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_006A.m3", 86, 0, null, "Coral Blade (Tall, Uneven)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_006B.m3", 86, 0, null, "Coral Blade", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_006C.m3", 86, 0, null, "Coral Blade (Tall)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_007.m3", 86, 0, null, "Pillar Coral (Yellow)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_Mound_000.m3", 86, 0, null, "Coral Mound (Large)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Large\\PRP_Coral_Large_Mound_001.m3", 86, 0, null, "Coral Mound", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Medium\\PRP_Coral_Med_000.m3", 86, 0, null, "Venus Sea Fan (Red)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Medium\\PRP_Coral_Med_001.m3", 86, 0, null, "Venus Sea Fan (Red, Drooping)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Small\\PRP_Coral_Small_000.m3", 86, 0, null, "Sun Coral Cluster", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Small\\PRP_Coral_Small_Coral_000.m3", 86, 0, null, "Sun Coral", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Coral\\Small\\PRP_Coral_Small_Rock_000.m3", 86, 0, null, "Coral Rock", DecorCategory.Rocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\Nuketown\\STR_Building_NukeTown_Wax_Human_M_001.m3", 86, 0, null, "Wax Human (Standing)", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\Nuketown\\STR_Building_NukeTown_Wax_Human_M_002.m3", 86, 0, null, "Wax Human (Sitting, Brown Shirt)", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\Nuketown\\STR_Building_NukeTown_Wax_Human_M_003.m3", 86, 0, null, "Wax Human (Sitting, Purple Shirt)", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\Nuketown\\STR_Building_NukeTown_WreckedHome_001.m3", 86, 0, null, "Ruined House", DecorCategory.Structures, false, 0);
             AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\GarbageDump\\PRP_GarbagePileCollision_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\GarbageDump\\PRP_GarbagePileCollision_000.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_FloorPiano_Clear_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_FloorPiano_Clear_000.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_FloorPiano_Play_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_FloorPiano_Play_000.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_FloorPiano_Record_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_FloorPiano_Record_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_Keys_Black_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_Keys_Black_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_Keys_Octave_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_Keys_Octave_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_Keys_WhiteCenter_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_Keys_WhiteCenter_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_Keys_WhiteEnd_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_Keys_WhiteEnd_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_Keys_WhiteLeft_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_Keys_WhiteLeft_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_Keys_WhiteRight_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_Keys_WhiteRight_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_Keys_Platform_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_ControlPanel_Keys_Platform_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\Islands\\Communities\\PRP_Community_Engine_Corner_000.m3", 86, 0, null, "Art\\Prop\\Housing\\Islands\\Communities\\PRP_Community_Engine_Corner_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\Islands\\Communities\\PRP_Community_Engine_Main_000.m3", 86, 0, null, "Art\\Prop\\Housing\\Islands\\Communities\\PRP_Community_Engine_Main_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\Islands\\Communities\\PRP_Community_HousingTrim_000.m3", 86, 0, null, "Art\\Prop\\Housing\\Islands\\Communities\\PRP_Community_HousingTrim_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\Islands\\Communities\\PRP_CommunityWing_000.m3", 86, 0, null, "Art\\Prop\\Housing\\Islands\\Communities\\PRP_CommunityWing_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\Islands\\Prototype\\PRP_PrototypeCombatIsland_2x2_000.m3", 86, 0, null, "Art\\Prop\\Housing\\Islands\\Prototype\\PRP_PrototypeCombatIsland_2x2_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\Islands\\Prototype\\PRP_PrototypeCombatIsland_2x3_000.m3", 86, 0, null, "Art\\Prop\\Housing\\Islands\\Prototype\\PRP_PrototypeCombatIsland_2x3_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Housing\\Islands\\Prototype\\PRP_PrototypeCombatIsland_3x3_000.m3", 86, 0, null, "Art\\Prop\\Housing\\Islands\\Prototype\\PRP_PrototypeCombatIsland_3x3_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_DarkspurFloorPiano_Keys_Black_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_DarkspurFloorPiano_Keys_Black_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_DarkspurFloorPiano_Keys_Octave_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_DarkspurFloorPiano_Keys_Octave_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_DarkspurFloorPiano_Keys_WhiteCenter_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_DarkspurFloorPiano_Keys_WhiteCenter_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_DarkspurFloorPiano_Keys_WhiteEnd_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_DarkspurFloorPiano_Keys_WhiteEnd_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_DarkspurFloorPiano_Keys_WhiteLeft_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_DarkspurFloorPiano_Keys_WhiteLeft_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_DarkspurFloorPiano_Keys_WhiteRight_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_DarkspurFloorPiano_Keys_WhiteRight_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_DarkspurFloorPiano_Platform_000.m3", 86, 0, null, "Art\\Prop\\Housing\\PlugProps\\DarkspurFloorPiano\\PRP_DarkspurFloorPiano_Platform_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\Islands\\Communities\\PRP_Community_Engine_Corner_000.m3", 86, 0, null, "Skyplot Engine (Huge)", DecorCategory.ToolsHardware, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\Islands\\Communities\\PRP_Community_Engine_Main_000.m3", 86, 0, null, "Skyplot Engine (Massive)", DecorCategory.ToolsHardware, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\Islands\\Communities\\PRP_Community_HousingTrim_000.m3", 86, 0, null, "Skyplot Trim (Massive)", DecorCategory.ToolsHardware, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\Islands\\Communities\\PRP_Community_Wing_000.m3", 86, 0, null, "Skyplot Wing", DecorCategory.ToolsHardware, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\Islands\\Prototype\\PRP_PrototypeCombatIsland_2x2_000.m3", 86, 0, null, "Skyplot (Square, Small)", DecorCategory.ToolsHardware, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\Islands\\Prototype\\PRP_PrototypeCombatIsland_2x3_000.m3", 86, 0, null, "Skyplot (Rectangular)", DecorCategory.ToolsHardware, false, 0);
+            AddGenericDecor("Art\\Prop\\Housing\\Islands\\Prototype\\PRP_PrototypeCombatIsland_3x3_000.m3", 86, 0, null, "Skyplot (Square, Large)", DecorCategory.ToolsHardware, false, 0);
             AddGenericDecor("Art\\Prop\\Housing\\Racing\\PRP_Racing_Arrow_Directional_000.m3", 86, 0, null, "Art\\Prop\\Housing\\Racing\\PRP_Racing_Arrow_Directional_000.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Housing\\Racing\\PRP_Racing_Arrow_Directional_000_Dbl.m3", 86, 0, null, "Art\\Prop\\Housing\\Racing\\PRP_Racing_Arrow_Directional_000_Dbl.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Housing\\Racing\\PRP_Racing_Arrow_Directional_000_Stack_Dbl.m3", 86, 0, null, "Art\\Prop\\Housing\\Racing\\PRP_Racing_Arrow_Directional_000_Stack_Dbl.m3", DecorCategory.Beta, false, 0);
@@ -5551,40 +5634,38 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\FX\\3D\\Disarm_Missile_BLU\\Disarm_Missile_BLU.m3", 86, 0, null, "Art\\FX\\3D\\Disarm_Missile_BLU\\Disarm_Missile_BLU.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\FX\\3D\\Disarm_Sword_BLU\\Disarm_Sword_BLU.m3", 86, 0, null, "Art\\FX\\3D\\Disarm_Sword_BLU\\Disarm_Sword_BLU.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\FX\\3D\\Puddle_Splash\\Puddle_Splash_01a_25F.m3", 86, 0, null, "Art\\FX\\3D\\Puddle_Splash\\Puddle_Splash_01a_25F.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\FX\\3D\\Bullet_Casting\\Bullet_Casing_RED.m3", 86, 0, null, "Art\\FX\\3D\\Bullet_Casting\\Bullet_Casing_RED.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\FX\\3D\\Bullet_Casing\\Bullet_Casing_RED.m3", 86, 0, null, "Art\\FX\\3D\\Bullet_Casing\\Bullet_Casing_RED.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\FX\\3D\\PsybladeATT_Levitate\\PsybladeATT_Levitate.m3", 86, 0, null, "Art\\FX\\3D\\PsybladeATT_Levitate\\PsybladeATT_Levitate.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\FX\\3D\\Wind\\XZccw\\Wind_XZccw_BRN.m3", 86, 0, null, "Art\\FX\\3D\\Wind\\XZccw\\Wind_XZccw_BRN.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\RPR_MetalBeam_MineModularAngle_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Wooden_Beam\\RPR_MetalBeam_MineModularAngle_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\RPR_MetalBeam_MineModularBroken_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Wooden_Beam\\RPR_MetalBeam_MineModularBroken_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\RPR_WoodenBeam_MineModularAngle_Brown_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Wooden_Beam\\RPR_WoodenBeam_MineModularAngle_Brown_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\RPR_WoodenBeam_MineModularBroken_Brown_001.m4", 86, 0, null, "Art\\Prop\\Constructed\\Wooden_Beam\\RPR_WoodenBeam_MineModularBroken_Brown_001.m4", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeamConnector_MineModularMetal_Grey_002", 86, 0, null, "Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeamConnector_MineModularMetal_Grey_002", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeamConnector_MineModularMetal_Grey_003", 86, 0, null, "Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeamConnector_MineModularMetal_Grey_003", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeamConnector_MineModularMetal_Grey_004", 86, 0, null, "Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeamConnector_MineModularMetal_Grey_004", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeamConnector_MineModularMetal_Grey_005", 86, 0, null, "Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeamConnector_MineModularMetal_Grey_005", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_MetalBeam_MineModularAngle_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Wooden_Beam\\PRP_MetalBeam_MineModularAngle_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_MetalBeam_MineModularBroken_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Wooden_Beam\\PRP_MetalBeam_MineModularBroken_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeam_MineModularAngle_Brown_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeam_MineModularAngle_Brown_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeam_MineModularBroken_Brown_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeam_MineModularBroken_Brown_001.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeamConnector_MineModularMetal_Grey_003.m3", 86, 0, null, "Metal Beam Connector (Four-Pronged, Corner)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeamConnector_MineModularMetal_Grey_004.m3", 86, 0, null, "Metal Beam Connector (Four-Pronged)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Wooden_Beam\\PRP_WoodenBeamConnector_MineModularMetal_Grey_005.m3", 86, 0, null, "Metal Beam Connector (Omnidirectional)", DecorCategory.BuildingBlocks, false, 0);
             AddGenericDecor("Art\\Prop\\Constructed\\Ward\\PRP_Ward_CrushedCube_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Ward\\PRP_Ward_CrushedCube_000.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Constructed\\Ward\\PRP_Ward_DataCore_Effect_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Ward\\PRP_Ward_DataCore_Effect_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Ward\\Air\\PRP_Ward_Air_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Ward\\Air\\PRP_Ward_Air_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ward\\Air\\PRP_Ward_Air_000.m3", 86, 0, null, "Primal Focus (Air)", DecorCategory.Accents, false, 0);
             AddGenericDecor("Art\\Prop\\Constructed\\Ward\\Air\\PRP_Ward_Air_Effect_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Ward\\Air\\PRP_Ward_Air_Effect_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Ward\\Air\\PRP_Ward_Air_Hologram_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Ward\\Air\\PRP_Ward_Air_Hologram_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Ward\\Air\\PRP_Ward_Air_Hologram_002.m3", 86, 0, null, "Art\\Prop\\Constructed\\Ward\\Air\\PRP_Ward_Air_Hologram_002.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ward\\Air\\PRP_Ward_Air_Hologram_000.m3", 86, 0, null, "Hologram (Primal Focus, Blue)", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ward\\Air\\PRP_Ward_Air_Hologram_002.m3", 86, 0, null, "Hologram (Primal Focus, Red)", DecorCategory.Accents, false, 0);
             AddGenericDecor("Art\\Prop\\Constructed\\Ward\\Air\\PRP_Ward_Air_Technophage_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Ward\\Air\\PRP_Ward_Air_Technophage_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Ward\\Air\\PRP_Ward_Ice_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Ward\\Air\\PRP_Ward_Ice_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\PRP_Torch_Dreadmoore_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Torch\\PRP_Torch_Dreadmoore_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\PRP_Torch_Dreadmoore_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Torch\\PRP_Torch_Dreadmoore_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\PRP_Torch_Dreadmoore_002.m3", 86, 0, null, "Art\\Prop\\Constructed\\Torch\\PRP_Torch_Dreadmoore_002.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\PRP_Torch_Dreadmoore_003.m3", 86, 0, null, "Art\\Prop\\Constructed\\Torch\\PRP_Torch_Dreadmoore_003.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Tribal\\PRP_Torch_Tribal_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Torch\\Tribal\\PRP_Torch_Tribal_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Tribal\\PRP_Torch_Tribal_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Torch\\Tribal\\PRP_Torch_Tribal_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Skeetch\\PRP_Torch_SkeetchFireWood_Brown_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Torch\\Skeetch\\PRP_Torch_SkeetchFireWood_Brown_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\GorgonothLair\\PRP_Torch_CuppedFlameSconce_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Torch\\GorgonothLair\\PRP_Torch_CuppedFlameSconce_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Generic\\PRP_Tiki_Torch_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Torch\\Generic\\PRP_Tiki_Torch_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Generic\\PRP_Torch_Generic_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Torch\\Generic\\PRP_Torch_Generic_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Generic\\PRP_Torch_Generic_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Torch\\Generic\\PRP_Torch_Generic_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Generic\\PRP_Torch_Generic_002.m3", 86, 0, null, "Art\\Prop\\Constructed\\Torch\\Generic\\PRP_Torch_Generic_002.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Generic\\PRP_Torch_GenericWood_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Torch\\Generic\\PRP_Torch_GenericWood_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Generic\\PRP_Torch_GenericWoodTall_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Torch\\Generic\\PRP_Torch_GenericWoodTall_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Falkrin\\PRP_Torch_Falkrin_BLUE_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Torch\\Falkrin\\PRP_Torch_Falkrin_BLUE_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ward\\Air\\PRP_Ward_Ice_000.m3", 86, 0, null, "Primal Focus (Water)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\PRP_Torch_Dreadmoore_000.m3", 86, 0, null, "Wooden Torch (Tall)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\PRP_Torch_Dreadmoore_001.m3", 86, 0, null, "Wooden Staff (Bent)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\PRP_Torch_Dreadmoore_002.m3", 86, 0, null, "Wooden Torch (Short)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\PRP_Torch_Dreadmoore_003.m3", 86, 0, null, "Wooden Staff (Crooked)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Tribal\\PRP_Torch_Tribal_000.m3", 86, 0, null, "Tribal Shell Torch", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Tribal\\PRP_Torch_Tribal_001.m3", 86, 0, null, "Tribal Shell Torch (2)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Skeetch\\PRP_Torch_SkeetchFireWood_Brown_000.m3", 86, 0, null, "Spooky Torch (Skeetch)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\GorgonothLair\\PRP_Torch_CuppedFlameSconce_001.m3", 86, 0, null, "Torch (Mounted)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Generic\\PRP_Torch_Generic_000.m3", 86, 0, null, "Reinforced Torch (Tall)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Generic\\PRP_Torch_Generic_001.m3", 86, 0, null, "Reinforced Torch", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Generic\\PRP_Torch_Generic_002.m3", 86, 0, null, "Reinforced Torch (Short)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Generic\\PRP_Torch_GenericWood_000.m3", 86, 0, null, "Primitive Torch", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Generic\\PRP_Torch_GenericWoodTall_000.m3", 86, 0, null, "Wooden Torch (Crooked, Skinny)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Falkrin\\PRP_Torch_Falkrin_BLUE_000.m3", 86, 0, null, "Flaming Skull Torch (Unlit)", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Constructed\\Torch\\Falkrin\\PRP_Torch_Falkrin_BLUE_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Torch\\Falkrin\\PRP_Torch_Falkrin_BLUE_001.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Constructed\\Weapon\\Turret\\Defiance\\PRP_Turret_DefianceTripod_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Weapon\\Turret\\Defiance\\PRP_Turret_DefianceTripod_001.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Constructed\\Weapon\\Turret\\Generic\\PRP_Weapon_Turret_Generic_SuperRocketLauncher_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Weapon\\Turret\\Generic\\PRP_Weapon_Turret_Generic_SuperRocketLauncher_000.m3", DecorCategory.Beta, false, 0);
@@ -5592,18 +5673,18 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Constructed\\Weapon\\Turret\\Generic\\PRP_Weapon_Turret_Generic_SuperRocketLauncher_002.m3", 86, 0, null, "Art\\Prop\\Constructed\\Weapon\\Turret\\Generic\\PRP_Weapon_Turret_Generic_SuperRocketLauncher_002.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Constructed\\Weapon\\Turret\\Generic\\PRP_Weapon_Turret_Generic_SuperRocketLauncher_003.m3", 86, 0, null, "Art\\Prop\\Constructed\\Weapon\\Turret\\Generic\\PRP_Weapon_Turret_Generic_SuperRocketLauncher_003.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Constructed\\Weapon\\Turret\\Generic\\PRP_Weapon_Turret_Generic_SuperRocketLauncher_004.m3", 86, 0, null, "Art\\Prop\\Constructed\\Weapon\\Turret\\Generic\\PRP_Weapon_Turret_Generic_SuperRocketLauncher_004.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Weapon\\Turret\\PvP\\PRP_PVP_Turret_Beam_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Weapon\\Turret\\PvP\\PRP_PVP_Turret_Beam_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Tools\\Ladder\\PRP_Tools_Ladder_Osun_000.m3", 86, 0, null, "Osun Ladder", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Tools\\Knives\\PRP_Tools_Cleaver_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Tools\\Knives\\PRP_Tools_Cleaver_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Tools\\Knives\\SprayPaintCan\\PR_Tools_SprayPaintCan_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Tools\\Knives\\SprayPaintCan\\PR_Tools_SprayPaintCan_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Weapon\\Turret\\PVP\\PRP_PVP_Turret_Beam_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Weapon\\Turret\\PVP\\PRP_PVP_Turret_Beam_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tools\\Ladder\\PRP_Tools_Ladder_Osun_000.m3", 86, 0, null, "Osun Ladder", DecorCategory.ToolsHardware, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Weapon\\Turret\\Defiance\\PRP_Turret_DefianceTripod_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Weapon\\Turret\\Defiance\\PRP_Turret_DefianceTripod_000.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tools\\Knives\\PRP_Tools_Cleaver_001.m3", 86, 0, null, "Butcher's Cleaver", DecorCategory.CookwareBarware, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Tools\\SprayPaintCan\\PR_Tools_SprayPaintCan_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Tools\\SprayPaintCan\\PR_Tools_SprayPaintCan_000.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Constructed\\Tools\\PRP_Tools_CoffeeCup_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Tools\\PRP_Tools_CoffeeCup_001.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Constructed\\Book\\BookOfDominus\\PRP_BookofDominus_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Book\\BookOfDominus\\PRP_BookofDominus_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Constructed\\Elevator\\PRP_Elevator_FloatingPlatform_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Elevator\\PRP_Elevator_FloatingPlatform_001.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Constructed\\Elevator\\PRP_Elevator_Ramp_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Elevator\\PRP_Elevator_Ramp_001.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Constructed\\Elevator\\PRP_Platform_CryoChamberSmallElevator_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Elevator\\PRP_Platform_CryoChamberSmallElevator_000.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Constructed\\Elevator\\PRP_Platform_CryoChamberSmallElevator_Top_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Elevator\\PRP_Platform_CryoChamberSmallElevator_Top_000.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Custom_Banners\\Models\\GLD_HoloBanner_000.m3", 86, 0, null, "Art\\Prop\\Custom_Banners\\Models\\GLD_HoloBanner_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Custom_Banners\\Models\\PRP_CustomBanner_000.m3", 86, 0, null, "Art\\Prop\\Custom_Banners\\Models\\PRP_CustomBanner_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Custom_Banners\\Models\\PRP_CustomBanner_000.m3", 86, 0, null, "Banner (Plain)", DecorCategory.Accents, false, 0);
             AddGenericDecor("Art\\Prop\\Custom_Banners\\Models\\PRP_HoloBanner_000.m3", 86, 0, null, "Art\\Prop\\Custom_Banners\\Models\\PRP_HoloBanner_000.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Constructed\\DropPod\\Generic\\PRP_DropPod_GenericBlueOrange_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\DropPod\\Generic\\PRP_DropPod_GenericBlueOrange_000.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Constructed\\DropPod\\Generic\\PRP_DropPod_GenericBlueOrange_Broken_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\DropPod\\Generic\\PRP_DropPod_GenericBlueOrange_Broken_000.m3", DecorCategory.Beta, false, 0);
@@ -5622,44 +5703,272 @@ namespace WildStar.TestBed
             AddGenericDecor("Art\\Prop\\Constructed\\DropPod\\Generic\\Fx\\Smolder_Transform.m3", 86, 0, null, "Art\\Prop\\Constructed\\DropPod\\Generic\\Fx\\Smolder_Transform.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Constructed\\DropPod\\Dominion\\PRP_DropPod_DominionNotPlatform_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\DropPod\\Dominion\\PRP_DropPod_DominionNotPlatform_000.m3", DecorCategory.Beta, false, 0);
             AddGenericDecor("Art\\Prop\\Natural\\Shell\\PRP_Shell_ShellLarge_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Shell\\PRP_Shell_ShellLarge_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\PodPlantThorny\\PRP_Plant_PodPlantThorny_Green_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\PodPlantThorny\\PRP_Plant_PodPlantThorny_Green_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\PodPlantThorny\\PRP_Plant_PodPlantThorny_Hazard_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\PodPlantThorny\\PRP_Plant_PodPlantThorny_Hazard_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\PodPlantThorny\\PRP_Plant_PodPlantThorny_Purple_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\PodPlantThorny\\PRP_Plant_PodPlantThorny_Purple_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\corn\\PRP_Plant_StalkyCorn_Green_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\corn\\PRP_Plant_StalkyCorn_Green_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\corn\\PRP_Plant_StalkyCorn_Green_001.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\corn\\PRP_Plant_StalkyCorn_Green_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\corn\\PRP_Plant_StalkyCorn_Green_002.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\corn\\PRP_Plant_StalkyCorn_Green_002.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\corn\\PRP_Plant_StalkyCorn_Green_003.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\corn\\PRP_Plant_StalkyCorn_Green_003.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Coralus\\BluePalm\\PRP_Plant_Coralus_BluePalm_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Coralus\\BluePalm\\PRP_Plant_Coralus_BluePalm_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Coralus\\BluePalm\\PRP_Plant_Coralus_BluePalm_001.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Coralus\\BluePalm\\PRP_Plant_Coralus_BluePalm_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\WoodWisp\\PRP_Plant_Woodwisp_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\WoodWisp\\PRP_Plant_Woodwisp_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\WoodWisp\\PRP_Plant_Woodwisp_001.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\WoodWisp\\PRP_Plant_Woodwisp_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\WoodWisp\\PRP_Plant_Woodwisp_002.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\WoodWisp\\PRP_Plant_Woodwisp_002.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\LilyPad\\PRP_Plant_LilyPadSmall_Green_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\LilyPad\\PRP_Plant_LilyPadSmall_Green_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\LilyPad\\PRP_Plant_LilyPadSmall_Green_001.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\LilyPad\\PRP_Plant_LilyPadSmall_Green_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Spearnut\\PRP_Spearnut_BlueAloeDesert_GrayGreen_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Spearnut\\PRP_Spearnut_BlueAloeDesert_GrayGreen_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Spearnut\\PRP_Spearnut_BlueAloeDesertFruit_Pink_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Spearnut\\PRP_Spearnut_BlueAloeDesertFruit_Pink_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Spearnut\\PRP_Spearnut_BlueAloeDesertFruit_Pink_001.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Spearnut\\PRP_Spearnut_BlueAloeDesertFruit_Pink_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_AlienSpaceGlow_Blue_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_AlienSpaceGlow_Blue_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_AlienSpaceGlow_Blue_001.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_AlienSpaceGlow_Blue_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_AlienSpaceGlow_Blue_002.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_AlienSpaceGlow_Blue_002.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_AlienSpaceGlow_Terminite_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_AlienSpaceGlow_Terminite_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_001.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_002.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_002.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_003.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_003.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_004.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_004.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_005.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_005.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_006.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_006.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_JellyShrub_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_JellyShrub_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_JellyShrub_001.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_JellyShrub_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_JellyShrub_002.m3", 86, 0, null, "Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_JellyShrub_002.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Ice\\PRP_Ice_sheet_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Ice\\PRP_Ice_sheet_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Primal\\PRP_Rock_Primal_EarthCrystal_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Rock\\Primal\\PRP_Rock_Primal_EarthCrystal_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Chronium\\TimeBubble\\PRP_Rock_Chronium_TimeBubble_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Rock\\Chronium\\TimeBubble\\PRP_Rock_Chronium_TimeBubble_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Chronium\\TimeBubble\\PRP_Rock_Chronium_TimeBubble_001.m3", 86, 0, null, "Art\\Prop\\Natural\\Rock\\Chronium\\TimeBubble\\PRP_Rock_Chronium_TimeBubble_001.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\CrumblingGround\\PRP_Rock_CrumblingGround_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Rock\\CrumblingGround\\PRP_Rock_CrumblingGround_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\CrumblingGround\\PRP_Rock_CrumblingGround_Eldan_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Rock\\CrumblingGround\\PRP_Rock_CrumblingGround_Eldan_000.m3", DecorCategory.Beta, false, 0);
-            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\PRP_Rock_Exanite_StoneHenge_000.m3", 86, 0, null, "Art\\Prop\\Natural\\Rock\\Exanite\\PRP_Rock_Exanite_StoneHenge_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\PodPlantThorny\\PRP_Plant_PodPlantThorny_Green_000.m3", 86, 0, null, "Carnivorous Plant (Cyan)", DecorCategory.Plants, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\PodPlantThorny\\PRP_Plant_PodPlantThorny_Hazard_000.m3", 86, 0, null, "Carnivorous Plant (Red)", DecorCategory.Plants, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\PodPlantThorny\\PRP_Plant_PodPlantThorny_Purple_000.m3", 86, 0, null, "Carnivorous Plant (Purple)", DecorCategory.Plants, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\corn\\PRP_Plant_StalkyCorn_Green_000.m3", 86, 0, null, "Corn Stalk (Bountiful)", DecorCategory.Plants, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\corn\\PRP_Plant_StalkyCorn_Green_001.m3", 86, 0, null, "Corn Stalk (Short)", DecorCategory.Plants, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\corn\\PRP_Plant_StalkyCorn_Green_002.m3", 86, 0, null, "Corn Stalk (Tall)", DecorCategory.Plants, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\corn\\PRP_Plant_StalkyCorn_Green_003.m3", 86, 0, null, "Corn Stalk (Bendy)", DecorCategory.Plants, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Coralus\\BluePalm\\PRP_Plant_Coralus_BluePalm_000.m3", 86, 0, null, "Weeping Seapalm (Wide)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\WoodWisp\\PRP_Plant_Woodwisp_000.m3", 86, 0, null, "Woodwisp", DecorCategory.Plants, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\WoodWisp\\PRP_Plant_Woodwisp_001.m3", 86, 0, null, "Woodwisp (Curvy)", DecorCategory.Plants, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\WoodWisp\\PRP_Plant_Woodwisp_002.m3", 86, 0, null, "Woodwisp (Leaning)", DecorCategory.Plants, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\LilyPad\\PRP_Plant_LilyPadSmall_Green_000.m3", 86, 0, null, "Lily Pad Cluster (Small)", DecorCategory.Plants, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\LilyPad\\PRP_Plant_LilyPadSmall_Green_001.m3", 86, 0, null, "Lily Pad Cluster (Large)", DecorCategory.Plants, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Spearnut\\PRP_Spearnut_BushAloeDesertFruit_Pink_000.m3", 86, 0, null, "Spearnut Fruit Pile", DecorCategory.Food, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Spearnut\\PRP_Spearnut_BushAloeDesertFruit_Pink_001.m3", 86, 0, null, "Spearnut Fruit", DecorCategory.Food, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_AlienSpaceGlow_Blue_000.m3", 86, 0, null, "Alien Bulb Cluster", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_AlienSpaceGlow_Blue_001.m3", 86, 0, null, "Alien Bulb (Dual)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_AlienSpaceGlow_Blue_002.m3", 86, 0, null, "Alien Bulb", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_AlienSpaceGlow_Terminite_000.m3", 86, 0, null, "Terminite Nest", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_000.m3", 86, 0, null, "Space Jellient Pod", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_001.m3", 86, 0, null, "Space Jellient Pod (Small)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_002.m3", 86, 0, null, "Space Jellient Pod Cluster", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_003.m3", 86, 0, null, "Space Jellient Pod Cluster (Large)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_004.m3", 86, 0, null, "Space Jellient (Thick)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_005.m3", 86, 0, null, "Space Jellient (Branching)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_BubbleBush_006.m3", 86, 0, null, "Space Jellient (Skinny)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_JellyShrub_000.m3", 86, 0, null, "Alien Jelly Sack (Elongated)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_JellyShrub_001.m3", 86, 0, null, "Alien Jelly Sack (Bulging)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Plant\\Halon_Orb\\PRP_Plant_HalonOrb_JellyShrub_002.m3", 86, 0, null, "Alien Jelly Sack (Blocky)", DecorCategory.BushesShrubbery, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Ice\\PRP_Ice_sheet_000.m3", 86, 0, null, "Ice Sheet (Long, Rectangular)", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Chronium\\TimeBubble\\PRP_Rock_Chronium_TimeBubble_000.m3", 86, 0, null, "Ominous Crater", DecorCategory.Special, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Chronium\\TimeBubble\\PRP_Rock_Chronium_TimeBubble_001.m3", 86, 0, null, "Energy Bubble", DecorCategory.Special, false, 0);
+            AddGenericDecor("Art\\Prop\\Natural\\Rock\\Exanite\\PRP_Rock_Exanite_StoneHenge_000.m3", 86, 0, null, "Exanite_Stonehenge (TESTING REQUIRED)", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Vent\\PRP_Vent_RedMoonCove_000.m3", 86, 0, null, "Vent (Redmoon, Flat)", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Vent\\PRP_Vent_RedMoonCove_Cover_000.m3", 86, 0, null, "Vault Hatch (Marauder)", DecorCategory.Doors, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Vent\\PRP_Vent_RedMoonCove_square_000.m3", 86, 0, null, "Vent (Redmoon, Rectangular)", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Poster\\PRP_Poster_000.m3", 86, 0, null, "Poster (Red Skull)", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Poster\\PRP_Poster_002.m3", 86, 0, null, "Poster (Informative)", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Poster\\PRP_Poster_003.m3", 86, 0, null, "Poster (Chua Boxer)", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Poster\\PRP_Poster_004.m3", 86, 0, null, "Important Notes", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Hologram\\Vendors\\PRP_Hologram_Vendors_Auction_Gavel_000.m3", 86, 0, null, "Holographic Sign (Gavel)", DecorCategory.Special, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Hologram\\Vendors\\PRP_Hologram_Vendors_Bank_Safe_000.m3", 86, 0, null, "Holographic Sign (Vault)", DecorCategory.Special, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Hologram\\Vendors\\PRP_Hologram_Vendors_Combat_000.m3", 86, 0, null, "Holographic Sign (Weapons)", DecorCategory.Special, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Hologram\\Vendors\\PRP_Hologram_Vendors_ElderGem_SixSided_000.m3", 86, 0, null, "Holorgaphic Sign (Gemstone)", DecorCategory.Special, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Hologram\\Vendors\\PRP_Hologram_Vendors_Guild_Banner_000.m3", 86, 0, null, "Holographic Sign (Guild Banner)", DecorCategory.Special, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Hologram\\PRP_Hologram_DruseraCreationRoom_000.m3", 86, 0, null, "Holographic Blueprint (Protoplasmic Resonator)", DecorCategory.Special, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Hologram\\PRP_Hologram_NexusConstruction_000.m3", 86, 0, null, "Holographic Blueprint (Nexus)", DecorCategory.Special, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Generic\\PRP_Ship_Generic_Taxi_000.m3", 86, 0, null, "Cargo Carrier (Unloaded)", DecorCategory.Vehicles, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Generic\\PRP_Ship_Generic_Taxi_001.m3", 86, 0, null, "Cargo Carrier (Unloaded, Unoccupied)", DecorCategory.Vehicles, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Generic\\PRP_Ship_Generic_TaxiContainer_000.m3", 86, 0, null, "Advanced Shipping Crate", DecorCategory.Containers, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Bandit\\collider_Ship_Bandit_Landed.m3", 86, 0, null, "Art\\Prop\\Constructed\\Ship\\Bandit\\collider_Ship_Bandit_Landed.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Bandit\\PRP_Ship_Bandit_000.m3", 86, 0, null, "Bandit Raider", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ArkShip\\ArkShipExile\\PRP_Ship_ArkShip_Exterior_Exile_000.m3", 86, 0, null, "Arkship (Exile)", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ArkShip\\ArkShipDominion\\PRP_Ship_ArkShip_Exterior_Dominion_000.m3", 86, 0, null, "Arkship (Dominion)", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Shiphand\\PRP_Ship_ShiphandExterior_000.m3", 86, 0, null, "Merchant Ship", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Dregg\\PRP_ship_dregg_hovercraftsail_bone_000.m3", 86, 0, null, "Dregg Hovercraft", DecorCategory.Vehicles, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\LaCucaracha\\PRP_Ship_CargoShipWreckage_LaCucaracha_000.m3", 86, 0, null, "Transport Ship Side Panel", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\LaCucaracha\\PRP_Ship_CargoShipWreckage_LaCucaracha_001.m3", 86, 0, null, "Ship Engine (Thick, Tapered)", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\LaCucaracha\\PRP_Ship_CargoShipWreckage_LaCucaracha_002.m3", 86, 0, null, "Transport Ship Door", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\PRP_ShipWreckage_Engine_001.m3", 86, 0, null, "Ship Engine (Boxy)", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\PRP_ShipWreckage_Engine_002.m3", 86, 0, null, "Ship Engine (Tapered)", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\PRP_ShipWreckage_Engine_003.m3", 86, 0, null, "Ship Engine (Flared)", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\PRP_ShipWreckage_Engine_004.m3", 86, 0, null, "Ship Engine (Slim)", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\PRP_ShipWreckage_Engine_006.m3", 86, 0, null, "Ship Engine (Armored)", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\PRP_ShipWreckage_MechanicalPiece_000.m3", 86, 0, null, "Ship Piece (Half-Orb)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\PRP_ShipWreckage_MechanicalPiece_001.m3", 86, 0, null, "Exhaust Pipe", DecorCategory.ToolsHardware, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\PRP_ShipWreckage_MechanicalPiece_002.m3", 86, 0, null, "Dual Pipes", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\PRP_ShipWreckage_MechanicalPiece_003.m3", 86, 0, null, "Engine Pipe", DecorCategory.ToolsHardware, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Large_Broken_Brown\\PRP_Ship_HangingWires_Brown_003.m3", 86, 0, null, "Loose Wires (Long)", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Large_Broken_Brown\\PRP_Ship_LargeDoor_000.m3", 86, 0, null, "Shiphand Door Fragment (Large)", DecorCategory.Doors, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Large_Broken_Brown\\PRP_Ship_LargeDoor_001.m3", 86, 0, null, "Shiphand Door Fragment (Small)", DecorCategory.Doors, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Large_Broken_Brown\\PRP_Ship_TopMidEngine_Brown_000.m3", 86, 0, null, "Massive Ship Engine (Running)", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Large_Broken_Brown\\PRP_Ship_TopMidEngineOFF_Brown_000.m3", 86, 0, null, "Massive Ship Engine", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Large_Broken_Orange\\PRP_Ship_AtticHalfWall.m3", 86, 0, null, "Ship Wreckage Wall Fragment (Relatively Intact)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Large_Broken_Orange\\PRP_Ship_GirderHullHalf_002.m3", 86, 0, null, "Ship Wreckage Wall Fragment (Lower Half)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Large_Broken_Orange\\PRP_Ship_MediumSideWing_Orange_000.m3", 86, 0, null, "Ship Wreckage Wing", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Large_Broken_Orange\\PRP_Ship_SmallShipGirder_Orange_000.m3", 86, 0, null, "Ship Wreckage Wall Frame", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenBeam_000.m3", 86, 0, null, "Ship Wreckage Beam (Wibbly Wobbly)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenBeam_001.m3", 86, 0, null, "Ship Wreckage Beam (Thick, Bent)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenBeam_002.m3", 86, 0, null, "Ship Wreckage Beam (Relatively Straight)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenBeam_003.m3", 86, 0, null, "Ship Wreckage Beam (Squiggly)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenCagedLarge_000.m3", 86, 0, null, "Ship Wreckage Frame", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenCagedLarge_001.m3", 86, 0, null, "Ship Wreckage Frame (Corroded)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenCagedSmallHalf_000.m3", 86, 0, null, "Ship Wreckage Frame (Upper Half)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenCagedSmallHalf_001.m3", 86, 0, null, "Ship Wreckage Frame (Upper Half, Corroded)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenCavedIn_000.m3", 86, 0, null, "Ship Wreckage Hull (Crushed)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenCeilingCrushedHalf_000.m3", 86, 0, null, "Ship Wreckage Hull (Half)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenCeilingCrushedHalf_001.m3", 86, 0, null, "Ship Wreckage Hull (Bottom Fragment)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenCeilingCrushedHalf_002.m3", 86, 0, null, "Ship Wreckage Hull Fragment", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenDoorLarge_000.m3", 86, 0, null, "Ship Wreckage Hull Segment (Doorframe)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenFloorCrushed_000.m3", 86, 0, null, "Ship Wreckage Hull Segment (Lights)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenFloorIntact_000.m3", 86, 0, null, "Ship Wreckage Hull Segment", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenGirder_000.m3", 86, 0, null, "Ship Wreckage Shell", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenGirder_001.m3", 86, 0, null, "Ship Wreckage Shell (Corroded)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenPanel_000.m3", 86, 0, null, "Ship Wreckage Wall (Bottom, Warped)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenPanel_001.m3", 86, 0, null, "Ship Wreckage Wall (Bottom, Straightish)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenSlantedFloor_000.m3", 86, 0, null, "Ship Wreckage Hull Segment (Collapsed)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenSmashedGirderFloor_000.m3", 86, 0, null, "Ship Wreckage Shell (Floored)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\ShipWreckage\\Ship_Round_Broken\\PRP_Ship_Round_BrokenSmashedGirderFloor_001.m3", 86, 0, null, "Ship Wreckage Shell (Floored, Corroded)", DecorCategory.BuildingBlocks, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Defiance\\Parts\\PRP_Ship_DefianceParts_TransportAirLockDoor_000.m3", 86, 0, null, "Exile Transport Door", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Defiance\\Parts\\PRP_Ship_DefianceParts_TransportBackEngine_000.m3", 86, 0, null, "Exle Transport Hind Engine", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Defiance\\Parts\\PRP_Ship_DefianceParts_TransportDropShield_000.m3", 86, 0, null, "Exile Transport Armor", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Defiance\\Parts\\PRP_Ship_DefianceParts_TransportLeg_000.m3", 86, 0, null, "Exile Transport Leg", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Defiance\\Parts\\PRP_Ship_DefianceParts_TransportLight_000.m3", 86, 0, null, "Exile Transport Light", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Defiance\\Parts\\PRP_Ship_DefianceParts_TransportMainHull_000.m3", 86, 0, null, "Exile Transport Hull", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Defiance\\Parts\\PRP_Ship_DefianceParts_TransportTopFinFront_000.m3", 86, 0, null, "Exile Transport Cockpit", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Defiance\\Parts\\PRP_Ship_DefianceParts_TransportTopHorn_000.m3", 86, 0, null, "Exile Transport Crest (Broken)", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Defiance\\Parts\\PRP_Ship_DefianceParts_TransportWing_000.m3", 86, 0, null, "Exile Transport Shield", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Defiance\\Parts\\PRP_Ship_DefianceParts_TransportWingEngine_000.m3", 86, 0, null, "Exile Transport Wing", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Defiance\\Parts\\PRP_Ship_DefianceParts_TransportWingSupport_000.m3", 86, 0, null, "Exile Transport Engine", DecorCategory.Spaceship, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\Protostar\\Segway\\PRP_Ship_ProtostarSegway_000.m3", 86, 0, null, "Protostar Segway", DecorCategory.Vehicles, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Ship\\PRP_Ship_SmugglerCruiser_White_000.m3", 86, 0, null, "Smuggler Starsloop", DecorCategory.Vehicles, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Stoves\\PRP_Stove_LargePipedCircular_Grey_000.m3", 86, 0, null, "Narrow Stove", DecorCategory.CookwareBarware, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Stoves\\PRP_Stove_TentedMerchantStove_Grey_000.m3", 86, 0, null, "Food Stall", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Stoves\\SanctuaryCommon\\PRP_Stove_SanctuaryCommonCorner_Black_000.m3", 86, 0, null, "Narrow Stove (Tall)", DecorCategory.CookwareBarware, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\PosedCharacter\\Hazmat_Suit\\OUTFIT_Hazmat_Suit_Human_M.m3", 86, 0, null, "Art\\Prop\\Constructed\\PosedCharacter\\Hazmat_Suit\\OUTFIT_Hazmat_Suit_Human_M.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\PosedCharacter\\MountPoses\\PRP_PosedCharacter_MountPoses_Dominion_Human_M_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\PosedCharacter\\MountPoses\\PRP_PosedCharacter_MountPoses_Dominion_Human_M_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\PosedCharacter\\MountPoses\\PRP_PosedCharacter_MountPoses_Human_M_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\PosedCharacter\\MountPoses\\PRP_PosedCharacter_MountPoses_Human_M_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Flags\\Drakken\\PRP_Flag_Drakken_000.m3", 86, 0, null, "Banner (Draken)", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Flags\\Drakken\\PRP_FlagHanging_Drakken_004.m3", 86, 0, null, "Draken Clan Banner (Antlers)", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Flags\\Drakken\\PRP_FlagHanging_Drakken_005.m3", 86, 0, null, "Draken Clan Banner (Flame)", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Flags\\Drakken\\PRP_FlagHanging_Drakken_006.m3", 86, 0, null, "Draken Clan Banner (Hourglass)", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Flags\\Drakken\\PRP_FlagHanging_Drakken_007.m3", 86, 0, null, "Draken Clan Banner (Scales)", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Flags\\Lopp\\PRP_Lopp_House_Flags_02.m3", 86, 0, null, "Flags (Lopp)", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Rope\\Earthrender\\PRP_Earthrender_RopesOnStakes_000.m3", 86, 0, null, "Ropey Sticks", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Rope\\Earthrender\\PRP_Rope_DroopingBundle_000.m3", 86, 0, null, "Hanging Cables (Messy, Long)", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Rope\\Earthrender\\PRP_Rope_DroopingBundleWithSlack_000.m3", 86, 0, null, "Hanging Cables (Messy, Drooping)", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Rope\\Earthrender\\PRP_Rope_HangingMoon_000.m3", 86, 0, null, "Hanging Pell Charm (Moon)", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Rope\\Earthrender\\PRP_Rope_HangingTorus_000.m3", 86, 0, null, "Hanging Pell Charm (Sun)", DecorCategory.Accents, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Rope\\Noose\\PRP_Rope_MurkmireHangingNoose_Tan_004.m3", 86, 0, null, "Art\\Prop\\Constructed\\Rope\\Noose\\PRP_Rope_MurkmireHangingNoose_Tan_004.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\PRP_Light_BulbWallMount_White_000.m3", 86, 0, null, "Lightbulb", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\PRP_Light_FlashlightSmall_Blue_000.m3", 86, 0, null, "Glowstick", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\PRP_Light_Generic_000.m3", 86, 0, null, "Lightbulb (Mounted)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\PRP_Light_HangingScaffoldLamp_001.m3", 86, 0, null, "Hanging Lamp (Generator)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\PRP_Light_HangingSpot_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Light\\PRP_Light_HangingSpot_001.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\PRP_Light_HangingSpot_002.m3", 86, 0, null, "Colored Spotlight", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\PRP_Light_Shiphand_Light_000.m3", 86, 0, null, "Shiphand Light", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Pell\\PRP_Light_CrystalWoodWire_BrownBlue_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Light\\Pell\\PRP_Light_CrystalWoodWire_BrownBlue_001.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Mine\\PRP_Light_CavernLarge_000.m3", 86, 0, null, "Point Light (Faint, Yellow)", DecorCategory.LightSource, true, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Mine\\PRP_Light_CavernLarge_001.m3", 86, 0, null, "Point Light (Soft, Yellow)", DecorCategory.LightSource, true, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Mine\\PRP_Light_GlowDust_Earthrender.m3", 86, 0, null, "Lightrays", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Mine\\PRP_Light_MetalHanging_gray_002.m3", 86, 0, null, "Hanging Light (Metal, Extended)", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Mine\\PRP_Light_MetalHanging_gray_003.m3", 86, 0, null, "Hanging Light (Metal, Unlit)", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Mine\\PRP_Light_MetalHanging_gray_Broken_002.m3", 86, 0, null, "Hanging Light (Metal, Broken)", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Mine\\PRP_Light_MineHanging_Red_003.m3", 86, 0, null, "Hanging Lights (Mine, Short)", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Mine\\PRP_Light_MineHanging_Red_004.m3", 86, 0, null, "Hanging Lights (Mine, Long)", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Mine\\PRP_Light_MineHanging_Red_005.m3", 86, 0, null, "Hanging Lights (Mine, Hooks)", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Defiance\\PRP_Ship_Crashed_001.m3", 86, 0, null, "Arkship Light (Unstable)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Defiance\\PRP_SpotLight_DefianceTower_002.m3", 86, 0, null, "Art\\Prop\\Constructed\\Light\\Defiance\\PRP_SpotLight_DefianceTower_002.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Defiance\\PRP_SpotLight_DefianceTower_Animated_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Light\\Defiance\\PRP_SpotLight_DefianceTower_Animated_001.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Defiance\\PRP_SpotLight_DefianceTower_Animated_Light_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Light\\Defiance\\PRP_SpotLight_DefianceTower_Animated_Light_001.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Defiance\\PRP_SpotLight_DefianceTower_Animated_Light_Spot_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Light\\Defiance\\PRP_SpotLight_DefianceTower_Animated_Light_Spot_001.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Defiance\\PRP_SpotLight_DefianceTower_Light_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Light\\Defiance\\PRP_SpotLight_DefianceTower_Light_001.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Defiance\\PRP_SpotLight_DefianceTower_Spot_001.m3", 86, 0, null, "Art\\Prop\\Constructed\\Light\\Defiance\\PRP_SpotLight_DefianceTower_Spot_001.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Arkship\\PRP_Light_Arkship_EndCap_000.m3", 86, 0, null, "Art\\Prop\\Constructed\\Light\\Arkship\\PRP_Light_Arkship_EndCap_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Marauder\\PRP_AlarmLight_RMC_000.m3", 86, 0, null, "AlarmLight REQUIRES FURTHER TESTING (States)", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Marauder\\PRP_AlarmLight_RMC_Red_000.m3", 86, 0, null, "AlarmLight_Red REQUIRES FURTHER TESTING (States)", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Marauder\\PRP_AlarmLight_RMC_Red_NoLight_000.m3", 86, 0, null, "AlarmLight_NoLight REQUIRES FURTHER TESTING (States)", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Krogg\\MedBldg_Lights\\PRP_Light_KroggBldgGreen_000.m3", 86, 0, null, "Point Light (Soft, Green)", DecorCategory.LightSource, true, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Krogg\\MedBldg_Lights\\PRP_Light_KroggBldgPurple_000.m3", 86, 0, null, "Point Light (Soft, Purple)", DecorCategory.LightSource, true, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Imperium\\PRP_Light_Imperium_LampPost_000.m3", 86, 0, null, "Industrial Lamp (Multidirectional)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Generic\\PRP_Light_Generic_HangingLight_001.m3", 86, 0, null, "Hanging Lamp (Metal)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Chua\\PRP_Chua_Light_001.m3", 86, 0, null, "Chua Light", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Chua\\PRP_Chua_Light_003.m3", 86, 0, null, "Chua Wall Device", DecorCategory.ToolsHardware, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Chua\\PRP_Chua_Light_Hanging_003.m3", 86, 0, null, "Chandelier (Chua)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Chua\\PRP_Chua_Light_Hanging_004.m3", 86, 0, null, "Hanging Light (Chua)", DecorCategory.Lighting, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Chua\\PRPt_Chua_LightExtended_001.m3", 86, 0, null, "Robotic Arm Light", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Constructed\\Light\\Chua\\PRP_Light_Chua_SpotLight_Animated_000.m3", 86, 0, null, "Searchlight (Chua) REQUIRES FURTHER TESTING", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Light\\IGCinematic\\LIT_Point_Med_IGCSwitch.m3", 86, 0, null, "Art\\Light\\IGCinematic\\LIT_Point_Med_IGCSwitch.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Light\\IGCinematic\\LIT_Point_Soft_Bright_IGCSwitch.m3", 86, 0, null, "Art\\Light\\IGCinematic\\LIT_Point_Soft_Bright_IGCSwitch.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Light\\IGCinematic\\LIT_Spot_Soft_IGCSwitch.m3", 86, 0, null, "Art\\Light\\IGCinematic\\LIT_Spot_Soft_IGCSwitch.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Light\\IGCinematic\\LIT_Spot_Soft_Wide_IGCSwitch.m3", 86, 0, null, "Art\\Light\\IGCinematic\\LIT_Spot_Soft_Wide_IGCSwitch.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Light\\Atmospherics\\LIT_Atmospherics_Stormtalon_glowPlane_000.m3", 86, 0, null, "Art\\Light\\Atmospherics\\LIT_Atmospherics_Stormtalon_glowPlane_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Light\\Shadows\\PRP_Shadow_Circle_000.m3", 86, 0, null, "Art\\Light\\Shadows\\PRP_Shadow_Circle_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Light\\Shadows\\PRP_Shadow_Oval_1x2_000.m3", 86, 0, null, "Art\\Light\\Shadows\\PRP_Shadow_Oval_1x2_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Light\\Shadows\\PRP_Shadow_Rect_1x2_000.m3", 86, 0, null, "Art\\Light\\Shadows\\PRP_Shadow_Rect_1x2_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Light\\Shadows\\PRP_Shadow_Rect_1x4_000.m3", 86, 0, null, "Art\\Light\\Shadows\\PRP_Shadow_Rect_1x4_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Light\\Shadows\\PRP_Shadow_Square_1x1_000.m3", 86, 0, null, "Art\\Light\\Shadows\\PRP_Shadow_Square_1x1_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Docking\\PRP_ArkShip_bookshelf_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Docking\\PRP_ArkShip_bookshelf_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Docking\\PRP_ArkShip_Docking_Elevator_Transport.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Docking\\PRP_ArkShip_Docking_Elevator_Transport.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Docking\\PRP_ArkShip_DominionDocking_TechGlassParts_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Docking\\PRP_ArkShip_DominionDocking_TechGlassParts_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Docking\\PRP_ArkShip_Exile_DockingBay_Collision_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Docking\\PRP_ArkShip_Exile_DockingBay_Collision_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Docking\\DestinationScreen\\PRP_DestinationScreen_Dominion_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Docking\\DestinationScreen\\PRP_DestinationScreen_Dominion_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Docking\\DestinationScreen\\PRP_DestinationScreen_Dominion_001.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Docking\\DestinationScreen\\PRP_DestinationScreen_Dominion_001.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Docking\\DestinationScreen\\PRP_DestinationScreen_Exile_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Docking\\DestinationScreen\\PRP_DestinationScreen_Exile_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Docking\\DestinationScreen\\PRP_DestinationScreen_Exile_001.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Docking\\DestinationScreen\\PRP_DestinationScreen_Exile_001.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Docking\\DestinationScreen\\PRP_DestinationScreen_Housing_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Docking\\DestinationScreen\\PRP_DestinationScreen_Housing_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Docking\\DestinationScreen\\PRP_DestinationScreen_Housing_001.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Docking\\DestinationScreen\\PRP_DestinationScreen_Housing_001.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Chua_LightLaser_Hanging_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Chua_LightLaser_Hanging_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\MedBay\\PRP_ArkShip_DominionMedBay_GlassWindows_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\MedBay\\PRP_ArkShip_DominionMedBay_GlassWindows_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\MedBay\\PRP_ArkShip_DominionMedBay_TechGlassParts_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\MedBay\\PRP_ArkShip_DominionMedBay_TechGlassParts_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\MedBay\\PRP_MedProjector_Base_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\MedBay\\PRP_MedProjector_Base_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\MedBay\\STR_Cities_ArkShip_Dominion_Medbay_WallDivider_001.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\MedBay\\STR_Cities_ArkShip_Dominion_Medbay_WallDivider_001.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\MedBay\\STR_Cities_ArkShip_Medbay_WallDivider_001.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\MedBay\\STR_Cities_ArkShip_Medbay_WallDivider_001.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\MedBay\\STR_Cities_ArkShip_Medbay_WallDivider_002.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\MedBay\\STR_Cities_ArkShip_Medbay_WallDivider_002.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\MedBay\\STR_Cities_ArkShip_Medbay_WallDivider_003.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\MedBay\\STR_Cities_ArkShip_Medbay_WallDivider_003.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_Dominion_Light_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_Dominion_Light_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_Dominion_Light_002.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_Dominion_Light_002.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_DoorLight_Base_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_DoorLight_Base_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_DoorLight_Base_001.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_DoorLight_Base_001.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_DoorLight_Side_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_DoorLight_Side_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_DoorMain_Circular_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_DoorMain_Circular_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_Light_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_Light_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_Light_002.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_Light_002.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_Light_SideDoor_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\MedBay\\Lights\\PRP_ArkShip_MedBay_Light_SideDoor_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Cryo\\Bench\\PRP_ArkShip_Cryo_Bench_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Cryo\\Bench\\PRP_ArkShip_Cryo_Bench_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Cryo\\PRP_ArkShip_Cryo_DominionScanner_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Cryo\\PRP_ArkShip_Cryo_DominionScanner_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Cryo\\PRP_ArkShip_Cryo_DominionScanner_001.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Cryo\\PRP_ArkShip_Cryo_DominionScanner_001.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Cryo\\PRP_ArkShip_Cryo_DominionScanner_Door_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Cryo\\PRP_ArkShip_Cryo_DominionScanner_Door_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Cryo\\PRP_ArkShip_Cryo_LargeLight_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Cryo\\PRP_ArkShip_Cryo_LargeLight_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Cryo\\PRP_Light_Imperium_LampPost_Custom_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Cryo\\PRP_Light_Imperium_LampPost_Custom_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\General\\PRP_MyrcalosBase_YLW_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\General\\PRP_MyrcalosBase_YLW_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\General\\PRP_Teleporter_Railing_Dominion_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\General\\PRP_Teleporter_Railing_Dominion_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Dominion\\DirectionalCues\\PRP_Arkship_Dominion_Line_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Dominion\\DirectionalCues\\PRP_Arkship_Dominion_Line_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Dominion\\Bridge\\PRP_dominion_door_01.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Dominion\\Bridge\\PRP_dominion_door_01.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\Holo\\PRP_Hologram_Projector_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\Holo\\PRP_Hologram_Projector_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\PrayerRoom\\PRP_Arkship_Dom_PrayerRoom_Idol_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\PrayerRoom\\PRP_Arkship_Dom_PrayerRoom_Idol_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\ArkShip\\PrayerRoom\\PRP_Dominion_SentinelPlatform_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\ArkShip\\PrayerRoom\\PRP_Dominion_SentinelPlatform_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\Prop\\Dungeon\\HoloConstruct\\PRP_HoloConstruct_GlassPedistal_000.m3", 86, 0, null, "Art\\Prop\\Dungeon\\HoloConstruct\\PRP_HoloConstruct_GlassPedistal_000.m3", DecorCategory.Beta, false, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Fire_Camp\\Fire_Camp.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Fire_Camp\\Fire_Camp.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Fire_Camp\\Fire_Camp_NoSmoke.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Fire_Camp\\Fire_Camp_NoSmoke.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Water_Drip\\Water_Drip_BLU.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Water_Drip\\Water_Drip_BLU.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Water\\Drip_Puddle\\Water_DripPuddle_01.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Water\\Drip_Puddle\\Water_DripPuddle_01.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Water\\Ocean\\Water_SplashOcean_Outward.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Water\\Ocean\\Water_SplashOcean_Outward.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Water\\Ocean\\Water_SplashOcean.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Water\\Ocean\\Water_SplashOcean.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Water\\River\\Water_SplashRiver_Small.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Water\\River\\Water_SplashRiver_Small.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Water\\River\\Water_SplashRiver.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Water\\River\\Water_SplashRiver.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Water\\Waterfall_Mist\\Waterfall_Mist_001.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Water\\Waterfall_Mist\\Waterfall_Mist_001.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Water\\Waterfall_Mist\\Waterfall_Mist_002.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Water\\Waterfall_Mist\\Waterfall_Mist_002.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Water\\Waterfall_Mist\\Waterfall_Mist_003.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Water\\Waterfall_Mist\\Waterfall_Mist_003.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Water\\Waterfall\\Water_SplashWaterfall_Small.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Water\\Waterfall\\Water_SplashWaterfall_Small.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Water\\Waterfall\\Water_SplashWaterfall.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Water\\Waterfall\\Water_SplashWaterfall.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Weather\\SummonStorm\\Weather_SummonStorm_10mR_30mH_BLU.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Weather\\SummonStorm\\Weather_SummonStorm_10mR_30mH_BLU.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Fence_Laser\\Fence_Laser_LBLU.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Fence_Laser\\Fence_Laser_LBLU.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Water_Geyser\\Water_Geyser_200H_BLU.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Water_Geyser\\Water_Geyser_200H_BLU.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Water_Geyser\\Water_Geyser_BLU.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Water_Geyser\\Water_Geyser_BLU.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Circuitry_WTE\\Circuitry_WTE.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Circuitry_WTE\\Circuitry_WTE.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Bot_Ctr.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Bot_Ctr.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Bot_Lf.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Bot_Lf.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Bot_Rt.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Bot_Rt.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Ctr_Ctr.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Ctr_Ctr.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Ctr_Lf.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Ctr_Lf.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Ctr_Rt.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Ctr_Rt.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Top_Ctr.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Top_Ctr.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Top_Lf.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Top_Lf.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Top_Rt.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Eldan_HoloScreens\\Eldan_HoloScreen_Top_Rt.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Cube_GLD.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Cube_GLD.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Cube_GRN.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Cube_GRN.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Cube_Red.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Cube_Red.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Cube_Rise_GLD.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Cube_Rise_GLD.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Cube_Rise_GRN.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Cube_Rise_GRN.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Cube_Rise_Red.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Cube_Rise_Red.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Corrosive\\Hologram_Corrosive_Dark_000.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Corrosive\\Hologram_Corrosive_Dark_000.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Corrosive\\Hologram_Corrosive_Light_000.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Corrosive\\Hologram_Corrosive_Light_000.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Corrosive\\Hologram_Corrosive_Medium_000.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Holograms\\Hologram_Cube\\Hologram_Corrosive\\Hologram_Corrosive_Medium_000.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Props\\Generic_HoloScreen\\Generic_HoloScreen_000.m3", 86, 0, null, "Art\\FX\\Model\\Props\\Generic_HoloScreen\\Generic_HoloScreen_000.m3", DecorCategory.Beta, true, 0);
+            AddGenericDecor("Art\\Creature\\Sigil\\Model\\Face_5Points_11m_GRN\\Face_5Points_11m_GRN.m3", 86, 0, null, "Spell Sigil (Blue)", DecorCategory.Decals, true, 0);
+            AddGenericDecor("Art\\Creature\\Sigil\\Model\\Symbol_TriSkull_5m_PNK\\Symbol_TriSkull_5m_PNK.m3", 86, 0, null, "Spell Sigil (Pink)", DecorCategory.Decals, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Channels\\Avatus_Beam_RED\\Avatus_Beam_RED.m3", 86, 0, null, "Avatus Energy Beam (Red)", DecorCategory.ParticleEffects, true, 0);
+            AddGenericDecor("Art\\FX\\Model\\Spells\\Sigil_Teleport_YLW\\Sigil_TeleportEnter_YLW.m3", 86, 0, null, "Teleport Sigil (Entrance)", DecorCategory.Unknown, false, 0);
+            AddGenericDecor("Art\\FX\\Model\\Spells\\Sigil_Teleport_YLW\\Sigil_TeleportLeave_YLW.m3", 86, 0, null, "Teleport Sigil (Exit)", DecorCategory.Unknown, false, 0);
+            AddGenericDecor("Art\\FX\\Model\\AE\\Sigil_DownStrike_5m_BLE\\Sigil_DownStrike_5m_BLE.m3", 86, 0, null, "Sigil (Downward Strike)", DecorCategory.Unknown, false, 0);
+            AddGenericDecor("Art\\FX\\Model\\Channels\\Spellslinger\\Heal_GlowShimmer\\Heal_GlowShimmer_YLW.m3", 86, 0, null, "Healing Glow", DecorCategory.Unknown, false, 0);
+            AddGenericDecor("Art\\FX\\Model\\Particulates\\Death_Sigils_WTE\\Death_Sigils_WTE.m3", 86, 0, null, "Death Sigils", DecorCategory.Unknown, false, 0);
+            AddGenericDecor("Art\\FX\\Model\\Spells\\Sigil_DropRings_BLE\\Sigil_DropRings_BLE.m3", 86, 0, null, "Sigil Rings (Blue)", DecorCategory.Unknown, false, 0);
+            AddGenericDecor("Art\\FX\\Model\\Spells\\Sigil_DropRings_RED\\Sigil_DropRings_RED.m3", 86, 0, null, "Sigil Rings (Red)", DecorCategory.Unknown, false, 0);
             AddGroundOption("Icescape", 1256, 1257, null, 1);
             AddGroundOption("Celestion Moss 1", 137, 138, null, 1);
             AddGroundOption("Celestion Moss 2", 137, 193, null, 1);
@@ -8298,6 +8607,8 @@ namespace WildStar.TestBed
             uint push3 = 10270;
             uint push4 = 10280;
             uint push5 = 10815;
+            uint push6 = 11462;
+
 
             //Push 1 ****************************************************************************************************
             // aurin female
@@ -8490,6 +8801,29 @@ namespace WildStar.TestBed
                 (startDyeColorRampId+36, 145, "Mordesh MF Vitalus Color 11"),
                 //Aurin F Body Color
                 (startDyeColorRampId+37, 146, "Aurin F Body Color 5"),
+                (startDyeColorRampId+38, 147, "Aurin F Body Color 6"),
+                (startDyeColorRampId+39, 148, "Aurin F Body Color 7"),
+                (startDyeColorRampId+40, 149, "Aurin F Body Color 8"),
+                //Generic Hair Colors
+                (startDyeColorRampId+41, 150, "Generic Hair Color 9"),
+                (startDyeColorRampId+42, 151, "Generic Hair Color 10"),
+                (startDyeColorRampId+43, 152, "Generic Hair Color 11"),
+                (startDyeColorRampId+44, 153, "Generic Hair Color 12"),
+                (startDyeColorRampId+45, 154, "Generic Hair Color 13"),
+                (startDyeColorRampId+46, 155, "Generic Hair Color 14"),
+                //Mordesh MF Body Color
+                (startDyeColorRampId+47, 156, "Mordesh MF Body Color 5"),
+                (startDyeColorRampId+48, 157, "Mordesh MF Body Color 6"),
+                (startDyeColorRampId+49, 158, "Mordesh MF Body Color 7"),
+                (startDyeColorRampId+50, 159, "Mordesh MF Body Color 8"),
+                (startDyeColorRampId+51, 160, "Mordesh MF Body Color 9"),
+                (startDyeColorRampId+52, 161, "Mordesh MF Body Color 10"),
+                //Mordesh MF Vitalus Color
+                (startDyeColorRampId+53, 162, "Mordesh MF Vitalus Color 12"),
+                (startDyeColorRampId+54, 163, "Mordesh MF Vitalus Color 13"),
+                (startDyeColorRampId+55, 164, "Mordesh MF Vitalus Color 14"),
+                (startDyeColorRampId+56, 165, "Mordesh MF Vitalus Color 15"),
+                (startDyeColorRampId+57, 166, "Mordesh MF Vitalus Color 16")
             };
             foreach (var row in newDyeColorRamps)
             {
@@ -8664,6 +8998,98 @@ namespace WildStar.TestBed
             push5 += 42;
             labelStart += 2;
             //end Push 5******************************
+            //Push 5 ends on ID 11461
+
+            //Push 6 - Drem Dyes pt 3******************************************************************************************
+
+            //Aurin Female
+            //skin
+            cch.AddColourOption(itemDisplay, 4, 1, 2, 490, 3, labelStart, push6 + 0, push6 + 8); // Aurin F Body Color 6
+            cch.AddColourOption(itemDisplay, 4, 1, 2, 491, 3, labelStart + 1, push6 + 8, push6 + 16); // Aurin F Body Color 7
+            cch.AddColourOption(itemDisplay, 4, 1, 2, 492, 3, labelStart + 2, push6 + 16, push6 + 24); // Aurin F Body Color 8
+            push6 += 24;
+            labelStart += 3;
+            //hair
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 493, 2, labelStart, push6 + 0, push6 + 17); // Generic Hair Color 9
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 494, 2, labelStart + 1, push6 + 17, push6 + 34); // Generic Hair Color 10
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 495, 2, labelStart + 2, push6 + 34, push6 + 51); // Generic Hair Color 11
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 496, 2, labelStart + 3, push6 + 51, push6 + 68); // Generic Hair Color 12
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 497, 2, labelStart + 4, push6 + 68, push6 + 85); // Generic Hair Color 13
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 498, 2, labelStart + 5, push6 + 85, push6 + 102); // Generic Hair Color 14
+            cch.AddColourOption(itemDisplay, 4, 1, 4, 492, 3, labelStart + 6, push6 + 102, push6 + 119); // Aurin F Body Color 8
+            push6 += 119;
+            labelStart += 7;
+
+            //Draken female
+            //hair
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 493, 2, labelStart, push6 + 0, push6 + 6); // Generic Hair Color 9
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 494, 2, labelStart + 1, push6 + 6, push6 + 12); // Generic Hair Color 10
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 495, 2, labelStart + 2, push6 + 12, push6 + 18); // Generic Hair Color 11
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 496, 2, labelStart + 3, push6 + 18, push6 + 24); // Generic Hair Color 12
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 497, 2, labelStart + 4, push6 + 24, push6 + 30); // Generic Hair Color 13
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 498, 2, labelStart + 5, push6 + 30, push6 + 36); // Generic Hair Color 14
+            cch.AddColourOption(itemDisplay, 5, 1, 4, 492, 2, labelStart + 6, push6 + 36, push6 + 42); // Aurin F Body Color 8
+            push6 += 42;
+            labelStart += 7;
+
+            //Mordesh Female
+            //hair
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 493, 2, labelStart, push6 + 0, push6 + 10); // Generic Hair Color 9
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 494, 2, labelStart + 1, push6 + 10, push6 + 20); // Generic Hair Color 10
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 495, 2, labelStart + 2, push6 + 20, push6 + 30); // Generic Hair Color 11
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 496, 2, labelStart + 3, push6 + 30, push6 + 40); // Generic Hair Color 12
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 497, 2, labelStart + 4, push6 + 40, push6 + 50); // Generic Hair Color 13
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 498, 2, labelStart + 5, push6 + 50, push6 + 60); // Generic Hair Color 14
+            cch.AddColourOption(itemDisplay, 16, 1, 4, 492, 2, labelStart + 6, push6 + 60, push6 + 70); // Aurin F Body Color 8
+            push6 += 70;
+            labelStart += 7;
+            //skin
+            cch.AddColourOption(itemDisplay, 16, 1, 2, 499, 3, labelStart, push6 + 0, push6 + 9); // Mordesh MF Body Color 5
+            cch.AddColourOption(itemDisplay, 16, 1, 2, 500, 3, labelStart + 1, push6 + 9, push6 + 18); // Mordesh MF Body Color 6
+            cch.AddColourOption(itemDisplay, 16, 1, 2, 501, 3, labelStart + 2, push6 + 18, push6 + 27); // Mordesh MF Body Color 7
+            cch.AddColourOption(itemDisplay, 16, 1, 2, 502, 3, labelStart + 3, push6 + 27, push6 + 36); // Mordesh MF Body Color 8
+            cch.AddColourOption(itemDisplay, 16, 1, 2, 503, 3, labelStart + 4, push6 + 36, push6 + 45); // Mordesh MF Body Color 9
+            cch.AddColourOption(itemDisplay, 16, 1, 2, 504, 3, labelStart + 5, push6 + 45, push6 + 54); // Mordesh MF Body Color 10
+            push6 += 54;
+            labelStart += 6;
+            //vitalus
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 505, 3, labelStart, push6 + 0, push6 + 16); // Mordesh MF Vitalus Color 12
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 506, 3, labelStart + 1, push6 + 16, push6 + 32); // Mordesh MF Vitalus Color 13
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 507, 3, labelStart + 2, push6 + 32, push6 + 48); // Mordesh MF Vitalus Color 14
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 508, 3, labelStart + 3, push6 + 48, push6 + 64); // Mordesh MF Vitalus Color 15
+            cch.AddColourOption(itemDisplay, 16, 1, 7, 509, 3, labelStart + 4, push6 + 64, push6 + 80); // Mordesh MF Vitalus Color 16
+            push6 += 80;
+            labelStart += 5;
+
+            //Mordesh male
+            //hair
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 493, 2, labelStart, push6 + 0, push6 + 5); // Generic Hair Color 1
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 494, 2, labelStart + 1, push6 + 5, push6 + 10); // Generic Hair Color 2
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 495, 2, labelStart + 2, push6 + 10, push6 + 15); // Generic Hair Color 3
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 496, 2, labelStart + 3, push6 + 15, push6 + 20); // Generic Hair Color 4
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 497, 2, labelStart + 4, push6 + 20, push6 + 25); // Generic Hair Color 5
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 498, 2, labelStart + 5, push6 + 25, push6 + 30); // Generic Hair Color 6
+            cch.AddColourOption(itemDisplay, 16, 0, 4, 492, 2, labelStart + 6, push6 + 30, push6 + 35); // Aurin F Body Color 8
+            push6 += 35;
+            labelStart += 7;
+            //skin
+            cch.AddColourOption(itemDisplay, 16, 0, 2, 499, 3, labelStart, push6 + 0, push6 + 9); // Mordesh MF Body Color 5
+            cch.AddColourOption(itemDisplay, 16, 0, 2, 500, 3, labelStart + 1, push6 + 9, push6 + 18); // Mordesh MF Body Color 6
+            cch.AddColourOption(itemDisplay, 16, 0, 2, 501, 3, labelStart + 2, push6 + 18, push6 + 27); // Mordesh MF Body Color 7
+            cch.AddColourOption(itemDisplay, 16, 0, 2, 502, 3, labelStart + 3, push6 + 27, push6 + 36); // Mordesh MF Body Color 8
+            cch.AddColourOption(itemDisplay, 16, 0, 2, 503, 3, labelStart + 4, push6 + 36, push6 + 45); // Mordesh MF Body Color 9
+            cch.AddColourOption(itemDisplay, 16, 0, 2, 504, 3, labelStart + 5, push6 + 45, push6 + 54); // Mordesh MF Body Color 10
+            push6 += 54;
+            labelStart += 6;
+            //vitalus
+            cch.AddColourOption(itemDisplay, 16, 0, 7, 505, 3, labelStart, push6 + 0, push6 + 21); // Mordesh MF Vitalus Color 1
+            cch.AddColourOption(itemDisplay, 16, 0, 7, 506, 3, labelStart + 1, push6 + 21, push6 + 42); // Mordesh MF Vitalus Color 2
+            cch.AddColourOption(itemDisplay, 16, 0, 7, 507, 3, labelStart + 2, push6 + 42, push6 + 63); // Mordesh MF Vitalus Color 3
+            cch.AddColourOption(itemDisplay, 16, 0, 7, 508, 3, labelStart + 3, push6 + 63, push6 + 84); // Mordesh MF Vitalus Color 4
+            cch.AddColourOption(itemDisplay, 16, 0, 7, 509, 3, labelStart + 4, push6 + 84, push6 + 105); // Mordesh MF Vitalus Color 5
+            push6 += 105;
+            labelStart += 5;
+            //end Push 6******************************
         }
 
         static void AddBodyTypes(uint startID, uint endID)
@@ -8727,6 +9153,24 @@ namespace WildStar.TestBed
                 item2.AddEntry(entry, id.Item2);
             }
             return startID;
+        }
+        static void AddCOGSOutfits()
+        {
+            uint startCreature2OutfitInfoId = creature2OutfitInfo.GetMaxID();
+            uint startOutfitGroupId = creature2OutfitGroupEntry.GetMaxID();
+            
+            //Dominion Style 1
+            uint dominionCOGSOutfitId_1 = AddCreatureOutfitGroupEntry(9753, startOutfitGroupId + 1, startOutfitGroupId + 1, AddCreatureOutfitInfo(9058, startCreature2OutfitInfoId + 1, null, null, null, null, null, null, 102, 102, 102, 102), 1);
+            Console.WriteLine("dominionCOGSOutfitId_1 = " + dominionCOGSOutfitId_1);
+            //Dominion Style 2
+            uint dominionCOGSOutfitId_2 = AddCreatureOutfitGroupEntry(10356, startOutfitGroupId + 2, startOutfitGroupId + 2, AddCreatureOutfitInfo(9057, startCreature2OutfitInfoId + 2, null, null, null, null, null, null, 102, 102, 102, 102, 102, 102), 1);
+            Console.WriteLine("dominionCOGSOutfitId_2 = " + dominionCOGSOutfitId_2);
+            //Dominion Security
+            uint dominionCOGSSecurityOutfitId = AddCreatureOutfitGroupEntry(10356, startOutfitGroupId + 3, startOutfitGroupId + 3, AddCreatureOutfitInfo(9057, startCreature2OutfitInfoId + 3, 4391, 2638, 2387, 2597, 4393, 2640, 102, 102, 102, 102, 102, 102), 1);
+            Console.WriteLine("dominionCOGSSecurityOutfitId = " + dominionCOGSSecurityOutfitId);
+            //Exile Security
+            uint exileCOGSSecurityOutfitId = AddCreatureOutfitGroupEntry(10356, startOutfitGroupId + 4, startOutfitGroupId + 4, AddCreatureOutfitInfo(9057, startCreature2OutfitInfoId + 4, 4391, 1761, 1763, 1762, 4393, 1760, 102, 102, 102, 102, 102, 102), 1);
+            Console.WriteLine("exileCOGSSecurityOutfitId = " + exileCOGSSecurityOutfitId);
         }
 
         static uint AddWeaponItems(uint startID)
